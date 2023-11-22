@@ -2,7 +2,9 @@ package com.pascalrieder.proteincounter.ui
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.ui.Modifier
@@ -23,8 +25,12 @@ fun TodayView() {
             )
         }
 
-        DataProvider.getItems(LocalDate.now().minusDays(1)).forEach {
-            ItemView(it)
+        Column(
+            modifier = Modifier.verticalScroll(rememberScrollState())
+        ) {
+            DataProvider.getItems(LocalDate.now()).forEach {
+                ItemView(it)
+            }
         }
     }
 }
@@ -32,21 +38,24 @@ fun TodayView() {
 @Composable
 fun ItemView(item: Item) {
     Column(
-        modifier = Modifier.fillMaxWidth().padding(10.dp)
+        modifier = Modifier.fillMaxWidth().padding(bottom = 5.dp)
             .background(MaterialTheme.colorScheme.onPrimary, RoundedCornerShape(15))
     ) {
         val padding = 15.dp
-        Row(horizontalArrangement = Arrangement.SpaceBetween, modifier = Modifier.fillMaxWidth().padding(padding)) {
-            Text(style = MaterialTheme.typography.labelLarge, text = item.amountInGramm.toString() + "g " + item.name)
+        Row(
+            horizontalArrangement = Arrangement.SpaceBetween,
+            modifier = Modifier.fillMaxWidth().padding(top = padding, bottom = 5.dp, start = padding, end = padding)
+        ) {
+            Text(style = MaterialTheme.typography.titleMedium, text = item.amountInGramm.toString() + "g " + item.name)
             Text(
-                style = MaterialTheme.typography.labelLarge,
+                style = MaterialTheme.typography.titleMedium,
                 text = ((item.amountInGramm * (item.proteinContentPercentage / 100))).toString() + "g"
             )
         }
         Text(
-            style = MaterialTheme.typography.labelLarge,
+            style = MaterialTheme.typography.titleMedium,
             text = item.proteinContentPercentage.toString() + "%",
-            modifier = Modifier.padding(horizontal = padding).padding(bottom = padding)
+            modifier = Modifier.padding(end = padding, bottom = padding, start = padding)
         )
     }
 }
