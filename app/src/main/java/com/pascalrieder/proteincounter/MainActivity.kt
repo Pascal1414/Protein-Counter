@@ -21,6 +21,8 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.pascalrieder.proteincounter.ui.HistoryView
+import com.pascalrieder.proteincounter.ui.ItemsView
 import com.pascalrieder.proteincounter.ui.TodayView
 import com.pascalrieder.proteincounter.ui.theme.ProteinCounterTheme
 
@@ -84,10 +86,10 @@ fun Navigation(navController: NavHostController) {
             TodayView()
         }
         composable("history") {
-            Text(text = "History")
+            HistoryView()
         }
         composable("items") {
-            Text(text = "Items")
+            ItemsView()
         }
     }
 }
