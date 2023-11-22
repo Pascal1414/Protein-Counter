@@ -23,8 +23,9 @@ class DataProvider {
             )
         )
 
-        public fun getDays(): List<Day> {
-            return days
+        public fun getItems(date: LocalDate): List<Item> {
+            return days.find { it.date == date }?.items ?: listOf()
         }
+
     }
 }
