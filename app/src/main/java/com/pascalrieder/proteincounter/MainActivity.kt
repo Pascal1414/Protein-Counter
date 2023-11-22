@@ -56,22 +56,28 @@ private fun BottomBar(navController: NavHostController) {
         BottomNavigationItem(icon = {
             Icon(imageVector = Icons.Default.Home, "")
         }, label = { Text(text = "Today") }, onClick = {
-            navController.navigate("today")
-            selectedIndex.value = 0
+            if (selectedIndex.value != 0) {
+                navController.navigate("today")
+                selectedIndex.value = 0
+            }
         }, selected = (selectedIndex.value == 0)
         )
         BottomNavigationItem(icon = {
             Icon(imageVector = Icons.Default.Home, "")
         }, label = { Text(text = "History") }, onClick = {
-            navController.navigate("history")
-            selectedIndex.value = 1
+            if (selectedIndex.value != 1) {
+                navController.navigate("history")
+                selectedIndex.value = 1
+            }
         }, selected = (selectedIndex.value == 1)
         )
         BottomNavigationItem(icon = {
             Icon(imageVector = Icons.Default.Home, "")
         }, label = { Text(text = "Items") }, onClick = {
-            navController.navigate("items")
-            selectedIndex.value = 2
+            if (selectedIndex.value != 2) {
+                navController.navigate("items")
+                selectedIndex.value = 2
+            }
         }, selected = (selectedIndex.value == 2)
         )
     }
