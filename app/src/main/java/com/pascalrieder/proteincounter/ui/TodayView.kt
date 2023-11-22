@@ -18,13 +18,20 @@ import java.time.format.DateTimeFormatter
 @Composable
 fun TodayView() {
     Column(modifier = Modifier.fillMaxSize()) {
-        Row(horizontalArrangement = Arrangement.Center, modifier = Modifier.padding(vertical = 16.dp).fillMaxWidth()) {
+        Row(horizontalArrangement = Arrangement.Center, modifier = Modifier.padding(vertical = 50.dp).fillMaxWidth()) {
             Text(
                 text = LocalDate.now().format(DateTimeFormatter.ofPattern("dd.MM.yyyy")),
                 style = MaterialTheme.typography.headlineLarge
             )
         }
 
+        Spacer(modifier = Modifier.height(30.dp))
+
+        Text(
+            text = "Consumed today",
+            style = MaterialTheme.typography.titleMedium,
+            modifier = Modifier.padding(bottom = 5.dp)
+        )
         Column(
             modifier = Modifier.verticalScroll(rememberScrollState())
         ) {
