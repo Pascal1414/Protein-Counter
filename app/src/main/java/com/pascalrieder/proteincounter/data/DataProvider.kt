@@ -24,7 +24,7 @@ class DataProvider {
         )
 
         public fun addItemToToday(item: Item) {
-           var day = days.find { it.date == LocalDate.now() }
+            var day = days.find { it.date == LocalDate.now() }
             if (day == null) {
                 days.add(Day(0, LocalDate.now(), mutableListOf(item)))
             } else {
@@ -37,7 +37,16 @@ class DataProvider {
         }
 
         public fun getItems(): List<Item> {
-            return days.flatMap { it.items }
+            // Does not return mutlible items with the same name and proteinContentPercentage
+            val items = mutableListOf<Item>()
+            days.forEach { day ->
+                day.items.forEach { item ->
+                    if (!items.any { it.name == item.name && it.proteinContentPercentage == item.proteinContentPercentage }) {
+                        items.add(item)
+                    }
+                }
+            }
+            return items
         }
 
         public fun getDays(): List<Day> {
