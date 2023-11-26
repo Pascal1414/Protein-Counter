@@ -23,10 +23,20 @@ import java.time.format.DateTimeFormatter
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun TodayView() {
-    val openAlertDialogCreate = remember { mutableStateOf(false) }
+
+    // Radio Buttons
+    val radioOptions = listOf("NewItem", "ExistingItem")
+    var (selectedOption, onOptionSelected) = remember { mutableStateOf(radioOptions[1]) }
+
+    // Text Fields
     val name = remember { mutableStateOf("") }
     val proteinPercentage = remember { mutableStateOf("") }
     val amountInGramm = remember { mutableStateOf("") }
+
+    // Dropdown
+    var mSelectedItem by remember { mutableStateOf<Item?>(null) }
+
+    val openAlertDialogCreate = remember { mutableStateOf(false) }
     when {
         openAlertDialogCreate.value -> {
             AlertDialog(icon = {
@@ -34,8 +44,6 @@ fun TodayView() {
             }, title = {
                 Text(text = "Add Item")
             }, text = {
-                val radioOptions = listOf("NewItem", "ExistingItem")
-                var (selectedOption, onOptionSelected) = remember { mutableStateOf(radioOptions[1]) }
                 Column {
                     Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween) {
                         Column {
@@ -70,7 +78,6 @@ fun TodayView() {
 
                     if (selectedOption == "ExistingItem") Column {
                         var mExpanded by remember { mutableStateOf(false) }
-                        var mSelectedItem by remember { mutableStateOf<Item?>(null) }
                         OutlinedTextField(value = mSelectedItem?.name ?: "Select Item",
                             onValueChange = { },
                             readOnly = true,
@@ -111,9 +118,21 @@ fun TodayView() {
                 openAlertDialogCreate.value = false
             }, confirmButton = {
                 TextButton(onClick = {
-                    DataProvider.addItemToToday(
-                        Item(0, name = name.value, proteinPercentage.value.toFloat(), amountInGramm.value.toFloat())
-                    )
+                    if (selectedOption == "ExistingItem") {
+                        if (mSelectedItem == null) return@TextButton
+                        DataProvider.addItemToToday(
+                            Item(
+                                0,
+                                name = mSelectedItem!!.name,
+                                proteinContentPercentage = mSelectedItem!!.proteinContentPercentage,
+                                amountInGramm = amountInGramm.value.toFloat()
+                            )
+                        )
+                        openAlertDialogCreate.value = false
+                    } else
+                        DataProvider.addItemToToday(
+                            Item(0, name = name.value, proteinPercentage.value.toFloat(), amountInGramm.value.toFloat())
+                        )
                     openAlertDialogCreate.value = false
                 }) {
                     Text("Confirm")
