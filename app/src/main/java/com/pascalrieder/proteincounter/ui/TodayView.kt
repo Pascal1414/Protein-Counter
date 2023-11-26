@@ -5,18 +5,90 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Text
+import androidx.compose.material.DropdownMenuItem
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.ArrowDropDown
+import androidx.compose.material.icons.filled.Create
+import androidx.compose.material3.*
+import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
-import androidx.compose.runtime.Composable
 import androidx.compose.ui.unit.dp
 import com.pascalrieder.proteincounter.data.DataProvider
 import com.pascalrieder.proteincounter.data.Item
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun TodayView() {
+    val openAlertDialogCreate = remember { mutableStateOf(false) }
+    when {
+        openAlertDialogCreate.value -> {
+            AlertDialog(icon = {
+                Icon(Icons.Default.Create, contentDescription = "Info Icon")
+            }, title = {
+                Text(text = "Add Item")
+            }, text = {
+                val radioOptions = listOf("NewItem", "ExistingItem")
+                var (selectedOption, onOptionSelected) = remember { mutableStateOf(radioOptions[1]) }
+                Column {
+                    Row {
+                        RadioButton(selected = (selectedOption == "NewItem"), onClick = { onOptionSelected("NewItem") })
+                        Text(text = "Create new Item")
+                    }
+                    Row {
+                        RadioButton(selected = (selectedOption == "ExistingItem"),
+                            onClick = { onOptionSelected("ExistingItem") })
+                        Text(text = "Use existing Item")
+                    }
+                    var mExpanded by remember { mutableStateOf(false) }
+                    var mSelectedItem by remember { mutableStateOf<Item?>(null) }
+                    OutlinedTextField(
+                        value = mSelectedItem?.name ?: "Select Item",
+                        onValueChange = { },
+                        modifier = Modifier.fillMaxWidth().background(MaterialTheme.colorScheme.onPrimary),
+                        readOnly = true,
+                        trailingIcon = {
+                            IconButton(onClick = {
+                                mExpanded = true
+                            }) {
+                                Icon(Icons.Default.ArrowDropDown, contentDescription = "Info Icon")
+                            }
+                        })
+                    DropdownMenu(
+                        expanded = mExpanded,
+                        onDismissRequest = { mExpanded = false },
+                        modifier = Modifier.fillMaxWidth()
+                    ) {
+                        DataProvider.getItems().forEach { item ->
+                            DropdownMenuItem(onClick = {
+                                mExpanded = false
+                                mSelectedItem = item
+                            }) {
+                                Text(item.name + " (" + item.proteinContentPercentage + "%)")
+                            }
+                        }
+
+                    }
+                }
+            }, onDismissRequest = {
+                openAlertDialogCreate.value = false
+            }, confirmButton = {
+                TextButton(onClick = {
+                    openAlertDialogCreate.value = false
+                }) {
+                    Text("Confirm")
+                }
+            }, dismissButton = {
+                TextButton(onClick = {
+                    openAlertDialogCreate.value = false
+                }) {
+                    Text("Dismiss")
+                }
+            })
+        }
+    }
+
     Column(modifier = Modifier.fillMaxSize()) {
         Row(horizontalArrangement = Arrangement.Center, modifier = Modifier.padding(vertical = 50.dp).fillMaxWidth()) {
             Text(
@@ -26,6 +98,10 @@ fun TodayView() {
         }
 
         Spacer(modifier = Modifier.height(30.dp))
+
+        Button(onClick = {
+            openAlertDialogCreate.value = true
+        }, content = { Text(text = "Add Item") })
 
         Text(
             text = "Consumed today",
@@ -40,6 +116,7 @@ fun TodayView() {
             }
         }
     }
+
 }
 
 @Composable
