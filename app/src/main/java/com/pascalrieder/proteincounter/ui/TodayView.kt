@@ -34,16 +34,30 @@ fun TodayView() {
                 val radioOptions = listOf("NewItem", "ExistingItem")
                 var (selectedOption, onOptionSelected) = remember { mutableStateOf(radioOptions[1]) }
                 Column {
-                    Row {
-                        RadioButton(selected = (selectedOption == "NewItem"), onClick = { onOptionSelected("NewItem") })
+                    Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween) {
                         Column {
+                            RadioButton(
+                                selected = (selectedOption == "NewItem"),
+                                onClick = { onOptionSelected("NewItem") })
                             Text(text = "Create new Item")
+                        }
+                        Column {
+                            RadioButton(selected = (selectedOption == "ExistingItem"),
+                                onClick = { onOptionSelected("ExistingItem") })
+                            Text(text = "Use existing Item")
+                        }
+                    }
+                    Divider(color = MaterialTheme.colorScheme.primary, thickness = 1.dp, modifier = Modifier.padding(top = 10.dp, bottom = 10.dp))
+                    if (selectedOption == "NewItem")
+                        Column {
                             val name = remember { mutableStateOf("") }
+                            Text(text = "Name")
                             OutlinedTextField(
                                 value = name.value,
                                 onValueChange = { name.value = it }
                             )
                             val proteinPercentage = remember { mutableStateOf("") }
+                            Text(text = "Protein Percentage")
                             OutlinedTextField(
                                 value = proteinPercentage.value,
                                 keyboardOptions = KeyboardOptions.Default.copy(keyboardType = KeyboardType.Number),
@@ -54,13 +68,11 @@ fun TodayView() {
                                         proteinPercentage.value = it
                                 }
                             )
+
                         }
-                    }
-                    Row {
-                        RadioButton(selected = (selectedOption == "ExistingItem"),
-                            onClick = { onOptionSelected("ExistingItem") })
+
+                    if (selectedOption == "ExistingItem")
                         Column {
-                            Text(text = "Use existing Item")
                             var mExpanded by remember { mutableStateOf(false) }
                             var mSelectedItem by remember { mutableStateOf<Item?>(null) }
                             OutlinedTextField(value = mSelectedItem?.name ?: "Select Item",
@@ -87,10 +99,11 @@ fun TodayView() {
                                     }
                                 }
 
+
                             }
                         }
-                    }
                     val amountInGramm = remember { mutableStateOf("") }
+                    Text(text = "Consumed amount in Gramm")
                     OutlinedTextField(
                         value = amountInGramm.value,
                         keyboardOptions = KeyboardOptions.Default.copy(keyboardType = KeyboardType.Number),
