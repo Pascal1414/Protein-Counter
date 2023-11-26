@@ -1,5 +1,6 @@
 package com.pascalrieder.proteincounter.ui
 
+import android.os.Handler
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
@@ -17,12 +18,21 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
 import com.pascalrieder.proteincounter.data.DataProvider
 import com.pascalrieder.proteincounter.data.Item
+import kotlinx.coroutines.delay
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun TodayView() {
+    val errorMessage = remember { mutableStateOf("") }
+    fun displayErrorMessage(message: String) {
+        errorMessage.value = message
+        val handler = Handler()
+        handler.postDelayed({
+            errorMessage.value = ""
+        }, 3000)
+    }
 
     // Radio Buttons
     val radioOptions = listOf("NewItem", "ExistingItem")
@@ -47,8 +57,7 @@ fun TodayView() {
                 Column {
                     Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween) {
                         Column {
-                            RadioButton(
-                                selected = (selectedOption == "NewItem"),
+                            RadioButton(selected = (selectedOption == "NewItem"),
                                 onClick = { onOptionSelected("NewItem") })
                             Text(text = "Create new Item")
                         }
@@ -112,6 +121,8 @@ fun TodayView() {
                             if (it.isEmpty()) amountInGramm.value = ""
                             else if (isFloat(it)) amountInGramm.value = it
                         })
+                    Spacer(modifier = Modifier.height(10.dp))
+                    Text(text = errorMessage.value, color = MaterialTheme.colorScheme.error)
 
                 }
             }, onDismissRequest = {
@@ -119,7 +130,10 @@ fun TodayView() {
             }, confirmButton = {
                 TextButton(onClick = {
                     if (selectedOption == "ExistingItem") {
-                        if (mSelectedItem == null) return@TextButton
+                        if (mSelectedItem == null) {
+                            displayErrorMessage("Please select an Item")
+                            return@TextButton
+                        }
                         DataProvider.addItemToToday(
                             Item(
                                 0,
@@ -129,10 +143,9 @@ fun TodayView() {
                             )
                         )
                         openAlertDialogCreate.value = false
-                    } else
-                        DataProvider.addItemToToday(
-                            Item(0, name = name.value, proteinPercentage.value.toFloat(), amountInGramm.value.toFloat())
-                        )
+                    } else DataProvider.addItemToToday(
+                        Item(0, name = name.value, proteinPercentage.value.toFloat(), amountInGramm.value.toFloat())
+                    )
                     openAlertDialogCreate.value = false
                 }) {
                     Text("Confirm")
