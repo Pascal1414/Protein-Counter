@@ -50,7 +50,7 @@ fun TodayView() {
                                 onValueChange = {
                                     if (it.isEmpty())
                                         proteinPercentage.value = ""
-                                    else if (it.toInt() in 0..100)
+                                    else if (isFloat(it) && it.toFloat() in 0f..100f)
                                         proteinPercentage.value = it
                                 }
                             )
@@ -90,6 +90,17 @@ fun TodayView() {
                             }
                         }
                     }
+                    val amountInGramm = remember { mutableStateOf("") }
+                    OutlinedTextField(
+                        value = amountInGramm.value,
+                        keyboardOptions = KeyboardOptions.Default.copy(keyboardType = KeyboardType.Number),
+                        onValueChange = {
+                            if (it.isEmpty())
+                                amountInGramm.value = ""
+                            else if (isFloat(it))
+                                amountInGramm.value = it
+                        }
+                    )
 
                 }
             }, onDismissRequest = {
@@ -162,5 +173,14 @@ fun ItemView(item: Item) {
             text = item.proteinContentPercentage.toString() + "%",
             modifier = Modifier.padding(end = padding, bottom = padding, start = padding)
         )
+    }
+}
+
+fun isFloat(str: String): Boolean {
+    return try {
+        str.toFloat()
+        true
+    } catch (e: NumberFormatException) {
+        false
     }
 }
