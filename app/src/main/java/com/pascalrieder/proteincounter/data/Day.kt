@@ -5,5 +5,5 @@ import java.time.LocalDate
 class Day (
     val id: Int,
     val date: LocalDate,
-    val items: List<Item>
+    val items: MutableList<Item>
 )

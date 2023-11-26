@@ -24,6 +24,9 @@ import java.time.format.DateTimeFormatter
 @Composable
 fun TodayView() {
     val openAlertDialogCreate = remember { mutableStateOf(false) }
+    val name = remember { mutableStateOf("") }
+    val proteinPercentage = remember { mutableStateOf("") }
+    val amountInGramm = remember { mutableStateOf("") }
     when {
         openAlertDialogCreate.value -> {
             AlertDialog(icon = {
@@ -47,79 +50,70 @@ fun TodayView() {
                             Text(text = "Use existing Item")
                         }
                     }
-                    Divider(color = MaterialTheme.colorScheme.primary, thickness = 1.dp, modifier = Modifier.padding(top = 10.dp, bottom = 10.dp))
-                    if (selectedOption == "NewItem")
-                        Column {
-                            val name = remember { mutableStateOf("") }
-                            Text(text = "Name")
-                            OutlinedTextField(
-                                value = name.value,
-                                onValueChange = { name.value = it }
-                            )
-                            val proteinPercentage = remember { mutableStateOf("") }
-                            Text(text = "Protein Percentage")
-                            OutlinedTextField(
-                                value = proteinPercentage.value,
-                                keyboardOptions = KeyboardOptions.Default.copy(keyboardType = KeyboardType.Number),
-                                onValueChange = {
-                                    if (it.isEmpty())
-                                        proteinPercentage.value = ""
-                                    else if (isFloat(it) && it.toFloat() in 0f..100f)
-                                        proteinPercentage.value = it
+                    Divider(
+                        color = MaterialTheme.colorScheme.primary,
+                        thickness = 1.dp,
+                        modifier = Modifier.padding(top = 10.dp, bottom = 10.dp)
+                    )
+                    if (selectedOption == "NewItem") Column {
+                        Text(text = "Name")
+                        OutlinedTextField(value = name.value, onValueChange = { name.value = it })
+                        Text(text = "Protein Percentage")
+                        OutlinedTextField(value = proteinPercentage.value,
+                            keyboardOptions = KeyboardOptions.Default.copy(keyboardType = KeyboardType.Number),
+                            onValueChange = {
+                                if (it.isEmpty()) proteinPercentage.value = ""
+                                else if (isFloat(it) && it.toFloat() in 0f..100f) proteinPercentage.value = it
+                            })
+
+                    }
+
+                    if (selectedOption == "ExistingItem") Column {
+                        var mExpanded by remember { mutableStateOf(false) }
+                        var mSelectedItem by remember { mutableStateOf<Item?>(null) }
+                        OutlinedTextField(value = mSelectedItem?.name ?: "Select Item",
+                            onValueChange = { },
+                            readOnly = true,
+                            trailingIcon = {
+                                IconButton(onClick = {
+                                    mExpanded = true
+                                }) {
+                                    Icon(Icons.Default.ArrowDropDown, contentDescription = "Info Icon")
                                 }
-                            )
-
-                        }
-
-                    if (selectedOption == "ExistingItem")
-                        Column {
-                            var mExpanded by remember { mutableStateOf(false) }
-                            var mSelectedItem by remember { mutableStateOf<Item?>(null) }
-                            OutlinedTextField(value = mSelectedItem?.name ?: "Select Item",
-                                onValueChange = { },
-                                readOnly = true,
-                                trailingIcon = {
-                                    IconButton(onClick = {
-                                        mExpanded = true
-                                    }) {
-                                        Icon(Icons.Default.ArrowDropDown, contentDescription = "Info Icon")
-                                    }
-                                })
-                            DropdownMenu(
-                                expanded = mExpanded,
-                                onDismissRequest = { mExpanded = false },
-                                modifier = Modifier.fillMaxWidth()
-                            ) {
-                                DataProvider.getItems().forEach { item ->
-                                    DropdownMenuItem(onClick = {
-                                        mExpanded = false
-                                        mSelectedItem = item
-                                    }) {
-                                        Text(item.name + " (" + item.proteinContentPercentage + "%)")
-                                    }
+                            })
+                        DropdownMenu(
+                            expanded = mExpanded,
+                            onDismissRequest = { mExpanded = false },
+                            modifier = Modifier.fillMaxWidth()
+                        ) {
+                            DataProvider.getItems().forEach { item ->
+                                DropdownMenuItem(onClick = {
+                                    mExpanded = false
+                                    mSelectedItem = item
+                                }) {
+                                    Text(item.name + " (" + item.proteinContentPercentage + "%)")
                                 }
-
-
                             }
+
+
                         }
-                    val amountInGramm = remember { mutableStateOf("") }
+                    }
                     Text(text = "Consumed amount in Gramm")
-                    OutlinedTextField(
-                        value = amountInGramm.value,
+                    OutlinedTextField(value = amountInGramm.value,
                         keyboardOptions = KeyboardOptions.Default.copy(keyboardType = KeyboardType.Number),
                         onValueChange = {
-                            if (it.isEmpty())
-                                amountInGramm.value = ""
-                            else if (isFloat(it))
-                                amountInGramm.value = it
-                        }
-                    )
+                            if (it.isEmpty()) amountInGramm.value = ""
+                            else if (isFloat(it)) amountInGramm.value = it
+                        })
 
                 }
             }, onDismissRequest = {
                 openAlertDialogCreate.value = false
             }, confirmButton = {
                 TextButton(onClick = {
+                    DataProvider.addItemToToday(
+                        Item(0, name = name.value, proteinPercentage.value.toFloat(), amountInGramm.value.toFloat())
+                    )
                     openAlertDialogCreate.value = false
                 }) {
                     Text("Confirm")
