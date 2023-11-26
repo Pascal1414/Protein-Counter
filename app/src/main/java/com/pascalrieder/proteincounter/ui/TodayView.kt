@@ -4,6 +4,7 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.DropdownMenuItem
 import androidx.compose.material.icons.Icons
@@ -12,6 +13,7 @@ import androidx.compose.material.icons.filled.Create
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
 import com.pascalrieder.proteincounter.data.DataProvider
 import com.pascalrieder.proteincounter.data.Item
@@ -34,42 +36,61 @@ fun TodayView() {
                 Column {
                     Row {
                         RadioButton(selected = (selectedOption == "NewItem"), onClick = { onOptionSelected("NewItem") })
-                        Text(text = "Create new Item")
+                        Column {
+                            Text(text = "Create new Item")
+                            val name = remember { mutableStateOf("") }
+                            OutlinedTextField(
+                                value = name.value,
+                                onValueChange = { name.value = it }
+                            )
+                            val proteinPercentage = remember { mutableStateOf("") }
+                            OutlinedTextField(
+                                value = proteinPercentage.value,
+                                keyboardOptions = KeyboardOptions.Default.copy(keyboardType = KeyboardType.Number),
+                                onValueChange = {
+                                    if (it.isEmpty())
+                                        proteinPercentage.value = ""
+                                    else if (it.toInt() in 0..100)
+                                        proteinPercentage.value = it
+                                }
+                            )
+                        }
                     }
                     Row {
                         RadioButton(selected = (selectedOption == "ExistingItem"),
                             onClick = { onOptionSelected("ExistingItem") })
-                        Text(text = "Use existing Item")
-                    }
-                    var mExpanded by remember { mutableStateOf(false) }
-                    var mSelectedItem by remember { mutableStateOf<Item?>(null) }
-                    OutlinedTextField(
-                        value = mSelectedItem?.name ?: "Select Item",
-                        onValueChange = { },
-                        modifier = Modifier.fillMaxWidth().background(MaterialTheme.colorScheme.onPrimary),
-                        readOnly = true,
-                        trailingIcon = {
-                            IconButton(onClick = {
-                                mExpanded = true
-                            }) {
-                                Icon(Icons.Default.ArrowDropDown, contentDescription = "Info Icon")
-                            }
-                        })
-                    DropdownMenu(
-                        expanded = mExpanded,
-                        onDismissRequest = { mExpanded = false },
-                        modifier = Modifier.fillMaxWidth()
-                    ) {
-                        DataProvider.getItems().forEach { item ->
-                            DropdownMenuItem(onClick = {
-                                mExpanded = false
-                                mSelectedItem = item
-                            }) {
-                                Text(item.name + " (" + item.proteinContentPercentage + "%)")
+                        Column {
+                            Text(text = "Use existing Item")
+                            var mExpanded by remember { mutableStateOf(false) }
+                            var mSelectedItem by remember { mutableStateOf<Item?>(null) }
+                            OutlinedTextField(value = mSelectedItem?.name ?: "Select Item",
+                                onValueChange = { },
+                                readOnly = true,
+                                trailingIcon = {
+                                    IconButton(onClick = {
+                                        mExpanded = true
+                                    }) {
+                                        Icon(Icons.Default.ArrowDropDown, contentDescription = "Info Icon")
+                                    }
+                                })
+                            DropdownMenu(
+                                expanded = mExpanded,
+                                onDismissRequest = { mExpanded = false },
+                                modifier = Modifier.fillMaxWidth()
+                            ) {
+                                DataProvider.getItems().forEach { item ->
+                                    DropdownMenuItem(onClick = {
+                                        mExpanded = false
+                                        mSelectedItem = item
+                                    }) {
+                                        Text(item.name + " (" + item.proteinContentPercentage + "%)")
+                                    }
+                                }
+
                             }
                         }
-
                     }
+
                 }
             }, onDismissRequest = {
                 openAlertDialogCreate.value = false
