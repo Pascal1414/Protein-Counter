@@ -59,12 +59,12 @@ fun TodayView() {
                         Column {
                             RadioButton(selected = (selectedOption == "NewItem"),
                                 onClick = { onOptionSelected("NewItem") })
-                            Text(text = "Create new Item")
+                            Text(text = "New Item")
                         }
                         Column {
                             RadioButton(selected = (selectedOption == "ExistingItem"),
                                 onClick = { onOptionSelected("ExistingItem") })
-                            Text(text = "Use existing Item")
+                            Text(text = "Select Item")
                         }
                     }
                     Divider(
@@ -75,6 +75,7 @@ fun TodayView() {
                     if (selectedOption == "NewItem") Column {
                         Text(text = "Name")
                         OutlinedTextField(value = name.value, onValueChange = { name.value = it })
+                        Spacer(modifier = Modifier.height(10.dp))
                         Text(text = "Protein Percentage")
                         OutlinedTextField(value = proteinPercentage.value,
                             keyboardOptions = KeyboardOptions.Default.copy(keyboardType = KeyboardType.Number),
@@ -87,7 +88,8 @@ fun TodayView() {
 
                     if (selectedOption == "ExistingItem") Column {
                         var mExpanded by remember { mutableStateOf(false) }
-                        OutlinedTextField(value = mSelectedItem?.name ?: "Select Item",
+                        Text(text = "Select Item")
+                        OutlinedTextField(value = mSelectedItem?.name ?: "",
                             onValueChange = { },
                             readOnly = true,
                             trailingIcon = {
@@ -97,6 +99,7 @@ fun TodayView() {
                                     Icon(Icons.Default.ArrowDropDown, contentDescription = "Info Icon")
                                 }
                             })
+                        Spacer(modifier = Modifier.height(10.dp))
                         DropdownMenu(
                             expanded = mExpanded,
                             onDismissRequest = { mExpanded = false },
@@ -114,6 +117,7 @@ fun TodayView() {
 
                         }
                     }
+                    Spacer(modifier = Modifier.height(10.dp))
                     Text(text = "Consumed amount in Gramm")
                     OutlinedTextField(value = amountInGramm.value,
                         keyboardOptions = KeyboardOptions.Default.copy(keyboardType = KeyboardType.Number),
@@ -129,6 +133,11 @@ fun TodayView() {
                 openAlertDialogCreate.value = false
             }, confirmButton = {
                 TextButton(onClick = {
+                    if (amountInGramm.value.isEmpty()) {
+                        displayErrorMessage("Please enter an amount")
+                        return@TextButton
+                    }
+
                     if (selectedOption == "ExistingItem") {
                         if (mSelectedItem == null) {
                             displayErrorMessage("Please select an Item")
@@ -143,9 +152,19 @@ fun TodayView() {
                             )
                         )
                         openAlertDialogCreate.value = false
-                    } else DataProvider.addItemToToday(
-                        Item(0, name = name.value, proteinPercentage.value.toFloat(), amountInGramm.value.toFloat())
-                    )
+                    } else {
+                        if (name.value.isEmpty()) {
+                            displayErrorMessage("Please enter a name")
+                            return@TextButton
+                        }
+                        if (proteinPercentage.value.isEmpty()) {
+                            displayErrorMessage("Please enter a protein percentage")
+                            return@TextButton
+                        }
+                        DataProvider.addItemToToday(
+                            Item(0, name = name.value, proteinPercentage.value.toFloat(), amountInGramm.value.toFloat())
+                        )
+                    }
                     openAlertDialogCreate.value = false
                 }) {
                     Text("Confirm")
