@@ -23,10 +23,10 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.example.compose.AppTheme
 import com.pascalrieder.proteincounter.ui.HistoryView
 import com.pascalrieder.proteincounter.ui.ItemsView
 import com.pascalrieder.proteincounter.ui.TodayView
-import com.pascalrieder.proteincounter.ui.theme.ProteinCounterTheme
 
 class MainActivity : ComponentActivity() {
     @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
@@ -34,7 +34,7 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            ProteinCounterTheme {
+            AppTheme {
                 // A surface container using the 'background' color from the theme
                 Surface(
                     modifier = Modifier.fillMaxSize(), color = MaterialTheme.colorScheme.background
@@ -101,20 +101,5 @@ fun Navigation(navController: NavHostController) {
         composable("items") {
             ItemsView()
         }
-    }
-}
-
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!", modifier = modifier
-    )
-}
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    ProteinCounterTheme {
-        Greeting("Android")
     }
 }
