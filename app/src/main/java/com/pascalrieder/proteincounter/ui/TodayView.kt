@@ -77,11 +77,13 @@ fun TodayView() {
                         modifier = Modifier.padding(top = 10.dp, bottom = 10.dp)
                     )
                     if (selectedOption == "NewItem") Column {
-                        Text(text = "Name")
-                        OutlinedTextField(value = name.value, onValueChange = { name.value = it })
+                        OutlinedTextField(
+                            label = { Text("Name") },
+                            value = name.value,
+                            onValueChange = { name.value = it })
                         Spacer(modifier = Modifier.height(10.dp))
-                        Text(text = "Protein Percentage")
-                        OutlinedTextField(value = proteinPercentage.value,
+                        OutlinedTextField(label = { Text(text = "Protein Percentage") },
+                            value = proteinPercentage.value,
                             keyboardOptions = KeyboardOptions.Default.copy(keyboardType = KeyboardType.Number),
                             onValueChange = {
                                 if (it.isEmpty()) proteinPercentage.value = ""
@@ -92,8 +94,7 @@ fun TodayView() {
 
                     if (selectedOption == "ExistingItem") Column {
                         var mExpanded by remember { mutableStateOf(false) }
-                        Text(text = "Select Item")
-                        OutlinedTextField(value = mSelectedItem?.name ?: "",
+                        OutlinedTextField(label = { Text(text = "Select Item") }, value = mSelectedItem?.name ?: "",
                             onValueChange = { },
                             readOnly = true,
                             trailingIcon = {
@@ -122,8 +123,7 @@ fun TodayView() {
                         }
                     }
                     Spacer(modifier = Modifier.height(10.dp))
-                    Text(text = "Consumed amount in Gramm")
-                    OutlinedTextField(value = amountInGramm.value,
+                    OutlinedTextField(label = { Text(text = "Consumed amount in Gramm") }, value = amountInGramm.value,
                         keyboardOptions = KeyboardOptions.Default.copy(keyboardType = KeyboardType.Number),
                         onValueChange = {
                             if (it.isEmpty()) amountInGramm.value = ""
@@ -213,12 +213,12 @@ fun TodayView() {
                     contentDescription = "Info Icon",
                     modifier = Modifier.size(24.dp)
                 )
+                val consumedProtein = String.format("%.1f", DataProvider.getTodayConsumedProtein()).replace(".0", "")
                 Text(
                     style = MaterialTheme.typography.bodyMedium,
-                    text = "You have consumed 500g of protein today",
+                    text = "You have consumed " + consumedProtein + "g of protein today",
                     modifier = Modifier.padding(start = 16.dp)
                 )
-
             }
             Spacer(modifier = Modifier.height(16.dp))
 
@@ -231,7 +231,7 @@ fun TodayView() {
 }
 
 @Composable
-fun ItemView(item: Item ) {
+fun ItemView(item: Item) {
     var isExpanded by remember { mutableStateOf(false) }
 
     Row(

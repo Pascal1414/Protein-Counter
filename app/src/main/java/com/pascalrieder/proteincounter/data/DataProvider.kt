@@ -52,5 +52,14 @@ class DataProvider {
         public fun getDays(): List<Day> {
             return days
         }
+
+        fun getTodayConsumedProtein(): Float {
+            var protein = 0f
+            days.find { it.date == LocalDate.now() }?.items?.forEach { item ->
+                protein += item.amountInGramm * item.proteinContentPercentage / 100
+            }
+            return protein
+
+        }
     }
 }

@@ -7,18 +7,14 @@ import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material.BottomNavigation
-import androidx.compose.material.BottomNavigationItem
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material3.*
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
+import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
-import androidx.navigation.NavController
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -41,7 +37,7 @@ class MainActivity : ComponentActivity() {
                 ) {
                     val navController = rememberNavController()
                     Scaffold(content = {
-                        Column(modifier = Modifier.padding(top = 16.dp, bottom = 55.dp)) {
+                        Column(modifier = Modifier.padding(top = 16.dp, bottom = 70.dp)) {
                             Navigation(navController)
                         }
                     }, bottomBar = {
@@ -55,34 +51,49 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 private fun BottomBar(navController: NavHostController) {
-    val selectedIndex = remember { mutableStateOf(0) }
-    BottomNavigation(elevation = 10.dp) {
-        BottomNavigationItem(icon = {
-            Icon(imageVector = Icons.Default.Home, "")
-        }, label = { Text(text = "Today") }, onClick = {
-            if (selectedIndex.value != 0) {
+    var selectedItem by remember { mutableIntStateOf(0) }
+    NavigationBar {
+        NavigationBarItem(
+            icon = {
+                Icon(
+                    painter = painterResource(R.drawable.ic_today),
+                    contentDescription = "Today"
+                )
+            },
+            label = { Text("Today") },
+            selected = selectedItem == 0,
+            onClick = {
+                selectedItem = 0
                 navController.navigate("today")
-                selectedIndex.value = 0
             }
-        }, selected = (selectedIndex.value == 0)
         )
-        BottomNavigationItem(icon = {
-            Icon(imageVector = Icons.Default.Home, "")
-        }, label = { Text(text = "History") }, onClick = {
-            if (selectedIndex.value != 1) {
+        NavigationBarItem(
+            icon = {
+                Icon(
+                    painter = painterResource(R.drawable.ic_history),
+                    contentDescription = "History"
+                )
+            },
+            label = { Text("History") },
+            selected = selectedItem == 1,
+            onClick = {
+                selectedItem = 1
                 navController.navigate("history")
-                selectedIndex.value = 1
             }
-        }, selected = (selectedIndex.value == 1)
         )
-        BottomNavigationItem(icon = {
-            Icon(imageVector = Icons.Default.Home, "")
-        }, label = { Text(text = "Items") }, onClick = {
-            if (selectedIndex.value != 2) {
+        NavigationBarItem(
+            icon = {
+                Icon(
+                    painter = painterResource(R.drawable.ic_list),
+                    contentDescription = "Items"
+                )
+            },
+            label = { Text("Items") },
+            selected = selectedItem == 2,
+            onClick = {
+                selectedItem = 2
                 navController.navigate("items")
-                selectedIndex.value = 2
             }
-        }, selected = (selectedIndex.value == 2)
         )
     }
 }
