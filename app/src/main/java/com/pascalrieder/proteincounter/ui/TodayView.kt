@@ -20,6 +20,7 @@ import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.pascalrieder.proteincounter.FloatingActionButtonHandler
 import com.pascalrieder.proteincounter.data.DataProvider
 import com.pascalrieder.proteincounter.data.Item
 import kotlinx.coroutines.delay
@@ -182,6 +183,9 @@ fun TodayView() {
             })
         }
     }
+    FloatingActionButtonHandler.onClick = {
+        openAlertDialogCreate.value = true
+    }
     Column(modifier = Modifier.fillMaxSize()) {
         Column(modifier = Modifier.padding(horizontal = 16.dp)) {
             Text(
@@ -195,13 +199,9 @@ fun TodayView() {
             )
 
             Spacer(modifier = Modifier.height(30.dp))
-
-            Button(onClick = {
-                openAlertDialogCreate.value = true
-            }, content = { Text(text = "Add Item") })
         }
         Column(
-            modifier = Modifier.verticalScroll(rememberScrollState()).padding(horizontal = 24.dp)
+            modifier = Modifier.padding(horizontal = 24.dp)
         ) {
             Row(
                 verticalAlignment = Alignment.CenterVertically,
@@ -221,10 +221,13 @@ fun TodayView() {
                 )
             }
             Spacer(modifier = Modifier.height(16.dp))
-
-            DataProvider.getItems(LocalDate.now()).forEach {
-                ItemView(it)
-                Spacer(modifier = Modifier.height(16.dp))
+            Column(
+                modifier = Modifier.verticalScroll(rememberScrollState())
+            ) {
+                DataProvider.getItems(LocalDate.now()).forEach {
+                    ItemView(it)
+                    Spacer(modifier = Modifier.height(16.dp))
+                }
             }
         }
     }

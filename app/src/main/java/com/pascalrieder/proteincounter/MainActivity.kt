@@ -8,8 +8,9 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Favorite
-import androidx.compose.material.icons.filled.Home
+import androidx.compose.material.icons.filled.Add
+import androidx.compose.material.icons.filled.KeyboardArrowDown
+import androidx.compose.material.icons.filled.KeyboardArrowUp
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
@@ -42,12 +43,30 @@ class MainActivity : ComponentActivity() {
                         }
                     }, bottomBar = {
                         BottomBar(navController)
-                    })
+                    },
+                        floatingActionButton = {
+                            FloatingActionButton(
+                                onClick = { FloatingActionButtonHandler.onClick?.let { it() } },
+                                content = {
+                                    Icon(
+                                        imageVector = Icons.Default.Add,
+                                        contentDescription = "Add Icon"
+                                    )
+                                }
+                            )
+                        })
                 }
             }
         }
     }
 }
+
+class FloatingActionButtonHandler {
+    companion object{
+        var onClick: (() -> Unit)? = null
+    }
+}
+
 
 @Composable
 private fun BottomBar(navController: NavHostController) {
