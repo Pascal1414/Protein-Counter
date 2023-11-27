@@ -7,7 +7,7 @@ class DataProvider {
         private val days = mutableListOf(
             Day(
                 1,
-                LocalDate.now().minusDays(1),
+                LocalDate.now(),
                 mutableListOf(
                     Item(1, "Egg", 12f, 100f),
                     Item(2, "Bread", 10f, 200f)

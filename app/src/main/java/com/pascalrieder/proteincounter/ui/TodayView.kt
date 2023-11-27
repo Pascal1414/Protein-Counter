@@ -10,10 +10,14 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.DropdownMenuItem
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowDropDown
+import androidx.compose.material.icons.filled.Check
 import androidx.compose.material.icons.filled.Create
+import androidx.compose.material.icons.filled.Info
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
 import com.pascalrieder.proteincounter.data.DataProvider
@@ -178,59 +182,113 @@ fun TodayView() {
             })
         }
     }
-
     Column(modifier = Modifier.fillMaxSize()) {
-        Row(horizontalArrangement = Arrangement.Center, modifier = Modifier.padding(vertical = 50.dp).fillMaxWidth()) {
+        Column(modifier = Modifier.padding(horizontal = 16.dp)) {
+            Text(
+                text = "Today",
+                style = MaterialTheme.typography.displayLarge
+            )
             Text(
                 text = LocalDate.now().format(DateTimeFormatter.ofPattern("dd.MM.yyyy")),
-                style = MaterialTheme.typography.headlineLarge
+                style = MaterialTheme.typography.titleLarge,
+                modifier = Modifier.alpha(0.5f)
             )
+
+            Spacer(modifier = Modifier.height(30.dp))
+
+            Button(onClick = {
+                openAlertDialogCreate.value = true
+            }, content = { Text(text = "Add Item") })
         }
-
-        Spacer(modifier = Modifier.height(30.dp))
-
-        Button(onClick = {
-            openAlertDialogCreate.value = true
-        }, content = { Text(text = "Add Item") })
-
-        Text(
-            text = "Consumed today",
-            style = MaterialTheme.typography.titleMedium,
-            modifier = Modifier.padding(bottom = 5.dp)
-        )
         Column(
-            modifier = Modifier.verticalScroll(rememberScrollState())
+            modifier = Modifier.verticalScroll(rememberScrollState()).padding(horizontal = 24.dp)
         ) {
+            Row(
+                verticalAlignment = Alignment.CenterVertically,
+                modifier = Modifier.fillMaxWidth()
+                    .background(MaterialTheme.colorScheme.tertiaryContainer, RoundedCornerShape(15)).padding(24.dp)
+            ) {
+                Icon(
+                    imageVector = Icons.Default.Check,
+                    contentDescription = "Info Icon",
+                    modifier = Modifier.size(24.dp)
+                )
+                Text(
+                    style = MaterialTheme.typography.bodyMedium,
+                    text = "You have consumed 500g of protein today",
+                    modifier = Modifier.padding(start = 16.dp)
+                )
+
+            }
+            Spacer(modifier = Modifier.height(16.dp))
+
             DataProvider.getItems(LocalDate.now()).forEach {
                 ItemView(it)
+                Spacer(modifier = Modifier.height(16.dp))
             }
         }
     }
-
 }
 
 @Composable
 fun ItemView(item: Item) {
     Column(
-        modifier = Modifier.fillMaxWidth().padding(bottom = 5.dp)
-            .background(MaterialTheme.colorScheme.onPrimary, RoundedCornerShape(15))
+        modifier = Modifier.fillMaxWidth()
+            .background(MaterialTheme.colorScheme.primaryContainer, RoundedCornerShape(15)).padding(24.dp)
     ) {
-        val padding = 15.dp
+        Text(
+            style = MaterialTheme.typography.headlineSmall,
+            text = item.name
+        )
+        Text(
+            style = MaterialTheme.typography.bodyMedium,
+            text = item.amountInGramm.toString() + "g ",
+            modifier = Modifier.alpha(0.5f)
+        )
+        Spacer(modifier = Modifier.height(40.dp))
         Row(
             horizontalArrangement = Arrangement.SpaceBetween,
-            modifier = Modifier.fillMaxWidth().padding(top = padding, bottom = 5.dp, start = padding, end = padding)
+            modifier = Modifier.fillMaxWidth(),
+            verticalAlignment = Alignment.CenterVertically
         ) {
-            Text(style = MaterialTheme.typography.titleMedium, text = item.amountInGramm.toString() + "g " + item.name)
+            Row(verticalAlignment = Alignment.CenterVertically) {
+                Text(
+                    style = MaterialTheme.typography.bodyMedium,
+                    text = String.format("%.0f", item.amountInGramm) + "g",
+                )
+                Spacer(modifier = Modifier.width(10.dp))
+                Text(
+                    style = MaterialTheme.typography.bodyMedium,
+                    text = "×",
+                )
+                Spacer(modifier = Modifier.width(10.dp))
+                Column(modifier = Modifier.wrapContentSize(), horizontalAlignment = Alignment.CenterHorizontally) {
+                    Text(
+                        style = MaterialTheme.typography.bodyMedium,
+                        text = String.format("%.1f", item.proteinContentPercentage).replace(".0", "") + "g"
+                    )
+                    Divider(
+                        color = MaterialTheme.colorScheme.primary,
+                        thickness = 1.dp,
+                        modifier = Modifier.width(30.dp).padding(top = 3.dp)
+                    )
+                    Text(
+                        style = MaterialTheme.typography.bodyMedium,
+                        text = "100g",
+                    )
+                }
+                Spacer(modifier = Modifier.width(10.dp))
+                Text(
+                        style = MaterialTheme.typography.bodyMedium,
+                text = "="
+                )
+            }
+
             Text(
-                style = MaterialTheme.typography.titleMedium,
-                text = ((item.amountInGramm * (item.proteinContentPercentage / 100))).toString() + "g"
+                style = MaterialTheme.typography.titleLarge,
+                text = String.format("%.1f", (item.amountInGramm * item.proteinContentPercentage / 100)).replace(".0", "")  + "g"
             )
         }
-        Text(
-            style = MaterialTheme.typography.titleMedium,
-            text = item.proteinContentPercentage.toString() + "%",
-            modifier = Modifier.padding(end = padding, bottom = padding, start = padding)
-        )
     }
 }
 
