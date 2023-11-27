@@ -238,7 +238,7 @@ fun ItemView(item: Item ) {
         modifier = Modifier.fillMaxWidth()
             .animateContentSize()
             .height(if (isExpanded) 170.dp else 100.dp)
-            .background(MaterialTheme.colorScheme.primaryContainer, RoundedCornerShape(15)).padding(24.dp),
+            .background(MaterialTheme.colorScheme.primaryContainer, RoundedCornerShape(15.dp)).padding(24.dp),
         horizontalArrangement = Arrangement.SpaceBetween
     ) {
         Column(modifier = Modifier.fillMaxHeight(), verticalArrangement = Arrangement.SpaceBetween) {
