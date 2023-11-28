@@ -21,6 +21,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.compose.AppTheme
+import com.pascalrieder.proteincounter.data.DataProvider
 import com.pascalrieder.proteincounter.ui.HistoryView
 import com.pascalrieder.proteincounter.ui.ItemsView
 import com.pascalrieder.proteincounter.ui.TodayView
@@ -30,6 +31,7 @@ class MainActivity : ComponentActivity() {
     @OptIn(ExperimentalMaterial3Api::class)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        DataProvider.loadData(context = this)
         setContent {
             AppTheme {
                 // A surface container using the 'background' color from the theme
@@ -58,6 +60,11 @@ class MainActivity : ComponentActivity() {
                 }
             }
         }
+    }
+
+    override fun onStop() {
+        super.onStop()
+        DataProvider.saveData(context = this)
     }
 }
 

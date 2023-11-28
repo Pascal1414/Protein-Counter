@@ -1,10 +1,16 @@
 package com.pascalrieder.proteincounter.data
 
+import android.content.Context
+import android.content.SharedPreferences
+import com.google.gson.Gson
+import com.google.gson.GsonBuilder
+import com.google.gson.reflect.TypeToken
 import java.time.LocalDate
+
 
 class DataProvider {
     companion object {
-        private val days = mutableListOf(
+        private var days = mutableListOf<Day>(
             Day(
                 1,
                 LocalDate.now(),
@@ -60,6 +66,28 @@ class DataProvider {
             }
             return protein
 
+        }
+
+        val gson = GsonBuilder().registerTypeAdapter(LocalDate::class.java, LocalDateAdapter()).create()
+
+        fun saveData(context: Context) {
+            var sharedPreferences: SharedPreferences = context.getSharedPreferences("data", Context.MODE_PRIVATE)
+            val editor = sharedPreferences.edit()
+            val daysString = gson.toJson(days)
+            editor.putString("days", daysString)
+            editor.apply()
+        }
+
+        fun loadData(context: Context) {
+            var sharedPreferences: SharedPreferences = context.getSharedPreferences("data", Context.MODE_PRIVATE)
+            val daysString = sharedPreferences.getString("days", "")
+            if (daysString == "") {
+                days.clear()
+            } else if (daysString != null) {
+                days.clear()
+                val mutableListTutorialType = object : TypeToken<MutableList<Day>>() {}.type
+                days = gson.fromJson(daysString, mutableListTutorialType)
+            }
         }
     }
 }
