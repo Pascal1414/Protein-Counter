@@ -19,10 +19,13 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
+import androidx.compose.ui.draw.scale
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.pascalrieder.proteincounter.FloatingActionButtonHandler
+import com.pascalrieder.proteincounter.R
 import com.pascalrieder.proteincounter.data.DataProvider
 import com.pascalrieder.proteincounter.data.Item
 import kotlinx.coroutines.delay
@@ -213,7 +216,7 @@ fun TodayView() {
             Row(
                 verticalAlignment = Alignment.CenterVertically,
                 modifier = Modifier.fillMaxWidth()
-                    .background(MaterialTheme.colorScheme.tertiaryContainer, RoundedCornerShape(15)).padding(24.dp)
+                    .background(MaterialTheme.colorScheme.tertiaryContainer, MaterialTheme.shapes.medium).padding(24.dp)
             ) {
                 Icon(
                     imageVector = Icons.Default.Check,
@@ -251,7 +254,7 @@ fun ItemView(item: Item, onDelete: () -> Unit = {}) {
         modifier = Modifier.fillMaxWidth()
             .animateContentSize()
             .height(if (isExpanded) 245.dp else 100.dp)
-            .background(MaterialTheme.colorScheme.primaryContainer, RoundedCornerShape(15.dp)).padding(24.dp),
+            .background(MaterialTheme.colorScheme.primaryContainer, MaterialTheme.shapes.medium).padding(24.dp),
     ) {
         Row(
             modifier = Modifier.fillMaxWidth().heightIn(min = 100.dp, max = 140.dp),
@@ -345,7 +348,7 @@ fun ItemView(item: Item, onDelete: () -> Unit = {}) {
             }.padding(vertical = 10.dp, horizontal = 5.dp)
         ) {
             Icon(
-                imageVector = Icons.Default.Delete,
+                painter = painterResource(R.drawable.ic_delete),
                 contentDescription = "Delete Icon",
                 modifier = Modifier.size(24.dp)
             )
