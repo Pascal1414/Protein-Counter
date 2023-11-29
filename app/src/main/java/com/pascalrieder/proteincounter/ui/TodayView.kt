@@ -10,6 +10,8 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.DropdownMenuItem
+import androidx.compose.material.ExperimentalMaterialApi
+import androidx.compose.material.ListItem
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.*
 import androidx.compose.material3.*
@@ -236,83 +238,115 @@ fun TodayView() {
 @Composable
 fun ItemView(item: Item) {
     var isExpanded by remember { mutableStateOf(false) }
-
-    Row(
+    Column(
         modifier = Modifier.fillMaxWidth()
             .animateContentSize()
-            .height(if (isExpanded) 170.dp else 100.dp)
+            .height(if (isExpanded) 245.dp else 100.dp)
             .background(MaterialTheme.colorScheme.primaryContainer, RoundedCornerShape(15.dp)).padding(24.dp),
-        horizontalArrangement = Arrangement.SpaceBetween
     ) {
-        Column(modifier = Modifier.fillMaxHeight(), verticalArrangement = Arrangement.SpaceBetween) {
-            Column {
-                Text(
-                    style = MaterialTheme.typography.headlineSmall,
-                    text = item.name
-                )
-                Text(
-                    style = MaterialTheme.typography.bodyMedium,
-                    text = item.amountInGramm.toString() + "g ",
-                    modifier = Modifier.alpha(0.5f)
-                )
-            }
-            Row(
-                horizontalArrangement = Arrangement.SpaceBetween,
-                verticalAlignment = Alignment.CenterVertically
-            ) {
-                Row(verticalAlignment = Alignment.CenterVertically) {
+        Row(
+            modifier = Modifier.fillMaxWidth().heightIn(min = 100.dp, max = 140.dp),
+            horizontalArrangement = Arrangement.SpaceBetween
+        ) {
+            Column(modifier = Modifier.fillMaxHeight(), verticalArrangement = Arrangement.SpaceBetween) {
+                Column {
                     Text(
-                        style = MaterialTheme.typography.bodyMedium,
-                        text = String.format("%.0f", item.amountInGramm) + "g",
+                        style = MaterialTheme.typography.headlineSmall,
+                        text = item.name
                     )
-                    Spacer(modifier = Modifier.width(10.dp))
                     Text(
                         style = MaterialTheme.typography.bodyMedium,
-                        text = "×",
-                    )
-                    Spacer(modifier = Modifier.width(10.dp))
-                    Column(
-                        modifier = Modifier.wrapContentSize(),
-                        horizontalAlignment = Alignment.CenterHorizontally
-                    ) {
-                        Text(
-                            style = MaterialTheme.typography.bodyMedium,
-                            text = String.format("%.1f", item.proteinContentPercentage).replace(".0", "") + "g"
-                        )
-                        Divider(
-                            color = MaterialTheme.colorScheme.primary,
-                            thickness = 1.dp,
-                            modifier = Modifier.width(30.dp).padding(top = 3.dp)
-                        )
-                        Text(
-                            style = MaterialTheme.typography.bodyMedium,
-                            text = "100g",
-                        )
-                    }
-                    Spacer(modifier = Modifier.width(10.dp))
-                    Text(
-                        style = MaterialTheme.typography.bodyMedium,
-                        text = "="
+                        text = item.amountInGramm.toString() + "g ",
+                        modifier = Modifier.alpha(0.5f)
                     )
                 }
+                Row(
+                    horizontalArrangement = Arrangement.SpaceBetween,
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    Row(verticalAlignment = Alignment.CenterVertically) {
+                        Text(
+                            style = MaterialTheme.typography.bodyMedium,
+                            text = String.format("%.0f", item.amountInGramm) + "g",
+                        )
+                        Spacer(modifier = Modifier.width(10.dp))
+                        Text(
+                            style = MaterialTheme.typography.bodyMedium,
+                            text = "×",
+                        )
+                        Spacer(modifier = Modifier.width(10.dp))
+                        Column(
+                            modifier = Modifier.wrapContentSize(),
+                            horizontalAlignment = Alignment.CenterHorizontally
+                        ) {
+                            Text(
+                                style = MaterialTheme.typography.bodyMedium,
+                                text = String.format("%.1f", item.proteinContentPercentage).replace(".0", "") + "g"
+                            )
+                            Divider(
+                                color = MaterialTheme.colorScheme.primary,
+                                thickness = 1.dp,
+                                modifier = Modifier.width(30.dp).padding(top = 3.dp)
+                            )
+                            Text(
+                                style = MaterialTheme.typography.bodyMedium,
+                                text = "100g",
+                            )
+                        }
+                        Spacer(modifier = Modifier.width(10.dp))
+                        Text(
+                            style = MaterialTheme.typography.bodyMedium,
+                            text = "="
+                        )
+                    }
+                }
             }
-        }
-        Column(verticalArrangement = Arrangement.SpaceBetween, modifier = Modifier.fillMaxHeight()) {
-            IconButton(onClick = { isExpanded = !isExpanded }, modifier = Modifier.align(Alignment.End).size(15.dp)) {
-                Icon(
-                    imageVector = if (isExpanded) Icons.Default.KeyboardArrowUp else Icons.Default.KeyboardArrowDown,
-                    contentDescription = "Info Icon",
-                    modifier = Modifier.fillMaxSize()
+            Column(
+                verticalArrangement = Arrangement.SpaceBetween, modifier = Modifier.fillMaxHeight().then(
+                    if (isExpanded)
+                        Modifier.padding(bottom = 6.dp)
+                    else
+                        Modifier.padding(bottom = 0.dp)
+                )
+            ) {
+                IconButton(
+                    onClick = { isExpanded = !isExpanded },
+                    modifier = Modifier.align(Alignment.End).size(15.dp)
+                ) {
+                    Icon(
+                        imageVector = if (isExpanded) Icons.Default.KeyboardArrowUp else Icons.Default.KeyboardArrowDown,
+                        contentDescription = "Info Icon",
+                        modifier = Modifier.fillMaxSize()
+                    )
+                }
+
+                Text(
+                    style = MaterialTheme.typography.titleLarge,
+                    text = String.format("%.1f", (item.amountInGramm * item.proteinContentPercentage / 100))
+                        .replace(".0", "") + "g"
                 )
             }
 
+        }
+        Spacer(modifier = Modifier.height(20.dp))
+        Row(
+            verticalAlignment = Alignment.CenterVertically,
+            modifier = Modifier.clickable {
+
+            }.padding(vertical = 10.dp, horizontal = 5.dp)
+        ) {
+            Icon(
+                imageVector = Icons.Default.Delete,
+                contentDescription = "Delete Icon",
+                modifier = Modifier.size(24.dp)
+            )
+            Spacer(modifier = Modifier.width(17.dp))
             Text(
-                style = MaterialTheme.typography.titleLarge,
-                text = String.format("%.1f", (item.amountInGramm * item.proteinContentPercentage / 100))
-                    .replace(".0", "") + "g"
+                style = MaterialTheme.typography.bodyMedium,
+                text = "Delete",
+                modifier = Modifier
             )
         }
-
     }
 }
 
