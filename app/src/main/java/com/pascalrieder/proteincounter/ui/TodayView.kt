@@ -114,7 +114,7 @@ fun TodayView() {
                                 IconButton(onClick = {
                                     mExpanded = true
                                 }) {
-                                    Icon(Icons.Default.ArrowDropDown, contentDescription = "Info Icon")
+                                    Icon(Icons.Default.KeyboardArrowDown, contentDescription = "Info Icon")
                                 }
                             })
                         Spacer(modifier = Modifier.height(10.dp))
