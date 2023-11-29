@@ -67,6 +67,10 @@ class DataProvider {
             return protein
 
         }
+        fun removeItemFromToday(item: Item){
+            var day = days.find { it.date == LocalDate.now() }
+            day?.items?.remove(item)
+        }
 
         val gson = GsonBuilder().registerTypeAdapter(LocalDate::class.java, LocalDateAdapter()).create()
 

@@ -53,6 +53,11 @@ fun TodayView() {
     // Dropdown
     var mSelectedItem by remember { mutableStateOf<Item?>(null) }
 
+    // Items
+    var items = remember { mutableStateListOf<Item>() }
+    items.clear()
+    items.addAll(DataProvider.getItems(LocalDate.now()))
+
     val openAlertDialogCreate = remember { mutableStateOf(false) }
     when {
         openAlertDialogCreate.value -> {
@@ -226,8 +231,12 @@ fun TodayView() {
             Column(
                 modifier = Modifier.verticalScroll(rememberScrollState())
             ) {
-                DataProvider.getItems(LocalDate.now()).forEach {
-                    ItemView(it)
+                items.forEach {
+                    ItemView(it, onDelete = {
+                        DataProvider.removeItemFromToday(it)
+                        items.clear()
+                        items.addAll(DataProvider.getItems(LocalDate.now()))
+                    })
                     Spacer(modifier = Modifier.height(16.dp))
                 }
             }
@@ -236,7 +245,7 @@ fun TodayView() {
 }
 
 @Composable
-fun ItemView(item: Item) {
+fun ItemView(item: Item, onDelete: () -> Unit = {}) {
     var isExpanded by remember { mutableStateOf(false) }
     Column(
         modifier = Modifier.fillMaxWidth()
@@ -332,7 +341,7 @@ fun ItemView(item: Item) {
         Row(
             verticalAlignment = Alignment.CenterVertically,
             modifier = Modifier.clickable {
-
+                onDelete()
             }.padding(vertical = 10.dp, horizontal = 5.dp)
         ) {
             Icon(
@@ -343,8 +352,7 @@ fun ItemView(item: Item) {
             Spacer(modifier = Modifier.width(17.dp))
             Text(
                 style = MaterialTheme.typography.bodyMedium,
-                text = "Delete",
-                modifier = Modifier
+                text = "Delete"
             )
         }
     }
