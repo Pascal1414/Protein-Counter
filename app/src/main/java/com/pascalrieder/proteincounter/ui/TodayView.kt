@@ -162,7 +162,6 @@ fun TodayView() {
                         }
                         DataProvider.addItemToToday(
                             Item(
-                                0,
                                 name = mSelectedItem!!.name,
                                 proteinContentPercentage = mSelectedItem!!.proteinContentPercentage,
                                 amountInGramm = amountInGramm.value.toFloat()
@@ -179,7 +178,7 @@ fun TodayView() {
                             return@TextButton
                         }
                         DataProvider.addItemToToday(
-                            Item(0, name = name.value, proteinPercentage.value.toFloat(), amountInGramm.value.toFloat())
+                            Item( name = name.value, proteinPercentage.value.toFloat(), amountInGramm.value.toFloat())
                         )
                     }
                     openAlertDialogCreate.value = false

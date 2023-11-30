@@ -12,19 +12,17 @@ class DataProvider {
     companion object {
         private var days = mutableListOf<Day>(
             Day(
-                1,
                 LocalDate.now(),
                 mutableListOf(
-                    Item(1, "Egg", 12f, 100f),
-                    Item(2, "Bread", 10f, 200f)
+                    Item("Egg", 12f, 100f),
+                    Item( "Bread", 10f, 200f)
                 )
             ),
             Day(
-                2,
                 LocalDate.now().minusDays(2),
                 mutableListOf(
-                    Item(3, "Shake", 14f, 100f),
-                    Item(4, "Milk", 10f, 200f)
+                    Item( "Shake", 14f, 100f),
+                    Item( "Milk", 10f, 200f)
                 )
             )
         )
@@ -32,14 +30,14 @@ class DataProvider {
         public fun addItemToToday(item: Item) {
             var day = days.find { it.date == LocalDate.now() }
             if (day == null) {
-                days.add(Day(0, LocalDate.now(), mutableListOf(item)))
+                days.add(Day( LocalDate.now(), mutableListOf(item)))
             } else {
                 day.items.add(item)
             }
         }
 
         public fun getItems(date: LocalDate): List<Item> {
-            return days.find { it.date == date }?.items ?: listOf()
+            return days.find { it.date == date }?.items?.toList() ?: listOf()
         }
 
         public fun getItems(): List<Item> {
@@ -47,12 +45,22 @@ class DataProvider {
             val items = mutableListOf<Item>()
             days.forEach { day ->
                 day.items.forEach { item ->
-                    if (!items.any { it.name == item.name && it.proteinContentPercentage == item.proteinContentPercentage }) {
+                    if (!items.any { it.name == item.name && it.proteinContentPercentage == item.proteinContentPercentage} && !item.isDeleted) {
                         items.add(item)
                     }
                 }
             }
             return items
+        }
+
+        fun removeItem(item: Item) {
+            days.forEach { day ->
+                day.items.forEach { dayItem ->
+                    if (dayItem.name == item.name && dayItem.proteinContentPercentage == item.proteinContentPercentage) {
+                        dayItem.isDeleted = true
+                    }
+                }
+            }
         }
 
         public fun getDays(): List<Day> {
@@ -67,7 +75,8 @@ class DataProvider {
             return protein
 
         }
-        fun removeItemFromToday(item: Item){
+
+        fun removeItemFromToday(item: Item) {
             var day = days.find { it.date == LocalDate.now() }
             day?.items?.remove(item)
         }

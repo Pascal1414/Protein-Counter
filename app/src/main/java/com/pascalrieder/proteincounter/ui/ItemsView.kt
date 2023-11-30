@@ -44,6 +44,8 @@ fun ItemsView() {
                 items(items) { item ->
                     Box(modifier = Modifier.animateItemPlacement()) {
                         Item(item = item, onDelete = {
+                            DataProvider.removeItem(item)
+                            items.remove(item)
                         })
                     }
                 }
@@ -78,7 +80,7 @@ fun Item(item: Item, onDelete: () -> Unit = {}) {
         }
         Spacer(modifier = Modifier.height(16.dp))
         Text(
-            text = "That item contains ${String.format("%.1f", item.proteinContentPercentage).replace(".0", "")}g/100g Protein",
+            text = "${String.format("%.1f", item.proteinContentPercentage).replace(".0", "")}g / 100g Protein",
             style = MaterialTheme.typography.bodyMedium
         )
         Spacer(modifier = Modifier.height(16.dp))
