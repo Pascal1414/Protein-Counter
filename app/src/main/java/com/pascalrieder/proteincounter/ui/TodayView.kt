@@ -248,7 +248,7 @@ fun ItemView(item: Item, onDelete: () -> Unit = {}) {
         modifier = Modifier.fillMaxWidth()
             .animateContentSize()
             .height(if (isExpanded) 225.dp else 100.dp)
-            .background(MaterialTheme.colorScheme.primaryContainer, MaterialTheme.shapes.extraLarge).padding(24.dp),
+            .background(MaterialTheme.colorScheme.surface, MaterialTheme.shapes.extraLarge).padding(24.dp),
     ) {
         Row(
             modifier = Modifier.fillMaxWidth().heightIn(min = 100.dp, max = 120.dp),

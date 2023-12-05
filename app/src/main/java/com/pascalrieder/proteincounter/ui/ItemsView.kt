@@ -64,7 +64,7 @@ fun ItemsView() {
 fun Item(item: Item, onDelete: () -> Unit = {}) {
     var expanded = remember { mutableStateOf(false) }
     Column(
-        modifier = Modifier.background(MaterialTheme.colorScheme.primaryContainer, MaterialTheme.shapes.medium)
+        modifier = Modifier.background(MaterialTheme.colorScheme.surface, MaterialTheme.shapes.medium)
             .padding(24.dp)
             .fillMaxWidth().then(
                 if (expanded.value) Modifier.height(120.dp) else Modifier.height(80.dp)
