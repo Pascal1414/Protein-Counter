@@ -2,7 +2,6 @@ package com.pascalrieder.proteincounter.data
 
 import android.content.Context
 import android.content.SharedPreferences
-import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import com.google.gson.reflect.TypeToken
 import java.time.LocalDate
@@ -10,22 +9,7 @@ import java.time.LocalDate
 
 class DataProvider {
     companion object {
-        private var days = mutableListOf<Day>(
-            Day(
-                LocalDate.now(),
-                mutableListOf(
-                    Item("Egg", 12f, 100f),
-                    Item( "Bread", 10f, 200f)
-                )
-            ),
-            Day(
-                LocalDate.now().minusDays(2),
-                mutableListOf(
-                    Item( "Shake", 14f, 100f),
-                    Item( "Milk", 10f, 200f)
-                )
-            )
-        )
+        private var days = mutableListOf<Day>()
 
         public fun addItemToToday(item: Item) {
             var day = days.find { it.date == LocalDate.now() }
@@ -64,7 +48,7 @@ class DataProvider {
         }
 
         public fun getDays(): List<Day> {
-            return days
+            return days.sortedByDescending { it.date }
         }
 
         fun getTodayConsumedProtein(): Float {
@@ -73,7 +57,6 @@ class DataProvider {
                 protein += item.amountInGramm * item.proteinContentPercentage / 100
             }
             return protein
-
         }
 
         fun removeItemFromToday(item: Item) {
