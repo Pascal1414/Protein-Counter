@@ -262,7 +262,7 @@ fun ItemView(item: Item, onDelete: () -> Unit = {}) {
                     )
                     Text(
                         style = MaterialTheme.typography.bodyMedium,
-                        text = item.amountInGramm.toString() + "g ",
+                        text = String.format("%.1f", item.amountInGramm).replace(".0", "") + "g",
                         modifier = Modifier.alpha(0.5f)
                     )
                 }
@@ -273,7 +273,7 @@ fun ItemView(item: Item, onDelete: () -> Unit = {}) {
                     Row(verticalAlignment = Alignment.CenterVertically) {
                         Text(
                             style = MaterialTheme.typography.bodyMedium,
-                            text = String.format("%.0f", item.amountInGramm) + "g",
+                            text = String.format("%.1f", item.amountInGramm).replace(".0", "") + "g",
                         )
                         Spacer(modifier = Modifier.width(10.dp))
                         Text(
