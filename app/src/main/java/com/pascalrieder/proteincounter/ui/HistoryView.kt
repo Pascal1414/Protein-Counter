@@ -6,6 +6,7 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
+import androidx.compose.material3.surfaceColorAtElevation
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateListOf
 import androidx.compose.runtime.remember
@@ -23,16 +24,19 @@ fun HistoryView() {
     days.addAll(DataProvider.getDays())
 
     Column {
-        Text(
-            text = "History",
-            style = MaterialTheme.typography.displayLarge,
-            modifier = Modifier.padding(horizontal = 16.dp)
-        )
+        Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween) {
+            Text(
+                text = "History",
+                style = MaterialTheme.typography.displayLarge,
+                modifier = Modifier.padding(horizontal = 16.dp)
+            )
+            // Backup Button
+        }
         Column(modifier = Modifier.fillMaxSize().verticalScroll(rememberScrollState()).padding(24.dp)) {
             days.forEach { day ->
                 Column(
                     modifier = Modifier.background(
-                        MaterialTheme.colorScheme.primaryContainer,
+                        MaterialTheme.colorScheme.surfaceColorAtElevation(3.dp),
                         MaterialTheme.shapes.medium
                     ).padding(24.dp)
                 ) {
@@ -42,9 +46,13 @@ fun HistoryView() {
                     )
                     day.items.forEach { item ->
                         Spacer(modifier = Modifier.height(24.dp))
-                        Row(verticalAlignment = Alignment.CenterVertically, modifier = Modifier.fillMaxWidth().padding(start = 4.dp)) {
+                        Row(
+                            verticalAlignment = Alignment.CenterVertically,
+                            modifier = Modifier.fillMaxWidth().padding(start = 4.dp)
+                        ) {
                             Text(
-                                text = String.format("%.1f", item.proteinContentPercentage / 100f * item.amountInGramm).replace(".0", "")
+                                text = String.format("%.1f", item.proteinContentPercentage / 100f * item.amountInGramm)
+                                    .replace(".0", "")
                                         + "g",
                                 style = MaterialTheme.typography.labelLarge,
                                 modifier = Modifier.width(85.dp)

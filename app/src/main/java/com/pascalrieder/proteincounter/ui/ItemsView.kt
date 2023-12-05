@@ -10,10 +10,7 @@ import androidx.compose.foundation.lazy.staggeredgrid.items
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.KeyboardArrowDown
 import androidx.compose.material.icons.filled.KeyboardArrowUp
-import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Text
+import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateListOf
 import androidx.compose.runtime.mutableStateOf
@@ -64,7 +61,7 @@ fun ItemsView() {
 fun Item(item: Item, onDelete: () -> Unit = {}) {
     var expanded = remember { mutableStateOf(false) }
     Column(
-        modifier = Modifier.background(MaterialTheme.colorScheme.surface, MaterialTheme.shapes.medium)
+        modifier = Modifier.background(MaterialTheme.colorScheme.surfaceColorAtElevation(3.dp), MaterialTheme.shapes.medium)
             .padding(24.dp)
             .fillMaxWidth().then(
                 if (expanded.value) Modifier.height(120.dp) else Modifier.height(80.dp)
