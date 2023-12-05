@@ -7,30 +7,25 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
-import androidx.compose.foundation.rememberScrollState
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardOptions
-import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.DropdownMenuItem
-import androidx.compose.material.ExperimentalMaterialApi
-import androidx.compose.material.ListItem
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.*
+import androidx.compose.material.icons.filled.Check
+import androidx.compose.material.icons.filled.Create
+import androidx.compose.material.icons.filled.KeyboardArrowDown
+import androidx.compose.material.icons.filled.KeyboardArrowUp
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
-import androidx.compose.ui.draw.scale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.input.KeyboardType
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.pascalrieder.proteincounter.FloatingActionButtonHandler
 import com.pascalrieder.proteincounter.R
 import com.pascalrieder.proteincounter.data.DataProvider
 import com.pascalrieder.proteincounter.data.Item
-import kotlinx.coroutines.delay
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 
@@ -252,11 +247,11 @@ fun ItemView(item: Item, onDelete: () -> Unit = {}) {
     Column(
         modifier = Modifier.fillMaxWidth()
             .animateContentSize()
-            .height(if (isExpanded) 245.dp else 100.dp)
-            .background(MaterialTheme.colorScheme.primaryContainer, MaterialTheme.shapes.medium).padding(24.dp),
+            .height(if (isExpanded) 225.dp else 100.dp)
+            .background(MaterialTheme.colorScheme.primaryContainer, MaterialTheme.shapes.extraLarge).padding(24.dp),
     ) {
         Row(
-            modifier = Modifier.fillMaxWidth().heightIn(min = 100.dp, max = 140.dp),
+            modifier = Modifier.fillMaxWidth().heightIn(min = 100.dp, max = 120.dp),
             horizontalArrangement = Arrangement.SpaceBetween
         ) {
             Column(modifier = Modifier.fillMaxHeight(), verticalArrangement = Arrangement.SpaceBetween) {
@@ -344,14 +339,13 @@ fun ItemView(item: Item, onDelete: () -> Unit = {}) {
             verticalAlignment = Alignment.CenterVertically,
             modifier = Modifier.clickable {
                 onDelete()
-            }.padding(vertical = 10.dp, horizontal = 5.dp)
+            }.height(40.dp)
         ) {
             Icon(
                 painter = painterResource(R.drawable.ic_delete),
-                contentDescription = "Delete Icon",
-                modifier = Modifier.size(24.dp)
+                contentDescription = "Delete Icon"
             )
-            Spacer(modifier = Modifier.width(17.dp))
+            Spacer(modifier = Modifier.width(13.dp))
             Text(
                 style = MaterialTheme.typography.bodyMedium,
                 text = "Delete"
