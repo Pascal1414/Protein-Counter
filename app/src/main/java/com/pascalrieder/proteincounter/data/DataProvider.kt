@@ -14,7 +14,7 @@ class DataProvider {
         public fun addItemToToday(item: Item) {
             var day = days.find { it.date == LocalDate.now() }
             if (day == null) {
-                days.add(Day( LocalDate.now(), mutableListOf(item)))
+                days.add(Day(LocalDate.now(), mutableListOf(item)))
             } else {
                 day.items.add(item)
             }
@@ -29,7 +29,7 @@ class DataProvider {
             val items = mutableListOf<Item>()
             days.forEach { day ->
                 day.items.forEach { item ->
-                    if (!items.any { it.name == item.name && it.proteinContentPercentage == item.proteinContentPercentage} && !item.isDeleted) {
+                    if (!items.any { it.name == item.name && it.proteinContentPercentage == item.proteinContentPercentage } && !item.isDeleted) {
                         items.add(item)
                     }
                 }
@@ -64,12 +64,19 @@ class DataProvider {
             day?.items?.remove(item)
         }
 
-        val gson = GsonBuilder().registerTypeAdapter(LocalDate::class.java, LocalDateAdapter()).create()
+        private val gson = GsonBuilder()
+            .setPrettyPrinting()
+            .registerTypeAdapter(LocalDate::class.java, LocalDateAdapter())
+            .create()
+
+        fun getJson(): String {
+            return gson.toJson(days)
+        }
 
         fun saveData(context: Context) {
             var sharedPreferences: SharedPreferences = context.getSharedPreferences("data", Context.MODE_PRIVATE)
             val editor = sharedPreferences.edit()
-            val daysString = gson.toJson(days)
+            val daysString = getJson()
             editor.putString("days", daysString)
             editor.apply()
         }
