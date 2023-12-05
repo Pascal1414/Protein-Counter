@@ -46,7 +46,7 @@ fun HistoryView() {
                             Text(
                                 text = String.format("%.1f", item.proteinContentPercentage / 100f * item.amountInGramm).replace(".0", "")
                                         + "g",
-                                style = MaterialTheme.typography.titleLarge,
+                                style = MaterialTheme.typography.labelLarge,
                                 modifier = Modifier.width(85.dp)
                             )
                             Column {
