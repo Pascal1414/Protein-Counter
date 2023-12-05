@@ -1,12 +1,15 @@
 package com.pascalrieder.proteincounter.ui
 
-import androidx.compose.foundation.*
+import androidx.compose.foundation.ExperimentalFoundationApi
+import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.staggeredgrid.LazyVerticalStaggeredGrid
 import androidx.compose.foundation.lazy.staggeredgrid.StaggeredGridCells
 import androidx.compose.foundation.lazy.staggeredgrid.items
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.*
+import androidx.compose.material.icons.filled.KeyboardArrowDown
+import androidx.compose.material.icons.filled.KeyboardArrowUp
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
@@ -17,8 +20,10 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import com.pascalrieder.proteincounter.R
 import com.pascalrieder.proteincounter.data.DataProvider
 import com.pascalrieder.proteincounter.data.Item
 
@@ -62,10 +67,14 @@ fun Item(item: Item, onDelete: () -> Unit = {}) {
         modifier = Modifier.background(MaterialTheme.colorScheme.primaryContainer, MaterialTheme.shapes.medium)
             .padding(24.dp)
             .fillMaxWidth().then(
-                if (expanded.value) Modifier.height(140.dp) else Modifier.height(100.dp)
+                if (expanded.value) Modifier.height(120.dp) else Modifier.height(80.dp)
             )
     ) {
-        Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween) {
+        Row(
+            modifier = Modifier.fillMaxWidth(),
+            horizontalArrangement = Arrangement.SpaceBetween,
+            verticalAlignment = Alignment.CenterVertically
+        ) {
             Text(text = item.name, fontWeight = FontWeight.Bold, style = MaterialTheme.typography.headlineSmall)
             IconButton(
                 onClick = { expanded.value = !expanded.value },
@@ -83,16 +92,21 @@ fun Item(item: Item, onDelete: () -> Unit = {}) {
             text = "${String.format("%.1f", item.proteinContentPercentage).replace(".0", "")}g / 100g Protein",
             style = MaterialTheme.typography.bodyMedium
         )
-        Spacer(modifier = Modifier.height(16.dp))
-        Row(
-            modifier = Modifier.fillMaxWidth().clickable {
-                onDelete()
-            }.padding(vertical = 8.dp, horizontal = 3.dp),
-            verticalAlignment = Alignment.CenterVertically
-        ) {
-            Icon(imageVector = Icons.Default.Delete, contentDescription = "Favorite", modifier = Modifier.size(24.dp))
-            Spacer(modifier = Modifier.width(8.dp))
-            Text(text = "Delete", style = MaterialTheme.typography.bodyMedium)
+        if (expanded.value) {
+            Spacer(modifier = Modifier.height(16.dp))
+            Row(
+                modifier = Modifier.fillMaxWidth().height(40.dp).clickable {
+                    onDelete()
+                },
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                Icon(
+                    painter = painterResource(R.drawable.ic_delete),
+                    contentDescription = "Favorite"
+                )
+                Spacer(modifier = Modifier.width(13.dp))
+                Text(text = "Delete", style = MaterialTheme.typography.bodyMedium)
+            }
         }
     }
 }
