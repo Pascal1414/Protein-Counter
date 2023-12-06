@@ -36,25 +36,47 @@ fun HistoryView() {
                 style = MaterialTheme.typography.displayLarge,
                 modifier = Modifier.padding(horizontal = 16.dp)
             )
-            var downloadCompleted by remember { mutableStateOf(false) }
-            if (downloadCompleted) {
-                LaunchedEffect(Unit) {
-                    kotlinx.coroutines.delay(1000)
-                    downloadCompleted = false
-                }
-            }
+
             val context = LocalContext.current
-            IconButton(
-                onClick = {
-                    val (success, fileName) = saveFile()
-                    downloadCompleted = success
-                }, modifier = Modifier.padding(horizontal = 16.dp), enabled = !downloadCompleted
-            ) {
-                Icon(
-                    painter = if (downloadCompleted) painterResource(R.drawable.ic_download_completed) else painterResource(
-                        R.drawable.ic_download
-                    ), contentDescription = "Download", tint = MaterialTheme.colorScheme.onSurface
-                )
+            Row {
+                var uploadCompleted by remember { mutableStateOf(false) }
+                if (uploadCompleted) {
+                    LaunchedEffect(Unit) {
+                        kotlinx.coroutines.delay(1000)
+                        uploadCompleted = false
+                    }
+                }
+                IconButton(
+                    onClick = {
+                        loadFile()
+                    }, modifier = Modifier, enabled = !uploadCompleted
+                ) {
+                    Icon(
+                        painter = if (uploadCompleted) painterResource(R.drawable.ic_download_completed) else painterResource(
+                            R.drawable.ic_upload_file
+                        ), contentDescription = "Download", tint = MaterialTheme.colorScheme.onSurface
+                    )
+                }
+
+                var downloadCompleted by remember { mutableStateOf(false) }
+                if (downloadCompleted) {
+                    LaunchedEffect(Unit) {
+                        kotlinx.coroutines.delay(1000)
+                        downloadCompleted = false
+                    }
+                }
+                IconButton(
+                    onClick = {
+                        val (success, fileName) = saveFile()
+                        downloadCompleted = success
+                    }, modifier = Modifier.padding(end = 16.dp), enabled = !downloadCompleted
+                ) {
+                    Icon(
+                        painter = if (downloadCompleted) painterResource(R.drawable.ic_download_completed) else painterResource(
+                            R.drawable.ic_file_save
+                        ), contentDescription = "Download", tint = MaterialTheme.colorScheme.onSurface
+                    )
+                }
             }
 
         }
@@ -76,7 +98,7 @@ fun HistoryView() {
                             modifier = Modifier.fillMaxWidth().padding(start = 4.dp)
                         ) {
                             Text(
-                                text = String.format("%.1f", item.proteinContentPercentage / 100f * item.amountInGramm)
+                                text = String.format("%.1f", item.proteinContentPercentage / 100f * item.amountInGram)
                                     .replace(".0", "") + "g",
                                 style = MaterialTheme.typography.labelLarge,
                                 modifier = Modifier.width(85.dp)
@@ -113,3 +135,6 @@ fun saveFile(): Pair<Boolean, String> {
     }
 }
 
+fun loadFile() {
+
+}

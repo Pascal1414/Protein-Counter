@@ -44,9 +44,9 @@ fun TodayView() {
 
 
     // Text Fields
-    val name = remember { mutableStateOf("") }
-    val proteinPercentage = remember { mutableStateOf("") }
-    val amountInGramm = remember { mutableStateOf("") }
+    var name by remember { mutableStateOf("") }
+    var proteinPercentage by remember { mutableStateOf("") }
+    var amountInGram by remember { mutableStateOf("") }
 
     // Dropdown
     var mSelectedItem by remember { mutableStateOf<Item?>(null) }
@@ -80,94 +80,95 @@ fun TodayView() {
                     }
                 }
                 Column(modifier = Modifier.padding(horizontal = 24.dp)) {
-                    if (state == 0) Column {
-                        OutlinedTextField(
-                            label = { Text("Name") },
-                            value = name.value,
-                            onValueChange = { name.value = it })
-                        Spacer(modifier = Modifier.height(10.dp))
-                        OutlinedTextField(label = { Text(text = "Protein Percentage") },
-                            value = proteinPercentage.value,
-                            keyboardOptions = KeyboardOptions.Default.copy(keyboardType = KeyboardType.Number),
-                            onValueChange = {
-                                if (it.isEmpty()) proteinPercentage.value = ""
-                                else if (isFloat(it) && it.toFloat() in 0f..100f) proteinPercentage.value = it
-                            })
+                    Column {
+                        if (state == 0) {
+                            OutlinedTextField(
+                                label = { Text("Name") },
+                                value = name,
+                                onValueChange = { name = it })
+                            Spacer(modifier = Modifier.height(10.dp))
+                            OutlinedTextField(label = { Text(text = "Protein Percentage") },
+                                value = proteinPercentage,
+                                keyboardOptions = KeyboardOptions.Default.copy(keyboardType = KeyboardType.Number),
+                                onValueChange = {
+                                    if (it.isEmpty()) proteinPercentage = ""
+                                    else if (isFloat(it) && it.toFloat() in 0f..100f) proteinPercentage = it
+                                })
 
-                    }
+                        } else if (state == 1) {
+                            var mExpanded by remember { mutableStateOf(false) }
+                            OutlinedTextField(label = { Text(text = "Select Item") }, value = mSelectedItem?.name ?: "",
+                                onValueChange = { },
+                                readOnly = true,
+                                trailingIcon = {
+                                    IconButton(onClick = {
+                                        mExpanded = true
+                                    }) {
+                                        Icon(Icons.Default.KeyboardArrowDown, contentDescription = "Info Icon")
+                                    }
+                                })
+                            Spacer(modifier = Modifier.height(10.dp))
+                            DropdownMenu(
+                                expanded = mExpanded,
+                                onDismissRequest = { mExpanded = false },
+                                modifier = Modifier.fillMaxWidth()
+                            ) {
+                                DataProvider.getItems().forEach { item ->
+                                    DropdownMenuItem(onClick = {
+                                        mExpanded = false
+                                        mSelectedItem = item
+                                    }) {
+                                        Text(item.name + " (" + item.proteinContentPercentage + "%)")
+                                    }
+                                }
 
-                    if (state == 1) Column {
-                        var mExpanded by remember { mutableStateOf(false) }
-                        OutlinedTextField(label = { Text(text = "Select Item") }, value = mSelectedItem?.name ?: "",
-                            onValueChange = { },
-                            readOnly = true,
-                            trailingIcon = {
-                                IconButton(onClick = {
-                                    mExpanded = true
-                                }) {
-                                    Icon(Icons.Default.KeyboardArrowDown, contentDescription = "Info Icon")
-                                }
-                            })
-                        Spacer(modifier = Modifier.height(10.dp))
-                        DropdownMenu(
-                            expanded = mExpanded,
-                            onDismissRequest = { mExpanded = false },
-                            modifier = Modifier.fillMaxWidth()
-                        ) {
-                            DataProvider.getItems().forEach { item ->
-                                DropdownMenuItem(onClick = {
-                                    mExpanded = false
-                                    mSelectedItem = item
-                                }) {
-                                    Text(item.name + " (" + item.proteinContentPercentage + "%)")
-                                }
+
                             }
-
-
                         }
                     }
                     Spacer(modifier = Modifier.height(10.dp))
-                    OutlinedTextField(label = { Text(text = "Consumed amount in Gramm") }, value = amountInGramm.value,
+                    OutlinedTextField(label = {Text(text = "Consumed amount in gram") }, value = amountInGram,
                         keyboardOptions = KeyboardOptions.Default.copy(keyboardType = KeyboardType.Number),
                         onValueChange = {
-                            if (it.isEmpty()) amountInGramm.value = ""
-                            else if (isFloat(it)) amountInGramm.value = it
+                            if (it.isEmpty()) amountInGram = ""
+                            else if (isFloat(it)) amountInGram = it
                         })
                     Spacer(modifier = Modifier.height(10.dp))
                     Text(text = errorMessage.value, color = MaterialTheme.colorScheme.error)
                 }
                 Button(onClick = {
-                    if (amountInGramm.value.isEmpty()) {
-                        displayErrorMessage("Please enter an amount")
-                        return@Button
-                    }
-
-                    if (state == 1) {
-                        if (mSelectedItem == null) {
-                            displayErrorMessage("Please select an Item")
-                            return@Button
-                        }
-                        val newItem = Item(
-                            name = mSelectedItem!!.name,
-                            proteinContentPercentage = mSelectedItem!!.proteinContentPercentage,
-                            amountInGramm = amountInGramm.value.toFloat()
-                        )
-                        DataProvider.addItemToToday(newItem)
-                        items += newItem
-                        openBottomSheet = false
-                    } else {
-                        if (name.value.isEmpty()) {
+                    when (state) {
+                        0 -> if (amountInGram.isEmpty()) {
+                            displayErrorMessage("Please enter an amount")
+                        } else if (name.isEmpty()) {
                             displayErrorMessage("Please enter a name")
-                            return@Button
-                        }
-                        if (proteinPercentage.value.isEmpty()) {
+                        } else if (proteinPercentage.isEmpty()) {
                             displayErrorMessage("Please enter a protein percentage")
-                            return@Button
+                        } else {
+                            val newItem =
+                                Item(
+                                    name = name,
+                                    proteinPercentage.toFloat(),
+                                    amountInGram.toFloat()
+                                )
+                            DataProvider.addItemToToday(newItem)
+                            items += newItem
                         }
-                        val newItem =
-                            Item(name = name.value, proteinPercentage.value.toFloat(), amountInGramm.value.toFloat())
-                        DataProvider.addItemToToday(newItem)
-                        items += newItem
+
+                        1 -> if (amountInGram.isEmpty()) {
+                            displayErrorMessage("Please enter an amount")
+                        } else if (mSelectedItem == null) {
+                            displayErrorMessage("Please select an Item")
+                        } else {
+                            val newItem = Item(
+                                name = mSelectedItem!!.name,
+                                proteinContentPercentage = mSelectedItem!!.proteinContentPercentage,
+                                amountInGram = amountInGram.toFloat()
+                            )
+                            DataProvider.addItemToToday(newItem)
+                            items += newItem
+                            openBottomSheet = false
+                        }
                     }
                     openBottomSheet = false
                 }) {
@@ -251,7 +252,7 @@ fun ItemView(item: Item, onDelete: () -> Unit = {}) {
                     )
                     Text(
                         style = MaterialTheme.typography.bodyMedium,
-                        text = String.format("%.1f", item.amountInGramm).replace(".0", "") + "g",
+                        text = String.format("%.1f", item.amountInGram).replace(".0", "") + "g",
                         modifier = Modifier.alpha(0.5f)
                     )
                 }
@@ -262,7 +263,7 @@ fun ItemView(item: Item, onDelete: () -> Unit = {}) {
                     Row(verticalAlignment = Alignment.CenterVertically) {
                         Text(
                             style = MaterialTheme.typography.bodyMedium,
-                            text = String.format("%.1f", item.amountInGramm).replace(".0", "") + "g",
+                            text = String.format("%.1f", item.amountInGram).replace(".0", "") + "g",
                         )
                         Spacer(modifier = Modifier.width(10.dp))
                         Text(
@@ -317,7 +318,7 @@ fun ItemView(item: Item, onDelete: () -> Unit = {}) {
 
                 Text(
                     style = MaterialTheme.typography.titleLarge,
-                    text = String.format("%.1f", (item.amountInGramm * item.proteinContentPercentage / 100))
+                    text = String.format("%.1f", (item.amountInGram * item.proteinContentPercentage / 100))
                         .replace(".0", "") + "g"
                 )
             }
