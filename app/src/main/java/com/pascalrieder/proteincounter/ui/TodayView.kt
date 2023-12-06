@@ -11,16 +11,17 @@ import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.DropdownMenuItem
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Check
-import androidx.compose.material.icons.filled.Create
 import androidx.compose.material.icons.filled.KeyboardArrowDown
 import androidx.compose.material.icons.filled.KeyboardArrowUp
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.input.KeyboardType
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import com.pascalrieder.proteincounter.FloatingActionButtonHandler
 import com.pascalrieder.proteincounter.R
@@ -41,9 +42,6 @@ fun TodayView() {
         }, 3000)
     }
 
-    // Radio Buttons
-    val radioOptions = listOf("NewItem", "ExistingItem")
-    var (selectedOption, onOptionSelected) = remember { mutableStateOf(radioOptions[1]) }
 
     // Text Fields
     val name = remember { mutableStateOf("") }
@@ -58,33 +56,34 @@ fun TodayView() {
     items.clear()
     items.addAll(DataProvider.getItems(LocalDate.now()))
 
-    val openAlertDialogCreate = remember { mutableStateOf(false) }
-    when {
-        openAlertDialogCreate.value -> {
-            AlertDialog(icon = {
-                Icon(Icons.Default.Create, contentDescription = "Info Icon")
-            }, title = {
-                Text(text = "Add Item")
-            }, text = {
-                Column {
-                    Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween) {
-                        Column {
-                            RadioButton(selected = (selectedOption == "NewItem"),
-                                onClick = { onOptionSelected("NewItem") })
-                            Text(text = "New Item")
-                        }
-                        Column {
-                            RadioButton(selected = (selectedOption == "ExistingItem"),
-                                onClick = { onOptionSelected("ExistingItem") })
-                            Text(text = "Select Item")
-                        }
+
+    var openBottomSheet by rememberSaveable { mutableStateOf(false) }
+    val bottomSheetState = rememberModalBottomSheetState(skipPartiallyExpanded = true)
+    if (openBottomSheet) {
+        ModalBottomSheet(
+            onDismissRequest = { openBottomSheet = false },
+            sheetState = bottomSheetState,
+            modifier = Modifier.fillMaxSize()
+        ) {
+            Column(modifier = Modifier.fillMaxWidth().height(500.dp)) {
+                val titles = listOf("Create Item", "Existing Item")
+                var state by remember { mutableStateOf(0) }
+                PrimaryTabRow(selectedTabIndex = state) {
+                    titles.forEachIndexed { index, title ->
+                        Tab(
+                            selected = state == index,
+                            onClick = { state = index },
+                            text = { Text(text = title, maxLines = 2, overflow = TextOverflow.Ellipsis) }, icon = {
+                                Icon(
+                                    imageVector = Icons.Default.Check,
+                                    contentDescription = "Info Icon"
+                                )
+                            }
+                        )
                     }
-                    Divider(
-                        color = MaterialTheme.colorScheme.primary,
-                        thickness = 1.dp,
-                        modifier = Modifier.padding(top = 10.dp, bottom = 10.dp)
-                    )
-                    if (selectedOption == "NewItem") Column {
+                }
+                Column(modifier = Modifier.padding(horizontal = 24.dp)) {
+                    if (state == 0) Column {
                         OutlinedTextField(
                             label = { Text("Name") },
                             value = name.value,
@@ -100,7 +99,7 @@ fun TodayView() {
 
                     }
 
-                    if (selectedOption == "ExistingItem") Column {
+                    if (state == 1) Column {
                         var mExpanded by remember { mutableStateOf(false) }
                         OutlinedTextField(label = { Text(text = "Select Item") }, value = mSelectedItem?.name ?: "",
                             onValueChange = { },
@@ -139,18 +138,14 @@ fun TodayView() {
                         })
                     Spacer(modifier = Modifier.height(10.dp))
                     Text(text = errorMessage.value, color = MaterialTheme.colorScheme.error)
-
                 }
-            }, onDismissRequest = {
-                openAlertDialogCreate.value = false
-            }, confirmButton = {
                 TextButton(onClick = {
                     if (amountInGramm.value.isEmpty()) {
                         displayErrorMessage("Please enter an amount")
                         return@TextButton
                     }
 
-                    if (selectedOption == "ExistingItem") {
+                    if (state == 1) {
                         if (mSelectedItem == null) {
                             displayErrorMessage("Please select an Item")
                             return@TextButton
@@ -162,7 +157,7 @@ fun TodayView() {
                                 amountInGramm = amountInGramm.value.toFloat()
                             )
                         )
-                        openAlertDialogCreate.value = false
+                        openBottomSheet = false
                     } else {
                         if (name.value.isEmpty()) {
                             displayErrorMessage("Please enter a name")
@@ -173,24 +168,20 @@ fun TodayView() {
                             return@TextButton
                         }
                         DataProvider.addItemToToday(
-                            Item( name = name.value, proteinPercentage.value.toFloat(), amountInGramm.value.toFloat())
+                            Item(name = name.value, proteinPercentage.value.toFloat(), amountInGramm.value.toFloat())
                         )
                     }
-                    openAlertDialogCreate.value = false
+                    openBottomSheet = false
                 }) {
                     Text("Confirm")
                 }
-            }, dismissButton = {
-                TextButton(onClick = {
-                    openAlertDialogCreate.value = false
-                }) {
-                    Text("Dismiss")
-                }
-            })
+            }
+
         }
     }
+
     FloatingActionButtonHandler.onClick = {
-        openAlertDialogCreate.value = true
+        openBottomSheet = true
     }
     Column(modifier = Modifier.fillMaxSize()) {
         Column(modifier = Modifier.padding(horizontal = 16.dp)) {
@@ -248,7 +239,8 @@ fun ItemView(item: Item, onDelete: () -> Unit = {}) {
         modifier = Modifier.fillMaxWidth()
             .animateContentSize()
             .height(if (isExpanded) 225.dp else 100.dp)
-            .background(MaterialTheme.colorScheme.surfaceColorAtElevation(3.dp), MaterialTheme.shapes.extraLarge).padding(24.dp),
+            .background(MaterialTheme.colorScheme.surfaceColorAtElevation(3.dp), MaterialTheme.shapes.extraLarge)
+            .padding(24.dp),
     ) {
         Row(
             modifier = Modifier.fillMaxWidth().heightIn(min = 100.dp, max = 120.dp),
