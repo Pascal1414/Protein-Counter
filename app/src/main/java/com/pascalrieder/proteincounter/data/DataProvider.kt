@@ -11,10 +11,12 @@ class DataProvider {
     companion object {
         private var days = mutableListOf<Day>()
 
-        public fun addItemToToday(item: Item) {
+        public fun addItemToTodayAndCreateBackupIfNeeded(item: Item, context: Context) {
             var day = days.find { it.date == LocalDate.now() }
             if (day == null) {
                 days.add(Day(LocalDate.now(), mutableListOf(item)))
+                // Create Backup
+                saveData(context)
             } else {
                 day.items.add(item)
             }

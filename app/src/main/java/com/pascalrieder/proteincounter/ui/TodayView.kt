@@ -19,6 +19,7 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.style.TextOverflow
@@ -138,6 +139,7 @@ fun TodayView(
                     Spacer(modifier = Modifier.height(10.dp))
                     Text(text = errorMessage.value, color = MaterialTheme.colorScheme.error)
                 }
+                val context = LocalContext.current
                 Button(onClick = {
                     when (state) {
                         0 -> if (amountInGram.isEmpty()) {
@@ -153,7 +155,7 @@ fun TodayView(
                                     proteinPercentage.toFloat(),
                                     amountInGram.toFloat()
                                 )
-                            DataProvider.addItemToToday(newItem)
+                            DataProvider.addItemToTodayAndCreateBackupIfNeeded(newItem, context)
                             items += newItem
                         }
 
@@ -167,7 +169,7 @@ fun TodayView(
                                 proteinContentPercentage = mSelectedItem!!.proteinContentPercentage,
                                 amountInGram = amountInGram.toFloat()
                             )
-                            DataProvider.addItemToToday(newItem)
+                            DataProvider.addItemToTodayAndCreateBackupIfNeeded(newItem, context)
                             items += newItem
                             openBottomSheet = false
                         }

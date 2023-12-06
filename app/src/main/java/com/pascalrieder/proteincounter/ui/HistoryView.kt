@@ -95,6 +95,9 @@ fun HistoryView(viewModel: AppViewModel) {
                     onClick = {
                         val (success, fileName) = saveFile()
                         downloadCompleted = success
+                        scope.launch {
+                            viewModel.showSnackbar("Backup Created\n${fileName}", "OK")
+                        }
                     }, modifier = Modifier.padding(end = 16.dp), enabled = !downloadCompleted
                 ) {
                     Icon(
