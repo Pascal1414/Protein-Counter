@@ -4,9 +4,8 @@ import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.lazy.staggeredgrid.LazyVerticalStaggeredGrid
-import androidx.compose.foundation.lazy.staggeredgrid.StaggeredGridCells
-import androidx.compose.foundation.lazy.staggeredgrid.items
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.KeyboardArrowDown
 import androidx.compose.material.icons.filled.KeyboardArrowUp
@@ -33,21 +32,15 @@ fun ItemsView() {
             modifier = Modifier.padding(horizontal = 16.dp)
         )
         // Those are the items that you used before. You can forget them so they don't show up anymore.
-        LazyVerticalStaggeredGrid(
-            columns = StaggeredGridCells.Adaptive(128.dp),
-            verticalItemSpacing = 16.dp,
-            horizontalArrangement = Arrangement.spacedBy(16.dp),
-            content = {
+        LazyColumn(
+            verticalArrangement = Arrangement.spacedBy(16.dp), content = {
                 items(items) { item ->
-                    Box(modifier = Modifier.animateItemPlacement()) {
-                        Item(item = item, onDelete = {
-                            DataProvider.removeItem(item)
-                            items = items.filter { it != item }
-                        })
-                    }
+                    Item(item = item, onDelete = {
+                        DataProvider.removeItem(item)
+                        items = items.filter { it != item }
+                    })
                 }
-            },
-            modifier = Modifier.fillMaxSize().padding(24.dp)
+            }, modifier = Modifier.fillMaxSize().padding(24.dp)
         )
     }
 }
@@ -56,11 +49,9 @@ fun ItemsView() {
 fun Item(item: Item, onDelete: () -> Unit = {}) {
     var expanded = remember { mutableStateOf(false) }
     Column(
-        modifier = Modifier.background(MaterialTheme.colorScheme.surfaceColorAtElevation(3.dp), MaterialTheme.shapes.medium)
-            .padding(24.dp)
-            .fillMaxWidth().then(
-                if (expanded.value) Modifier.height(120.dp) else Modifier.height(80.dp)
-            )
+        modifier = Modifier.background(
+            MaterialTheme.colorScheme.surfaceColorAtElevation(3.dp), MaterialTheme.shapes.medium
+        ).padding(24.dp)
     ) {
         Row(
             modifier = Modifier.fillMaxWidth(),
@@ -69,8 +60,7 @@ fun Item(item: Item, onDelete: () -> Unit = {}) {
         ) {
             Text(text = item.name, fontWeight = FontWeight.Bold, style = MaterialTheme.typography.headlineSmall)
             IconButton(
-                onClick = { expanded.value = !expanded.value },
-                modifier = Modifier.size(24.dp)
+                onClick = { expanded.value = !expanded.value }, modifier = Modifier.size(24.dp)
             ) {
                 Icon(
                     imageVector = if (expanded.value) Icons.Default.KeyboardArrowUp else Icons.Default.KeyboardArrowDown,
@@ -89,12 +79,10 @@ fun Item(item: Item, onDelete: () -> Unit = {}) {
             Row(
                 modifier = Modifier.fillMaxWidth().height(40.dp).clickable {
                     onDelete()
-                },
-                verticalAlignment = Alignment.CenterVertically
+                }, verticalAlignment = Alignment.CenterVertically
             ) {
                 Icon(
-                    painter = painterResource(R.drawable.ic_delete),
-                    contentDescription = "Favorite"
+                    painter = painterResource(R.drawable.ic_delete), contentDescription = "Favorite"
                 )
                 Spacer(modifier = Modifier.width(13.dp))
                 Text(text = "Delete", style = MaterialTheme.typography.bodyMedium)
