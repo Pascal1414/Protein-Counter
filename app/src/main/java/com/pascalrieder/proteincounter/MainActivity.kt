@@ -4,13 +4,12 @@ import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.activity.viewModels
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
-import androidx.compose.material.icons.filled.KeyboardArrowDown
-import androidx.compose.material.icons.filled.KeyboardArrowUp
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
@@ -28,10 +27,11 @@ import com.pascalrieder.proteincounter.ui.TodayView
 
 class MainActivity : ComponentActivity() {
     @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
-    @OptIn(ExperimentalMaterial3Api::class)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         DataProvider.loadData(context = this)
+
+        val viewModel: AppViewModel by viewModels()
         setContent {
             AppTheme {
                 // A surface container using the 'background' color from the theme
@@ -41,14 +41,16 @@ class MainActivity : ComponentActivity() {
                     val navController = rememberNavController()
                     Scaffold(content = {
                         Column(modifier = Modifier.padding(top = 16.dp, bottom = 70.dp)) {
-                            Navigation(navController)
+                            Navigation(navController, viewModel)
                         }
                     }, bottomBar = {
                         BottomBar(navController)
+                    }, snackbarHost = {
+                        SnackbarHost(hostState = viewModel.snackbarHostState.value)
                     },
                         floatingActionButton = {
                             FloatingActionButton(
-                                onClick = { FloatingActionButtonHandler.onClick?.let { it() } },
+                                onClick = { viewModel.onFloatingActionButtonClick?.let { it() } },
                                 content = {
                                     Icon(
                                         imageVector = Icons.Default.Add,
@@ -67,13 +69,6 @@ class MainActivity : ComponentActivity() {
         DataProvider.saveData(context = this)
     }
 }
-
-class FloatingActionButtonHandler {
-    companion object{
-        var onClick: (() -> Unit)? = null
-    }
-}
-
 
 @Composable
 private fun BottomBar(navController: NavHostController) {
@@ -125,15 +120,15 @@ private fun BottomBar(navController: NavHostController) {
 }
 
 @Composable
-fun Navigation(navController: NavHostController) {
+fun Navigation(navController: NavHostController, viewModel: AppViewModel) {
     NavHost(
         navController = navController, startDestination = "today", modifier = Modifier.fillMaxSize()
     ) {
         composable("today") {
-            TodayView()
+            TodayView(viewModel)
         }
         composable("history") {
-            HistoryView()
+            HistoryView(viewModel)
         }
         composable("items") {
             ItemsView()

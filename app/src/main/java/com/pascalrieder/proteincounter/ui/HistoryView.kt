@@ -1,5 +1,11 @@
 package com.pascalrieder.proteincounter.ui
 
+import android.app.Activity
+import android.content.Context
+import android.content.Intent
+import android.net.Uri
+import androidx.activity.compose.rememberLauncherForActivityResult
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
@@ -15,14 +21,16 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
+import com.pascalrieder.proteincounter.AppViewModel
 import com.pascalrieder.proteincounter.R
 import com.pascalrieder.proteincounter.data.DataProvider
+import kotlinx.coroutines.launch
 import java.io.File
 import java.time.format.DateTimeFormatter
 
 
 @Composable
-fun HistoryView() {
+fun HistoryView(viewModel: AppViewModel) {
     var days by remember { mutableStateOf(DataProvider.getDays()) }
 
     Column {
@@ -46,9 +54,27 @@ fun HistoryView() {
                         uploadCompleted = false
                     }
                 }
+                val scope = rememberCoroutineScope()
+                val launcher = rememberLauncherForActivityResult(
+                    contract = ActivityResultContracts.StartActivityForResult()
+                ) { activityResult ->
+                    if (activityResult.resultCode == Activity.RESULT_OK) {
+                        val uri: Uri? = activityResult.data?.data
+                        if (uri != null) {
+                            val (success, message) = loadFile(context, uri)
+                            uploadCompleted = success
+                            scope.launch {
+                                viewModel.showSnackbar(message, "OK")
+                            }
+                        }
+                    }
+                }
                 IconButton(
                     onClick = {
-                        loadFile()
+                        launcher.launch(android.content.Intent().apply {
+                            action = Intent.ACTION_OPEN_DOCUMENT
+                            type = "*/*"
+                        })
                     }, modifier = Modifier, enabled = !uploadCompleted
                 ) {
                     Icon(
@@ -135,6 +161,19 @@ fun saveFile(): Pair<Boolean, String> {
     }
 }
 
-fun loadFile() {
-
+fun loadFile(context: Context, uri: Uri): Pair<Boolean, String> {
+    // get the file content
+    val contentResolver = context.contentResolver
+    val inputStream = contentResolver.openInputStream(uri)
+    val fileContent = inputStream?.bufferedReader().use { it?.readText() }
+    if (fileContent != null) {
+        try {
+            DataProvider.loadBackup(fileContent)
+            return Pair(true, "Backup loaded")
+        } catch (e: Exception) {
+            e.printStackTrace()
+            return Pair(false, "Invalid backup file")
+        }
+    }
+    return Pair(false, "File could not be read")
 }

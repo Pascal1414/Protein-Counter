@@ -73,6 +73,12 @@ class DataProvider {
             return gson.toJson(days)
         }
 
+        @Throws(Exception::class)
+        fun loadBackup(jsonString : String)  {
+            val mutableListTutorialType = object : TypeToken<MutableList<Day>>() {}.type
+            days = gson.fromJson(jsonString, mutableListTutorialType)
+        }
+
         fun saveData(context: Context) {
             var sharedPreferences: SharedPreferences = context.getSharedPreferences("data", Context.MODE_PRIVATE)
             val editor = sharedPreferences.edit()

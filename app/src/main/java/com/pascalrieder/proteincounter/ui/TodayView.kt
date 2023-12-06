@@ -23,7 +23,8 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
-import com.pascalrieder.proteincounter.FloatingActionButtonHandler
+import androidx.lifecycle.viewmodel.compose.viewModel
+import com.pascalrieder.proteincounter.AppViewModel
 import com.pascalrieder.proteincounter.R
 import com.pascalrieder.proteincounter.data.DataProvider
 import com.pascalrieder.proteincounter.data.Item
@@ -32,7 +33,9 @@ import java.time.format.DateTimeFormatter
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun TodayView() {
+fun TodayView(
+    viewModel: AppViewModel = viewModel()
+) {
     val errorMessage = remember { mutableStateOf("") }
     fun displayErrorMessage(message: String) {
         errorMessage.value = message
@@ -41,7 +44,6 @@ fun TodayView() {
             errorMessage.value = ""
         }, 3000)
     }
-
 
     // Text Fields
     var name by remember { mutableStateOf("") }
@@ -127,7 +129,7 @@ fun TodayView() {
                         }
                     }
                     Spacer(modifier = Modifier.height(10.dp))
-                    OutlinedTextField(label = {Text(text = "Consumed amount in gram") }, value = amountInGram,
+                    OutlinedTextField(label = { Text(text = "Consumed amount in gram") }, value = amountInGram,
                         keyboardOptions = KeyboardOptions.Default.copy(keyboardType = KeyboardType.Number),
                         onValueChange = {
                             if (it.isEmpty()) amountInGram = ""
@@ -178,8 +180,7 @@ fun TodayView() {
 
         }
     }
-
-    FloatingActionButtonHandler.onClick = {
+    viewModel.onFloatingActionButtonClick = {
         openBottomSheet = true
     }
     Column(modifier = Modifier.fillMaxSize()) {
