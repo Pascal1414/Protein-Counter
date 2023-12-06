@@ -47,18 +47,14 @@ class MainActivity : ComponentActivity() {
                         BottomBar(navController)
                     }, snackbarHost = {
                         SnackbarHost(hostState = viewModel.snackbarHostState.value)
-                    },
-                        floatingActionButton = {
-                            FloatingActionButton(
-                                onClick = { viewModel.onFloatingActionButtonClick?.let { it() } },
-                                content = {
-                                    Icon(
-                                        imageVector = Icons.Default.Add,
-                                        contentDescription = "Add Icon"
-                                    )
-                                }
-                            )
-                        })
+                    }, floatingActionButton = {
+                        FloatingActionButton(onClick = { viewModel.onFloatingActionButtonClick?.let { it() } },
+                            content = {
+                                Icon(
+                                    imageVector = Icons.Default.Add, contentDescription = "Add Icon"
+                                )
+                            })
+                    })
                 }
             }
         }
@@ -74,48 +70,30 @@ class MainActivity : ComponentActivity() {
 private fun BottomBar(navController: NavHostController) {
     var selectedItem by remember { mutableIntStateOf(0) }
     NavigationBar {
-        NavigationBarItem(
-            icon = {
-                Icon(
-                    painter = painterResource(R.drawable.ic_today),
-                    contentDescription = "Today"
-                )
-            },
-            label = { Text("Today") },
-            selected = selectedItem == 0,
-            onClick = {
-                selectedItem = 0
-                navController.navigate("today")
-            }
-        )
-        NavigationBarItem(
-            icon = {
-                Icon(
-                    painter = painterResource(R.drawable.ic_history),
-                    contentDescription = "History"
-                )
-            },
-            label = { Text("History") },
-            selected = selectedItem == 1,
-            onClick = {
-                selectedItem = 1
-                navController.navigate("history")
-            }
-        )
-        NavigationBarItem(
-            icon = {
-                Icon(
-                    painter = painterResource(R.drawable.ic_list),
-                    contentDescription = "Items"
-                )
-            },
-            label = { Text("Items") },
-            selected = selectedItem == 2,
-            onClick = {
-                selectedItem = 2
-                navController.navigate("items")
-            }
-        )
+        NavigationBarItem(icon = {
+            Icon(
+                painter = painterResource(R.drawable.ic_today), contentDescription = "Today"
+            )
+        }, label = { Text("Today") }, selected = selectedItem == 0, onClick = {
+            selectedItem = 0
+            navController.navigate("today")
+        })
+        NavigationBarItem(icon = {
+            Icon(
+                painter = painterResource(R.drawable.ic_history), contentDescription = "History"
+            )
+        }, label = { Text("History") }, selected = selectedItem == 1, onClick = {
+            selectedItem = 1
+            navController.navigate("history")
+        })
+        NavigationBarItem(icon = {
+            Icon(
+                painter = painterResource(R.drawable.ic_list), contentDescription = "Items"
+            )
+        }, label = { Text("Items") }, selected = selectedItem == 2, onClick = {
+            selectedItem = 2
+            navController.navigate("items")
+        })
     }
 }
 
