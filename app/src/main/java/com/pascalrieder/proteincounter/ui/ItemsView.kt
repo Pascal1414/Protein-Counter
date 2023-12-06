@@ -11,10 +11,7 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.KeyboardArrowDown
 import androidx.compose.material.icons.filled.KeyboardArrowUp
 import androidx.compose.material3.*
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.mutableStateListOf
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
+import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
@@ -27,9 +24,7 @@ import com.pascalrieder.proteincounter.data.Item
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun ItemsView() {
-    var items = remember { mutableStateListOf<Item>() }
-    items.clear()
-    items.addAll(DataProvider.getItems())
+    var items by remember { mutableStateOf(DataProvider.getItems()) }
 
     Column {
         Text(
@@ -47,7 +42,7 @@ fun ItemsView() {
                     Box(modifier = Modifier.animateItemPlacement()) {
                         Item(item = item, onDelete = {
                             DataProvider.removeItem(item)
-                            items.remove(item)
+                            items = items.filter { it != item }
                         })
                     }
                 }

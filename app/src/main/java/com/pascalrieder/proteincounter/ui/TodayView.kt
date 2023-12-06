@@ -52,10 +52,7 @@ fun TodayView() {
     var mSelectedItem by remember { mutableStateOf<Item?>(null) }
 
     // Items
-    var items = remember { mutableStateListOf<Item>() }
-    items.clear()
-    items.addAll(DataProvider.getItems(LocalDate.now()))
-
+    var items by remember { mutableStateOf(DataProvider.getItems(LocalDate.now())) }
 
     var openBottomSheet by rememberSaveable { mutableStateOf(false) }
     val bottomSheetState = rememberModalBottomSheetState(skipPartiallyExpanded = true)
@@ -63,7 +60,7 @@ fun TodayView() {
         ModalBottomSheet(
             onDismissRequest = { openBottomSheet = false },
             sheetState = bottomSheetState,
-            modifier = Modifier.fillMaxSize()
+            modifier = Modifier.fillMaxHeight()
         ) {
             Column(modifier = Modifier.fillMaxWidth().height(500.dp)) {
                 val titles = listOf("Create Item", "Existing Item")
@@ -139,37 +136,38 @@ fun TodayView() {
                     Spacer(modifier = Modifier.height(10.dp))
                     Text(text = errorMessage.value, color = MaterialTheme.colorScheme.error)
                 }
-                TextButton(onClick = {
+                Button(onClick = {
                     if (amountInGramm.value.isEmpty()) {
                         displayErrorMessage("Please enter an amount")
-                        return@TextButton
+                        return@Button
                     }
 
                     if (state == 1) {
                         if (mSelectedItem == null) {
                             displayErrorMessage("Please select an Item")
-                            return@TextButton
+                            return@Button
                         }
-                        DataProvider.addItemToToday(
-                            Item(
-                                name = mSelectedItem!!.name,
-                                proteinContentPercentage = mSelectedItem!!.proteinContentPercentage,
-                                amountInGramm = amountInGramm.value.toFloat()
-                            )
+                        val newItem = Item(
+                            name = mSelectedItem!!.name,
+                            proteinContentPercentage = mSelectedItem!!.proteinContentPercentage,
+                            amountInGramm = amountInGramm.value.toFloat()
                         )
+                        DataProvider.addItemToToday(newItem)
+                        items += newItem
                         openBottomSheet = false
                     } else {
                         if (name.value.isEmpty()) {
                             displayErrorMessage("Please enter a name")
-                            return@TextButton
+                            return@Button
                         }
                         if (proteinPercentage.value.isEmpty()) {
                             displayErrorMessage("Please enter a protein percentage")
-                            return@TextButton
+                            return@Button
                         }
-                        DataProvider.addItemToToday(
+                        val newItem =
                             Item(name = name.value, proteinPercentage.value.toFloat(), amountInGramm.value.toFloat())
-                        )
+                        DataProvider.addItemToToday(newItem)
+                        items += newItem
                     }
                     openBottomSheet = false
                 }) {
@@ -222,8 +220,7 @@ fun TodayView() {
                 items(items) { item ->
                     ItemView(item, onDelete = {
                         DataProvider.removeItemFromToday(item)
-                        items.clear()
-                        items.addAll(DataProvider.getItems(LocalDate.now()))
+                        items = DataProvider.getItems(LocalDate.now())
                     })
                     Spacer(modifier = Modifier.height(16.dp))
                 }

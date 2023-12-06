@@ -17,16 +17,13 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import com.pascalrieder.proteincounter.R
 import com.pascalrieder.proteincounter.data.DataProvider
-import com.pascalrieder.proteincounter.data.Day
 import java.io.File
 import java.time.format.DateTimeFormatter
 
 
 @Composable
 fun HistoryView() {
-    var days = remember { mutableStateListOf<Day>() }
-    days.clear()
-    days.addAll(DataProvider.getDays())
+    var days by remember { mutableStateOf(DataProvider.getDays()) }
 
     Column {
         Row(
