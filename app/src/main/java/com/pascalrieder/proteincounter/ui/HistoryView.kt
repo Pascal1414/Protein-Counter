@@ -135,10 +135,20 @@ fun HistoryView(viewModel: AppViewModel) {
                             )
                             Column {
                                 Text(
-                                    text = item.name, style = MaterialTheme.typography.bodyMedium
+                                    text = item.name, style = MaterialTheme.typography.titleSmall
                                 )
                                 Text(
-                                    text = item.proteinContentPercentage.toString() + "%",
+                                    text = "${
+                                        String.format("%.1f", item.amountInGram * item.proteinContentPercentage / 100)
+                                            .replace(".0", "")
+                                    }g protein",
+                                    style = MaterialTheme.typography.bodySmall
+                                )
+                                Text(
+                                    text = "${
+                                        String.format("%.1f", item.amountInGram * item.kcalContentIn100g / 100)
+                                            .replace(".0", "")
+                                    } kcal",
                                     style = MaterialTheme.typography.bodySmall
                                 )
                             }

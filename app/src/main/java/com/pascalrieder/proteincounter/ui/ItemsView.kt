@@ -75,7 +75,7 @@ fun Item(item: Item, onDelete: () -> Unit = {}) {
             style = MaterialTheme.typography.bodyMedium
         )
         Text(
-            text = "${String.format("%.1f", item.kcalContentIn100g).replace(".0", "")}kcal / 100g ",
+            text = "${String.format("%.1f", item.kcalContentIn100g).replace(".0", "")} kcal / 100g ",
             style = MaterialTheme.typography.bodyMedium
         )
         if (expanded.value) {

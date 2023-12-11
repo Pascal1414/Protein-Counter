@@ -243,7 +243,7 @@ fun TodayView(
                 val consumedKcal = String.format("%.1f", DataProvider.getTodayConsumedKcal()).replace(".0", "")
                 Text(
                     style = MaterialTheme.typography.bodyMedium,
-                    text = "You have consumed ${consumedProtein}g of protein and ${consumedKcal}kcal today",
+                    text = "You have consumed ${consumedProtein}g of protein and ${consumedKcal} kcal today",
                     modifier = Modifier.padding(start = 16.dp)
                 )
             }
