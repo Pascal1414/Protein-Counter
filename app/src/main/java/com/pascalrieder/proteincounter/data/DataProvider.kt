@@ -60,6 +60,13 @@ class DataProvider {
             }
             return protein
         }
+        fun getTodayConsumedKcal(): Float {
+            var kcal = 0f
+            days.find { it.date == LocalDate.now() }?.items?.forEach { item ->
+                kcal += item.amountInGram * item.kcalContentIn100g / 100
+            }
+            return kcal
+        }
 
         fun removeItemFromToday(item: Item) {
             var day = days.find { it.date == LocalDate.now() }

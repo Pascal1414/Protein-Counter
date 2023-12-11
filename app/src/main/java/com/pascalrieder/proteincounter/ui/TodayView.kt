@@ -49,6 +49,7 @@ fun TodayView(
     // Text Fields
     var name by remember { mutableStateOf("") }
     var proteinPercentage by remember { mutableStateOf("") }
+    var kcalPercentage by remember { mutableStateOf("") }
     var amountInGram by remember { mutableStateOf("") }
 
     // Dropdown
@@ -98,6 +99,14 @@ fun TodayView(
                                     if (it.isEmpty()) proteinPercentage = ""
                                     else if (isFloat(it) && it.toFloat() in 0f..100f) proteinPercentage = it
                                 })
+                            Spacer(modifier = Modifier.height(10.dp))
+                            OutlinedTextField(label = { Text(text = "Kcal in 100g") },
+                                value = kcalPercentage,
+                                keyboardOptions = KeyboardOptions.Default.copy(keyboardType = KeyboardType.Number),
+                                onValueChange = {
+                                    if (it.isEmpty()) kcalPercentage = ""
+                                    else if (isFloat(it)) kcalPercentage = it
+                                })
 
                         } else if (state == 1) {
                             var mExpanded by remember { mutableStateOf(false) }
@@ -127,10 +136,11 @@ fun TodayView(
                                     }
                                 }
                                 if (items.isEmpty())
-                                    DropdownMenuItem(onClick = {
-                                        mExpanded = false
-                                        state = 0
-                                    },
+                                    DropdownMenuItem(
+                                        onClick = {
+                                            mExpanded = false
+                                            state = 0
+                                        },
                                     ) {
                                         Icon(painterResource(R.drawable.ic_add), contentDescription = "Info Icon")
                                         Spacer(modifier = Modifier.width(10.dp))
@@ -158,12 +168,15 @@ fun TodayView(
                                 displayErrorMessage("Please enter a name")
                             } else if (proteinPercentage.isEmpty()) {
                                 displayErrorMessage("Please enter a protein percentage")
+                            } else if (kcalPercentage.isEmpty()) {
+                                displayErrorMessage("Please enter a kcal value")
                             } else {
                                 val newItem =
                                     Item(
                                         name = name,
-                                        proteinPercentage.toFloat(),
-                                        amountInGram.toFloat()
+                                        proteinContentPercentage = proteinPercentage.toFloat(),
+                                        amountInGram = amountInGram.toFloat(),
+                                        kcalContentIn100g = kcalPercentage.toFloat()
                                     )
                                 DataProvider.addItemToTodayAndCreateBackupIfNeeded(newItem, context)
                                 items += newItem
@@ -178,7 +191,9 @@ fun TodayView(
                                 val newItem = Item(
                                     name = mSelectedItem!!.name,
                                     proteinContentPercentage = mSelectedItem!!.proteinContentPercentage,
-                                    amountInGram = amountInGram.toFloat()
+                                    amountInGram = amountInGram.toFloat(),
+                                    kcalContentIn100g = mSelectedItem!!.kcalContentIn100g
+
                                 )
                                 DataProvider.addItemToTodayAndCreateBackupIfNeeded(newItem, context)
                                 items += newItem
@@ -225,9 +240,10 @@ fun TodayView(
                     modifier = Modifier.size(24.dp)
                 )
                 val consumedProtein = String.format("%.1f", DataProvider.getTodayConsumedProtein()).replace(".0", "")
+                val consumedKcal = String.format("%.1f", DataProvider.getTodayConsumedKcal()).replace(".0", "")
                 Text(
                     style = MaterialTheme.typography.bodyMedium,
-                    text = "You have consumed " + consumedProtein + "g of protein today",
+                    text = "You have consumed ${consumedProtein}g of protein and ${consumedKcal}kcal today",
                     modifier = Modifier.padding(start = 16.dp)
                 )
             }

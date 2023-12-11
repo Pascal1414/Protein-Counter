@@ -74,6 +74,10 @@ fun Item(item: Item, onDelete: () -> Unit = {}) {
             text = "${String.format("%.1f", item.proteinContentPercentage).replace(".0", "")}g / 100g Protein",
             style = MaterialTheme.typography.bodyMedium
         )
+        Text(
+            text = "${String.format("%.1f", item.kcalContentIn100g).replace(".0", "")}kcal / 100g ",
+            style = MaterialTheme.typography.bodyMedium
+        )
         if (expanded.value) {
             Spacer(modifier = Modifier.height(16.dp))
             Row(
