@@ -99,15 +99,6 @@ fun TodayView(
                                     if (it.isEmpty()) proteinPercentage = ""
                                     else if (isFloat(it) && it.toFloat() in 0f..100f) proteinPercentage = it
                                 })
-                            Spacer(modifier = Modifier.height(10.dp))
-                            OutlinedTextField(label = { Text(text = "Kcal in 100g") },
-                                value = kcalPercentage,
-                                keyboardOptions = KeyboardOptions.Default.copy(keyboardType = KeyboardType.Number),
-                                onValueChange = {
-                                    if (it.isEmpty()) kcalPercentage = ""
-                                    else if (isFloat(it)) kcalPercentage = it
-                                })
-
                         } else if (state == 1) {
                             var mExpanded by remember { mutableStateOf(false) }
                             OutlinedTextField(label = { Text(text = "Select Item") }, value = mSelectedItem?.name ?: "",
@@ -120,7 +111,6 @@ fun TodayView(
                                         Icon(Icons.Default.KeyboardArrowDown, contentDescription = "Info Icon")
                                     }
                                 })
-                            Spacer(modifier = Modifier.height(10.dp))
                             DropdownMenu(
                                 expanded = mExpanded,
                                 onDismissRequest = { mExpanded = false },
@@ -150,6 +140,14 @@ fun TodayView(
                             }
                         }
                     }
+                    Spacer(modifier = Modifier.height(10.dp))
+                    OutlinedTextField(label = { Text(text = "Kcal in 100g") },
+                        value = kcalPercentage,
+                        keyboardOptions = KeyboardOptions.Default.copy(keyboardType = KeyboardType.Number),
+                        onValueChange = {
+                            if (it.isEmpty()) kcalPercentage = ""
+                            else if (isFloat(it)) kcalPercentage = it
+                        })
                     Spacer(modifier = Modifier.height(10.dp))
                     OutlinedTextField(label = { Text(text = "Consumed amount in gram") }, value = amountInGram,
                         keyboardOptions = KeyboardOptions.Default.copy(keyboardType = KeyboardType.Number),
@@ -243,7 +241,7 @@ fun TodayView(
                 val consumedKcal = String.format("%.1f", DataProvider.getTodayConsumedKcal()).replace(".0", "")
                 Text(
                     style = MaterialTheme.typography.bodyMedium,
-                    text = "You have consumed ${consumedProtein}g of protein and ${consumedKcal} kcal today",
+                    text = "You have consumed ${consumedProtein}g of protein and $consumedKcal kcal today",
                     modifier = Modifier.padding(start = 16.dp)
                 )
             }
