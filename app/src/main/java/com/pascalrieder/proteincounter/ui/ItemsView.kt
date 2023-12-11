@@ -31,17 +31,39 @@ fun ItemsView() {
             style = MaterialTheme.typography.displayLarge,
             modifier = Modifier.padding(horizontal = 16.dp)
         )
-        if (items.isNotEmpty()) LazyColumn(
-            verticalArrangement = Arrangement.spacedBy(16.dp), content = {
-                items(items) { item ->
-                    Item(item = item, onDelete = {
-                        DataProvider.removeItem(item)
-                        items = items.filter { it != item }
-                    })
+        if (items.isNotEmpty()) {
+            Column(modifier = Modifier.fillMaxSize().padding(24.dp)) {
+                Row(
+                    verticalAlignment = Alignment.CenterVertically,
+                    modifier = Modifier.fillMaxWidth()
+                        .background(MaterialTheme.colorScheme.secondaryContainer, MaterialTheme.shapes.medium)
+                        .padding(24.dp)
+                ) {
+                    Icon(
+                        painter = painterResource(R.drawable.ic_info),
+                        contentDescription = "Info Icon",
+                        modifier = Modifier.size(24.dp)
+                    )
+                    Text(
+                        style = MaterialTheme.typography.bodyMedium,
+                        text = "Nutritional values refer to 100g of the product.",
+                        modifier = Modifier.padding(start = 16.dp)
+                    )
                 }
-            }, modifier = Modifier.fillMaxSize().padding(24.dp)
-        )
-        else Column(modifier = Modifier.fillMaxSize()) {
+                Spacer(modifier = Modifier.height(16.dp))
+
+                LazyColumn(
+                    verticalArrangement = Arrangement.spacedBy(16.dp), content = {
+                        items(items) { item ->
+                            Item(item = item, onDelete = {
+                                DataProvider.removeItem(item)
+                                items = items.filter { it != item }
+                            })
+                        }
+                    }
+                )
+            }
+        } else Column(modifier = Modifier.fillMaxSize()) {
             Text(
                 text = "Your items will appear here",
                 style = MaterialTheme.typography.headlineSmall,
@@ -78,11 +100,11 @@ fun Item(item: Item, onDelete: () -> Unit = {}) {
         }
         Spacer(modifier = Modifier.height(16.dp))
         Text(
-            text = "${String.format("%.1f", item.proteinContentPercentage).replace(".0", "")}g / 100g Protein",
+            text = "${String.format("%.1f", item.proteinContentPercentage).replace(".0", "")}g Protein",
             style = MaterialTheme.typography.bodyMedium
         )
         Text(
-            text = "${String.format("%.1f", item.kcalContentIn100g).replace(".0", "")} kcal / 100g ",
+            text = "${String.format("%.1f", item.kcalContentIn100g).replace(".0", "")} kcal",
             style = MaterialTheme.typography.bodyMedium
         )
         if (expanded.value) {
