@@ -32,7 +32,7 @@ fun ItemsView() {
             modifier = Modifier.padding(horizontal = 16.dp)
         )
         if (items.isNotEmpty()) {
-            Column(modifier = Modifier.fillMaxSize().padding(24.dp)) {
+            Column(modifier = Modifier.fillMaxSize().padding(start = 24.dp, top = 24.dp, end = 24.dp)) {
                 Row(
                     verticalAlignment = Alignment.CenterVertically,
                     modifier = Modifier.fillMaxWidth()

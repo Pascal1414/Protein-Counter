@@ -109,65 +109,63 @@ fun HistoryView(viewModel: AppViewModel) {
                 }
             }
         }
-        if (days.isNotEmpty())
-            LazyColumn(
-                verticalArrangement = Arrangement.spacedBy(16.dp), content = {
-                    items(days) { day ->
-                        Column(
-                            modifier = Modifier.background(
-                                MaterialTheme.colorScheme.surfaceColorAtElevation(3.dp), MaterialTheme.shapes.medium
-                            ).padding(24.dp)
-                        ) {
-                            Text(
-                                text = day.date.format(DateTimeFormatter.ofPattern("dd.MM.yyyy")),
-                                style = MaterialTheme.typography.headlineSmall
-                            )
-                            day.items.forEach { item ->
-                                Spacer(modifier = Modifier.height(24.dp))
-                                Row(
-                                    verticalAlignment = Alignment.CenterVertically,
-                                    modifier = Modifier.fillMaxWidth().padding(start = 4.dp)
-                                ) {
+        if (days.isNotEmpty()) LazyColumn(verticalArrangement = Arrangement.spacedBy(16.dp),
+            modifier = Modifier.fillMaxSize().padding(start = 24.dp, top = 24.dp, end = 24.dp),
+            content = {
+                items(days) { day ->
+                    Column(
+                        modifier = Modifier.background(
+                            MaterialTheme.colorScheme.surfaceColorAtElevation(3.dp), MaterialTheme.shapes.medium
+                        ).padding(24.dp)
+                    ) {
+                        Text(
+                            text = day.date.format(DateTimeFormatter.ofPattern("dd.MM.yyyy")),
+                            style = MaterialTheme.typography.headlineSmall
+                        )
+                        day.items.forEach { item ->
+                            Spacer(modifier = Modifier.height(24.dp))
+                            Row(
+                                verticalAlignment = Alignment.CenterVertically,
+                                modifier = Modifier.fillMaxWidth().padding(start = 4.dp)
+                            ) {
+                                Text(
+                                    text = String.format(
+                                        "%.1f", item.amountInGram
+                                    ).replace(".0", "") + "g",
+                                    style = MaterialTheme.typography.labelLarge,
+                                    modifier = Modifier.width(85.dp)
+                                )
+                                Column {
                                     Text(
-                                        text = String.format(
-                                            "%.1f", item.proteinContentPercentage / 100f * item.amountInGram
-                                        ).replace(".0", "") + "g",
-                                        style = MaterialTheme.typography.labelLarge,
-                                        modifier = Modifier.width(85.dp)
+                                        text = item.name, style = MaterialTheme.typography.titleSmall
                                     )
-                                    Column {
-                                        Text(
-                                            text = item.name, style = MaterialTheme.typography.titleSmall
-                                        )
-                                        Text(
-                                            text = "${
-                                                String.format(
-                                                    "%.1f", item.amountInGram * item.proteinContentPercentage / 100
-                                                ).replace(".0", "")
-                                            }g protein", style = MaterialTheme.typography.bodySmall
-                                        )
-                                        Text(
-                                            text = "${
-                                                String.format("%.1f", item.amountInGram * item.kcalContentIn100g / 100)
-                                                    .replace(".0", "")
-                                            } kcal", style = MaterialTheme.typography.bodySmall
-                                        )
-                                    }
+                                    Text(
+                                        text = "${
+                                            String.format(
+                                                "%.1f", item.amountInGram * item.proteinContentPercentage / 100
+                                            ).replace(".0", "")
+                                        }g protein", style = MaterialTheme.typography.bodySmall
+                                    )
+                                    Text(
+                                        text = "${
+                                            String.format("%.1f", item.amountInGram * item.kcalContentIn100g / 100)
+                                                .replace(".0", "")
+                                        } kcal", style = MaterialTheme.typography.bodySmall
+                                    )
                                 }
                             }
                         }
                     }
-                }, modifier = Modifier.fillMaxSize().padding(24.dp)
+                }
+            })
+        else Column(modifier = Modifier.fillMaxSize()) {
+            Text(
+                text = "Past days will appear here",
+                style = MaterialTheme.typography.headlineSmall,
+                color = MaterialTheme.colorScheme.onBackground.copy(alpha = 0.5f),
+                modifier = Modifier.fillMaxSize().padding(24.dp)
             )
-        else
-            Column(modifier = Modifier.fillMaxSize()) {
-                Text(
-                    text = "Past days will appear here",
-                    style = MaterialTheme.typography.headlineSmall,
-                    color = MaterialTheme.colorScheme.onBackground.copy(alpha = 0.5f),
-                    modifier = Modifier.fillMaxSize().padding(24.dp)
-                )
-            }
+        }
     }
 }
 
