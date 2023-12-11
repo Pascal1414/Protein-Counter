@@ -31,8 +31,7 @@ fun ItemsView() {
             style = MaterialTheme.typography.displayLarge,
             modifier = Modifier.padding(horizontal = 16.dp)
         )
-        // Those are the items that you used before. You can forget them so they don't show up anymore.
-        LazyColumn(
+        if (items.isNotEmpty()) LazyColumn(
             verticalArrangement = Arrangement.spacedBy(16.dp), content = {
                 items(items) { item ->
                     Item(item = item, onDelete = {
@@ -42,6 +41,14 @@ fun ItemsView() {
                 }
             }, modifier = Modifier.fillMaxSize().padding(24.dp)
         )
+        else Column(modifier = Modifier.fillMaxSize()) {
+            Text(
+                text = "Your items will appear here",
+                style = MaterialTheme.typography.headlineSmall,
+                color = MaterialTheme.colorScheme.onBackground.copy(alpha = 0.5f),
+                modifier = Modifier.fillMaxSize().padding(24.dp)
+            )
+        }
     }
 }
 
