@@ -63,6 +63,7 @@ fun HistoryView(viewModel: AppViewModel) {
                         if (uri != null) {
                             val (success, message) = loadFile(context, uri)
                             uploadCompleted = success
+                            if (success) days = DataProvider.getDays()
                             scope.launch {
                                 viewModel.showSnackbar(message, "OK")
                             }
