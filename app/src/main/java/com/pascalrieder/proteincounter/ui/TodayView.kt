@@ -75,13 +75,14 @@ fun TodayView(
                             onClick = { state = index },
                             text = { Text(text = title, maxLines = 2, overflow = TextOverflow.Ellipsis) }, icon = {
                                 Icon(
-                                    imageVector = Icons.Default.Check,
+                                    painter = if (index == 0) painterResource(R.drawable.ic_add) else painterResource(R.drawable.ic_list),
                                     contentDescription = "Info Icon"
                                 )
                             }
                         )
                     }
                 }
+                Spacer(modifier = Modifier.height(20.dp))
                 Column(modifier = Modifier.padding(horizontal = 24.dp)) {
                     Column {
                         if (state == 0) {
@@ -116,7 +117,8 @@ fun TodayView(
                                 onDismissRequest = { mExpanded = false },
                                 modifier = Modifier.fillMaxWidth()
                             ) {
-                                DataProvider.getItems().forEach { item ->
+                                val items = DataProvider.getItems()
+                                items.forEach { item ->
                                     DropdownMenuItem(onClick = {
                                         mExpanded = false
                                         mSelectedItem = item
@@ -124,7 +126,16 @@ fun TodayView(
                                         Text(item.name + " (" + item.proteinContentPercentage + "%)")
                                     }
                                 }
-
+                                if (items.isEmpty())
+                                    DropdownMenuItem(onClick = {
+                                        mExpanded = false
+                                        state = 0
+                                    },
+                                    ) {
+                                        Icon(painterResource(R.drawable.ic_add), contentDescription = "Info Icon")
+                                        Spacer(modifier = Modifier.width(10.dp))
+                                        Text("Create an item first")
+                                    }
 
                             }
                         }
@@ -138,46 +149,47 @@ fun TodayView(
                         })
                     Spacer(modifier = Modifier.height(10.dp))
                     Text(text = errorMessage.value, color = MaterialTheme.colorScheme.error)
-                }
-                val context = LocalContext.current
-                Button(onClick = {
-                    when (state) {
-                        0 -> if (amountInGram.isEmpty()) {
-                            displayErrorMessage("Please enter an amount")
-                        } else if (name.isEmpty()) {
-                            displayErrorMessage("Please enter a name")
-                        } else if (proteinPercentage.isEmpty()) {
-                            displayErrorMessage("Please enter a protein percentage")
-                        } else {
-                            val newItem =
-                                Item(
-                                    name = name,
-                                    proteinPercentage.toFloat(),
-                                    amountInGram.toFloat()
-                                )
-                            DataProvider.addItemToTodayAndCreateBackupIfNeeded(newItem, context)
-                            items += newItem
-                        }
+                    val context = LocalContext.current
+                    Button(onClick = {
+                        when (state) {
+                            0 -> if (amountInGram.isEmpty()) {
+                                displayErrorMessage("Please enter an amount")
+                            } else if (name.isEmpty()) {
+                                displayErrorMessage("Please enter a name")
+                            } else if (proteinPercentage.isEmpty()) {
+                                displayErrorMessage("Please enter a protein percentage")
+                            } else {
+                                val newItem =
+                                    Item(
+                                        name = name,
+                                        proteinPercentage.toFloat(),
+                                        amountInGram.toFloat()
+                                    )
+                                DataProvider.addItemToTodayAndCreateBackupIfNeeded(newItem, context)
+                                items += newItem
+                                openBottomSheet = false
+                            }
 
-                        1 -> if (amountInGram.isEmpty()) {
-                            displayErrorMessage("Please enter an amount")
-                        } else if (mSelectedItem == null) {
-                            displayErrorMessage("Please select an Item")
-                        } else {
-                            val newItem = Item(
-                                name = mSelectedItem!!.name,
-                                proteinContentPercentage = mSelectedItem!!.proteinContentPercentage,
-                                amountInGram = amountInGram.toFloat()
-                            )
-                            DataProvider.addItemToTodayAndCreateBackupIfNeeded(newItem, context)
-                            items += newItem
-                            openBottomSheet = false
+                            1 -> if (amountInGram.isEmpty()) {
+                                displayErrorMessage("Please enter an amount")
+                            } else if (mSelectedItem == null) {
+                                displayErrorMessage("Please select an Item")
+                            } else {
+                                val newItem = Item(
+                                    name = mSelectedItem!!.name,
+                                    proteinContentPercentage = mSelectedItem!!.proteinContentPercentage,
+                                    amountInGram = amountInGram.toFloat()
+                                )
+                                DataProvider.addItemToTodayAndCreateBackupIfNeeded(newItem, context)
+                                items += newItem
+                                openBottomSheet = false
+                            }
                         }
+                    }) {
+                        Text("Confirm")
                     }
-                    openBottomSheet = false
-                }) {
-                    Text("Confirm")
                 }
+
             }
 
         }
