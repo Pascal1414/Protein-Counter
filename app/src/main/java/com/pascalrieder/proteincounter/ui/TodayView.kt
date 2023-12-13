@@ -92,6 +92,14 @@ fun TodayView(
                                 value = name,
                                 onValueChange = { name = it })
                             Spacer(modifier = Modifier.height(10.dp))
+                            OutlinedTextField(label = { Text(text = "Kcal in 100g") },
+                                value = kcalPercentage,
+                                keyboardOptions = KeyboardOptions.Default.copy(keyboardType = KeyboardType.Number),
+                                onValueChange = {
+                                    if (it.isEmpty()) kcalPercentage = ""
+                                    else if (isFloat(it)) kcalPercentage = it
+                                })
+                            Spacer(modifier = Modifier.height(10.dp))
                             OutlinedTextField(label = { Text(text = "Protein Percentage") },
                                 value = proteinPercentage,
                                 keyboardOptions = KeyboardOptions.Default.copy(keyboardType = KeyboardType.Number),
@@ -140,14 +148,6 @@ fun TodayView(
                             }
                         }
                     }
-                    Spacer(modifier = Modifier.height(10.dp))
-                    OutlinedTextField(label = { Text(text = "Kcal in 100g") },
-                        value = kcalPercentage,
-                        keyboardOptions = KeyboardOptions.Default.copy(keyboardType = KeyboardType.Number),
-                        onValueChange = {
-                            if (it.isEmpty()) kcalPercentage = ""
-                            else if (isFloat(it)) kcalPercentage = it
-                        })
                     Spacer(modifier = Modifier.height(10.dp))
                     OutlinedTextField(label = { Text(text = "Consumed amount in gram") }, value = amountInGram,
                         keyboardOptions = KeyboardOptions.Default.copy(keyboardType = KeyboardType.Number),

@@ -78,6 +78,9 @@ class DataProvider {
             .registerTypeAdapter(LocalDate::class.java, LocalDateAdapter())
             .create()
 
+        fun removeEmptyDaysExceptToday(){
+            days = days.filter { it.items.isNotEmpty() || it.date == LocalDate.now() }.toMutableList()
+        }
         fun getJson(): String {
             return gson.toJson(days)
         }
@@ -91,6 +94,7 @@ class DataProvider {
         fun saveData(context: Context) {
             var sharedPreferences: SharedPreferences = context.getSharedPreferences("data", Context.MODE_PRIVATE)
             val editor = sharedPreferences.edit()
+            removeEmptyDaysExceptToday()
             val daysString = getJson()
             editor.putString("days", daysString)
             editor.apply()

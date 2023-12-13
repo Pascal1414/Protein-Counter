@@ -1,6 +1,5 @@
 package com.pascalrieder.proteincounter
 
-import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -26,7 +25,6 @@ import com.pascalrieder.proteincounter.ui.ItemsView
 import com.pascalrieder.proteincounter.ui.TodayView
 
 class MainActivity : ComponentActivity() {
-    @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         DataProvider.loadData(context = this)
@@ -39,8 +37,8 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(), color = MaterialTheme.colorScheme.background
                 ) {
                     val navController = rememberNavController()
-                    Scaffold(content = {
-                        Column(modifier = Modifier.padding(top = 16.dp, bottom = 70.dp)) {
+                    Scaffold(content = {padding ->
+                        Column(modifier = Modifier.padding(padding).padding(top = 16.dp)) {
                             Navigation(navController, viewModel)
                         }
                     }, bottomBar = {
