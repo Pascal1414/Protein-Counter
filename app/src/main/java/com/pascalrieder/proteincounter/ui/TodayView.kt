@@ -10,7 +10,6 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.DropdownMenuItem
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Check
 import androidx.compose.material.icons.filled.KeyboardArrowDown
 import androidx.compose.material.icons.filled.KeyboardArrowUp
 import androidx.compose.material3.*
@@ -19,10 +18,15 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
+import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.SpanStyle
+import androidx.compose.ui.text.buildAnnotatedString
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.style.TextOverflow
+import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.pascalrieder.proteincounter.AppViewModel
@@ -71,26 +75,22 @@ fun TodayView(
                 var state by remember { mutableStateOf(0) }
                 PrimaryTabRow(selectedTabIndex = state) {
                     titles.forEachIndexed { index, title ->
-                        Tab(
-                            selected = state == index,
+                        Tab(selected = state == index,
                             onClick = { state = index },
-                            text = { Text(text = title, maxLines = 2, overflow = TextOverflow.Ellipsis) }, icon = {
+                            text = { Text(text = title, maxLines = 2, overflow = TextOverflow.Ellipsis) },
+                            icon = {
                                 Icon(
                                     painter = if (index == 0) painterResource(R.drawable.ic_add) else painterResource(R.drawable.ic_list),
                                     contentDescription = "Info Icon"
                                 )
-                            }
-                        )
+                            })
                     }
                 }
                 Spacer(modifier = Modifier.height(20.dp))
                 Column(modifier = Modifier.padding(horizontal = 24.dp)) {
                     Column {
                         if (state == 0) {
-                            OutlinedTextField(
-                                label = { Text("Name") },
-                                value = name,
-                                onValueChange = { name = it })
+                            OutlinedTextField(label = { Text("Name") }, value = name, onValueChange = { name = it })
                             Spacer(modifier = Modifier.height(10.dp))
                             OutlinedTextField(label = { Text(text = "Kcal in 100g") },
                                 value = kcalPercentage,
@@ -109,7 +109,8 @@ fun TodayView(
                                 })
                         } else if (state == 1) {
                             var mExpanded by remember { mutableStateOf(false) }
-                            OutlinedTextField(label = { Text(text = "Select Item") }, value = mSelectedItem?.name ?: "",
+                            OutlinedTextField(label = { Text(text = "Select Item") },
+                                value = mSelectedItem?.name ?: "",
                                 onValueChange = { },
                                 readOnly = true,
                                 trailingIcon = {
@@ -133,23 +134,23 @@ fun TodayView(
                                         Text(item.name + " (" + item.proteinContentPercentage + "%)")
                                     }
                                 }
-                                if (items.isEmpty())
-                                    DropdownMenuItem(
-                                        onClick = {
-                                            mExpanded = false
-                                            state = 0
-                                        },
-                                    ) {
-                                        Icon(painterResource(R.drawable.ic_add), contentDescription = "Info Icon")
-                                        Spacer(modifier = Modifier.width(10.dp))
-                                        Text("Create an item first")
-                                    }
+                                if (items.isEmpty()) DropdownMenuItem(
+                                    onClick = {
+                                        mExpanded = false
+                                        state = 0
+                                    },
+                                ) {
+                                    Icon(painterResource(R.drawable.ic_add), contentDescription = "Info Icon")
+                                    Spacer(modifier = Modifier.width(10.dp))
+                                    Text("Create an item first")
+                                }
 
                             }
                         }
                     }
                     Spacer(modifier = Modifier.height(10.dp))
-                    OutlinedTextField(label = { Text(text = "Consumed amount in gram") }, value = amountInGram,
+                    OutlinedTextField(label = { Text(text = "Consumed amount in gram") },
+                        value = amountInGram,
                         keyboardOptions = KeyboardOptions.Default.copy(keyboardType = KeyboardType.Number),
                         onValueChange = {
                             if (it.isEmpty()) amountInGram = ""
@@ -169,13 +170,12 @@ fun TodayView(
                             } else if (kcalPercentage.isEmpty()) {
                                 displayErrorMessage("Please enter a kcal value")
                             } else {
-                                val newItem =
-                                    Item(
-                                        name = name,
-                                        proteinContentPercentage = proteinPercentage.toFloat(),
-                                        amountInGram = amountInGram.toFloat(),
-                                        kcalContentIn100g = kcalPercentage.toFloat()
-                                    )
+                                val newItem = Item(
+                                    name = name,
+                                    proteinContentPercentage = proteinPercentage.toFloat(),
+                                    amountInGram = amountInGram.toFloat(),
+                                    kcalContentIn100g = kcalPercentage.toFloat()
+                                )
                                 DataProvider.addItemToTodayAndCreateBackupIfNeeded(newItem, context)
                                 items += newItem
                                 openBottomSheet = false
@@ -213,8 +213,7 @@ fun TodayView(
     Column(modifier = Modifier.fillMaxSize()) {
         Column(modifier = Modifier.padding(horizontal = 16.dp)) {
             Text(
-                text = "Today",
-                style = MaterialTheme.typography.displayLarge
+                text = "Today", style = MaterialTheme.typography.displayLarge
             )
             Text(
                 text = LocalDate.now().format(DateTimeFormatter.ofPattern("dd.MM.yyyy")),
@@ -228,22 +227,41 @@ fun TodayView(
             modifier = Modifier.padding(horizontal = 24.dp)
         ) {
             Row(
-                verticalAlignment = Alignment.CenterVertically,
                 modifier = Modifier.fillMaxWidth()
-                    .background(MaterialTheme.colorScheme.tertiaryContainer, MaterialTheme.shapes.medium).padding(24.dp)
             ) {
-                Icon(
-                    imageVector = Icons.Default.Check,
-                    contentDescription = "Info Icon",
-                    modifier = Modifier.size(24.dp)
-                )
                 val consumedProtein = String.format("%.1f", DataProvider.getTodayConsumedProtein()).replace(".0", "")
+                NutrientItem(modifier = Modifier.weight(1f),
+                    painter = painterResource(R.drawable.ic_grocery),
+                    title = { Text(style = MaterialTheme.typography.titleMedium, text = "Protein") },
+                    text = {
+                        Text(
+                            buildAnnotatedString {
+                                append("You've consumed ")
+                                withStyle(style = SpanStyle(fontWeight = FontWeight.Bold)) {
+                                    append(consumedProtein)
+                                }
+                                append("g of Protein today")
+                            },
+                            style = MaterialTheme.typography.bodyMedium
+                        )
+                    })
+                Spacer(modifier = Modifier.width(16.dp))
                 val consumedKcal = String.format("%.1f", DataProvider.getTodayConsumedKcal()).replace(".0", "")
-                Text(
-                    style = MaterialTheme.typography.bodyMedium,
-                    text = "You have consumed ${consumedProtein}g of protein and $consumedKcal kcal today",
-                    modifier = Modifier.padding(start = 16.dp)
-                )
+                NutrientItem(modifier = Modifier.weight(1f),
+                    painter = painterResource(R.drawable.ic_lunch_dining),
+                    title = { Text(style = MaterialTheme.typography.titleMedium, text = "Kcal") },
+                    text = {
+                        Text(
+                            buildAnnotatedString {
+                                append("You've consumed ")
+                                withStyle(style = SpanStyle(fontWeight = FontWeight.Bold)) {
+                                    append(consumedKcal)
+                                }
+                                append(" kcal today")
+                            },
+                            style = MaterialTheme.typography.bodyMedium
+                        )
+                    })
             }
             Spacer(modifier = Modifier.height(16.dp))
             LazyColumn {
@@ -260,12 +278,29 @@ fun TodayView(
 }
 
 @Composable
+fun NutrientItem(
+    modifier: Modifier = Modifier, title: @Composable () -> Unit, text: @Composable () -> Unit, painter: Painter
+) {
+    Column(
+        modifier = Modifier.background(
+            MaterialTheme.colorScheme.tertiaryContainer, MaterialTheme.shapes.medium
+        ).padding(12.dp).then(modifier)
+    ) {
+        Icon(
+            painter = painter, contentDescription = "Info Icon", modifier = Modifier.size(24.dp)
+        )
+        Spacer(modifier = Modifier.height(16.dp))
+        title()
+        Spacer(modifier = Modifier.height(4.dp))
+        text()
+    }
+}
+
+@Composable
 fun ItemView(item: Item, onDelete: () -> Unit = {}) {
     var isExpanded by remember { mutableStateOf(false) }
     Column(
-        modifier = Modifier.fillMaxWidth()
-            .animateContentSize()
-            .height(if (isExpanded) 225.dp else 100.dp)
+        modifier = Modifier.fillMaxWidth().animateContentSize().height(if (isExpanded) 225.dp else 100.dp)
             .background(MaterialTheme.colorScheme.surfaceColorAtElevation(3.dp), MaterialTheme.shapes.extraLarge)
             .padding(24.dp),
     ) {
@@ -276,8 +311,7 @@ fun ItemView(item: Item, onDelete: () -> Unit = {}) {
             Column(modifier = Modifier.fillMaxHeight(), verticalArrangement = Arrangement.SpaceBetween) {
                 Column {
                     Text(
-                        style = MaterialTheme.typography.headlineSmall,
-                        text = item.name
+                        style = MaterialTheme.typography.headlineSmall, text = item.name
                     )
                     Text(
                         style = MaterialTheme.typography.bodyMedium,
@@ -286,8 +320,7 @@ fun ItemView(item: Item, onDelete: () -> Unit = {}) {
                     )
                 }
                 Row(
-                    horizontalArrangement = Arrangement.SpaceBetween,
-                    verticalAlignment = Alignment.CenterVertically
+                    horizontalArrangement = Arrangement.SpaceBetween, verticalAlignment = Alignment.CenterVertically
                 ) {
                     Row(verticalAlignment = Alignment.CenterVertically) {
                         Text(
@@ -301,8 +334,7 @@ fun ItemView(item: Item, onDelete: () -> Unit = {}) {
                         )
                         Spacer(modifier = Modifier.width(10.dp))
                         Column(
-                            modifier = Modifier.wrapContentSize(),
-                            horizontalAlignment = Alignment.CenterHorizontally
+                            modifier = Modifier.wrapContentSize(), horizontalAlignment = Alignment.CenterHorizontally
                         ) {
                             Text(
                                 style = MaterialTheme.typography.bodyMedium,
@@ -320,23 +352,19 @@ fun ItemView(item: Item, onDelete: () -> Unit = {}) {
                         }
                         Spacer(modifier = Modifier.width(10.dp))
                         Text(
-                            style = MaterialTheme.typography.bodyMedium,
-                            text = "="
+                            style = MaterialTheme.typography.bodyMedium, text = "="
                         )
                     }
                 }
             }
             Column(
                 verticalArrangement = Arrangement.SpaceBetween, modifier = Modifier.fillMaxHeight().then(
-                    if (isExpanded)
-                        Modifier.padding(bottom = 6.dp)
-                    else
-                        Modifier.padding(bottom = 0.dp)
+                    if (isExpanded) Modifier.padding(bottom = 6.dp)
+                    else Modifier.padding(bottom = 0.dp)
                 )
             ) {
                 IconButton(
-                    onClick = { isExpanded = !isExpanded },
-                    modifier = Modifier.align(Alignment.End).size(15.dp)
+                    onClick = { isExpanded = !isExpanded }, modifier = Modifier.align(Alignment.End).size(15.dp)
                 ) {
                     Icon(
                         imageVector = if (isExpanded) Icons.Default.KeyboardArrowUp else Icons.Default.KeyboardArrowDown,
@@ -355,19 +383,16 @@ fun ItemView(item: Item, onDelete: () -> Unit = {}) {
         }
         Spacer(modifier = Modifier.height(20.dp))
         Row(
-            verticalAlignment = Alignment.CenterVertically,
-            modifier = Modifier.clickable {
+            verticalAlignment = Alignment.CenterVertically, modifier = Modifier.clickable {
                 onDelete()
             }.height(40.dp)
         ) {
             Icon(
-                painter = painterResource(R.drawable.ic_delete),
-                contentDescription = "Delete Icon"
+                painter = painterResource(R.drawable.ic_delete), contentDescription = "Delete Icon"
             )
             Spacer(modifier = Modifier.width(13.dp))
             Text(
-                style = MaterialTheme.typography.bodyMedium,
-                text = "Delete"
+                style = MaterialTheme.typography.bodyMedium, text = "Delete"
             )
         }
     }
