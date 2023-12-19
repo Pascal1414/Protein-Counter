@@ -84,14 +84,12 @@ fun TodayView(
                 val context = LocalContext.current
                 LazyColumn(modifier = Modifier.fillMaxSize()) {
                     items(searchItems.filter { it.name.contains(searchText, ignoreCase = true) }) { item ->
-                        Row(
-                            verticalAlignment = Alignment.CenterVertically,
-                            horizontalArrangement = Arrangement.SpaceBetween,
+                        Column(
                             modifier = Modifier.fillMaxWidth().background(
                                 MaterialTheme.colorScheme.surfaceColorAtElevation(3.dp),
                                 MaterialTheme.shapes.extraLarge
                             ).padding(24.dp).clickable {
-                                if(amountInGram.isEmpty()) {
+                                if (amountInGram.isEmpty()) {
                                     displayErrorMessage("Please enter an amount")
                                     return@clickable
                                 }
@@ -106,11 +104,23 @@ fun TodayView(
                                 openBottomSheet = false
                             }
                         ) {
-                            Text(text = item.name)
-                            Column {
-                                Text(text = item.proteinContentPercentage.toString())
-                                Text(text = item.kcalContentIn100g.toString())
-                            }
+                            Text(
+                                style = MaterialTheme.typography.headlineSmall,
+                                text = item.name,
+                                maxLines = 2,
+                                modifier = Modifier.width(400.dp)
+                            )
+                            Text(
+                                style = MaterialTheme.typography.bodyMedium,
+                                text = String.format("%.1f", item.proteinContentPercentage).replace(".0", "") + "g",
+                                modifier = Modifier.alpha(0.5f)
+                            )
+                            Text(
+                                style = MaterialTheme.typography.bodyMedium,
+                                text = String.format("%.1f", item.kcalContentIn100g).replace(".0", "") + " kcal",
+                                modifier = Modifier.alpha(0.5f)
+                            )
+
                         }
                         Spacer(modifier = Modifier.height(16.dp))
                     }
