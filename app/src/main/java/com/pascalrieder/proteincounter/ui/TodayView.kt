@@ -298,7 +298,7 @@ fun NutrientItem(
 fun ItemView(item: Item, onDelete: () -> Unit = {}) {
     var isExpanded by remember { mutableStateOf(false) }
     Column(
-        modifier = Modifier.fillMaxWidth().animateContentSize().height(if (isExpanded) 300.dp else 150.dp)
+        modifier = Modifier.fillMaxWidth().animateContentSize().height(if (isExpanded) 300.dp else 145.dp)
             .background(MaterialTheme.colorScheme.surfaceColorAtElevation(3.dp), MaterialTheme.shapes.extraLarge)
             .padding(24.dp),
     ) {
@@ -333,7 +333,7 @@ fun ItemView(item: Item, onDelete: () -> Unit = {}) {
             if (isExpanded) CalculationGraph(item.amountInGram, item.proteinContentPercentage)
             else Spacer(modifier = Modifier.width(1.dp))
             Text(
-                style = MaterialTheme.typography.titleLarge,
+                style = MaterialTheme.typography.titleMedium,
                 text = String.format("%.1f", (item.amountInGram * item.proteinContentPercentage / 100))
                     .replace(".0", "") + "g"
             )
@@ -349,7 +349,7 @@ fun ItemView(item: Item, onDelete: () -> Unit = {}) {
             if (isExpanded) CalculationGraph(item.amountInGram, item.kcalContentIn100g)
             else Spacer(modifier = Modifier.width(1.dp))
             Text(
-                style = MaterialTheme.typography.titleLarge,
+                style = MaterialTheme.typography.titleMedium,
                 text = String.format("%.0f", (item.amountInGram * item.kcalContentIn100g / 100))
                     .replace(".0", "") + " kcal"
             )
