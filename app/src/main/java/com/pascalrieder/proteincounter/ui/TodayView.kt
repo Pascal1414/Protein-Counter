@@ -220,7 +220,7 @@ fun NutrientItem(
 fun ItemView(item: Item, onDelete: () -> Unit = {}) {
     var isExpanded by remember { mutableStateOf(false) }
     Column(
-        modifier = Modifier.fillMaxWidth().animateContentSize().height(if (isExpanded) 300.dp else 145.dp)
+        modifier = Modifier.fillMaxWidth().animateContentSize()
             .background(MaterialTheme.colorScheme.surfaceColorAtElevation(3.dp), MaterialTheme.shapes.extraLarge)
             .padding(24.dp),
     ) {
@@ -276,19 +276,21 @@ fun ItemView(item: Item, onDelete: () -> Unit = {}) {
                     .replace(".0", "") + " kcal"
             )
         }
-        Spacer(modifier = Modifier.height(32.dp))
-        Row(
-            verticalAlignment = Alignment.CenterVertically, modifier = Modifier.clickable {
-                onDelete()
-            }.height(40.dp)
-        ) {
-            Icon(
-                painter = painterResource(R.drawable.ic_delete), contentDescription = "Delete Icon"
-            )
-            Spacer(modifier = Modifier.width(13.dp))
-            Text(
-                style = MaterialTheme.typography.bodyMedium, text = "Delete"
-            )
+        if (isExpanded) {
+            Spacer(modifier = Modifier.height(32.dp))
+            Row(
+                verticalAlignment = Alignment.CenterVertically, modifier = Modifier.clickable {
+                    onDelete()
+                }.height(40.dp)
+            ) {
+                Icon(
+                    painter = painterResource(R.drawable.ic_delete), contentDescription = "Delete Icon"
+                )
+                Spacer(modifier = Modifier.width(13.dp))
+                Text(
+                    style = MaterialTheme.typography.bodyMedium, text = "Delete"
+                )
+            }
         }
     }
 }
