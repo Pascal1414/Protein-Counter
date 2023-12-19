@@ -4,14 +4,15 @@ import android.content.Context
 import android.content.SharedPreferences
 import com.google.gson.GsonBuilder
 import com.google.gson.reflect.TypeToken
+import com.pascalrieder.proteincounter.R
 import java.time.LocalDate
 
 
 class DataProvider {
     companion object {
         private var days = mutableListOf<Day>()
-
-        public fun addItemToTodayAndCreateBackupIfNeeded(item: Item, context: Context) {
+        private var additionalItems = mutableListOf<Item>()
+         fun addItemToTodayAndCreateBackupIfNeeded(item: Item, context: Context) {
             var day = days.find { it.date == LocalDate.now() }
             if (day == null) {
                 days.add(Day(LocalDate.now(), mutableListOf(item)))
@@ -22,11 +23,11 @@ class DataProvider {
             }
         }
 
-        public fun getItems(date: LocalDate): List<Item> {
-            return days.find { it.date == date }?.items?.toList() ?: listOf()
+        fun getItems(date: LocalDate): List<Item> {
+            return days.find { it.date == date }?.items?.toMutableList() ?: mutableListOf()
         }
 
-        public fun getItems(): List<Item> {
+         fun getItems(): List<Item> {
             // Does not return mutlible items with the same name and proteinContentPercentage
             val items = mutableListOf<Item>()
             days.forEach { day ->
@@ -36,6 +37,7 @@ class DataProvider {
                     }
                 }
             }
+            items.addAll(additionalItems)
             return items
         }
 
@@ -49,7 +51,7 @@ class DataProvider {
             }
         }
 
-        public fun getDays(): List<Day> {
+         fun getDays(): List<Day> {
             return days.sortedByDescending { it.date }
         }
 
@@ -60,6 +62,7 @@ class DataProvider {
             }
             return protein
         }
+
         fun getTodayConsumedKcal(): Float {
             var kcal = 0f
             days.find { it.date == LocalDate.now() }?.items?.forEach { item ->
@@ -78,15 +81,16 @@ class DataProvider {
             .registerTypeAdapter(LocalDate::class.java, LocalDateAdapter())
             .create()
 
-        fun removeEmptyDaysExceptToday(){
+        fun removeEmptyDaysExceptToday() {
             days = days.filter { it.items.isNotEmpty() || it.date == LocalDate.now() }.toMutableList()
         }
+
         fun getJson(): String {
             return gson.toJson(days)
         }
 
         @Throws(Exception::class)
-        fun loadBackup(jsonString : String)  {
+        fun loadBackup(jsonString: String) {
             val mutableListTutorialType = object : TypeToken<MutableList<Day>>() {}.type
             days = gson.fromJson(jsonString, mutableListTutorialType)
         }
@@ -100,7 +104,7 @@ class DataProvider {
             editor.apply()
         }
 
-        fun loadData(context: Context) {
+        fun loadDays(context: Context) {
             var sharedPreferences: SharedPreferences = context.getSharedPreferences("data", Context.MODE_PRIVATE)
             val daysString = sharedPreferences.getString("days", "")
             if (daysString == "") {
@@ -110,6 +114,18 @@ class DataProvider {
                 val mutableListTutorialType = object : TypeToken<MutableList<Day>>() {}.type
                 days = gson.fromJson(daysString, mutableListTutorialType)
             }
+        }
+
+        fun loadItems(context: Context) {
+            // get json file content from /raw/nutritionvalues.json
+            val jsonString = context.resources.openRawResource(R.raw.nutritionvalues).bufferedReader().readText()
+            val mutableListTutorialType = object : TypeToken<MutableList<Item>>() {}.type
+            additionalItems = gson.fromJson<MutableList<Item>>(jsonString, mutableListTutorialType)
+        }
+
+        fun loadData(context: Context) {
+            loadDays(context)
+            loadItems(context)
         }
     }
 }

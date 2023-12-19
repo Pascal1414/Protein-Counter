@@ -8,7 +8,6 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.text.KeyboardOptions
-import androidx.compose.material.DropdownMenuItem
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.KeyboardArrowDown
 import androidx.compose.material.icons.filled.KeyboardArrowUp
@@ -25,7 +24,6 @@ import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
-import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
@@ -51,10 +49,10 @@ fun TodayView(
     }
 
     // Text Fields
-    var name by remember { mutableStateOf("") }
+    /*var name by remember { mutableStateOf("") }
     var proteinPercentage by remember { mutableStateOf("") }
     var kcalPercentage by remember { mutableStateOf("") }
-    var amountInGram by remember { mutableStateOf("") }
+    var amountInGram by remember { mutableStateOf("") }*/
 
     // Dropdown
     var mSelectedItem by remember { mutableStateOf<Item?>(null) }
@@ -70,141 +68,198 @@ fun TodayView(
             sheetState = bottomSheetState,
             modifier = Modifier.fillMaxHeight()
         ) {
-            Column(modifier = Modifier.fillMaxWidth().height(500.dp)) {
-                val titles = listOf("Create Item", "Existing Item")
-                var state by remember { mutableStateOf(0) }
-                PrimaryTabRow(selectedTabIndex = state) {
-                    titles.forEachIndexed { index, title ->
-                        Tab(selected = state == index,
-                            onClick = { state = index },
-                            text = { Text(text = title, maxLines = 2, overflow = TextOverflow.Ellipsis) },
-                            icon = {
-                                Icon(
-                                    painter = if (index == 0) painterResource(R.drawable.ic_add) else painterResource(R.drawable.ic_list),
-                                    contentDescription = "Info Icon"
-                                )
-                            })
-                    }
-                }
-                Spacer(modifier = Modifier.height(20.dp))
-                Column(modifier = Modifier.padding(horizontal = 24.dp)) {
-                    Column {
-                        if (state == 0) {
-                            OutlinedTextField(label = { Text("Name") }, value = name, onValueChange = { name = it })
-                            Spacer(modifier = Modifier.height(10.dp))
-                            OutlinedTextField(label = { Text(text = "Kcal in 100g") },
-                                value = kcalPercentage,
-                                keyboardOptions = KeyboardOptions.Default.copy(keyboardType = KeyboardType.Number),
-                                onValueChange = {
-                                    if (it.isEmpty()) kcalPercentage = ""
-                                    else if (isFloat(it)) kcalPercentage = it
-                                })
-                            Spacer(modifier = Modifier.height(10.dp))
-                            OutlinedTextField(label = { Text(text = "Protein Percentage") },
-                                value = proteinPercentage,
-                                keyboardOptions = KeyboardOptions.Default.copy(keyboardType = KeyboardType.Number),
-                                onValueChange = {
-                                    if (it.isEmpty()) proteinPercentage = ""
-                                    else if (isFloat(it) && it.toFloat() in 0f..100f) proteinPercentage = it
-                                })
-                        } else if (state == 1) {
-                            var mExpanded by remember { mutableStateOf(false) }
-                            OutlinedTextField(label = { Text(text = "Select Item") },
-                                value = mSelectedItem?.name ?: "",
-                                onValueChange = { },
-                                readOnly = true,
-                                trailingIcon = {
-                                    IconButton(onClick = {
-                                        mExpanded = true
-                                    }) {
-                                        Icon(Icons.Default.KeyboardArrowDown, contentDescription = "Info Icon")
-                                    }
-                                })
-                            DropdownMenu(
-                                expanded = mExpanded,
-                                onDismissRequest = { mExpanded = false },
-                                modifier = Modifier.fillMaxWidth()
-                            ) {
-                                val items = DataProvider.getItems()
-                                items.forEach { item ->
-                                    DropdownMenuItem(onClick = {
-                                        mExpanded = false
-                                        mSelectedItem = item
-                                    }) {
-                                        Text(item.name + " (" + item.proteinContentPercentage + "%)")
-                                    }
-                                }
-                                if (items.isEmpty()) DropdownMenuItem(
-                                    onClick = {
-                                        mExpanded = false
-                                        state = 0
-                                    },
-                                ) {
-                                    Icon(painterResource(R.drawable.ic_add), contentDescription = "Info Icon")
-                                    Spacer(modifier = Modifier.width(10.dp))
-                                    Text("Create an item first")
-                                }
+            Column(
+                modifier = Modifier.fillMaxWidth().padding(horizontal = 24.dp),
+                horizontalAlignment = Alignment.CenterHorizontally
+            ) {
+                var amountInGram by remember { mutableStateOf("") }
+                Spacer(modifier = Modifier.height(10.dp))
+                OutlinedTextField(label = { Text(text = "Consumed amount in gram") },
+                    value = amountInGram,
+                    keyboardOptions = KeyboardOptions.Default.copy(keyboardType = KeyboardType.Number),
+                    onValueChange = {
+                        if (it.isEmpty()) amountInGram = ""
+                        else if (isFloat(it)) amountInGram = it
+                    })
 
-                            }
-                        }
-                    }
-                    Spacer(modifier = Modifier.height(10.dp))
-                    OutlinedTextField(label = { Text(text = "Consumed amount in gram") },
-                        value = amountInGram,
-                        keyboardOptions = KeyboardOptions.Default.copy(keyboardType = KeyboardType.Number),
-                        onValueChange = {
-                            if (it.isEmpty()) amountInGram = ""
-                            else if (isFloat(it)) amountInGram = it
-                        })
-                    Spacer(modifier = Modifier.height(10.dp))
-                    Text(text = errorMessage.value, color = MaterialTheme.colorScheme.error)
-                    val context = LocalContext.current
-                    Button(onClick = {
-                        when (state) {
-                            0 -> if (amountInGram.isEmpty()) {
-                                displayErrorMessage("Please enter an amount")
-                            } else if (name.isEmpty()) {
-                                displayErrorMessage("Please enter a name")
-                            } else if (proteinPercentage.isEmpty()) {
-                                displayErrorMessage("Please enter a protein percentage")
-                            } else if (kcalPercentage.isEmpty()) {
-                                displayErrorMessage("Please enter a kcal value")
-                            } else {
-                                val newItem = Item(
-                                    name = name,
-                                    proteinContentPercentage = proteinPercentage.toFloat(),
+                var searchText by remember { mutableStateOf("") }
+                OutlinedTextField(label = { Text("Search") }, value = searchText, onValueChange = { searchText = it })
+                Spacer(modifier = Modifier.height(10.dp))
+                Text(text = errorMessage.value, color = MaterialTheme.colorScheme.error)
+
+                Spacer(modifier = Modifier.height(32.dp))
+
+                val searchItems by remember { mutableStateOf(DataProvider.getItems()) }
+                val context = LocalContext.current
+                LazyColumn(modifier = Modifier.fillMaxSize()) {
+                    items(searchItems.filter { it.name.contains(searchText, ignoreCase = true) }) { item ->
+                        Row(
+                            verticalAlignment = Alignment.CenterVertically,
+                            horizontalArrangement = Arrangement.SpaceBetween,
+                            modifier = Modifier.fillMaxWidth().background(
+                                MaterialTheme.colorScheme.surfaceColorAtElevation(3.dp),
+                                MaterialTheme.shapes.extraLarge
+                            ).padding(24.dp).clickable {
+                                if(amountInGram.isEmpty()) {
+                                    displayErrorMessage("Please enter an amount")
+                                    return@clickable
+                                }
+                                val item = Item(
+                                    name = item.name,
+                                    proteinContentPercentage = item.proteinContentPercentage,
                                     amountInGram = amountInGram.toFloat(),
-                                    kcalContentIn100g = kcalPercentage.toFloat()
+                                    kcalContentIn100g = item.kcalContentIn100g
                                 )
-                                DataProvider.addItemToTodayAndCreateBackupIfNeeded(newItem, context)
-                                items += newItem
+                                DataProvider.addItemToTodayAndCreateBackupIfNeeded(item, context)
+                                items = DataProvider.getItems(LocalDate.now())
                                 openBottomSheet = false
                             }
-
-                            1 -> if (amountInGram.isEmpty()) {
-                                displayErrorMessage("Please enter an amount")
-                            } else if (mSelectedItem == null) {
-                                displayErrorMessage("Please select an Item")
-                            } else {
-                                val newItem = Item(
-                                    name = mSelectedItem!!.name,
-                                    proteinContentPercentage = mSelectedItem!!.proteinContentPercentage,
-                                    amountInGram = amountInGram.toFloat(),
-                                    kcalContentIn100g = mSelectedItem!!.kcalContentIn100g
-
-                                )
-                                DataProvider.addItemToTodayAndCreateBackupIfNeeded(newItem, context)
-                                items += newItem
-                                openBottomSheet = false
+                        ) {
+                            Text(text = item.name)
+                            Column {
+                                Text(text = item.proteinContentPercentage.toString())
+                                Text(text = item.kcalContentIn100g.toString())
                             }
                         }
-                    }) {
-                        Text("Confirm")
+                        Spacer(modifier = Modifier.height(16.dp))
                     }
                 }
-
             }
 
+            /*  val titles = listOf("Create Item", "Existing Item")
+              var state by remember { mutableStateOf(0) }
+              PrimaryTabRow(selectedTabIndex = state) {
+                  titles.forEachIndexed { index, title ->
+                      Tab(selected = state == index,
+                          onClick = { state = index },
+                          text = { Text(text = title, maxLines = 2, overflow = TextOverflow.Ellipsis) },
+                          icon = {
+                              Icon(
+                                  painter = if (index == 0) painterResource(R.drawable.ic_add) else painterResource(R.drawable.ic_list),
+                                  contentDescription = "Info Icon"
+                              )
+                          })
+                  }
+              }
+              Spacer(modifier = Modifier.height(20.dp))
+              Column(modifier = Modifier.padding(horizontal = 24.dp)) {
+                  Column {
+                      if (state == 0) {
+                          OutlinedTextField(label = { Text("Name") }, value = name, onValueChange = { name = it })
+                          Spacer(modifier = Modifier.height(10.dp))
+                          OutlinedTextField(label = { Text(text = "Kcal in 100g") },
+                              value = kcalPercentage,
+                              keyboardOptions = KeyboardOptions.Default.copy(keyboardType = KeyboardType.Number),
+                              onValueChange = {
+                                  if (it.isEmpty()) kcalPercentage = ""
+                                  else if (isFloat(it)) kcalPercentage = it
+                              })
+                          Spacer(modifier = Modifier.height(10.dp))
+                          OutlinedTextField(label = { Text(text = "Protein Percentage") },
+                              value = proteinPercentage,
+                              keyboardOptions = KeyboardOptions.Default.copy(keyboardType = KeyboardType.Number),
+                              onValueChange = {
+                                  if (it.isEmpty()) proteinPercentage = ""
+                                  else if (isFloat(it) && it.toFloat() in 0f..100f) proteinPercentage = it
+                              })
+                      } else if (state == 1) {
+                          var mExpanded by remember { mutableStateOf(false) }
+                          OutlinedTextField(label = { Text(text = "Select Item") },
+                              value = mSelectedItem?.name ?: "",
+                              onValueChange = { },
+                              readOnly = true,
+                              trailingIcon = {
+                                  IconButton(onClick = {
+                                      mExpanded = true
+                                  }) {
+                                      Icon(Icons.Default.KeyboardArrowDown, contentDescription = "Info Icon")
+                                  }
+                              })
+                          DropdownMenu(
+                              expanded = mExpanded,
+                              onDismissRequest = { mExpanded = false },
+                              modifier = Modifier.fillMaxWidth()
+                          ) {
+                              val items = DataProvider.getItems()
+                              items.forEach { item ->
+                                  DropdownMenuItem(onClick = {
+                                      mExpanded = false
+                                      mSelectedItem = item
+                                  }) {
+                                      Text(item.name + " (" + item.proteinContentPercentage + "%)")
+                                  }
+                              }
+                              if (items.isEmpty()) DropdownMenuItem(
+                                  onClick = {
+                                      mExpanded = false
+                                      state = 0
+                                  },
+                              ) {
+                                  Icon(painterResource(R.drawable.ic_add), contentDescription = "Info Icon")
+                                  Spacer(modifier = Modifier.width(10.dp))
+                                  Text("Create an item first")
+                              }
+
+                          }
+                      }
+                  }
+                  Spacer(modifier = Modifier.height(10.dp))
+                  OutlinedTextField(label = { Text(text = "Consumed amount in gram") },
+                      value = amountInGram,
+                      keyboardOptions = KeyboardOptions.Default.copy(keyboardType = KeyboardType.Number),
+                      onValueChange = {
+                          if (it.isEmpty()) amountInGram = ""
+                          else if (isFloat(it)) amountInGram = it
+                      })
+                  Spacer(modifier = Modifier.height(10.dp))
+                  Text(text = errorMessage.value, color = MaterialTheme.colorScheme.error)
+                  val context = LocalContext.current
+                  Button(onClick = {
+                      when (state) {
+                          0 -> if (amountInGram.isEmpty()) {
+                              displayErrorMessage("Please enter an amount")
+                          } else if (name.isEmpty()) {
+                              displayErrorMessage("Please enter a name")
+                          } else if (proteinPercentage.isEmpty()) {
+                              displayErrorMessage("Please enter a protein percentage")
+                          } else if (kcalPercentage.isEmpty()) {
+                              displayErrorMessage("Please enter a kcal value")
+                          } else {
+                              val newItem = Item(
+                                  name = name,
+                                  proteinContentPercentage = proteinPercentage.toFloat(),
+                                  amountInGram = amountInGram.toFloat(),
+                                  kcalContentIn100g = kcalPercentage.toFloat()
+                              )
+                              DataProvider.addItemToTodayAndCreateBackupIfNeeded(newItem, context)
+                              items += newItem
+                              openBottomSheet = false
+                          }
+
+                          1 -> if (amountInGram.isEmpty()) {
+                              displayErrorMessage("Please enter an amount")
+                          } else if (mSelectedItem == null) {
+                              displayErrorMessage("Please select an Item")
+                          } else {
+                              val newItem = Item(
+                                  name = mSelectedItem!!.name,
+                                  proteinContentPercentage = mSelectedItem!!.proteinContentPercentage,
+                                  amountInGram = amountInGram.toFloat(),
+                                  kcalContentIn100g = mSelectedItem!!.kcalContentIn100g
+
+                              )
+                              DataProvider.addItemToTodayAndCreateBackupIfNeeded(newItem, context)
+                              items += newItem
+                              openBottomSheet = false
+                          }
+                      }
+                  }) {
+                      Text("Confirm")
+                  }
+              }
+
+          }
+*/
         }
     }
     viewModel.onFloatingActionButtonClick = {
@@ -229,7 +284,8 @@ fun TodayView(
             Row(
                 modifier = Modifier.fillMaxWidth()
             ) {
-                val consumedProtein = String.format("%.1f", DataProvider.getTodayConsumedProtein()).replace(".0", "")
+                val consumedProtein =
+                    String.format("%.1f", DataProvider.getTodayConsumedProtein()).replace(".0", "")
                 NutrientItem(modifier = Modifier.weight(1f),
                     painter = painterResource(R.drawable.ic_grocery),
                     title = { Text(style = MaterialTheme.typography.titleMedium, text = "Protein") },

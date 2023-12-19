@@ -1,0 +1,5547 @@
+[
+  {
+    "name": "Kakaobutter",
+    "kcalContentIn100g": 900,
+    "proteinContentPercentage": 0
+  },
+  {
+    "name": "Schweineschmalz",
+    "kcalContentIn100g": 900,
+    "proteinContentPercentage": 0
+  },
+  {
+    "name": "Kokosfett",
+    "kcalContentIn100g": 894,
+    "proteinContentPercentage": 0.8
+  },
+  {
+    "name": "Bratbutter",
+    "kcalContentIn100g": 885,
+    "proteinContentPercentage": 0.1
+  },
+  {
+    "name": "Baumnussöl",
+    "kcalContentIn100g": 810,
+    "proteinContentPercentage": 0
+  },
+  {
+    "name": "Distelöl",
+    "kcalContentIn100g": 810,
+    "proteinContentPercentage": 0
+  },
+  {
+    "name": "Erdnussöl",
+    "kcalContentIn100g": 810,
+    "proteinContentPercentage": 0
+  },
+  {
+    "name": "Hanföl",
+    "kcalContentIn100g": 810,
+    "proteinContentPercentage": 0
+  },
+  {
+    "name": "Haselnussöl",
+    "kcalContentIn100g": 810,
+    "proteinContentPercentage": 0
+  },
+  {
+    "name": "Kürbiskernöl",
+    "kcalContentIn100g": 810,
+    "proteinContentPercentage": 0
+  },
+  {
+    "name": "Leinöl, kaltgepresst",
+    "kcalContentIn100g": 810,
+    "proteinContentPercentage": 0
+  },
+  {
+    "name": "Maiskeimöl",
+    "kcalContentIn100g": 810,
+    "proteinContentPercentage": 0
+  },
+  {
+    "name": "Olivenöl",
+    "kcalContentIn100g": 810,
+    "proteinContentPercentage": 0
+  },
+  {
+    "name": "Rapsöl",
+    "kcalContentIn100g": 810,
+    "proteinContentPercentage": 0
+  },
+  {
+    "name": "Rapsöl HOLL (high oleic, low linolenic)",
+    "kcalContentIn100g": 810,
+    "proteinContentPercentage": 0
+  },
+  {
+    "name": "Sesamöl",
+    "kcalContentIn100g": 810,
+    "proteinContentPercentage": 0
+  },
+  {
+    "name": "Sojaöl",
+    "kcalContentIn100g": 810,
+    "proteinContentPercentage": 0
+  },
+  {
+    "name": "Sonnenblumenöl",
+    "kcalContentIn100g": 810,
+    "proteinContentPercentage": 0
+  },
+  {
+    "name": "Sonnenblumenöl HO (high oleic), raffiniert",
+    "kcalContentIn100g": 810,
+    "proteinContentPercentage": 0
+  },
+  {
+    "name": "Traubenkernöl",
+    "kcalContentIn100g": 810,
+    "proteinContentPercentage": 0
+  },
+  {
+    "name": "Weizenkeimöl",
+    "kcalContentIn100g": 810,
+    "proteinContentPercentage": 0
+  },
+  {
+    "name": "Palmöl - Palmfett",
+    "kcalContentIn100g": 809,
+    "proteinContentPercentage": 0
+  },
+  {
+    "name": "Mayonnaise, mit Rapsöl, hausgemacht",
+    "kcalContentIn100g": 792,
+    "proteinContentPercentage": 2.4
+  },
+  {
+    "name": "Käsereibutter",
+    "kcalContentIn100g": 747,
+    "proteinContentPercentage": 0.4
+  },
+  {
+    "name": "Vorzugsbutter",
+    "kcalContentIn100g": 746,
+    "proteinContentPercentage": 0.7
+  },
+  {
+    "name": "Kochbutter",
+    "kcalContentIn100g": 745,
+    "proteinContentPercentage": 0.5
+  },
+  {
+    "name": "Mayonnaise",
+    "kcalContentIn100g": 742,
+    "proteinContentPercentage": 1.1
+  },
+  {
+    "name": "Baumnuss",
+    "kcalContentIn100g": 709,
+    "proteinContentPercentage": 15.7
+  },
+  {
+    "name": "Paranuss",
+    "kcalContentIn100g": 698,
+    "proteinContentPercentage": 17
+  },
+  {
+    "name": "Margarine, ohne Butter, 70 - 80 % Fett",
+    "kcalContentIn100g": 696,
+    "proteinContentPercentage": 0.4
+  },
+  {
+    "name": "Cocktailsauce, mit Rapsöl-Mayonnaise, hausgemacht",
+    "kcalContentIn100g": 696,
+    "proteinContentPercentage": 2.4
+  },
+  {
+    "name": "Pinienkerne",
+    "kcalContentIn100g": 688,
+    "proteinContentPercentage": 16.5
+  },
+  {
+    "name": "Haselnuss",
+    "kcalContentIn100g": 661,
+    "proteinContentPercentage": 16.4
+  },
+  {
+    "name": "Sesamsamen, geschält",
+    "kcalContentIn100g": 660,
+    "proteinContentPercentage": 26.8
+  },
+  {
+    "name": "Kokosnuss, getrocknet (Kokosrapseln, Kokosflocken)",
+    "kcalContentIn100g": 653,
+    "proteinContentPercentage": 7.6
+  },
+  {
+    "name": "Mandel, geröstet, gesalzen",
+    "kcalContentIn100g": 649,
+    "proteinContentPercentage": 25.6
+  },
+  {
+    "name": "Mandel, ohne Fett geröstet, gesalzen",
+    "kcalContentIn100g": 637,
+    "proteinContentPercentage": 25.4
+  },
+  {
+    "name": "Erdnussbutter",
+    "kcalContentIn100g": 636,
+    "proteinContentPercentage": 26.1
+  },
+  {
+    "name": "Erdnuss, geröstet, gesalzen",
+    "kcalContentIn100g": 631,
+    "proteinContentPercentage": 26.2
+  },
+  {
+    "name": "Mandel",
+    "kcalContentIn100g": 624,
+    "proteinContentPercentage": 25.6
+  },
+  {
+    "name": "Erdnuss",
+    "kcalContentIn100g": 623,
+    "proteinContentPercentage": 26.1
+  },
+  {
+    "name": "Sonnenblumenkerne",
+    "kcalContentIn100g": 621,
+    "proteinContentPercentage": 25.1
+  },
+  {
+    "name": "Sesamsamen ungeschält",
+    "kcalContentIn100g": 619,
+    "proteinContentPercentage": 23.1
+  },
+  {
+    "name": "Cashewnuss",
+    "kcalContentIn100g": 619,
+    "proteinContentPercentage": 21.5
+  },
+  {
+    "name": "Kürbiskerne",
+    "kcalContentIn100g": 615,
+    "proteinContentPercentage": 35.6
+  },
+  {
+    "name": "Samen, Kerne, Nüsse (Durchschnitt), ungesalzen",
+    "kcalContentIn100g": 614,
+    "proteinContentPercentage": 20.9
+  },
+  {
+    "name": "Pistazie",
+    "kcalContentIn100g": 594,
+    "proteinContentPercentage": 23.8
+  },
+  {
+    "name": "Milchschokolade mit Crèmefüllung (Gianduja, Nougat)",
+    "kcalContentIn100g": 573,
+    "proteinContentPercentage": 7.9
+  },
+  {
+    "name": "Milchschokolade mit Nüssen",
+    "kcalContentIn100g": 570,
+    "proteinContentPercentage": 8.8
+  },
+  {
+    "name": "Haselnussstängeli",
+    "kcalContentIn100g": 567,
+    "proteinContentPercentage": 10.5
+  },
+  {
+    "name": "Schokolade, weiss",
+    "kcalContentIn100g": 567,
+    "proteinContentPercentage": 6.7
+  },
+  {
+    "name": "Branchli (Milchschokolade mit Haselnusscrèmefüllung)",
+    "kcalContentIn100g": 558,
+    "proteinContentPercentage": 8.3
+  },
+  {
+    "name": "Pantli",
+    "kcalContentIn100g": 553,
+    "proteinContentPercentage": 21.7
+  },
+  {
+    "name": "Fasnachtschüechli",
+    "kcalContentIn100g": 553,
+    "proteinContentPercentage": 11.5
+  },
+  {
+    "name": "Haselnuss-Schokolade-Brotaufstrich",
+    "kcalContentIn100g": 551,
+    "proteinContentPercentage": 6
+  },
+  {
+    "name": "Kokosmakronen",
+    "kcalContentIn100g": 549,
+    "proteinContentPercentage": 6.9
+  },
+  {
+    "name": "Haselnussmakrone",
+    "kcalContentIn100g": 544,
+    "proteinContentPercentage": 12.2
+  },
+  {
+    "name": "Pommes Chips",
+    "kcalContentIn100g": 538,
+    "proteinContentPercentage": 4.9
+  },
+  {
+    "name": "Milchschokolade",
+    "kcalContentIn100g": 537,
+    "proteinContentPercentage": 6.5
+  },
+  {
+    "name": "Schokolade, dunkel (bitter)",
+    "kcalContentIn100g": 537,
+    "proteinContentPercentage": 5.7
+  },
+  {
+    "name": "Milchschokolade mit Mandel-Honig-Nougat",
+    "kcalContentIn100g": 536,
+    "proteinContentPercentage": 7.3
+  },
+  {
+    "name": "Leinsamen",
+    "kcalContentIn100g": 533,
+    "proteinContentPercentage": 21.3
+  },
+  {
+    "name": "Mürbeteig (mit Butter), süss, gebacken",
+    "kcalContentIn100g": 530,
+    "proteinContentPercentage": 9.8
+  },
+  {
+    "name": "Bauernschüblig",
+    "kcalContentIn100g": 524,
+    "proteinContentPercentage": 21.3
+  },
+  {
+    "name": "Brunsli",
+    "kcalContentIn100g": 515,
+    "proteinContentPercentage": 14.9
+  },
+  {
+    "name": "Milchschokolade mit Weinbeeren, Nüssen und Mandeln",
+    "kcalContentIn100g": 513,
+    "proteinContentPercentage": 8.4
+  },
+  {
+    "name": "Mais-Chips (Apérogebäck)",
+    "kcalContentIn100g": 509,
+    "proteinContentPercentage": 7.8
+  },
+  {
+    "name": "Erdnuss-Flips",
+    "kcalContentIn100g": 507,
+    "proteinContentPercentage": 13.2
+  },
+  {
+    "name": "Zimtstern",
+    "kcalContentIn100g": 505,
+    "proteinContentPercentage": 14.2
+  },
+  {
+    "name": "Spitzbube (Mürbeteiggebäck mit Konfitüre)",
+    "kcalContentIn100g": 499,
+    "proteinContentPercentage": 5.8
+  },
+  {
+    "name": "Mürbeteig (mit pflanzlichem Fett), süss, gebacken",
+    "kcalContentIn100g": 494,
+    "proteinContentPercentage": 8
+  },
+  {
+    "name": "Berner Hobelkäse",
+    "kcalContentIn100g": 491,
+    "proteinContentPercentage": 30
+  },
+  {
+    "name": "Landjäger",
+    "kcalContentIn100g": 491,
+    "proteinContentPercentage": 26.6
+  },
+  {
+    "name": "Blätterteigstängel",
+    "kcalContentIn100g": 490,
+    "proteinContentPercentage": 7.1
+  },
+  {
+    "name": "Milchschokolade mit Alkoholfüllung",
+    "kcalContentIn100g": 488,
+    "proteinContentPercentage": 5.6
+  },
+  {
+    "name": "Schümliguetzli mit Schokolade",
+    "kcalContentIn100g": 486,
+    "proteinContentPercentage": 5.2
+  },
+  {
+    "name": "Chia-Samen",
+    "kcalContentIn100g": 482,
+    "proteinContentPercentage": 21.4
+  },
+  {
+    "name": "Petit Beurre mit Schokolade",
+    "kcalContentIn100g": 482,
+    "proteinContentPercentage": 7.7
+  },
+  {
+    "name": "Engadiner Nusstorte",
+    "kcalContentIn100g": 481,
+    "proteinContentPercentage": 7
+  },
+  {
+    "name": "Vollmilchpulver",
+    "kcalContentIn100g": 480,
+    "proteinContentPercentage": 24.7
+  },
+  {
+    "name": "Marzipan",
+    "kcalContentIn100g": 474,
+    "proteinContentPercentage": 8
+  },
+  {
+    "name": "Sablé, Butter",
+    "kcalContentIn100g": 474,
+    "proteinContentPercentage": 5.9
+  },
+  {
+    "name": "Haselnusskekse",
+    "kcalContentIn100g": 473,
+    "proteinContentPercentage": 6.7
+  },
+  {
+    "name": "Pommes Chips fettreduziert",
+    "kcalContentIn100g": 468,
+    "proteinContentPercentage": 5.9
+  },
+  {
+    "name": "Doppelrahm, pasteurisiert",
+    "kcalContentIn100g": 468,
+    "proteinContentPercentage": 1.9
+  },
+  {
+    "name": "Pancetta",
+    "kcalContentIn100g": 467,
+    "proteinContentPercentage": 19.5
+  },
+  {
+    "name": "Amaretti (Mandelgebäck)",
+    "kcalContentIn100g": 464,
+    "proteinContentPercentage": 8.8
+  },
+  {
+    "name": "Salatsauce italienisch, hausgemacht (mit Olivenöl)",
+    "kcalContentIn100g": 464,
+    "proteinContentPercentage": 0.4
+  },
+  {
+    "name": "Gugelhopf Grossmutter Art",
+    "kcalContentIn100g": 462,
+    "proteinContentPercentage": 8.8
+  },
+  {
+    "name": "Minipic Würstchen",
+    "kcalContentIn100g": 460,
+    "proteinContentPercentage": 26.1
+  },
+  {
+    "name": "Madeleine (mit Butter)",
+    "kcalContentIn100g": 460,
+    "proteinContentPercentage": 7.3
+  },
+  {
+    "name": "Getreideriegel mit Schokoladeüberzug",
+    "kcalContentIn100g": 459,
+    "proteinContentPercentage": 8.5
+  },
+  {
+    "name": "Berner Alpkäse",
+    "kcalContentIn100g": 453,
+    "proteinContentPercentage": 27.1
+  },
+  {
+    "name": "Cotechino",
+    "kcalContentIn100g": 450,
+    "proteinContentPercentage": 17.2
+  },
+  {
+    "name": "Cracker, Salzgebäck, Apérogebäck",
+    "kcalContentIn100g": 449,
+    "proteinContentPercentage": 9.2
+  },
+  {
+    "name": "Weichkaramellen, Bonbons",
+    "kcalContentIn100g": 448,
+    "proteinContentPercentage": 2.1
+  },
+  {
+    "name": "Rohwürste/Dauerwürste (Durchschnitt)",
+    "kcalContentIn100g": 445,
+    "proteinContentPercentage": 22.2
+  },
+  {
+    "name": "Nussschnecke aus Hefeteig",
+    "kcalContentIn100g": 445,
+    "proteinContentPercentage": 12.2
+  },
+  {
+    "name": "Lebkuchen mit Schokoladeüberzug",
+    "kcalContentIn100g": 444,
+    "proteinContentPercentage": 6.5
+  },
+  {
+    "name": "Schümliguetzli",
+    "kcalContentIn100g": 444,
+    "proteinContentPercentage": 4.2
+  },
+  {
+    "name": "Saucisson, gekocht (ohne Zusatz von Fett und Salz)",
+    "kcalContentIn100g": 442,
+    "proteinContentPercentage": 21.1
+  },
+  {
+    "name": "Knuspermüeslimischung, mit Schokolade",
+    "kcalContentIn100g": 442,
+    "proteinContentPercentage": 9
+  },
+  {
+    "name": "Cake Financier",
+    "kcalContentIn100g": 440,
+    "proteinContentPercentage": 11.1
+  },
+  {
+    "name": "Prussien",
+    "kcalContentIn100g": 438,
+    "proteinContentPercentage": 4.7
+  },
+  {
+    "name": "Mascarpone",
+    "kcalContentIn100g": 435,
+    "proteinContentPercentage": 4.5
+  },
+  {
+    "name": "Madeleine (mit Pflanzenöl)",
+    "kcalContentIn100g": 434,
+    "proteinContentPercentage": 7.9
+  },
+  {
+    "name": "Buttergipfeli, hell",
+    "kcalContentIn100g": 432,
+    "proteinContentPercentage": 8.7
+  },
+  {
+    "name": "Knuspermüeslimischung, mit Nüssen and Samen, gezuckert",
+    "kcalContentIn100g": 431,
+    "proteinContentPercentage": 11.3
+  },
+  {
+    "name": "Petit Beurre",
+    "kcalContentIn100g": 431,
+    "proteinContentPercentage": 8.7
+  },
+  {
+    "name": "Mailänderli",
+    "kcalContentIn100g": 431,
+    "proteinContentPercentage": 7.1
+  },
+  {
+    "name": "Knuspermüeslimischung, gezuckert (Durchschnitt)",
+    "kcalContentIn100g": 430,
+    "proteinContentPercentage": 9.4
+  },
+  {
+    "name": "Rührteigcake \"Gleichschwer",
+    "kcalContentIn100g": 430,
+    "proteinContentPercentage": 6.9
+  },
+  {
+    "name": "Pestosauce, grün",
+    "kcalContentIn100g": 430,
+    "proteinContentPercentage": 3.9
+  },
+  {
+    "name": "Salatsauce französisch, hausgemacht (mit Rapsöl)",
+    "kcalContentIn100g": 430,
+    "proteinContentPercentage": 0.9
+  },
+  {
+    "name": "Petit Beurre, Vollkorn",
+    "kcalContentIn100g": 426,
+    "proteinContentPercentage": 9.6
+  },
+  {
+    "name": "Knuspermüeslimischung,  mit Früchten, gezuckert",
+    "kcalContentIn100g": 424,
+    "proteinContentPercentage": 8.7
+  },
+  {
+    "name": "Mürbeteig (mit Butter), süss, ungebacken",
+    "kcalContentIn100g": 424,
+    "proteinContentPercentage": 7.8
+  },
+  {
+    "name": "Linzertorte",
+    "kcalContentIn100g": 424,
+    "proteinContentPercentage": 7.5
+  },
+  {
+    "name": "Laugengipfeli (mit jodiertem Kochsalz)",
+    "kcalContentIn100g": 423,
+    "proteinContentPercentage": 9.1
+  },
+  {
+    "name": "Salami (Billiglinie)",
+    "kcalContentIn100g": 422,
+    "proteinContentPercentage": 22
+  },
+  {
+    "name": "Zwieback",
+    "kcalContentIn100g": 421,
+    "proteinContentPercentage": 11.6
+  },
+  {
+    "name": "Knuspermüeslimischung, angereichert mit Vitaminen und Mineralien",
+    "kcalContentIn100g": 420,
+    "proteinContentPercentage": 10.3
+  },
+  {
+    "name": "Kakaopulver",
+    "kcalContentIn100g": 419,
+    "proteinContentPercentage": 22.5
+  },
+  {
+    "name": "Nussgipfel aus Blätterteig",
+    "kcalContentIn100g": 419,
+    "proteinContentPercentage": 6.8
+  },
+  {
+    "name": "Tête de Moine",
+    "kcalContentIn100g": 417,
+    "proteinContentPercentage": 24.2
+  },
+  {
+    "name": "Getreideriegel, ohne Ueberzug und Füllung",
+    "kcalContentIn100g": 416,
+    "proteinContentPercentage": 7.9
+  },
+  {
+    "name": "Sbrinz",
+    "kcalContentIn100g": 415,
+    "proteinContentPercentage": 28
+  },
+  {
+    "name": "Salsiz",
+    "kcalContentIn100g": 415,
+    "proteinContentPercentage": 25.2
+  },
+  {
+    "name": "Zwieback, Vollkorn",
+    "kcalContentIn100g": 413,
+    "proteinContentPercentage": 17.5
+  },
+  {
+    "name": "Löffelbiscuit",
+    "kcalContentIn100g": 413,
+    "proteinContentPercentage": 12.2
+  },
+  {
+    "name": "Tirolercake",
+    "kcalContentIn100g": 412,
+    "proteinContentPercentage": 8.3
+  },
+  {
+    "name": "Basler Leckerli",
+    "kcalContentIn100g": 412,
+    "proteinContentPercentage": 7.5
+  },
+  {
+    "name": "Emmentaler, vollfett",
+    "kcalContentIn100g": 408,
+    "proteinContentPercentage": 28.4
+  },
+  {
+    "name": "Reibkäse",
+    "kcalContentIn100g": 406,
+    "proteinContentPercentage": 29.3
+  },
+  {
+    "name": "Lebkuchen",
+    "kcalContentIn100g": 404,
+    "proteinContentPercentage": 6.5
+  },
+  {
+    "name": "Saucisson",
+    "kcalContentIn100g": 403,
+    "proteinContentPercentage": 18.2
+  },
+  {
+    "name": "Parmesan",
+    "kcalContentIn100g": 401,
+    "proteinContentPercentage": 30.5
+  },
+  {
+    "name": "Quarkblätterteig (mit Butter), ungebacken",
+    "kcalContentIn100g": 401,
+    "proteinContentPercentage": 7.1
+  },
+  {
+    "name": "Meringue",
+    "kcalContentIn100g": 401,
+    "proteinContentPercentage": 5
+  },
+  {
+    "name": "Rohessspeck",
+    "kcalContentIn100g": 400,
+    "proteinContentPercentage": 22.1
+  },
+  {
+    "name": "Gipfeli (Durchschnitt)",
+    "kcalContentIn100g": 400,
+    "proteinContentPercentage": 7.8
+  },
+  {
+    "name": "Zucker, weiss",
+    "kcalContentIn100g": 400,
+    "proteinContentPercentage": 0
+  },
+  {
+    "name": "Sojabohne, getrocknet",
+    "kcalContentIn100g": 399,
+    "proteinContentPercentage": 38.2
+  },
+  {
+    "name": "Traubenzucker",
+    "kcalContentIn100g": 399,
+    "proteinContentPercentage": 0
+  },
+  {
+    "name": "Sojamehl, vollfett",
+    "kcalContentIn100g": 398,
+    "proteinContentPercentage": 40.8
+  },
+  {
+    "name": "Pestosauce, rot",
+    "kcalContentIn100g": 398,
+    "proteinContentPercentage": 5.7
+  },
+  {
+    "name": "Schokoladenpulver",
+    "kcalContentIn100g": 398,
+    "proteinContentPercentage": 5.3
+  },
+  {
+    "name": "Hart- und Halbhartkäse, vollfett (Durchschnitt)",
+    "kcalContentIn100g": 397,
+    "proteinContentPercentage": 26.6
+  },
+  {
+    "name": "Greyerzer, vollfett",
+    "kcalContentIn100g": 396,
+    "proteinContentPercentage": 26.4
+  },
+  {
+    "name": "Mürbeteig (mit pflanzlichem Fett), süss, ungebacken",
+    "kcalContentIn100g": 395,
+    "proteinContentPercentage": 6.4
+  },
+  {
+    "name": "Kuchenteig (mit pflanzlichem Fett), ungebacken",
+    "kcalContentIn100g": 394,
+    "proteinContentPercentage": 6.6
+  },
+  {
+    "name": "Halbfettbutter",
+    "kcalContentIn100g": 391,
+    "proteinContentPercentage": 4.8
+  },
+  {
+    "name": "Vollkornreiswaffel",
+    "kcalContentIn100g": 390,
+    "proteinContentPercentage": 7.7
+  },
+  {
+    "name": "Zucker, braun",
+    "kcalContentIn100g": 390,
+    "proteinContentPercentage": 0
+  },
+  {
+    "name": "Quarkblätterteig (mit pflanzlichem Fett), ungebacken",
+    "kcalContentIn100g": 388,
+    "proteinContentPercentage": 7.1
+  },
+  {
+    "name": "Blätterteig (mit pflanzichem Fett), ungebacken",
+    "kcalContentIn100g": 385,
+    "proteinContentPercentage": 5.7
+  },
+  {
+    "name": "Hartkaramellen, Hartbonbons",
+    "kcalContentIn100g": 385,
+    "proteinContentPercentage": 0.5
+  },
+  {
+    "name": "Appenzeller, vollfett",
+    "kcalContentIn100g": 384,
+    "proteinContentPercentage": 24.3
+  },
+  {
+    "name": "Kokosnuss",
+    "kcalContentIn100g": 384,
+    "proteinContentPercentage": 4.6
+  },
+  {
+    "name": "Tartarsauce, mit Rapsöl-Mayonnaise, hausgemacht",
+    "kcalContentIn100g": 384,
+    "proteinContentPercentage": 3.7
+  },
+  {
+    "name": "Malzgetränk mit Kakao, mit Vitaminen und Mineralien angereichert, Pulver",
+    "kcalContentIn100g": 382,
+    "proteinContentPercentage": 8.9
+  },
+  {
+    "name": "Samosa, frittiert",
+    "kcalContentIn100g": 382,
+    "proteinContentPercentage": 6.2
+  },
+  {
+    "name": "Haferflocken",
+    "kcalContentIn100g": 381,
+    "proteinContentPercentage": 13.5
+  },
+  {
+    "name": "Schokoladengugelhopf",
+    "kcalContentIn100g": 380,
+    "proteinContentPercentage": 6.4
+  },
+  {
+    "name": "Crêpes mit Nutella, zubereitet",
+    "kcalContentIn100g": 378,
+    "proteinContentPercentage": 7.9
+  },
+  {
+    "name": "Tilsiter, Rohmilch, vollfett",
+    "kcalContentIn100g": 376,
+    "proteinContentPercentage": 25.6
+  },
+  {
+    "name": "Amaranth, Samen, roh",
+    "kcalContentIn100g": 376,
+    "proteinContentPercentage": 15.8
+  },
+  {
+    "name": "Weichkäse, Doppelrahm",
+    "kcalContentIn100g": 376,
+    "proteinContentPercentage": 9.7
+  },
+  {
+    "name": "Weizenkeime",
+    "kcalContentIn100g": 375,
+    "proteinContentPercentage": 29.2
+  },
+  {
+    "name": "Kuchenteig (mit Butter), ungebacken",
+    "kcalContentIn100g": 375,
+    "proteinContentPercentage": 6.7
+  },
+  {
+    "name": "Paniermehl",
+    "kcalContentIn100g": 373,
+    "proteinContentPercentage": 12.7
+  },
+  {
+    "name": "Müeslimischung, Getreideflocken mit Früchten und Nüssen, ungesüsst",
+    "kcalContentIn100g": 372,
+    "proteinContentPercentage": 11.3
+  },
+  {
+    "name": "Kuchenteig, Vollkorn (mit Butter), ungebacken",
+    "kcalContentIn100g": 372,
+    "proteinContentPercentage": 7.6
+  },
+  {
+    "name": "Haferkleie",
+    "kcalContentIn100g": 371,
+    "proteinContentPercentage": 18.5
+  },
+  {
+    "name": "Sirup unverdünnt",
+    "kcalContentIn100g": 371,
+    "proteinContentPercentage": 0.1
+  },
+  {
+    "name": "Freiburger Vacherin",
+    "kcalContentIn100g": 370,
+    "proteinContentPercentage": 23.5
+  },
+  {
+    "name": "Banane, gedörrt",
+    "kcalContentIn100g": 370,
+    "proteinContentPercentage": 3.9
+  },
+  {
+    "name": "Quinoa, roh",
+    "kcalContentIn100g": 368,
+    "proteinContentPercentage": 14.8
+  },
+  {
+    "name": "Buttergipfeli, Vollkorn",
+    "kcalContentIn100g": 368,
+    "proteinContentPercentage": 6.8
+  },
+  {
+    "name": "Salami",
+    "kcalContentIn100g": 367,
+    "proteinContentPercentage": 24.1
+  },
+  {
+    "name": "Popcorn",
+    "kcalContentIn100g": 367,
+    "proteinContentPercentage": 12
+  },
+  {
+    "name": "Chräbeli (Anisgebäck)",
+    "kcalContentIn100g": 366,
+    "proteinContentPercentage": 8.6
+  },
+  {
+    "name": "Schoggibrötli",
+    "kcalContentIn100g": 366,
+    "proteinContentPercentage": 8.6
+  },
+  {
+    "name": "Teigwaren mit Ei, trocken",
+    "kcalContentIn100g": 365,
+    "proteinContentPercentage": 13.3
+  },
+  {
+    "name": "Müeslimischung, Getreideflocken mit Früchten und Nüssen, gezuckert",
+    "kcalContentIn100g": 365,
+    "proteinContentPercentage": 11.4
+  },
+  {
+    "name": "Kartoffelflocken, mit Milchpulver und Salz (Instant-Kartoffelstock)",
+    "kcalContentIn100g": 365,
+    "proteinContentPercentage": 11.3
+  },
+  {
+    "name": "Blätterteig, hausgemacht (Butter), ungebacken",
+    "kcalContentIn100g": 364,
+    "proteinContentPercentage": 5.2
+  },
+  {
+    "name": "Roquefort",
+    "kcalContentIn100g": 363,
+    "proteinContentPercentage": 19.2
+  },
+  {
+    "name": "Saucisse aux choux",
+    "kcalContentIn100g": 363,
+    "proteinContentPercentage": 15.9
+  },
+  {
+    "name": "Cornflakes",
+    "kcalContentIn100g": 363,
+    "proteinContentPercentage": 7.7
+  },
+  {
+    "name": "Birnenweggen",
+    "kcalContentIn100g": 363,
+    "proteinContentPercentage": 4.9
+  },
+  {
+    "name": "Zampone",
+    "kcalContentIn100g": 361,
+    "proteinContentPercentage": 19.1
+  },
+  {
+    "name": "Laugengebäck trocken (Bretzel, Sticks)",
+    "kcalContentIn100g": 361,
+    "proteinContentPercentage": 8.6
+  },
+  {
+    "name": "Blauschimmelkäse (Durchschnitt)",
+    "kcalContentIn100g": 360,
+    "proteinContentPercentage": 19.1
+  },
+  {
+    "name": "Knäckebrot, Vollkorn mit Sesam",
+    "kcalContentIn100g": 360,
+    "proteinContentPercentage": 13.1
+  },
+  {
+    "name": "Hirse, Korn geschält",
+    "kcalContentIn100g": 360,
+    "proteinContentPercentage": 10.6
+  },
+  {
+    "name": "Hirseflocken, Vollkorn",
+    "kcalContentIn100g": 360,
+    "proteinContentPercentage": 10.6
+  },
+  {
+    "name": "Salatsauce, französisch",
+    "kcalContentIn100g": 360,
+    "proteinContentPercentage": 1.4
+  },
+  {
+    "name": "Kuchenteig, Vollkorn (mit pflanzichem Fett), ungebacken",
+    "kcalContentIn100g": 359,
+    "proteinContentPercentage": 7.6
+  },
+  {
+    "name": "Saucisson vaudois",
+    "kcalContentIn100g": 358,
+    "proteinContentPercentage": 16.5
+  },
+  {
+    "name": "Paprika (Gewürz)",
+    "kcalContentIn100g": 358,
+    "proteinContentPercentage": 14.8
+  },
+  {
+    "name": "Ahornsirup",
+    "kcalContentIn100g": 358,
+    "proteinContentPercentage": 0
+  },
+  {
+    "name": "Raclettekäse",
+    "kcalContentIn100g": 357,
+    "proteinContentPercentage": 25.9
+  },
+  {
+    "name": "Gorgonzola",
+    "kcalContentIn100g": 357,
+    "proteinContentPercentage": 19
+  },
+  {
+    "name": "Margarine, 35 - 40 % Fett",
+    "kcalContentIn100g": 357,
+    "proteinContentPercentage": 0.3
+  },
+  {
+    "name": "Reis parboiled, trocken",
+    "kcalContentIn100g": 356,
+    "proteinContentPercentage": 7.5
+  },
+  {
+    "name": "Marmorkuchen",
+    "kcalContentIn100g": 356,
+    "proteinContentPercentage": 7.4
+  },
+  {
+    "name": "Camembert, Rahm",
+    "kcalContentIn100g": 355,
+    "proteinContentPercentage": 17.1
+  },
+  {
+    "name": "Biber",
+    "kcalContentIn100g": 355,
+    "proteinContentPercentage": 7.8
+  },
+  {
+    "name": "Bierhefe, getrocknet",
+    "kcalContentIn100g": 354,
+    "proteinContentPercentage": 47.9
+  },
+  {
+    "name": "Panettone",
+    "kcalContentIn100g": 354,
+    "proteinContentPercentage": 6.4
+  },
+  {
+    "name": "Maisstärke",
+    "kcalContentIn100g": 354,
+    "proteinContentPercentage": 0.3
+  },
+  {
+    "name": "Teigwaren ohne Ei, trocken",
+    "kcalContentIn100g": 353,
+    "proteinContentPercentage": 12.6
+  },
+  {
+    "name": "Hartweizengriess, trocken",
+    "kcalContentIn100g": 353,
+    "proteinContentPercentage": 12
+  },
+  {
+    "name": "Samosa, gebacken",
+    "kcalContentIn100g": 353,
+    "proteinContentPercentage": 6.6
+  },
+  {
+    "name": "Knäckebrot, Vollkorn mit Leinsamen",
+    "kcalContentIn100g": 352,
+    "proteinContentPercentage": 12.9
+  },
+  {
+    "name": "Reis poliert, trocken",
+    "kcalContentIn100g": 352,
+    "proteinContentPercentage": 7.4
+  },
+  {
+    "name": "Tilsiter, pasteurisiert, vollfett",
+    "kcalContentIn100g": 351,
+    "proteinContentPercentage": 24.1
+  },
+  {
+    "name": "Knöpflimehl",
+    "kcalContentIn100g": 351,
+    "proteinContentPercentage": 11.9
+  },
+  {
+    "name": "Frischkäse, Doppelrahm",
+    "kcalContentIn100g": 351,
+    "proteinContentPercentage": 11.1
+  },
+  {
+    "name": "Rahmkaramellen",
+    "kcalContentIn100g": 351,
+    "proteinContentPercentage": 0.4
+  },
+  {
+    "name": "Maisgriess, trocken",
+    "kcalContentIn100g": 350,
+    "proteinContentPercentage": 8.8
+  },
+  {
+    "name": "Reis unpoliert, trocken",
+    "kcalContentIn100g": 350,
+    "proteinContentPercentage": 7.4
+  },
+  {
+    "name": "Hühnereigelb, roh (Eidotter)",
+    "kcalContentIn100g": 349,
+    "proteinContentPercentage": 16.4
+  },
+  {
+    "name": "Blätterteig, hausgemacht (mit pflanzlichem Fett), ungebacken",
+    "kcalContentIn100g": 349,
+    "proteinContentPercentage": 5.2
+  },
+  {
+    "name": "Magermilchpulver",
+    "kcalContentIn100g": 348,
+    "proteinContentPercentage": 34.3
+  },
+  {
+    "name": "Dinkelmehl, Ruch, Typ 1100",
+    "kcalContentIn100g": 348,
+    "proteinContentPercentage": 14.3
+  },
+  {
+    "name": "Dinkelmehl, weiss, Typ 550",
+    "kcalContentIn100g": 348,
+    "proteinContentPercentage": 13.3
+  },
+  {
+    "name": "Buchweizenmehl",
+    "kcalContentIn100g": 348,
+    "proteinContentPercentage": 11.5
+  },
+  {
+    "name": "Getreideflocken (Durchschnitt)",
+    "kcalContentIn100g": 348,
+    "proteinContentPercentage": 10.8
+  },
+  {
+    "name": "Weizenstärke",
+    "kcalContentIn100g": 348,
+    "proteinContentPercentage": 0.4
+  },
+  {
+    "name": "Weichkäse, Rahm",
+    "kcalContentIn100g": 347,
+    "proteinContentPercentage": 17.4
+  },
+  {
+    "name": "Rollgerste",
+    "kcalContentIn100g": 347,
+    "proteinContentPercentage": 10.4
+  },
+  {
+    "name": "Dinkelmehl, Vollkorn, Typ 1900",
+    "kcalContentIn100g": 346,
+    "proteinContentPercentage": 15.6
+  },
+  {
+    "name": "Weizenmehl, weiss, Typ 400",
+    "kcalContentIn100g": 346,
+    "proteinContentPercentage": 11.5
+  },
+  {
+    "name": "Buchweizen, Korn geschält",
+    "kcalContentIn100g": 346,
+    "proteinContentPercentage": 9.8
+  },
+  {
+    "name": "Mehl, hell (Durchschnitt)",
+    "kcalContentIn100g": 344,
+    "proteinContentPercentage": 12.2
+  },
+  {
+    "name": "Weizenmehl (Backmehl), Typ 550",
+    "kcalContentIn100g": 344,
+    "proteinContentPercentage": 12
+  },
+  {
+    "name": "Salametti",
+    "kcalContentIn100g": 343,
+    "proteinContentPercentage": 14.8
+  },
+  {
+    "name": "Mehl (Durchschnitt)",
+    "kcalContentIn100g": 343,
+    "proteinContentPercentage": 12.4
+  },
+  {
+    "name": "Brie, Rahm",
+    "kcalContentIn100g": 342,
+    "proteinContentPercentage": 17.7
+  },
+  {
+    "name": "Gummibonbon mit Fruchtessenz",
+    "kcalContentIn100g": 341,
+    "proteinContentPercentage": 6.6
+  },
+  {
+    "name": "Weizenmehl, halbweiss, Typ 720",
+    "kcalContentIn100g": 340,
+    "proteinContentPercentage": 13
+  },
+  {
+    "name": "Schinkengipfeli",
+    "kcalContentIn100g": 340,
+    "proteinContentPercentage": 11.1
+  },
+  {
+    "name": "Weizenmehl, Ruch, Typ 1100",
+    "kcalContentIn100g": 339,
+    "proteinContentPercentage": 13.5
+  },
+  {
+    "name": "Kondensmilch, gezuckert",
+    "kcalContentIn100g": 339,
+    "proteinContentPercentage": 8
+  },
+  {
+    "name": "Weizenmehl, Vollkorn, Typ 1700",
+    "kcalContentIn100g": 338,
+    "proteinContentPercentage": 13.5
+  },
+  {
+    "name": "Teigwaren ohne Ei, Vollkorn, trocken",
+    "kcalContentIn100g": 338,
+    "proteinContentPercentage": 12.6
+  },
+  {
+    "name": "Heidelbeere, gefriergetrocknet",
+    "kcalContentIn100g": 338,
+    "proteinContentPercentage": 6.1
+  },
+  {
+    "name": "Roggenmehl, Vollkorn, Schrot, Typ 1800",
+    "kcalContentIn100g": 337,
+    "proteinContentPercentage": 10.8
+  },
+  {
+    "name": "Hülsenfrüchte (Durchschnitt), getrocknet",
+    "kcalContentIn100g": 336,
+    "proteinContentPercentage": 25.1
+  },
+  {
+    "name": "Roggenmehl, Ruch, Typ 1050",
+    "kcalContentIn100g": 336,
+    "proteinContentPercentage": 9
+  },
+  {
+    "name": "Berliner",
+    "kcalContentIn100g": 336,
+    "proteinContentPercentage": 8.4
+  },
+  {
+    "name": "Sauerrahm",
+    "kcalContentIn100g": 336,
+    "proteinContentPercentage": 2.4
+  },
+  {
+    "name": "Kartoffelstärke",
+    "kcalContentIn100g": 336,
+    "proteinContentPercentage": 0.6
+  },
+  {
+    "name": "Weizenflocken, Vollkorn",
+    "kcalContentIn100g": 335,
+    "proteinContentPercentage": 13.5
+  },
+  {
+    "name": "Zuger Kirschtorte",
+    "kcalContentIn100g": 335,
+    "proteinContentPercentage": 4.8
+  },
+  {
+    "name": "Vollrahm, UHT",
+    "kcalContentIn100g": 335,
+    "proteinContentPercentage": 2
+  },
+  {
+    "name": "Linse, geschält, getrocknet",
+    "kcalContentIn100g": 334,
+    "proteinContentPercentage": 27
+  },
+  {
+    "name": "Roggenmehl, halbweiss, Typ 815",
+    "kcalContentIn100g": 334,
+    "proteinContentPercentage": 6.9
+  },
+  {
+    "name": "Vollrahm, pasteurisiert",
+    "kcalContentIn100g": 334,
+    "proteinContentPercentage": 2
+  },
+  {
+    "name": "Berner Zungenwurst",
+    "kcalContentIn100g": 333,
+    "proteinContentPercentage": 17.3
+  },
+  {
+    "name": "Gerstenflocken",
+    "kcalContentIn100g": 333,
+    "proteinContentPercentage": 8.5
+  },
+  {
+    "name": "Knäckebrot, Vollkorn",
+    "kcalContentIn100g": 332,
+    "proteinContentPercentage": 12
+  },
+  {
+    "name": "Baumnussbrot",
+    "kcalContentIn100g": 332,
+    "proteinContentPercentage": 9.2
+  },
+  {
+    "name": "Erbse, reif, getrocknet",
+    "kcalContentIn100g": 331,
+    "proteinContentPercentage": 21.3
+  },
+  {
+    "name": "Olive, gefüllt mit Hackfleisch, frittiert",
+    "kcalContentIn100g": 329,
+    "proteinContentPercentage": 13.1
+  },
+  {
+    "name": "Grittibänz",
+    "kcalContentIn100g": 329,
+    "proteinContentPercentage": 9.2
+  },
+  {
+    "name": "Kichererbse, getrocknet",
+    "kcalContentIn100g": 327,
+    "proteinContentPercentage": 18.6
+  },
+  {
+    "name": "Schmelzkäse, Scheibe, Rahm",
+    "kcalContentIn100g": 327,
+    "proteinContentPercentage": 14.3
+  },
+  {
+    "name": "Weizen (Weichweizen), ganzes Korn",
+    "kcalContentIn100g": 327,
+    "proteinContentPercentage": 11.4
+  },
+  {
+    "name": "Mayonnaise, kalorienvermindert",
+    "kcalContentIn100g": 327,
+    "proteinContentPercentage": 0.9
+  },
+  {
+    "name": "Weichkäse (Durchschnitt ohne fettreduzierte Varianten)",
+    "kcalContentIn100g": 325,
+    "proteinContentPercentage": 19.4
+  },
+  {
+    "name": "Butterzopf",
+    "kcalContentIn100g": 325,
+    "proteinContentPercentage": 9
+  },
+  {
+    "name": "Linse, ganz, getrocknet",
+    "kcalContentIn100g": 324,
+    "proteinContentPercentage": 24.4
+  },
+  {
+    "name": "Tessinerbrot",
+    "kcalContentIn100g": 323,
+    "proteinContentPercentage": 10.3
+  },
+  {
+    "name": "Kochspeck",
+    "kcalContentIn100g": 322,
+    "proteinContentPercentage": 17.8
+  },
+  {
+    "name": "Rosine, getrocknet",
+    "kcalContentIn100g": 321,
+    "proteinContentPercentage": 3
+  },
+  {
+    "name": "Coppa",
+    "kcalContentIn100g": 319,
+    "proteinContentPercentage": 28.8
+  },
+  {
+    "name": "Bohne, grün, getrocknet",
+    "kcalContentIn100g": 318,
+    "proteinContentPercentage": 20.2
+  },
+  {
+    "name": "Nussgipfel aus Hefeteig",
+    "kcalContentIn100g": 318,
+    "proteinContentPercentage": 7.7
+  },
+  {
+    "name": "Lemon Curd",
+    "kcalContentIn100g": 317,
+    "proteinContentPercentage": 6.4
+  },
+  {
+    "name": "Zimt",
+    "kcalContentIn100g": 317,
+    "proteinContentPercentage": 3.9
+  },
+  {
+    "name": "Schmelzkäse, Scheibe, vollfett",
+    "kcalContentIn100g": 316,
+    "proteinContentPercentage": 22.8
+  },
+  {
+    "name": "Schmelzkäse, streichfähig, Rahm",
+    "kcalContentIn100g": 316,
+    "proteinContentPercentage": 12.9
+  },
+  {
+    "name": "Toastbrot mit Butter",
+    "kcalContentIn100g": 316,
+    "proteinContentPercentage": 8.9
+  },
+  {
+    "name": "Fondue klassisch, zubereitet",
+    "kcalContentIn100g": 315,
+    "proteinContentPercentage": 19.6
+  },
+  {
+    "name": "Essig-Öl-Salatsauce, hausgemacht (mit Rapsöl)",
+    "kcalContentIn100g": 315,
+    "proteinContentPercentage": 0.8
+  },
+  {
+    "name": "Rohwürste mit abgebrochener Reifung (Durchschnitt)",
+    "kcalContentIn100g": 314,
+    "proteinContentPercentage": 17.7
+  },
+  {
+    "name": "Mortadella",
+    "kcalContentIn100g": 314,
+    "proteinContentPercentage": 16.1
+  },
+  {
+    "name": "Eierlikör, 16.5 vol%",
+    "kcalContentIn100g": 313,
+    "proteinContentPercentage": 4.4
+  },
+  {
+    "name": "Hefeteig (mit Butter), süss, ungebacken",
+    "kcalContentIn100g": 311,
+    "proteinContentPercentage": 8.7
+  },
+  {
+    "name": "Butterweggli",
+    "kcalContentIn100g": 309,
+    "proteinContentPercentage": 9.4
+  },
+  {
+    "name": "Salatsauce, italienisch",
+    "kcalContentIn100g": 309,
+    "proteinContentPercentage": 0.1
+  },
+  {
+    "name": "Wasabi Paste",
+    "kcalContentIn100g": 308,
+    "proteinContentPercentage": 2.9
+  },
+  {
+    "name": "Reblochon",
+    "kcalContentIn100g": 307,
+    "proteinContentPercentage": 19.9
+  },
+  {
+    "name": "Honig (Blütenhonig)",
+    "kcalContentIn100g": 306,
+    "proteinContentPercentage": 0.4
+  },
+  {
+    "name": "Orangeat",
+    "kcalContentIn100g": 306,
+    "proteinContentPercentage": 0.4
+  },
+  {
+    "name": "Bohne (alle Arten), getrocknet",
+    "kcalContentIn100g": 305,
+    "proteinContentPercentage": 20.9
+  },
+  {
+    "name": "Käsekuchen, gebacken (mit Kuchenteig)",
+    "kcalContentIn100g": 303,
+    "proteinContentPercentage": 14.3
+  },
+  {
+    "name": "Rüeblitorte",
+    "kcalContentIn100g": 303,
+    "proteinContentPercentage": 11.1
+  },
+  {
+    "name": "Crèmeschnitte",
+    "kcalContentIn100g": 301,
+    "proteinContentPercentage": 4.1
+  },
+  {
+    "name": "Fischstäbchen (paniert und vorfritiert), gebraten in HOLL-Rapsöl",
+    "kcalContentIn100g": 300,
+    "proteinContentPercentage": 16
+  },
+  {
+    "name": "Käsekuchen, gebacken (mit Blätterteig)",
+    "kcalContentIn100g": 300,
+    "proteinContentPercentage": 13.8
+  },
+  {
+    "name": "Hefeteig (mit pflanzlichem Fett), süss, ungebacken",
+    "kcalContentIn100g": 300,
+    "proteinContentPercentage": 9.2
+  },
+  {
+    "name": "Dulce de Leche",
+    "kcalContentIn100g": 299,
+    "proteinContentPercentage": 5.7
+  },
+  {
+    "name": "Luganighe",
+    "kcalContentIn100g": 298,
+    "proteinContentPercentage": 22.1
+  },
+  {
+    "name": "Brie, vollfett",
+    "kcalContentIn100g": 298,
+    "proteinContentPercentage": 21.4
+  },
+  {
+    "name": "Terrine de Campagne",
+    "kcalContentIn100g": 298,
+    "proteinContentPercentage": 13.6
+  },
+  {
+    "name": "Camembert, vollfett",
+    "kcalContentIn100g": 297,
+    "proteinContentPercentage": 20.8
+  },
+  {
+    "name": "Pizza Quattro Formaggi, gebacken",
+    "kcalContentIn100g": 297,
+    "proteinContentPercentage": 12.3
+  },
+  {
+    "name": "Sojamehl, entfettet",
+    "kcalContentIn100g": 296,
+    "proteinContentPercentage": 51.5
+  },
+  {
+    "name": "Weichkäse, vollfett",
+    "kcalContentIn100g": 296,
+    "proteinContentPercentage": 20.6
+  },
+  {
+    "name": "Quiche Lorraine, gebacken (mit Kuchenteig)",
+    "kcalContentIn100g": 295,
+    "proteinContentPercentage": 9
+  },
+  {
+    "name": "St. Paulin",
+    "kcalContentIn100g": 294,
+    "proteinContentPercentage": 21.8
+  },
+  {
+    "name": "Mango, getrocknet",
+    "kcalContentIn100g": 293,
+    "proteinContentPercentage": 2.9
+  },
+  {
+    "name": "Agavensirup",
+    "kcalContentIn100g": 293,
+    "proteinContentPercentage": 0.2
+  },
+  {
+    "name": "Fondue moitié-moitié, zubereitet",
+    "kcalContentIn100g": 291,
+    "proteinContentPercentage": 16.7
+  },
+  {
+    "name": "Bierwurst",
+    "kcalContentIn100g": 291,
+    "proteinContentPercentage": 15.6
+  },
+  {
+    "name": "Quiche Lorraine, gebacken (mit Blätterteig)",
+    "kcalContentIn100g": 291,
+    "proteinContentPercentage": 8.5
+  },
+  {
+    "name": "Dattel, getrocknet",
+    "kcalContentIn100g": 289,
+    "proteinContentPercentage": 2.4
+  },
+  {
+    "name": "Zitronat",
+    "kcalContentIn100g": 289,
+    "proteinContentPercentage": 0.4
+  },
+  {
+    "name": "Birne, getrocknet",
+    "kcalContentIn100g": 288,
+    "proteinContentPercentage": 2.3
+  },
+  {
+    "name": "Pommes Frites (in HO Sonnenblumenöl frittiert), ungesalzen",
+    "kcalContentIn100g": 286,
+    "proteinContentPercentage": 3.2
+  },
+  {
+    "name": "Tomme",
+    "kcalContentIn100g": 284,
+    "proteinContentPercentage": 20.3
+  },
+  {
+    "name": "Schweinsbratwurst, gebraten (ohne Zusatz von Fett und Salz)",
+    "kcalContentIn100g": 283,
+    "proteinContentPercentage": 19.8
+  },
+  {
+    "name": "Fondue alkoholfrei, zubereitet",
+    "kcalContentIn100g": 283,
+    "proteinContentPercentage": 18.7
+  },
+  {
+    "name": "Laugenbrötli (mit jodiertem Kochsalz)",
+    "kcalContentIn100g": 282,
+    "proteinContentPercentage": 9.3
+  },
+  {
+    "name": "Cheeseburger",
+    "kcalContentIn100g": 281,
+    "proteinContentPercentage": 13.2
+  },
+  {
+    "name": "Vacherin Mont d'Or",
+    "kcalContentIn100g": 279,
+    "proteinContentPercentage": 17.2
+  },
+  {
+    "name": "Kochwürste (Durchschnitt)",
+    "kcalContentIn100g": 278,
+    "proteinContentPercentage": 15.4
+  },
+  {
+    "name": "Früchte (Durchschnitt), getrocknet",
+    "kcalContentIn100g": 278,
+    "proteinContentPercentage": 2.5
+  },
+  {
+    "name": "Rind, Siedfleisch, durchzogen, gekocht (ohne Zusatz von Fett und Salz)",
+    "kcalContentIn100g": 276,
+    "proteinContentPercentage": 26.6
+  },
+  {
+    "name": "Aufschnitt (Durchschnitt)",
+    "kcalContentIn100g": 276,
+    "proteinContentPercentage": 13.9
+  },
+  {
+    "name": "Rohpökelwaren (Durchschnitt)",
+    "kcalContentIn100g": 274,
+    "proteinContentPercentage": 29.4
+  },
+  {
+    "name": "Halbrahm, pasteurisiert",
+    "kcalContentIn100g": 274,
+    "proteinContentPercentage": 2.3
+  },
+  {
+    "name": "Melasse, Melassesirup",
+    "kcalContentIn100g": 274,
+    "proteinContentPercentage": 1.2
+  },
+  {
+    "name": "Limburger (Münster)",
+    "kcalContentIn100g": 273,
+    "proteinContentPercentage": 20
+  },
+  {
+    "name": "Banane, getrocknet",
+    "kcalContentIn100g": 273,
+    "proteinContentPercentage": 3
+  },
+  {
+    "name": "Sardellenpaste",
+    "kcalContentIn100g": 272,
+    "proteinContentPercentage": 19.8
+  },
+  {
+    "name": "Käseschnitte, zubereitet",
+    "kcalContentIn100g": 272,
+    "proteinContentPercentage": 13.8
+  },
+  {
+    "name": "Butterzopf, Vollkorn",
+    "kcalContentIn100g": 272,
+    "proteinContentPercentage": 9.5
+  },
+  {
+    "name": "Toastbrot,dunkel oder Mehrkorn",
+    "kcalContentIn100g": 272,
+    "proteinContentPercentage": 9.1
+  },
+  {
+    "name": "Toastbrot, Vollkorn",
+    "kcalContentIn100g": 271,
+    "proteinContentPercentage": 9.3
+  },
+  {
+    "name": "Rollmops",
+    "kcalContentIn100g": 270,
+    "proteinContentPercentage": 12
+  },
+  {
+    "name": "Schweinswurst",
+    "kcalContentIn100g": 268,
+    "proteinContentPercentage": 16.2
+  },
+  {
+    "name": "Toastbrot mit Pflanzenölen",
+    "kcalContentIn100g": 267,
+    "proteinContentPercentage": 8.7
+  },
+  {
+    "name": "Feige, getrocknet",
+    "kcalContentIn100g": 267,
+    "proteinContentPercentage": 3.1
+  },
+  {
+    "name": "Weizenkleie",
+    "kcalContentIn100g": 264,
+    "proteinContentPercentage": 15.2
+  },
+  {
+    "name": "Brot (Durchschnitt)",
+    "kcalContentIn100g": 264,
+    "proteinContentPercentage": 9.2
+  },
+  {
+    "name": "Apfel, geschält, getrocknet",
+    "kcalContentIn100g": 264,
+    "proteinContentPercentage": 1.4
+  },
+  {
+    "name": "Schnitzelbrot mit Cocktailsauce",
+    "kcalContentIn100g": 262,
+    "proteinContentPercentage": 14.6
+  },
+  {
+    "name": "Wurst-Käse-Salat, zubereitet",
+    "kcalContentIn100g": 262,
+    "proteinContentPercentage": 13.8
+  },
+  {
+    "name": "Burger mit Fisch",
+    "kcalContentIn100g": 262,
+    "proteinContentPercentage": 12.2
+  },
+  {
+    "name": "Croque Monsieur",
+    "kcalContentIn100g": 260,
+    "proteinContentPercentage": 16.4
+  },
+  {
+    "name": "Mehlomeletten mit Nutella, zubereitet",
+    "kcalContentIn100g": 259,
+    "proteinContentPercentage": 7.2
+  },
+  {
+    "name": "Hamburger, doppelt",
+    "kcalContentIn100g": 258,
+    "proteinContentPercentage": 11.9
+  },
+  {
+    "name": "Mozzarella",
+    "kcalContentIn100g": 256,
+    "proteinContentPercentage": 19.5
+  },
+  {
+    "name": "Käse in Salzlake (Kuhmilch)",
+    "kcalContentIn100g": 256,
+    "proteinContentPercentage": 16
+  },
+  {
+    "name": "Fleischkäse",
+    "kcalContentIn100g": 256,
+    "proteinContentPercentage": 12.5
+  },
+  {
+    "name": "Alge, Nori, getrocknet",
+    "kcalContentIn100g": 255,
+    "proteinContentPercentage": 31.5
+  },
+  {
+    "name": "Schwein, Hals, Steak, gebraten (ohne Zusatz von Fett und Salz)",
+    "kcalContentIn100g": 255,
+    "proteinContentPercentage": 26.4
+  },
+  {
+    "name": "Pariserbrot",
+    "kcalContentIn100g": 255,
+    "proteinContentPercentage": 9
+  },
+  {
+    "name": "Mütschli",
+    "kcalContentIn100g": 255,
+    "proteinContentPercentage": 8.7
+  },
+  {
+    "name": "Vinaigrette (mit Rapsöl)",
+    "kcalContentIn100g": 255,
+    "proteinContentPercentage": 4.6
+  },
+  {
+    "name": "Rind, Brust, gekocht (ohne Zugabe von Fett und Salz)",
+    "kcalContentIn100g": 254,
+    "proteinContentPercentage": 28.3
+  },
+  {
+    "name": "Flammenkuchen, gebacken",
+    "kcalContentIn100g": 254,
+    "proteinContentPercentage": 8.9
+  },
+  {
+    "name": "Crêpes mit Zimt und Zucker, zubereitet",
+    "kcalContentIn100g": 254,
+    "proteinContentPercentage": 8.3
+  },
+  {
+    "name": "Leberwurst",
+    "kcalContentIn100g": 253,
+    "proteinContentPercentage": 19.8
+  },
+  {
+    "name": "Crêpes mit Speck, zubereitet",
+    "kcalContentIn100g": 253,
+    "proteinContentPercentage": 11.3
+  },
+  {
+    "name": "Kaffee löslich, Pulver",
+    "kcalContentIn100g": 253,
+    "proteinContentPercentage": 11.2
+  },
+  {
+    "name": "Rahm (Durchschnitt)",
+    "kcalContentIn100g": 252,
+    "proteinContentPercentage": 2.3
+  },
+  {
+    "name": "Brühwürste ungeräuchert (Durchschnitt)",
+    "kcalContentIn100g": 251,
+    "proteinContentPercentage": 13.4
+  },
+  {
+    "name": "Halbrahm, UHT",
+    "kcalContentIn100g": 251,
+    "proteinContentPercentage": 2.5
+  },
+  {
+    "name": "Brühwürste geräuchert (Durchschnitt)",
+    "kcalContentIn100g": 249,
+    "proteinContentPercentage": 14
+  },
+  {
+    "name": "Cervelat",
+    "kcalContentIn100g": 249,
+    "proteinContentPercentage": 13.4
+  },
+  {
+    "name": "Fischstäbchen (paniert und vorfritiert), im Ofen gebacken (ohne Zugabe von Fett)",
+    "kcalContentIn100g": 248,
+    "proteinContentPercentage": 16.8
+  },
+  {
+    "name": "Schwarzwälder Kirschtorte",
+    "kcalContentIn100g": 248,
+    "proteinContentPercentage": 3.9
+  },
+  {
+    "name": "Schmelzkäse, streichfähig, vollfett",
+    "kcalContentIn100g": 247,
+    "proteinContentPercentage": 14.1
+  },
+  {
+    "name": "Burger mit Poulet",
+    "kcalContentIn100g": 247,
+    "proteinContentPercentage": 12.7
+  },
+  {
+    "name": "Crêpes mit Camembert, zubereitet",
+    "kcalContentIn100g": 247,
+    "proteinContentPercentage": 11.9
+  },
+  {
+    "name": "Konfitüre",
+    "kcalContentIn100g": 246,
+    "proteinContentPercentage": 0.5
+  },
+  {
+    "name": "Semmeli",
+    "kcalContentIn100g": 245,
+    "proteinContentPercentage": 9.2
+  },
+  {
+    "name": "Lyoner",
+    "kcalContentIn100g": 244,
+    "proteinContentPercentage": 11.5
+  },
+  {
+    "name": "Schützenwurst",
+    "kcalContentIn100g": 244,
+    "proteinContentPercentage": 9.2
+  },
+  {
+    "name": "Käse in Salzlake (Schaf- und Ziegenmilch)",
+    "kcalContentIn100g": 242,
+    "proteinContentPercentage": 16.7
+  },
+  {
+    "name": "Wildfleischterrine",
+    "kcalContentIn100g": 242,
+    "proteinContentPercentage": 16.4
+  },
+  {
+    "name": "Schnitzelbrot mit Tartarsauce",
+    "kcalContentIn100g": 242,
+    "proteinContentPercentage": 13.9
+  },
+  {
+    "name": "Wienerli",
+    "kcalContentIn100g": 242,
+    "proteinContentPercentage": 13.9
+  },
+  {
+    "name": "Weissbrot",
+    "kcalContentIn100g": 242,
+    "proteinContentPercentage": 8.5
+  },
+  {
+    "name": "Cordon Bleu aus Schweinsplätzli, gebraten",
+    "kcalContentIn100g": 241,
+    "proteinContentPercentage": 23.2
+  },
+  {
+    "name": "Bauernbrot",
+    "kcalContentIn100g": 241,
+    "proteinContentPercentage": 9.2
+  },
+  {
+    "name": "Schwein, Kotelett, gebraten (ohne Zusatz von Fett und Salz)",
+    "kcalContentIn100g": 240,
+    "proteinContentPercentage": 31.3
+  },
+  {
+    "name": "Halbweissbrot",
+    "kcalContentIn100g": 240,
+    "proteinContentPercentage": 9.4
+  },
+  {
+    "name": "Halbweissbrot (mit jodiertem Kochsalz)",
+    "kcalContentIn100g": 240,
+    "proteinContentPercentage": 9.4
+  },
+  {
+    "name": "Schwein, Haxe, geschmort (ohne zusatz von Fett und Salz)",
+    "kcalContentIn100g": 239,
+    "proteinContentPercentage": 36.6
+  },
+  {
+    "name": "Schwein, Brustspitz, roh",
+    "kcalContentIn100g": 239,
+    "proteinContentPercentage": 17.9
+  },
+  {
+    "name": "Pizza mit Mascarpone und Rucola, gebacken",
+    "kcalContentIn100g": 239,
+    "proteinContentPercentage": 9.4
+  },
+  {
+    "name": "Aprikose, getrocknet",
+    "kcalContentIn100g": 239,
+    "proteinContentPercentage": 2.9
+  },
+  {
+    "name": "Pizza Margherita, gebacken",
+    "kcalContentIn100g": 238,
+    "proteinContentPercentage": 9.9
+  },
+  {
+    "name": "St. Galler Schüblig",
+    "kcalContentIn100g": 237,
+    "proteinContentPercentage": 12.6
+  },
+  {
+    "name": "Schweinsbratwurst",
+    "kcalContentIn100g": 236,
+    "proteinContentPercentage": 16.2
+  },
+  {
+    "name": "Appenzeller, viertelfett",
+    "kcalContentIn100g": 235,
+    "proteinContentPercentage": 33.1
+  },
+  {
+    "name": "Roggenschrotbrot",
+    "kcalContentIn100g": 235,
+    "proteinContentPercentage": 7.7
+  },
+  {
+    "name": "Kalb, Brust, gekocht (ohne Zugabe von Fett und Salz)",
+    "kcalContentIn100g": 234,
+    "proteinContentPercentage": 23.5
+  },
+  {
+    "name": "Ruchbrot",
+    "kcalContentIn100g": 234,
+    "proteinContentPercentage": 9.5
+  },
+  {
+    "name": "Ruchbrot (mit jodiertem Kochsalz)",
+    "kcalContentIn100g": 234,
+    "proteinContentPercentage": 9.5
+  },
+  {
+    "name": "Crêpes nature, zubereitet",
+    "kcalContentIn100g": 234,
+    "proteinContentPercentage": 9.4
+  },
+  {
+    "name": "Strudelteig, ungebacken",
+    "kcalContentIn100g": 234,
+    "proteinContentPercentage": 7.6
+  },
+  {
+    "name": "Branntwein aus Getreide, 40 vol% (z.B. Whisky)",
+    "kcalContentIn100g": 234,
+    "proteinContentPercentage": 0
+  },
+  {
+    "name": "Plätzli (Durchschnitt aus Rind, Kalb, Schwein, Geflügel), paniert, gebraten",
+    "kcalContentIn100g": 233,
+    "proteinContentPercentage": 23.5
+  },
+  {
+    "name": "Cordon Bleu aus Kalbsplätzli, gebraten",
+    "kcalContentIn100g": 233,
+    "proteinContentPercentage": 22.9
+  },
+  {
+    "name": "Kirsch",
+    "kcalContentIn100g": 233,
+    "proteinContentPercentage": 0
+  },
+  {
+    "name": "Pommes Frites (im Ofen gebacken), ungesalzen",
+    "kcalContentIn100g": 232,
+    "proteinContentPercentage": 3.3
+  },
+  {
+    "name": "St. Galler Bürli (halbweiss)",
+    "kcalContentIn100g": 231,
+    "proteinContentPercentage": 9.1
+  },
+  {
+    "name": "Fischstäbchen, paniert und vorfritiert",
+    "kcalContentIn100g": 230,
+    "proteinContentPercentage": 15.5
+  },
+  {
+    "name": "Rohschinken",
+    "kcalContentIn100g": 229,
+    "proteinContentPercentage": 31
+  },
+  {
+    "name": "Pizzateig (mit Olivenöl), ungebacken",
+    "kcalContentIn100g": 229,
+    "proteinContentPercentage": 7
+  },
+  {
+    "name": "Kalbsbratwurst",
+    "kcalContentIn100g": 228,
+    "proteinContentPercentage": 12.5
+  },
+  {
+    "name": "Branntwein aus Wein (z.B.Cognac, Brandy)",
+    "kcalContentIn100g": 228,
+    "proteinContentPercentage": 0
+  },
+  {
+    "name": "Rind, Siedfleisch, durchzogen,  roh",
+    "kcalContentIn100g": 227,
+    "proteinContentPercentage": 19.5
+  },
+  {
+    "name": "Walliser Roggenbrot",
+    "kcalContentIn100g": 227,
+    "proteinContentPercentage": 7.6
+  },
+  {
+    "name": "Pflaume, getrocknet",
+    "kcalContentIn100g": 227,
+    "proteinContentPercentage": 1.6
+  },
+  {
+    "name": "Schweinspiccata, zubereitet",
+    "kcalContentIn100g": 226,
+    "proteinContentPercentage": 22.9
+  },
+  {
+    "name": "Pizza al tonno, gebacken",
+    "kcalContentIn100g": 226,
+    "proteinContentPercentage": 12
+  },
+  {
+    "name": "Pizza Calzone, gebacken",
+    "kcalContentIn100g": 224,
+    "proteinContentPercentage": 11.4
+  },
+  {
+    "name": "Wurstsalat, zubereitet",
+    "kcalContentIn100g": 224,
+    "proteinContentPercentage": 7.1
+  },
+  {
+    "name": "Frühlingsrolle, frittiert",
+    "kcalContentIn100g": 224,
+    "proteinContentPercentage": 6.5
+  },
+  {
+    "name": "Kotelett (Durchschnitt aus Kalb, Schwein, Lamm), gebraten (ohne Zusatz von Fett und Salz)",
+    "kcalContentIn100g": 223,
+    "proteinContentPercentage": 28.8
+  },
+  {
+    "name": "Kochpökelware (Durchschnitt)",
+    "kcalContentIn100g": 223,
+    "proteinContentPercentage": 19.8
+  },
+  {
+    "name": "Falafel, frittiert (in HOLL Rapsöl frittiert)",
+    "kcalContentIn100g": 222,
+    "proteinContentPercentage": 8.3
+  },
+  {
+    "name": "Fotzelschnitte ungezuckert",
+    "kcalContentIn100g": 222,
+    "proteinContentPercentage": 8
+  },
+  {
+    "name": "Branntwein aus Zuckerrohr (z.B. Rum)",
+    "kcalContentIn100g": 222,
+    "proteinContentPercentage": 0
+  },
+  {
+    "name": "Spirituosen 40 vol% (z.B. Vodka, Gin)",
+    "kcalContentIn100g": 222,
+    "proteinContentPercentage": 0
+  },
+  {
+    "name": "Schwein, Schulter, Braten \"well done\", im Ofen gebraten (ohne Zugabe von Fett und Salz)",
+    "kcalContentIn100g": 221,
+    "proteinContentPercentage": 32.5
+  },
+  {
+    "name": "Cannelloni mit Spinat-Ricotta-Füllung, zubereitet",
+    "kcalContentIn100g": 221,
+    "proteinContentPercentage": 7.8
+  },
+  {
+    "name": "Flammenkuchenteig, ungebacken",
+    "kcalContentIn100g": 221,
+    "proteinContentPercentage": 7.5
+  },
+  {
+    "name": "Wienerli, gekocht",
+    "kcalContentIn100g": 220,
+    "proteinContentPercentage": 13
+  },
+  {
+    "name": "Weisswurst",
+    "kcalContentIn100g": 220,
+    "proteinContentPercentage": 11.8
+  },
+  {
+    "name": "Sandwich (Baguette) mit Fleischkäse",
+    "kcalContentIn100g": 220,
+    "proteinContentPercentage": 8
+  },
+  {
+    "name": "Pizza Prosciutto, gebacken",
+    "kcalContentIn100g": 218,
+    "proteinContentPercentage": 10.6
+  },
+  {
+    "name": "Kalbspiccata, zubereitet",
+    "kcalContentIn100g": 217,
+    "proteinContentPercentage": 22.5
+  },
+  {
+    "name": "Saltimbocca, gebraten in HOLL-Rapsöl",
+    "kcalContentIn100g": 216,
+    "proteinContentPercentage": 28.8
+  },
+  {
+    "name": "Hot Dog in Weissbrot mit Ketchup und Senf",
+    "kcalContentIn100g": 216,
+    "proteinContentPercentage": 9.1
+  },
+  {
+    "name": "Johannisbeerkuchen, hausgemacht (mit süssem Mürbeteig)",
+    "kcalContentIn100g": 216,
+    "proteinContentPercentage": 3.5
+  },
+  {
+    "name": "Sardine im Öl, abgetropft",
+    "kcalContentIn100g": 215,
+    "proteinContentPercentage": 23
+  },
+  {
+    "name": "Bürli (halbweiss)",
+    "kcalContentIn100g": 215,
+    "proteinContentPercentage": 8.6
+  },
+  {
+    "name": "Roggenbrot mit Sauerteig",
+    "kcalContentIn100g": 215,
+    "proteinContentPercentage": 6.5
+  },
+  {
+    "name": "Fruchtwähe/-kuchen mit süssem Mürbeteig (Durchschnitt)",
+    "kcalContentIn100g": 215,
+    "proteinContentPercentage": 3.3
+  },
+  {
+    "name": "Brombeerkuchen, hausgemacht (mit süssem Mürbeteig)",
+    "kcalContentIn100g": 215,
+    "proteinContentPercentage": 3.2
+  },
+  {
+    "name": "Teigwaren, frisch, gefüllt mit Spinat und Ricotta, roh",
+    "kcalContentIn100g": 214,
+    "proteinContentPercentage": 8.3
+  },
+  {
+    "name": "Kokosnussmilch",
+    "kcalContentIn100g": 214,
+    "proteinContentPercentage": 2.4
+  },
+  {
+    "name": "Weizenvollkornbrot",
+    "kcalContentIn100g": 213,
+    "proteinContentPercentage": 8.6
+  },
+  {
+    "name": "Hollandaisesauce",
+    "kcalContentIn100g": 212,
+    "proteinContentPercentage": 3
+  },
+  {
+    "name": "Rind, Gehacktes, gebraten (ohne Zusatz von Fett und Salz)",
+    "kcalContentIn100g": 211,
+    "proteinContentPercentage": 32.6
+  },
+  {
+    "name": "Tomate, getrocknet",
+    "kcalContentIn100g": 210,
+    "proteinContentPercentage": 11.3
+  },
+  {
+    "name": "Sandwich (Ruchbrot) mit Fleischkäse",
+    "kcalContentIn100g": 210,
+    "proteinContentPercentage": 8.2
+  },
+  {
+    "name": "Edelkastanie, roh",
+    "kcalContentIn100g": 210,
+    "proteinContentPercentage": 2.9
+  },
+  {
+    "name": "Kaninchen (Durchschnitt), gekocht (ohne Zusatz von Fett und Salz)",
+    "kcalContentIn100g": 205,
+    "proteinContentPercentage": 28
+  },
+  {
+    "name": "Geflügellyoner",
+    "kcalContentIn100g": 205,
+    "proteinContentPercentage": 13.5
+  },
+  {
+    "name": "Kalb, Brust, roh",
+    "kcalContentIn100g": 204,
+    "proteinContentPercentage": 18.3
+  },
+  {
+    "name": "Pizza Prosciutto e Funghi, gebacken",
+    "kcalContentIn100g": 204,
+    "proteinContentPercentage": 10.7
+  },
+  {
+    "name": "Hummus",
+    "kcalContentIn100g": 204,
+    "proteinContentPercentage": 7.3
+  },
+  {
+    "name": "Lamm, Gigot, gebraten (ohne Zusatz von Fett und Salz)",
+    "kcalContentIn100g": 203,
+    "proteinContentPercentage": 28.6
+  },
+  {
+    "name": "Schwein, Hals, Steak, roh",
+    "kcalContentIn100g": 203,
+    "proteinContentPercentage": 18.9
+  },
+  {
+    "name": "Schwein, Schulter, Braten \"medium\", im Ofen gebraten (ohne Zugabe von Fett und Salz)",
+    "kcalContentIn100g": 202,
+    "proteinContentPercentage": 29.6
+  },
+  {
+    "name": "Siedfleischsalat, zubereitet",
+    "kcalContentIn100g": 201,
+    "proteinContentPercentage": 15
+  },
+  {
+    "name": "Lachs, Zucht, roh",
+    "kcalContentIn100g": 200,
+    "proteinContentPercentage": 19.9
+  },
+  {
+    "name": "Fermentierter Teig",
+    "kcalContentIn100g": 199,
+    "proteinContentPercentage": 7.8
+  },
+  {
+    "name": "Vitello tonnato ohne Garnitur",
+    "kcalContentIn100g": 198,
+    "proteinContentPercentage": 21.4
+  },
+  {
+    "name": "Russischer Salat, zubereitet",
+    "kcalContentIn100g": 197,
+    "proteinContentPercentage": 2.4
+  },
+  {
+    "name": "Rind, Zunge, roh",
+    "kcalContentIn100g": 196,
+    "proteinContentPercentage": 16
+  },
+  {
+    "name": "Pizza Hawaii, gebacken",
+    "kcalContentIn100g": 195,
+    "proteinContentPercentage": 9.5
+  },
+  {
+    "name": "Mehlomeletten mit Käse, zubereitet",
+    "kcalContentIn100g": 194,
+    "proteinContentPercentage": 10
+  },
+  {
+    "name": "Seitan",
+    "kcalContentIn100g": 193,
+    "proteinContentPercentage": 28
+  },
+  {
+    "name": "Poulet, ganz, mit Haut, gebraten (ohne Zusatz von Fett und Salz)",
+    "kcalContentIn100g": 193,
+    "proteinContentPercentage": 25.1
+  },
+  {
+    "name": "Crêpes mit Schinken, zubereitet",
+    "kcalContentIn100g": 193,
+    "proteinContentPercentage": 12.9
+  },
+  {
+    "name": "Eieromeletten mit Käse, zubereitet",
+    "kcalContentIn100g": 192,
+    "proteinContentPercentage": 14
+  },
+  {
+    "name": "Trockenfleisch",
+    "kcalContentIn100g": 190,
+    "proteinContentPercentage": 39.3
+  },
+  {
+    "name": "Rind, Siedfleisch, mager, gekocht (ohne Zusatz von Fett and Salz)",
+    "kcalContentIn100g": 190,
+    "proteinContentPercentage": 31.7
+  },
+  {
+    "name": "Camembert, halbfett",
+    "kcalContentIn100g": 188,
+    "proteinContentPercentage": 24.4
+  },
+  {
+    "name": "Rollschinken, gekocht (ohne Zusatz von Fett und Salz)",
+    "kcalContentIn100g": 188,
+    "proteinContentPercentage": 23.3
+  },
+  {
+    "name": "Rind, Brust, roh",
+    "kcalContentIn100g": 188,
+    "proteinContentPercentage": 18.9
+  },
+  {
+    "name": "Zunge (Durchschnitt aus Kalb und Rind), roh",
+    "kcalContentIn100g": 188,
+    "proteinContentPercentage": 16.6
+  },
+  {
+    "name": "Mehlomeletten mit Speck, zubereitet",
+    "kcalContentIn100g": 188,
+    "proteinContentPercentage": 9.3
+  },
+  {
+    "name": "Poulet, Schenkel, mit Haut, gebraten (ohne Zusatz von Fett und Salz)",
+    "kcalContentIn100g": 187,
+    "proteinContentPercentage": 23.9
+  },
+  {
+    "name": "Hackplätzli (Rind), gebraten in Rapsöl HOLL",
+    "kcalContentIn100g": 187,
+    "proteinContentPercentage": 19.5
+  },
+  {
+    "name": "Thon im Öl, abgetropft",
+    "kcalContentIn100g": 186,
+    "proteinContentPercentage": 27.6
+  },
+  {
+    "name": "Kalbsplätzli, gebraten in HOLL-Rapsöl",
+    "kcalContentIn100g": 185,
+    "proteinContentPercentage": 26.8
+  },
+  {
+    "name": "Rahmglace, Frucht",
+    "kcalContentIn100g": 185,
+    "proteinContentPercentage": 3.5
+  },
+  {
+    "name": "Quark, nature, Rahm",
+    "kcalContentIn100g": 183,
+    "proteinContentPercentage": 6.9
+  },
+  {
+    "name": "Sandwich (Baguette) mit Weichkäse",
+    "kcalContentIn100g": 183,
+    "proteinContentPercentage": 6.3
+  },
+  {
+    "name": "Sardelle im Öl, abgetropft",
+    "kcalContentIn100g": 182,
+    "proteinContentPercentage": 26.4
+  },
+  {
+    "name": "Lachs, Wildfang, roh",
+    "kcalContentIn100g": 182,
+    "proteinContentPercentage": 19.7
+  },
+  {
+    "name": "Schwein, Schulter, Braten, roh",
+    "kcalContentIn100g": 181,
+    "proteinContentPercentage": 24.6
+  },
+  {
+    "name": "Rollschinken",
+    "kcalContentIn100g": 181,
+    "proteinContentPercentage": 20.3
+  },
+  {
+    "name": "Kalb, Zunge, roh",
+    "kcalContentIn100g": 181,
+    "proteinContentPercentage": 17.2
+  },
+  {
+    "name": "Lachs, Zucht, Filet, gedämpft (ohne Zusatz von Fett und Salz)",
+    "kcalContentIn100g": 180,
+    "proteinContentPercentage": 18.7
+  },
+  {
+    "name": "Älplermagronen, zubereitet",
+    "kcalContentIn100g": 180,
+    "proteinContentPercentage": 6
+  },
+  {
+    "name": "Schwein, Kotelett, roh",
+    "kcalContentIn100g": 179,
+    "proteinContentPercentage": 21.4
+  },
+  {
+    "name": "Lamm, Kotelett, roh (Schweiz)",
+    "kcalContentIn100g": 179,
+    "proteinContentPercentage": 20.2
+  },
+  {
+    "name": "Teigwaren, frisch, gefüllt mit Spinat und Ricotta, gekocht (ohne Zugabe von Fett und Salz)",
+    "kcalContentIn100g": 179,
+    "proteinContentPercentage": 7.1
+  },
+  {
+    "name": "Sandwich (Baguette) mit Halbhartkäse",
+    "kcalContentIn100g": 179,
+    "proteinContentPercentage": 6.7
+  },
+  {
+    "name": "Kotelett (Durchschnitt aus Kalb, Schwein, Lamm), roh",
+    "kcalContentIn100g": 177,
+    "proteinContentPercentage": 21.3
+  },
+  {
+    "name": "Cannelloni mit Fleischfüllung, zubereitet",
+    "kcalContentIn100g": 177,
+    "proteinContentPercentage": 9.5
+  },
+  {
+    "name": "Mehlomeletten mit Zimt und Zucker, zubereitet",
+    "kcalContentIn100g": 177,
+    "proteinContentPercentage": 7.2
+  },
+  {
+    "name": "Schwein, Geschnetzeltes, gebraten (ohne Zusatz von Fett und Salz)",
+    "kcalContentIn100g": 176,
+    "proteinContentPercentage": 29.8
+  },
+  {
+    "name": "Olive, schwarz",
+    "kcalContentIn100g": 176,
+    "proteinContentPercentage": 1.4
+  },
+  {
+    "name": "Eieromeletten mit Speck, zubereitet",
+    "kcalContentIn100g": 175,
+    "proteinContentPercentage": 12.5
+  },
+  {
+    "name": "Sandwich (Ruchbrot) mit Weichkäse",
+    "kcalContentIn100g": 175,
+    "proteinContentPercentage": 6.5
+  },
+  {
+    "name": "Teigwaren, frisch, gefüllt mit Fleisch, gekocht (ohne Zugabe von Fett und Salz)",
+    "kcalContentIn100g": 174,
+    "proteinContentPercentage": 6.9
+  },
+  {
+    "name": "Spinatkuchen, gebacken (mit Kuchenteig)",
+    "kcalContentIn100g": 174,
+    "proteinContentPercentage": 5.8
+  },
+  {
+    "name": "Schwein, Haxe, roh",
+    "kcalContentIn100g": 173,
+    "proteinContentPercentage": 25.6
+  },
+  {
+    "name": "Vitello tonnato mit Garnitur",
+    "kcalContentIn100g": 173,
+    "proteinContentPercentage": 17.9
+  },
+  {
+    "name": "Saurer Halbrahm",
+    "kcalContentIn100g": 173,
+    "proteinContentPercentage": 2.7
+  },
+  {
+    "name": "Sandwich (Ruchbrot) mit Halbhartkäse",
+    "kcalContentIn100g": 171,
+    "proteinContentPercentage": 6.9
+  },
+  {
+    "name": "Spinatkuchen, gebacken (mit Blätterteig)",
+    "kcalContentIn100g": 171,
+    "proteinContentPercentage": 5.5
+  },
+  {
+    "name": "Zwiebelkuchen, gebacken (mit Kuchenteig)",
+    "kcalContentIn100g": 171,
+    "proteinContentPercentage": 4.7
+  },
+  {
+    "name": "Rind, Schulter, Braten \"well done\", im Ofen gebraten (ohne Zugabe von Fett und Salz)",
+    "kcalContentIn100g": 170,
+    "proteinContentPercentage": 33.1
+  },
+  {
+    "name": "Zwiebelkuchen, gebacken (mit Blätterteig)",
+    "kcalContentIn100g": 169,
+    "proteinContentPercentage": 4.3
+  },
+  {
+    "name": "Poulet, ganz, mit Haut, roh",
+    "kcalContentIn100g": 168,
+    "proteinContentPercentage": 18.8
+  },
+  {
+    "name": "Bresaola",
+    "kcalContentIn100g": 167,
+    "proteinContentPercentage": 32.4
+  },
+  {
+    "name": "Lachs, geräuchert",
+    "kcalContentIn100g": 167,
+    "proteinContentPercentage": 23.2
+  },
+  {
+    "name": "Crevettencocktail, zubereitet",
+    "kcalContentIn100g": 167,
+    "proteinContentPercentage": 4.4
+  },
+  {
+    "name": "Hackbraten, im Ofen gebacken",
+    "kcalContentIn100g": 166,
+    "proteinContentPercentage": 15.7
+  },
+  {
+    "name": "Fruchtwähe/-kuchen (Durchschnitt)",
+    "kcalContentIn100g": 166,
+    "proteinContentPercentage": 3
+  },
+  {
+    "name": "Kalb, Haxe, geschmort (ohne Zugabe von Fett und Salz)",
+    "kcalContentIn100g": 165,
+    "proteinContentPercentage": 29.7
+  },
+  {
+    "name": "Rind, Hohrücken, roh",
+    "kcalContentIn100g": 165,
+    "proteinContentPercentage": 21.1
+  },
+  {
+    "name": "Sandwich (Baguette) mit Rohschinken",
+    "kcalContentIn100g": 165,
+    "proteinContentPercentage": 8.8
+  },
+  {
+    "name": "Capuns, zubereitet",
+    "kcalContentIn100g": 165,
+    "proteinContentPercentage": 8
+  },
+  {
+    "name": "Mehlomeletten, zubereitet",
+    "kcalContentIn100g": 165,
+    "proteinContentPercentage": 7.6
+  },
+  {
+    "name": "Crêpes mit Gemüsefüllung, zubereitet",
+    "kcalContentIn100g": 165,
+    "proteinContentPercentage": 6
+  },
+  {
+    "name": "Gehacktes (Durchschnitt aus Rind, Kalb, Schwein, Poulet), gebraten (ohne Zusatz von Fett und Salz)",
+    "kcalContentIn100g": 164,
+    "proteinContentPercentage": 26.3
+  },
+  {
+    "name": "Tofu, geräuchert (Durchschnitt)",
+    "kcalContentIn100g": 164,
+    "proteinContentPercentage": 16.4
+  },
+  {
+    "name": "Tofu, geräuchert (hergestellt mit Calciumsalz)",
+    "kcalContentIn100g": 164,
+    "proteinContentPercentage": 16.4
+  },
+  {
+    "name": "Tofu, geräuchert (hergestellt mit Nigari)",
+    "kcalContentIn100g": 164,
+    "proteinContentPercentage": 16.4
+  },
+  {
+    "name": "Kalb, Schulter, Braten, im Ofen gebraten (ohne Zugabe von Fett und Salz)",
+    "kcalContentIn100g": 163,
+    "proteinContentPercentage": 28.6
+  },
+  {
+    "name": "Sardine, roh",
+    "kcalContentIn100g": 163,
+    "proteinContentPercentage": 20.4
+  },
+  {
+    "name": "Poulet, Schenkel, mit Haut, roh",
+    "kcalContentIn100g": 163,
+    "proteinContentPercentage": 17.9
+  },
+  {
+    "name": "Teigwarenauflauf mit Schinken, zubereitet",
+    "kcalContentIn100g": 163,
+    "proteinContentPercentage": 10.2
+  },
+  {
+    "name": "Sandwich (Baguette) mit Mozzarella",
+    "kcalContentIn100g": 163,
+    "proteinContentPercentage": 6
+  },
+  {
+    "name": "Weizenotto, gekocht",
+    "kcalContentIn100g": 163,
+    "proteinContentPercentage": 5
+  },
+  {
+    "name": "Schwein, Eckstück, Plätzli, gebraten (ohne Zusatz von Fett und Salz)",
+    "kcalContentIn100g": 162,
+    "proteinContentPercentage": 33
+  },
+  {
+    "name": "Rind, Entrecôte, \"medium\" gebraten (ohne Zusatz von Fett und Salz)",
+    "kcalContentIn100g": 162,
+    "proteinContentPercentage": 30.2
+  },
+  {
+    "name": "Kalb, Kotelett, roh",
+    "kcalContentIn100g": 161,
+    "proteinContentPercentage": 20.7
+  },
+  {
+    "name": "Geflügelfleisch mit Haut (Durchschnitt), roh",
+    "kcalContentIn100g": 161,
+    "proteinContentPercentage": 20
+  },
+  {
+    "name": "Kaffeerahm",
+    "kcalContentIn100g": 161,
+    "proteinContentPercentage": 2.6
+  },
+  {
+    "name": "Schweinefleisch (Durchschnitt exkl. Innereien, Kotelett, Haxe), roh",
+    "kcalContentIn100g": 160,
+    "proteinContentPercentage": 21.4
+  },
+  {
+    "name": "Agar Agar",
+    "kcalContentIn100g": 160,
+    "proteinContentPercentage": 2.4
+  },
+  {
+    "name": "Schwein, Gehacktes, roh",
+    "kcalContentIn100g": 159,
+    "proteinContentPercentage": 20.5
+  },
+  {
+    "name": "Sandwich (Ruchbrot) mit Rohschinken",
+    "kcalContentIn100g": 158,
+    "proteinContentPercentage": 9
+  },
+  {
+    "name": "Teigwaren ohne Ei, gekocht im Salzwasser (unjodiert)",
+    "kcalContentIn100g": 158,
+    "proteinContentPercentage": 5.9
+  },
+  {
+    "name": "Sandwich (Baguette) mit Salami",
+    "kcalContentIn100g": 158,
+    "proteinContentPercentage": 5.8
+  },
+  {
+    "name": "Tomatenkuchen, gebacken (mit Kuchenteig)",
+    "kcalContentIn100g": 158,
+    "proteinContentPercentage": 3.9
+  },
+  {
+    "name": "Avocado, roh",
+    "kcalContentIn100g": 158,
+    "proteinContentPercentage": 1.6
+  },
+  {
+    "name": "Wildfleisch (Durchschnitt), gekocht (ohne Zusatz von Fett und Salz)",
+    "kcalContentIn100g": 157,
+    "proteinContentPercentage": 29
+  },
+  {
+    "name": "Leber (Durchschnitt aus Rind, Kalb, Schwein), gebraten (ohne Zusatz von Fett und Salz)",
+    "kcalContentIn100g": 157,
+    "proteinContentPercentage": 23.5
+  },
+  {
+    "name": "Sojabohne, gekocht (ohne Zugabe von Fett und Salz)",
+    "kcalContentIn100g": 157,
+    "proteinContentPercentage": 15
+  },
+  {
+    "name": "Rührei mit Käse, zubereitet",
+    "kcalContentIn100g": 157,
+    "proteinContentPercentage": 11.8
+  },
+  {
+    "name": "Sandwich (Baguette) mit Aufschnitt",
+    "kcalContentIn100g": 157,
+    "proteinContentPercentage": 5.3
+  },
+  {
+    "name": "Lamm, Racks, roh (Australien, Neuseeland)",
+    "kcalContentIn100g": 156,
+    "proteinContentPercentage": 20.3
+  },
+  {
+    "name": "Hühnerei, ganz, festgekocht",
+    "kcalContentIn100g": 156,
+    "proteinContentPercentage": 14
+  },
+  {
+    "name": "Sandwich (Ruchbrot) mit Mozzarella",
+    "kcalContentIn100g": 156,
+    "proteinContentPercentage": 6.1
+  },
+  {
+    "name": "Rippli (Nierstück), roh",
+    "kcalContentIn100g": 155,
+    "proteinContentPercentage": 21.7
+  },
+  {
+    "name": "Lamm, Gigot, roh (Schweiz, Neuseeland)",
+    "kcalContentIn100g": 155,
+    "proteinContentPercentage": 20.2
+  },
+  {
+    "name": "Schmelzkäse, Scheibe, viertelfett",
+    "kcalContentIn100g": 155,
+    "proteinContentPercentage": 19.4
+  },
+  {
+    "name": "Mehlomeletten mit Schinken, zubereitet",
+    "kcalContentIn100g": 155,
+    "proteinContentPercentage": 9.7
+  },
+  {
+    "name": "Tomatenkuchen, gebacken (mit Blätterteig)",
+    "kcalContentIn100g": 155,
+    "proteinContentPercentage": 3.5
+  },
+  {
+    "name": "Rind, Gehacktes, roh",
+    "kcalContentIn100g": 154,
+    "proteinContentPercentage": 21.6
+  },
+  {
+    "name": "Lamm, Voressen, roh (Schweiz)",
+    "kcalContentIn100g": 154,
+    "proteinContentPercentage": 19.6
+  },
+  {
+    "name": "Olive, grün, in Salzlake, abgetropft",
+    "kcalContentIn100g": 154,
+    "proteinContentPercentage": 1.3
+  },
+  {
+    "name": "Schwein, Filet, gebraten (ohne Zusatz von Fett und Salz)",
+    "kcalContentIn100g": 153,
+    "proteinContentPercentage": 29.3
+  },
+  {
+    "name": "Kirschenkuchen, hausgemacht, gebacken (mit Kuchenteig)",
+    "kcalContentIn100g": 153,
+    "proteinContentPercentage": 3
+  },
+  {
+    "name": "Poulet, Brust, mit Haut, roh",
+    "kcalContentIn100g": 152,
+    "proteinContentPercentage": 23.3
+  },
+  {
+    "name": "Griessschnitte, zubereitet (mit Vollmilch)",
+    "kcalContentIn100g": 152,
+    "proteinContentPercentage": 6
+  },
+  {
+    "name": "Teigwaren ohne Ei, Vollkorn, gekocht im Salzwasser (unjodiert)",
+    "kcalContentIn100g": 152,
+    "proteinContentPercentage": 5.9
+  },
+  {
+    "name": "Portwein, 18.5 vol%",
+    "kcalContentIn100g": 152,
+    "proteinContentPercentage": 0.2
+  },
+  {
+    "name": "Eieromeletten, zubereitet",
+    "kcalContentIn100g": 151,
+    "proteinContentPercentage": 11.4
+  },
+  {
+    "name": "Sandwich (Ruchbrot) mit Salami",
+    "kcalContentIn100g": 151,
+    "proteinContentPercentage": 5.9
+  },
+  {
+    "name": "Sandwich (Ruchbrot) mit Aufschnitt",
+    "kcalContentIn100g": 151,
+    "proteinContentPercentage": 5.5
+  },
+  {
+    "name": "Kirschenkuchen, hausgemacht, gebacken (mit Blätterteig)",
+    "kcalContentIn100g": 151,
+    "proteinContentPercentage": 2.8
+  },
+  {
+    "name": "Mostbröckli",
+    "kcalContentIn100g": 150,
+    "proteinContentPercentage": 32.6
+  },
+  {
+    "name": "Geschnetzeltes (Durchschnitt aus Rind, Kalb, Schwein, Geflügel), gebraten (ohne Zusatz von Fett und Salz)",
+    "kcalContentIn100g": 150,
+    "proteinContentPercentage": 28.9
+  },
+  {
+    "name": "Kaninchen (Durchschnitt), roh",
+    "kcalContentIn100g": 150,
+    "proteinContentPercentage": 20.5
+  },
+  {
+    "name": "Rind, Hals, roh",
+    "kcalContentIn100g": 150,
+    "proteinContentPercentage": 19.3
+  },
+  {
+    "name": "Schmelzkäse, streichfähig, viertelfett",
+    "kcalContentIn100g": 150,
+    "proteinContentPercentage": 16.4
+  },
+  {
+    "name": "Rösti (Fertig-Rösti), ungebraten",
+    "kcalContentIn100g": 150,
+    "proteinContentPercentage": 2.6
+  },
+  {
+    "name": "Thunfisch, roh",
+    "kcalContentIn100g": 149,
+    "proteinContentPercentage": 23.4
+  },
+  {
+    "name": "Ziege (Durchschnitt), roh",
+    "kcalContentIn100g": 149,
+    "proteinContentPercentage": 19.5
+  },
+  {
+    "name": "Blutwurst",
+    "kcalContentIn100g": 149,
+    "proteinContentPercentage": 10.2
+  },
+  {
+    "name": "Tofu, fest, nature (Durchschnitt)",
+    "kcalContentIn100g": 148,
+    "proteinContentPercentage": 14.7
+  },
+  {
+    "name": "Tofu, fest, nature (hergestellt mit Calciumsalz)",
+    "kcalContentIn100g": 148,
+    "proteinContentPercentage": 14.7
+  },
+  {
+    "name": "Tofu, fest, nature (hergestellt mit Nigari)",
+    "kcalContentIn100g": 148,
+    "proteinContentPercentage": 14.7
+  },
+  {
+    "name": "Birnenkuchen, hausgemacht, gebacken (mit Kuchenteig)",
+    "kcalContentIn100g": 148,
+    "proteinContentPercentage": 2.8
+  },
+  {
+    "name": "Rührei, zubereitet",
+    "kcalContentIn100g": 147,
+    "proteinContentPercentage": 11.2
+  },
+  {
+    "name": "Haferbrei, zubereitet (mit Vollmilch, ohne Zugabe von Zucker)",
+    "kcalContentIn100g": 147,
+    "proteinContentPercentage": 6.2
+  },
+  {
+    "name": "Béchamelsauce, hausgemacht",
+    "kcalContentIn100g": 147,
+    "proteinContentPercentage": 4.2
+  },
+  {
+    "name": "Apfelkuchen, hausgemacht, gebacken (mit Kuchenteig)",
+    "kcalContentIn100g": 147,
+    "proteinContentPercentage": 2.6
+  },
+  {
+    "name": "Rind, Schulter, Braten \"medium\", im Ofen gebraten (ohne Zugabe von Fett und Salz)",
+    "kcalContentIn100g": 146,
+    "proteinContentPercentage": 28.5
+  },
+  {
+    "name": "Fleisch (Durchschnitt exkl. Innereien), roh",
+    "kcalContentIn100g": 146,
+    "proteinContentPercentage": 21.4
+  },
+  {
+    "name": "Fisch (Durchschnitt), roh",
+    "kcalContentIn100g": 146,
+    "proteinContentPercentage": 20.9
+  },
+  {
+    "name": "Fisch (Durchschnitt), Filet, gedämpft (ohne Zusatz von Fett und Salz)",
+    "kcalContentIn100g": 146,
+    "proteinContentPercentage": 19.6
+  },
+  {
+    "name": "Birnenkuchen, hausgemacht, gebacken (mit Blätterteig)",
+    "kcalContentIn100g": 146,
+    "proteinContentPercentage": 2.6
+  },
+  {
+    "name": "Plätzli (Durchschnitt aus Geflügel, Kalb, Rind, Schwein), gebraten (ohne Zusatz von Fett und Salz)",
+    "kcalContentIn100g": 145,
+    "proteinContentPercentage": 29.2
+  },
+  {
+    "name": "Johannisbeerkuchen, hausgemacht, gebacken (mit Kuchenteig)",
+    "kcalContentIn100g": 145,
+    "proteinContentPercentage": 3.5
+  },
+  {
+    "name": "Apfelkuchen, hausgemacht, gebacken (mit Blätterteig)",
+    "kcalContentIn100g": 145,
+    "proteinContentPercentage": 2.4
+  },
+  {
+    "name": "Kalb, Nierstück, Steak, gebraten (ohne Zugabe von Fett und Salz)",
+    "kcalContentIn100g": 144,
+    "proteinContentPercentage": 27.3
+  },
+  {
+    "name": "Kürbisscheiben, paniert, zubereitet",
+    "kcalContentIn100g": 144,
+    "proteinContentPercentage": 4.7
+  },
+  {
+    "name": "Hirsotto, gekocht",
+    "kcalContentIn100g": 144,
+    "proteinContentPercentage": 3.7
+  },
+  {
+    "name": "Brombeerkuchen, hausgemacht, gebacken (mit Kuchenteig)",
+    "kcalContentIn100g": 144,
+    "proteinContentPercentage": 3.2
+  },
+  {
+    "name": "Pflaumenkuchen, hausgemacht, gebacken (mit Kuchenteig)",
+    "kcalContentIn100g": 144,
+    "proteinContentPercentage": 2.9
+  },
+  {
+    "name": "Gehacktes (Durchschnitt aus Rind, Kalb, Schwein, Poulet), roh",
+    "kcalContentIn100g": 143,
+    "proteinContentPercentage": 21.6
+  },
+  {
+    "name": "Eieromeletten mit Schinken, zubereitet",
+    "kcalContentIn100g": 143,
+    "proteinContentPercentage": 12.8
+  },
+  {
+    "name": "Rührei mit Schinken, zubereitet",
+    "kcalContentIn100g": 143,
+    "proteinContentPercentage": 12.8
+  },
+  {
+    "name": "Griessschnitte, zubereitet (mit teilentrahmter Milch)",
+    "kcalContentIn100g": 143,
+    "proteinContentPercentage": 6.1
+  },
+  {
+    "name": "Milchreis, zubereitet (mit Vollmilch, ohne Zugabe von Zucker)",
+    "kcalContentIn100g": 143,
+    "proteinContentPercentage": 5.1
+  },
+  {
+    "name": "Johannisbeerkuchen, hausgmacht, gebacken (mit Blätterteig)",
+    "kcalContentIn100g": 143,
+    "proteinContentPercentage": 3.3
+  },
+  {
+    "name": "Fruchtwähe/-kuchen mit Kuchenteig (Durchschnitt)",
+    "kcalContentIn100g": 143,
+    "proteinContentPercentage": 3
+  },
+  {
+    "name": "Pflaumenkuchen, hausgemacht, gebacken (mit Blätterteig)",
+    "kcalContentIn100g": 142,
+    "proteinContentPercentage": 2.6
+  },
+  {
+    "name": "Rührei mit Kräutern, zubereitet",
+    "kcalContentIn100g": 141,
+    "proteinContentPercentage": 10.6
+  },
+  {
+    "name": "Fleischlasagne, zubereitet",
+    "kcalContentIn100g": 141,
+    "proteinContentPercentage": 8.8
+  },
+  {
+    "name": "Sandwich (Baguette) mit Trockenfleisch",
+    "kcalContentIn100g": 141,
+    "proteinContentPercentage": 7.2
+  },
+  {
+    "name": "Aprikosenkuchen, hausgemacht, gebacken (mit Kuchenteig)",
+    "kcalContentIn100g": 141,
+    "proteinContentPercentage": 3
+  },
+  {
+    "name": "Brombeerkuchen, hausgemacht, gebacken (mit Blätterteig)",
+    "kcalContentIn100g": 141,
+    "proteinContentPercentage": 3
+  },
+  {
+    "name": "Zwetschgenkuchen, hausgemacht, gebacken (mit Kuchenteig)",
+    "kcalContentIn100g": 141,
+    "proteinContentPercentage": 2.9
+  },
+  {
+    "name": "Fruchtwähe/-kuchen mit Blätterteig (Durchschnitt)",
+    "kcalContentIn100g": 141,
+    "proteinContentPercentage": 2.8
+  },
+  {
+    "name": "Hühnerei, ganz, roh",
+    "kcalContentIn100g": 140,
+    "proteinContentPercentage": 12.6
+  },
+  {
+    "name": "Kürbis-Piccata, zubereitet",
+    "kcalContentIn100g": 140,
+    "proteinContentPercentage": 5.5
+  },
+  {
+    "name": "Maniok, Wurzelknolle, roh",
+    "kcalContentIn100g": 140,
+    "proteinContentPercentage": 1
+  },
+  {
+    "name": "Truthahn, Brust, Schnitzel oder Geschnetzeltes, grebraten (ohne Zusatz von Fett und Salz)",
+    "kcalContentIn100g": 139,
+    "proteinContentPercentage": 31.8
+  },
+  {
+    "name": "Crêpes mit Champignonfüllung, zubereitet",
+    "kcalContentIn100g": 139,
+    "proteinContentPercentage": 5.9
+  },
+  {
+    "name": "Selleriescheiben, paniert, zubereitet",
+    "kcalContentIn100g": 139,
+    "proteinContentPercentage": 4.7
+  },
+  {
+    "name": "Aprikosenkuchen, hausgemacht, gebacken (mit Blätterteig)",
+    "kcalContentIn100g": 139,
+    "proteinContentPercentage": 2.8
+  },
+  {
+    "name": "Zwetschgenkuchen, hausgemacht, gebacken (mit Blätterteig)",
+    "kcalContentIn100g": 139,
+    "proteinContentPercentage": 2.6
+  },
+  {
+    "name": "Kartoffelstock, zubereitet (mit Rahm und Butter)",
+    "kcalContentIn100g": 139,
+    "proteinContentPercentage": 2
+  },
+  {
+    "name": "Wermut, 15 vol%",
+    "kcalContentIn100g": 139,
+    "proteinContentPercentage": 0.1
+  },
+  {
+    "name": "Schwein, Nierstück, roh",
+    "kcalContentIn100g": 138,
+    "proteinContentPercentage": 22.9
+  },
+  {
+    "name": "Rind, Leber, roh",
+    "kcalContentIn100g": 138,
+    "proteinContentPercentage": 20.5
+  },
+  {
+    "name": "Auberginen-Piccata, zubereitet",
+    "kcalContentIn100g": 138,
+    "proteinContentPercentage": 5.6
+  },
+  {
+    "name": "Erbse, reif, getrocknet, gekocht (ohne Zusatz von Fett und Salz)",
+    "kcalContentIn100g": 137,
+    "proteinContentPercentage": 9
+  },
+  {
+    "name": "Knoblauch, roh",
+    "kcalContentIn100g": 137,
+    "proteinContentPercentage": 7
+  },
+  {
+    "name": "Mehlomeletten mit Gemüsefüllung, zubereitet",
+    "kcalContentIn100g": 137,
+    "proteinContentPercentage": 5.8
+  },
+  {
+    "name": "Sorbet, Frucht",
+    "kcalContentIn100g": 137,
+    "proteinContentPercentage": 0.2
+  },
+  {
+    "name": "Lamm, Filet, \"medium\" gebraten (ohne Zusatz von Fett und Salz)",
+    "kcalContentIn100g": 136,
+    "proteinContentPercentage": 25.8
+  },
+  {
+    "name": "Sellerie-Piccata, zubereitet",
+    "kcalContentIn100g": 136,
+    "proteinContentPercentage": 5.4
+  },
+  {
+    "name": "Auberginenscheiben, paniert, zubereitet",
+    "kcalContentIn100g": 136,
+    "proteinContentPercentage": 4.7
+  },
+  {
+    "name": "Konfitüre, energievermindert, mit Süssstoffen",
+    "kcalContentIn100g": 136,
+    "proteinContentPercentage": 0.5
+  },
+  {
+    "name": "Rind, Schulter, Braten \"rare\", im Ofen gebraten (ohne Zugabe von Fett und Salz)",
+    "kcalContentIn100g": 135,
+    "proteinContentPercentage": 26.3
+  },
+  {
+    "name": "Schwein, Voressen, roh",
+    "kcalContentIn100g": 135,
+    "proteinContentPercentage": 20.9
+  },
+  {
+    "name": "Poulet, Schenkel, ohne Haut, roh",
+    "kcalContentIn100g": 135,
+    "proteinContentPercentage": 19.7
+  },
+  {
+    "name": "Kalb, Leber, roh",
+    "kcalContentIn100g": 135,
+    "proteinContentPercentage": 19.6
+  },
+  {
+    "name": "Gerstotto, gekocht",
+    "kcalContentIn100g": 135,
+    "proteinContentPercentage": 3.5
+  },
+  {
+    "name": "Geflügelfleisch (Durchschnitt exkl. Innereien), roh",
+    "kcalContentIn100g": 134,
+    "proteinContentPercentage": 21.6
+  },
+  {
+    "name": "Rindfleisch (Durchschnitt exkl. Innereien, Rippensteak), roh",
+    "kcalContentIn100g": 134,
+    "proteinContentPercentage": 21.4
+  },
+  {
+    "name": "Schwein, Geschnetzeltes, roh",
+    "kcalContentIn100g": 134,
+    "proteinContentPercentage": 21.3
+  },
+  {
+    "name": "Lamm/Schaf (Durchschnitt exkl. Innereien, Kotelett), roh",
+    "kcalContentIn100g": 134,
+    "proteinContentPercentage": 20.5
+  },
+  {
+    "name": "Leber (Durchschnitt aus Rind, Kalb, Schwein), roh",
+    "kcalContentIn100g": 134,
+    "proteinContentPercentage": 20.3
+  },
+  {
+    "name": "Linse, geschält, gekocht (ohne Zugabe von Fett und Salz)",
+    "kcalContentIn100g": 134,
+    "proteinContentPercentage": 11
+  },
+  {
+    "name": "Sandwich (Ruchbrot) mit Trockenfleisch",
+    "kcalContentIn100g": 134,
+    "proteinContentPercentage": 7.4
+  },
+  {
+    "name": "Rind, Entrecôte, roh",
+    "kcalContentIn100g": 133,
+    "proteinContentPercentage": 23.2
+  },
+  {
+    "name": "Haferbrei, zubereitet (mit teilentrahmter Milch, ohne Zugabe von Zucker)",
+    "kcalContentIn100g": 133,
+    "proteinContentPercentage": 6.3
+  },
+  {
+    "name": "Gemüselasagne, zubereitet",
+    "kcalContentIn100g": 133,
+    "proteinContentPercentage": 4.4
+  },
+  {
+    "name": "Glarner Schabziger",
+    "kcalContentIn100g": 132,
+    "proteinContentPercentage": 31.6
+  },
+  {
+    "name": "Rind, Siedfleisch, mager, roh",
+    "kcalContentIn100g": 132,
+    "proteinContentPercentage": 20.7
+  },
+  {
+    "name": "Teigwaren mit Ei, gekocht im Salzwasser (unjodiert)",
+    "kcalContentIn100g": 132,
+    "proteinContentPercentage": 5
+  },
+  {
+    "name": "Pilzsauce, gebunden",
+    "kcalContentIn100g": 132,
+    "proteinContentPercentage": 3.9
+  },
+  {
+    "name": "Schwein, Leber, roh",
+    "kcalContentIn100g": 131,
+    "proteinContentPercentage": 20.7
+  },
+  {
+    "name": "Kondensmilch, ungezuckert",
+    "kcalContentIn100g": 131,
+    "proteinContentPercentage": 6.4
+  },
+  {
+    "name": "Sandwich (Baguette) mit Schinken",
+    "kcalContentIn100g": 131,
+    "proteinContentPercentage": 6.3
+  },
+  {
+    "name": "Maniok, Wurzelknolle, gekocht (ohne Zugabe von Salz)",
+    "kcalContentIn100g": 131,
+    "proteinContentPercentage": 1
+  },
+  {
+    "name": "Bami Goreng, zubereitet",
+    "kcalContentIn100g": 130,
+    "proteinContentPercentage": 13.5
+  },
+  {
+    "name": "Teigwarensalat mit italienischer Sauce",
+    "kcalContentIn100g": 130,
+    "proteinContentPercentage": 5.5
+  },
+  {
+    "name": "Taboulé, zubereitet (mit Couscous)",
+    "kcalContentIn100g": 130,
+    "proteinContentPercentage": 2.8
+  },
+  {
+    "name": "Pferd, Filet, gebraten (ohne Zusatz von Fett und Salz)",
+    "kcalContentIn100g": 129,
+    "proteinContentPercentage": 27.8
+  },
+  {
+    "name": "Milchreis, zubereitet (mit teilentrahmter Milch, ohne Zugabe von Zucker)",
+    "kcalContentIn100g": 129,
+    "proteinContentPercentage": 5.3
+  },
+  {
+    "name": "Poulet, Brust, Schnitzel oder Geschnetzeltes, gebraten (ohne Zusatz von Fett und Salz)",
+    "kcalContentIn100g": 128,
+    "proteinContentPercentage": 30.1
+  },
+  {
+    "name": "Kalbsplätzli, gebraten (ohne Zugabe von Fett und Salz)",
+    "kcalContentIn100g": 128,
+    "proteinContentPercentage": 28.4
+  },
+  {
+    "name": "Rind, Filet, \"medium\" gebraten (ohne Zustatz von Fett und Salz)",
+    "kcalContentIn100g": 128,
+    "proteinContentPercentage": 27.7
+  },
+  {
+    "name": "Kalbfleisch (Durchschnitt exkl. Innereien, Kotelett), roh",
+    "kcalContentIn100g": 128,
+    "proteinContentPercentage": 21.1
+  },
+  {
+    "name": "Teigwarensalat mit französischer Sauce",
+    "kcalContentIn100g": 128,
+    "proteinContentPercentage": 5.6
+  },
+  {
+    "name": "Pilzrisotto, zubereitet",
+    "kcalContentIn100g": 128,
+    "proteinContentPercentage": 4
+  },
+  {
+    "name": "Kartoffelgratin dauphinois, zubereitet",
+    "kcalContentIn100g": 128,
+    "proteinContentPercentage": 2.5
+  },
+  {
+    "name": "Balsamicoessig",
+    "kcalContentIn100g": 128,
+    "proteinContentPercentage": 0.7
+  },
+  {
+    "name": "Schwein, Runder Mocken, roh",
+    "kcalContentIn100g": 127,
+    "proteinContentPercentage": 20.6
+  },
+  {
+    "name": "Forelle, roh",
+    "kcalContentIn100g": 127,
+    "proteinContentPercentage": 16
+  },
+  {
+    "name": "Rührei mit Champignons, zubereitet",
+    "kcalContentIn100g": 127,
+    "proteinContentPercentage": 9.8
+  },
+  {
+    "name": "Hülsenfrüchte (Durchschnitt), gekocht (ohne Zugabe von Fett und Salz)",
+    "kcalContentIn100g": 127,
+    "proteinContentPercentage": 9.6
+  },
+  {
+    "name": "Kichererbse, gekocht (ohne Zugabe von Fett und Salz)",
+    "kcalContentIn100g": 127,
+    "proteinContentPercentage": 7.3
+  },
+  {
+    "name": "Zucchettischeiben, paniert, zubereitet",
+    "kcalContentIn100g": 127,
+    "proteinContentPercentage": 5
+  },
+  {
+    "name": "Ofen-Frites, tiefgekühlt",
+    "kcalContentIn100g": 127,
+    "proteinContentPercentage": 1.8
+  },
+  {
+    "name": "Reis unpoliert, gekocht in Salzwasser (unjodiert)",
+    "kcalContentIn100g": 126,
+    "proteinContentPercentage": 2.7
+  },
+  {
+    "name": "Nasi Goreng, zubereitet",
+    "kcalContentIn100g": 125,
+    "proteinContentPercentage": 10.8
+  },
+  {
+    "name": "Surimi",
+    "kcalContentIn100g": 125,
+    "proteinContentPercentage": 8.3
+  },
+  {
+    "name": "Sandwich (Ruchbrot) mit Schinken",
+    "kcalContentIn100g": 125,
+    "proteinContentPercentage": 6.4
+  },
+  {
+    "name": "Mehlomeletten mit Champignonfüllung, zubereitet",
+    "kcalContentIn100g": 125,
+    "proteinContentPercentage": 5.7
+  },
+  {
+    "name": "Pizza mit Gemüse, gebacken",
+    "kcalContentIn100g": 125,
+    "proteinContentPercentage": 5.7
+  },
+  {
+    "name": "Pudding, Caramel",
+    "kcalContentIn100g": 125,
+    "proteinContentPercentage": 3.4
+  },
+  {
+    "name": "Kalb, Schulter, Braten, roh",
+    "kcalContentIn100g": 124,
+    "proteinContentPercentage": 20.2
+  },
+  {
+    "name": "Riz Casimir mit Poulet, zubereitet",
+    "kcalContentIn100g": 124,
+    "proteinContentPercentage": 7.2
+  },
+  {
+    "name": "Senf",
+    "kcalContentIn100g": 124,
+    "proteinContentPercentage": 7.1
+  },
+  {
+    "name": "Zucchetti-Piccata, zubereitet",
+    "kcalContentIn100g": 124,
+    "proteinContentPercentage": 5.7
+  },
+  {
+    "name": "Risotto ohne Käse, zubereitet",
+    "kcalContentIn100g": 124,
+    "proteinContentPercentage": 2.3
+  },
+  {
+    "name": "Coleslaw Salat, zubereitet",
+    "kcalContentIn100g": 124,
+    "proteinContentPercentage": 1.6
+  },
+  {
+    "name": "Kalb, Geschnetzeltes, gebraten (ohne Zugabe von Fett und Salz)",
+    "kcalContentIn100g": 123,
+    "proteinContentPercentage": 28.2
+  },
+  {
+    "name": "Kebab im Fladenbrot",
+    "kcalContentIn100g": 123,
+    "proteinContentPercentage": 7.6
+  },
+  {
+    "name": "Riz Casimir mit Kalbfleisch, zubereitet",
+    "kcalContentIn100g": 123,
+    "proteinContentPercentage": 6.6
+  },
+  {
+    "name": "Rhabarberkuchen, hausgemacht, gebacken (mit Kuchenteig)",
+    "kcalContentIn100g": 123,
+    "proteinContentPercentage": 3
+  },
+  {
+    "name": "Reh (Durchschnitt), roh",
+    "kcalContentIn100g": 122,
+    "proteinContentPercentage": 22.4
+  },
+  {
+    "name": "Kalb, Haxe, roh",
+    "kcalContentIn100g": 122,
+    "proteinContentPercentage": 20.7
+  },
+  {
+    "name": "Ziger weiss",
+    "kcalContentIn100g": 122,
+    "proteinContentPercentage": 10.9
+  },
+  {
+    "name": "Schokoladencrème",
+    "kcalContentIn100g": 122,
+    "proteinContentPercentage": 3.6
+  },
+  {
+    "name": "Schwein, Filet, roh",
+    "kcalContentIn100g": 121,
+    "proteinContentPercentage": 22.2
+  },
+  {
+    "name": "Pudding, Schokolade",
+    "kcalContentIn100g": 121,
+    "proteinContentPercentage": 3
+  },
+  {
+    "name": "Rhabarberkuchen, gebacken (mit Blätterteig)",
+    "kcalContentIn100g": 121,
+    "proteinContentPercentage": 2.8
+  },
+  {
+    "name": "Quinoa, gekocht (ohne Zugabe von Salz und Fett)",
+    "kcalContentIn100g": 120,
+    "proteinContentPercentage": 4.8
+  },
+  {
+    "name": "Joghurt, Schokolade",
+    "kcalContentIn100g": 120,
+    "proteinContentPercentage": 3.9
+  },
+  {
+    "name": "Reis parboiled, gekocht in Salzwasser (unjodiert)",
+    "kcalContentIn100g": 120,
+    "proteinContentPercentage": 2.4
+  },
+  {
+    "name": "Kalb, Filet, roh",
+    "kcalContentIn100g": 119,
+    "proteinContentPercentage": 21.2
+  },
+  {
+    "name": "Amaranth, Samen, gekocht (ohne Zugabe von Fett und Salz)",
+    "kcalContentIn100g": 119,
+    "proteinContentPercentage": 5
+  },
+  {
+    "name": "Joghurt, Haselnuss",
+    "kcalContentIn100g": 119,
+    "proteinContentPercentage": 3.8
+  },
+  {
+    "name": "Maiskölbchen, in Essig eingelegt",
+    "kcalContentIn100g": 119,
+    "proteinContentPercentage": 3.4
+  },
+  {
+    "name": "Geschnetzeltes (Durchschnitt aus Rind, Kalb, Schwein, Geflügel), roh",
+    "kcalContentIn100g": 118,
+    "proteinContentPercentage": 22
+  },
+  {
+    "name": "Heilbutt, roh",
+    "kcalContentIn100g": 118,
+    "proteinContentPercentage": 20.6
+  },
+  {
+    "name": "Sherry, 18.5 vol%",
+    "kcalContentIn100g": 118,
+    "proteinContentPercentage": 0.1
+  },
+  {
+    "name": "Thon im Wasser, abgetropft",
+    "kcalContentIn100g": 117,
+    "proteinContentPercentage": 25.6
+  },
+  {
+    "name": "Lamm, Nierstück, roh (Australien, Neuseeland)",
+    "kcalContentIn100g": 117,
+    "proteinContentPercentage": 21.8
+  },
+  {
+    "name": "Rind, Schulter, Braten, roh",
+    "kcalContentIn100g": 117,
+    "proteinContentPercentage": 21.6
+  },
+  {
+    "name": "Ketchup",
+    "kcalContentIn100g": 117,
+    "proteinContentPercentage": 2
+  },
+  {
+    "name": "Forelle, ganz, gekocht (ohne Zusatz von Fett und Salz)",
+    "kcalContentIn100g": 116,
+    "proteinContentPercentage": 15
+  },
+  {
+    "name": "Reis poliert, gekocht in Salzwasser (unjodiert)",
+    "kcalContentIn100g": 116,
+    "proteinContentPercentage": 2.3
+  },
+  {
+    "name": "Schwein, Eckstück, roh",
+    "kcalContentIn100g": 115,
+    "proteinContentPercentage": 22.6
+  },
+  {
+    "name": "Hase (Durchschnitt), roh",
+    "kcalContentIn100g": 115,
+    "proteinContentPercentage": 22
+  },
+  {
+    "name": "Wildfleisch (Durchschnitt), roh",
+    "kcalContentIn100g": 115,
+    "proteinContentPercentage": 21.1
+  },
+  {
+    "name": "Chili con carne, zubereitet",
+    "kcalContentIn100g": 115,
+    "proteinContentPercentage": 10.4
+  },
+  {
+    "name": "Linse, ganz, gekocht (ohne Zugabe von Fett und Salz)",
+    "kcalContentIn100g": 115,
+    "proteinContentPercentage": 8.8
+  },
+  {
+    "name": "Geflügelfleisch ohne Haut (Durchschnitt exkl. Innereien), roh",
+    "kcalContentIn100g": 114,
+    "proteinContentPercentage": 22.9
+  },
+  {
+    "name": "Kalb, Nierstück, Steak, roh",
+    "kcalContentIn100g": 113,
+    "proteinContentPercentage": 22.8
+  },
+  {
+    "name": "Plätzli (Durchschnitt aus Rind, Kalb, Schwein, Geflügel), roh",
+    "kcalContentIn100g": 113,
+    "proteinContentPercentage": 22.2
+  },
+  {
+    "name": "Lammragout mit Sauce, zubereitet",
+    "kcalContentIn100g": 113,
+    "proteinContentPercentage": 11.1
+  },
+  {
+    "name": "Hirsch (Durchschnitt), roh",
+    "kcalContentIn100g": 112,
+    "proteinContentPercentage": 20.6
+  },
+  {
+    "name": "Lamm, Filet, roh",
+    "kcalContentIn100g": 112,
+    "proteinContentPercentage": 20.4
+  },
+  {
+    "name": "Kalb, Niere, roh",
+    "kcalContentIn100g": 112,
+    "proteinContentPercentage": 15.8
+  },
+  {
+    "name": "Quark, mit Früchten, gezuckert",
+    "kcalContentIn100g": 112,
+    "proteinContentPercentage": 8.4
+  },
+  {
+    "name": "Kaninchen, Filet, roh",
+    "kcalContentIn100g": 111,
+    "proteinContentPercentage": 24.3
+  },
+  {
+    "name": "Hirsch, Entrecôte, roh",
+    "kcalContentIn100g": 111,
+    "proteinContentPercentage": 23.1
+  },
+  {
+    "name": "Rind, Eckstück, roh",
+    "kcalContentIn100g": 111,
+    "proteinContentPercentage": 22.6
+  },
+  {
+    "name": "Bohne (alle Arten), gekocht (ohne Zugabe von Fett und Salz)",
+    "kcalContentIn100g": 111,
+    "proteinContentPercentage": 7.7
+  },
+  {
+    "name": "Polenta nera (aus Maisgriess und Buchweizenmehl), gekocht",
+    "kcalContentIn100g": 111,
+    "proteinContentPercentage": 4.1
+  },
+  {
+    "name": "Taboulé, zubereitet (mit Bulgur)",
+    "kcalContentIn100g": 111,
+    "proteinContentPercentage": 2.3
+  },
+  {
+    "name": "Thonsalat an Essig-Öl-Sauce (aus Thon im Wasser)",
+    "kcalContentIn100g": 109,
+    "proteinContentPercentage": 9
+  },
+  {
+    "name": "Vanillecrème, hausgemacht, gekocht",
+    "kcalContentIn100g": 109,
+    "proteinContentPercentage": 4.3
+  },
+  {
+    "name": "Truthahn, Brust, Schnitzel oder Geschnetzeltes, roh",
+    "kcalContentIn100g": 108,
+    "proteinContentPercentage": 24
+  },
+  {
+    "name": "Wildschwein (Durchschnitt), roh",
+    "kcalContentIn100g": 108,
+    "proteinContentPercentage": 19.5
+  },
+  {
+    "name": "Poulet, Brust, ohne Haut, roh",
+    "kcalContentIn100g": 107,
+    "proteinContentPercentage": 24.6
+  },
+  {
+    "name": "Rind, Runder Mocken, roh",
+    "kcalContentIn100g": 106,
+    "proteinContentPercentage": 22.4
+  },
+  {
+    "name": "Vorderschinken",
+    "kcalContentIn100g": 106,
+    "proteinContentPercentage": 18.6
+  },
+  {
+    "name": "Reh, Schnitzel, roh",
+    "kcalContentIn100g": 105,
+    "proteinContentPercentage": 22.5
+  },
+  {
+    "name": "Reh, Ragout, roh",
+    "kcalContentIn100g": 105,
+    "proteinContentPercentage": 22
+  },
+  {
+    "name": "Rind, Filet, roh",
+    "kcalContentIn100g": 105,
+    "proteinContentPercentage": 21.9
+  },
+  {
+    "name": "Schweinsragout mit Sauce, zubereitet",
+    "kcalContentIn100g": 105,
+    "proteinContentPercentage": 11.5
+  },
+  {
+    "name": "Schafmilch",
+    "kcalContentIn100g": 105,
+    "proteinContentPercentage": 5.5
+  },
+  {
+    "name": "Joghurt gezuckert (Durchschnitt)",
+    "kcalContentIn100g": 105,
+    "proteinContentPercentage": 3.7
+  },
+  {
+    "name": "Kalb, Runder Mocken, roh",
+    "kcalContentIn100g": 104,
+    "proteinContentPercentage": 21.9
+  },
+  {
+    "name": "Kalb, Gehacktes, roh",
+    "kcalContentIn100g": 104,
+    "proteinContentPercentage": 20.5
+  },
+  {
+    "name": "Hinterschinken",
+    "kcalContentIn100g": 104,
+    "proteinContentPercentage": 20.2
+  },
+  {
+    "name": "Kalb, Eckstück, roh",
+    "kcalContentIn100g": 103,
+    "proteinContentPercentage": 22.2
+  },
+  {
+    "name": "Zuckermais (Konserve), aufgewärmt (ohne Zugabe von Salz)",
+    "kcalContentIn100g": 103,
+    "proteinContentPercentage": 3.1
+  },
+  {
+    "name": "Rind, Geschnetzeltes, roh",
+    "kcalContentIn100g": 102,
+    "proteinContentPercentage": 22.2
+  },
+  {
+    "name": "Pferd, Filet, roh",
+    "kcalContentIn100g": 102,
+    "proteinContentPercentage": 21.4
+  },
+  {
+    "name": "Kalb, Voressen, roh",
+    "kcalContentIn100g": 102,
+    "proteinContentPercentage": 20
+  },
+  {
+    "name": "Pudding, Vanille",
+    "kcalContentIn100g": 102,
+    "proteinContentPercentage": 2.8
+  },
+  {
+    "name": "Passionsfrucht, roh",
+    "kcalContentIn100g": 102,
+    "proteinContentPercentage": 2.1
+  },
+  {
+    "name": "Felche, roh",
+    "kcalContentIn100g": 101,
+    "proteinContentPercentage": 19.2
+  },
+  {
+    "name": "Joghurt, Erdbeer",
+    "kcalContentIn100g": 101,
+    "proteinContentPercentage": 3.4
+  },
+  {
+    "name": "Hüttenkäse, nature",
+    "kcalContentIn100g": 100,
+    "proteinContentPercentage": 12.4
+  },
+  {
+    "name": "Erbse, grün, gedämpft (ohne Zugabe von Salz)",
+    "kcalContentIn100g": 100,
+    "proteinContentPercentage": 6.6
+  },
+  {
+    "name": "Mais, gedämpft (ohne Zugabe von Salz)",
+    "kcalContentIn100g": 100,
+    "proteinContentPercentage": 3.5
+  },
+  {
+    "name": "Zuckermais (Konserve)",
+    "kcalContentIn100g": 100,
+    "proteinContentPercentage": 3
+  },
+  {
+    "name": "Kalb, Milken, roh",
+    "kcalContentIn100g": 99,
+    "proteinContentPercentage": 17.2
+  },
+  {
+    "name": "Quark, nature, halbfett",
+    "kcalContentIn100g": 99,
+    "proteinContentPercentage": 9.4
+  },
+  {
+    "name": "Joghurt, Mokka",
+    "kcalContentIn100g": 99,
+    "proteinContentPercentage": 3.7
+  },
+  {
+    "name": "Kalb, Geschnetzeltes, roh",
+    "kcalContentIn100g": 98,
+    "proteinContentPercentage": 22
+  },
+  {
+    "name": "Joghurt, Vanille",
+    "kcalContentIn100g": 98,
+    "proteinContentPercentage": 3.7
+  },
+  {
+    "name": "Rind, Voressen, roh",
+    "kcalContentIn100g": 97,
+    "proteinContentPercentage": 21.2
+  },
+  {
+    "name": "Bäckerhefe, gepresst",
+    "kcalContentIn100g": 96,
+    "proteinContentPercentage": 16.7
+  },
+  {
+    "name": "Bolognaisesauce",
+    "kcalContentIn100g": 96,
+    "proteinContentPercentage": 6.3
+  },
+  {
+    "name": "Kartoffelsalat mit Essig-Öl-Sauce",
+    "kcalContentIn100g": 96,
+    "proteinContentPercentage": 1.7
+  },
+  {
+    "name": "Joghurt, Mokka, Bio",
+    "kcalContentIn100g": 95,
+    "proteinContentPercentage": 3.4
+  },
+  {
+    "name": "Scampi (Kaisergranat), roh",
+    "kcalContentIn100g": 93,
+    "proteinContentPercentage": 19.6
+  },
+  {
+    "name": "Cotto (Fleischerzeugnis)",
+    "kcalContentIn100g": 93,
+    "proteinContentPercentage": 15.7
+  },
+  {
+    "name": "Griessbrei, zubereitet (mit teilentrahmter Milch, ohne Zugabe von Zucker)",
+    "kcalContentIn100g": 93,
+    "proteinContentPercentage": 4.6
+  },
+  {
+    "name": "Griessbrei, zubereitet (mit Vollmilch, ohne Zugabe von Zucker)",
+    "kcalContentIn100g": 93,
+    "proteinContentPercentage": 4.6
+  },
+  {
+    "name": "Mais, roh",
+    "kcalContentIn100g": 93,
+    "proteinContentPercentage": 3.3
+  },
+  {
+    "name": "Vegetarisches Gehacktes/Geschnetzeltes, aus Mykoprotein, roh",
+    "kcalContentIn100g": 92,
+    "proteinContentPercentage": 13.4
+  },
+  {
+    "name": "Zwiebel, geröstet (ohne Zugabe von Fett und Salz)",
+    "kcalContentIn100g": 92,
+    "proteinContentPercentage": 2.6
+  },
+  {
+    "name": "Erbse, grün, roh",
+    "kcalContentIn100g": 90,
+    "proteinContentPercentage": 6
+  },
+  {
+    "name": "Kartoffelstock, zubereitet (mit Vollmilch und Butter)",
+    "kcalContentIn100g": 90,
+    "proteinContentPercentage": 2.2
+  },
+  {
+    "name": "Pferderagout mit Sauce, zubereitet",
+    "kcalContentIn100g": 89,
+    "proteinContentPercentage": 11.8
+  },
+  {
+    "name": "Erbse (Konserve), aufgewärmt (ohne Zugabe von Salz)",
+    "kcalContentIn100g": 89,
+    "proteinContentPercentage": 4.9
+  },
+  {
+    "name": "Banane, roh",
+    "kcalContentIn100g": 89,
+    "proteinContentPercentage": 1.1
+  },
+  {
+    "name": "Apfelmus, gezuckert (Konserve)",
+    "kcalContentIn100g": 89,
+    "proteinContentPercentage": 0.3
+  },
+  {
+    "name": "Kartoffelstock, zubereitet (mit teilentrahmter Milch und Butter)",
+    "kcalContentIn100g": 88,
+    "proteinContentPercentage": 2.2
+  },
+  {
+    "name": "Rhabarberkompott, gezuckert",
+    "kcalContentIn100g": 88,
+    "proteinContentPercentage": 0.7
+  },
+  {
+    "name": "Wassereis",
+    "kcalContentIn100g": 88,
+    "proteinContentPercentage": 0
+  },
+  {
+    "name": "Erbse (Konserve)",
+    "kcalContentIn100g": 87,
+    "proteinContentPercentage": 4.8
+  },
+  {
+    "name": "Scholle, roh",
+    "kcalContentIn100g": 86,
+    "proteinContentPercentage": 17.1
+  },
+  {
+    "name": "Birchermüesli, zubereitet (ungezuckert)",
+    "kcalContentIn100g": 86,
+    "proteinContentPercentage": 2.6
+  },
+  {
+    "name": "Seezunge, roh",
+    "kcalContentIn100g": 85,
+    "proteinContentPercentage": 18.7
+  },
+  {
+    "name": "Miesmuschel, roh",
+    "kcalContentIn100g": 85,
+    "proteinContentPercentage": 11.7
+  },
+  {
+    "name": "Rindsragout mit Sauce, zubereitet",
+    "kcalContentIn100g": 85,
+    "proteinContentPercentage": 11.6
+  },
+  {
+    "name": "Kalbsragout mit Sauce, zubereitet",
+    "kcalContentIn100g": 85,
+    "proteinContentPercentage": 10.7
+  },
+  {
+    "name": "Kalmar, roh",
+    "kcalContentIn100g": 83,
+    "proteinContentPercentage": 16
+  },
+  {
+    "name": "Joghurtalternative aus Soja, mit Früchten oder Aroma",
+    "kcalContentIn100g": 82,
+    "proteinContentPercentage": 3.4
+  },
+  {
+    "name": "Joghurtalternative aus Soja, mit Früchten oder Aroma, mit Calcium angereichert",
+    "kcalContentIn100g": 82,
+    "proteinContentPercentage": 3.4
+  },
+  {
+    "name": "Pfirsich, in Sirup, Konserve, abgetropft",
+    "kcalContentIn100g": 82,
+    "proteinContentPercentage": 0.7
+  },
+  {
+    "name": "Hecht, roh",
+    "kcalContentIn100g": 81,
+    "proteinContentPercentage": 18.4
+  },
+  {
+    "name": "Malzgetränk mit Kakao, mit Vitaminen und Mineralien angereichert, zubereitet (mit Milch)",
+    "kcalContentIn100g": 81,
+    "proteinContentPercentage": 3.6
+  },
+  {
+    "name": "Süsskartoffel, gedämpft (ohne Zugabe von Salz)",
+    "kcalContentIn100g": 81,
+    "proteinContentPercentage": 1.6
+  },
+  {
+    "name": "Süsskartoffel, roh",
+    "kcalContentIn100g": 81,
+    "proteinContentPercentage": 1.6
+  },
+  {
+    "name": "Granatapfel, roh",
+    "kcalContentIn100g": 81,
+    "proteinContentPercentage": 1.4
+  },
+  {
+    "name": "Seelachs, roh",
+    "kcalContentIn100g": 80,
+    "proteinContentPercentage": 19.3
+  },
+  {
+    "name": "Instant-Kartoffelstock, zubereitet (mit Wasser und Butter)",
+    "kcalContentIn100g": 80,
+    "proteinContentPercentage": 2
+  },
+  {
+    "name": "Kartoffelsalat mit Mayonnaise-Joghurt-Sauce",
+    "kcalContentIn100g": 80,
+    "proteinContentPercentage": 1.8
+  },
+  {
+    "name": "Egli, roh",
+    "kcalContentIn100g": 79,
+    "proteinContentPercentage": 18
+  },
+  {
+    "name": "Dörrbohne, eingeweicht, gedämpft (ohne Zugabe von Salz)",
+    "kcalContentIn100g": 79,
+    "proteinContentPercentage": 5.1
+  },
+  {
+    "name": "Maisgriess, gekocht",
+    "kcalContentIn100g": 79,
+    "proteinContentPercentage": 2
+  },
+  {
+    "name": "Tomatenpüree",
+    "kcalContentIn100g": 77,
+    "proteinContentPercentage": 4.5
+  },
+  {
+    "name": "Fruchtcocktail, in Sirup, Konserve, abgetropft",
+    "kcalContentIn100g": 77,
+    "proteinContentPercentage": 0.6
+  },
+  {
+    "name": "Dorsch, roh",
+    "kcalContentIn100g": 76,
+    "proteinContentPercentage": 18.1
+  },
+  {
+    "name": "Kartoffel, geschält, roh",
+    "kcalContentIn100g": 76,
+    "proteinContentPercentage": 2
+  },
+  {
+    "name": "Mirabelle, roh",
+    "kcalContentIn100g": 76,
+    "proteinContentPercentage": 0.6
+  },
+  {
+    "name": "Wein rot, 13.5 vol%",
+    "kcalContentIn100g": 76,
+    "proteinContentPercentage": 0
+  },
+  {
+    "name": "Krustentiere (Durchschnitt), roh",
+    "kcalContentIn100g": 75,
+    "proteinContentPercentage": 15.5
+  },
+  {
+    "name": "Kartoffelgratin Savoyer Art, zubereitet",
+    "kcalContentIn100g": 75,
+    "proteinContentPercentage": 2.1
+  },
+  {
+    "name": "Kartoffel, geschält, gedämpft (ohne Zugabe von Salz)",
+    "kcalContentIn100g": 75,
+    "proteinContentPercentage": 2
+  },
+  {
+    "name": "Kefe, gedämpft (ohne Zugabe von Salz)",
+    "kcalContentIn100g": 73,
+    "proteinContentPercentage": 4.3
+  },
+  {
+    "name": "Dorsch, Filet, gedämpft (ohne Zusatz von Fett und Salz)",
+    "kcalContentIn100g": 72,
+    "proteinContentPercentage": 17
+  },
+  {
+    "name": "Flunder, roh",
+    "kcalContentIn100g": 72,
+    "proteinContentPercentage": 16.5
+  },
+  {
+    "name": "Seehecht, roh",
+    "kcalContentIn100g": 71,
+    "proteinContentPercentage": 17
+  },
+  {
+    "name": "Johannisbeere, schwarz, roh",
+    "kcalContentIn100g": 71,
+    "proteinContentPercentage": 1.3
+  },
+  {
+    "name": "Feige, roh",
+    "kcalContentIn100g": 71,
+    "proteinContentPercentage": 1.2
+  },
+  {
+    "name": "Birne, in Sirup, Konserve, abgetropft",
+    "kcalContentIn100g": 71,
+    "proteinContentPercentage": 0.4
+  },
+  {
+    "name": "Traubensaft",
+    "kcalContentIn100g": 71,
+    "proteinContentPercentage": 0.3
+  },
+  {
+    "name": "Schaumwein",
+    "kcalContentIn100g": 71,
+    "proteinContentPercentage": 0.2
+  },
+  {
+    "name": "Wein weiss, 12.5 vol%",
+    "kcalContentIn100g": 71,
+    "proteinContentPercentage": 0.2
+  },
+  {
+    "name": "Erbsen und Karotten (Konserve), aufgewärmt (ohne Zugabe von Salz)",
+    "kcalContentIn100g": 70,
+    "proteinContentPercentage": 3.8
+  },
+  {
+    "name": "Kaki, roh",
+    "kcalContentIn100g": 70,
+    "proteinContentPercentage": 0.9
+  },
+  {
+    "name": "Mirabelle, gedünstet, abgetropft (ohne Zugabe von Zucker)",
+    "kcalContentIn100g": 70,
+    "proteinContentPercentage": 0.7
+  },
+  {
+    "name": "Ananas, in Sirup, Konserve, abgetropft",
+    "kcalContentIn100g": 70,
+    "proteinContentPercentage": 0.5
+  },
+  {
+    "name": "Wein weiss, 11 vol%",
+    "kcalContentIn100g": 70,
+    "proteinContentPercentage": 0.1
+  },
+  {
+    "name": "Flunder, Filet, gedämpft (ohne Zusatz von Fett und Salz)",
+    "kcalContentIn100g": 69,
+    "proteinContentPercentage": 15.5
+  },
+  {
+    "name": "Erbsen und Karotten (Konserve)",
+    "kcalContentIn100g": 69,
+    "proteinContentPercentage": 3.7
+  },
+  {
+    "name": "Tomatensauce",
+    "kcalContentIn100g": 69,
+    "proteinContentPercentage": 1.8
+  },
+  {
+    "name": "Traube, weiss, roh",
+    "kcalContentIn100g": 69,
+    "proteinContentPercentage": 0.7
+  },
+  {
+    "name": "Wein rot, 12 vol%",
+    "kcalContentIn100g": 69,
+    "proteinContentPercentage": 0.2
+  },
+  {
+    "name": "Kefe, roh",
+    "kcalContentIn100g": 68,
+    "proteinContentPercentage": 4
+  },
+  {
+    "name": "Vollmilch, pasteurisiert",
+    "kcalContentIn100g": 68,
+    "proteinContentPercentage": 3.2
+  },
+  {
+    "name": "Vollmilch, UHT",
+    "kcalContentIn100g": 68,
+    "proteinContentPercentage": 3.2
+  },
+  {
+    "name": "Mango, roh",
+    "kcalContentIn100g": 68,
+    "proteinContentPercentage": 0.6
+  },
+  {
+    "name": "Blanc battu mit Früchten, mit Süsstoffen",
+    "kcalContentIn100g": 67,
+    "proteinContentPercentage": 8
+  },
+  {
+    "name": "Gulaschsuppe",
+    "kcalContentIn100g": 67,
+    "proteinContentPercentage": 4.8
+  },
+  {
+    "name": "Joghurt Bifidus, nature",
+    "kcalContentIn100g": 66,
+    "proteinContentPercentage": 4
+  },
+  {
+    "name": "Joghurt, nature",
+    "kcalContentIn100g": 66,
+    "proteinContentPercentage": 3.9
+  },
+  {
+    "name": "Vollmilch, standardisiert, 3.5% Fett, UHT",
+    "kcalContentIn100g": 65,
+    "proteinContentPercentage": 3.2
+  },
+  {
+    "name": "Joghurt-Salatsauce (ohne Öl)",
+    "kcalContentIn100g": 64,
+    "proteinContentPercentage": 3.6
+  },
+  {
+    "name": "Apfelwein, 6.2 vol%",
+    "kcalContentIn100g": 64,
+    "proteinContentPercentage": 0
+  },
+  {
+    "name": "Holunderbeere, schwarz, roh",
+    "kcalContentIn100g": 63,
+    "proteinContentPercentage": 2.5
+  },
+  {
+    "name": "Pastinake, roh",
+    "kcalContentIn100g": 62,
+    "proteinContentPercentage": 1.3
+  },
+  {
+    "name": "Zuckermelone, roh",
+    "kcalContentIn100g": 62,
+    "proteinContentPercentage": 1.1
+  },
+  {
+    "name": "Aprikose, in Sirup, Konserve, abgetropft",
+    "kcalContentIn100g": 62,
+    "proteinContentPercentage": 0.9
+  },
+  {
+    "name": "Kirsche, roh",
+    "kcalContentIn100g": 62,
+    "proteinContentPercentage": 0.8
+  },
+  {
+    "name": "Rosmarin, roh",
+    "kcalContentIn100g": 62,
+    "proteinContentPercentage": 0.8
+  },
+  {
+    "name": "Quark, nature, mager",
+    "kcalContentIn100g": 61,
+    "proteinContentPercentage": 10.6
+  },
+  {
+    "name": "Ananas, in Ananassaft, Konserve, abgetropft",
+    "kcalContentIn100g": 60,
+    "proteinContentPercentage": 0.5
+  },
+  {
+    "name": "Milch (Durchschnitt)",
+    "kcalContentIn100g": 59,
+    "proteinContentPercentage": 3.2
+  },
+  {
+    "name": "Salbei, roh",
+    "kcalContentIn100g": 59,
+    "proteinContentPercentage": 1.7
+  },
+  {
+    "name": "Ananas, in Ananassaft, Konserve, nicht abgetropft",
+    "kcalContentIn100g": 59,
+    "proteinContentPercentage": 0.4
+  },
+  {
+    "name": "Petersilie, roh",
+    "kcalContentIn100g": 58,
+    "proteinContentPercentage": 3.9
+  },
+  {
+    "name": "Gemüsegratin, gebacken",
+    "kcalContentIn100g": 58,
+    "proteinContentPercentage": 2.6
+  },
+  {
+    "name": "Jägersauce",
+    "kcalContentIn100g": 58,
+    "proteinContentPercentage": 2.2
+  },
+  {
+    "name": "Pastinake, gekocht (ohne Zugabe von Salz)",
+    "kcalContentIn100g": 58,
+    "proteinContentPercentage": 1.2
+  },
+  {
+    "name": "Kirsche, gedünstet, abgetropft (ohne Zugabe von Zucker)",
+    "kcalContentIn100g": 58,
+    "proteinContentPercentage": 0.9
+  },
+  {
+    "name": "Kiwi, roh",
+    "kcalContentIn100g": 58,
+    "proteinContentPercentage": 0.9
+  },
+  {
+    "name": "Teilentrahmte Milch, UHT",
+    "kcalContentIn100g": 57,
+    "proteinContentPercentage": 3.3
+  },
+  {
+    "name": "Ziegenmilch",
+    "kcalContentIn100g": 57,
+    "proteinContentPercentage": 2.8
+  },
+  {
+    "name": "Schwarzwurzel, gedämpft (ohne Zugabe von Salz)",
+    "kcalContentIn100g": 57,
+    "proteinContentPercentage": 1.5
+  },
+  {
+    "name": "Birne, gedünstet, abgetropft (ohne Zugabe von Zucker)",
+    "kcalContentIn100g": 57,
+    "proteinContentPercentage": 0.6
+  },
+  {
+    "name": "Garnele, roh",
+    "kcalContentIn100g": 56,
+    "proteinContentPercentage": 11.4
+  },
+  {
+    "name": "Sojasauce",
+    "kcalContentIn100g": 56,
+    "proteinContentPercentage": 8.1
+  },
+  {
+    "name": "Teilentrahmte Milch, pasteurisiert",
+    "kcalContentIn100g": 56,
+    "proteinContentPercentage": 3.1
+  },
+  {
+    "name": "Apfel, gedünstet, abgetropft (ohne Zugabe von Zucker)",
+    "kcalContentIn100g": 56,
+    "proteinContentPercentage": 0.3
+  },
+  {
+    "name": "Sojasprossen, roh",
+    "kcalContentIn100g": 55,
+    "proteinContentPercentage": 5.5
+  },
+  {
+    "name": "Schwarzwurzel, roh",
+    "kcalContentIn100g": 55,
+    "proteinContentPercentage": 1.4
+  },
+  {
+    "name": "Nektarine, roh",
+    "kcalContentIn100g": 55,
+    "proteinContentPercentage": 1
+  },
+  {
+    "name": "Apfelmus, ungezuckert (Konserve)",
+    "kcalContentIn100g": 55,
+    "proteinContentPercentage": 0.3
+  },
+  {
+    "name": "Calimocho (Rotwein mit Cola)",
+    "kcalContentIn100g": 55,
+    "proteinContentPercentage": 0.1
+  },
+  {
+    "name": "Wein weiss, gespritzt, süss",
+    "kcalContentIn100g": 55,
+    "proteinContentPercentage": 0.1
+  },
+  {
+    "name": "Sirup zubereitet (verdünnt im Verhältnis 1:5.5)",
+    "kcalContentIn100g": 55,
+    "proteinContentPercentage": 0
+  },
+  {
+    "name": "Topinambur, roh",
+    "kcalContentIn100g": 54,
+    "proteinContentPercentage": 2.4
+  },
+  {
+    "name": "Rande, gedämpft (ohne Zugabe von Salz)",
+    "kcalContentIn100g": 54,
+    "proteinContentPercentage": 1.8
+  },
+  {
+    "name": "Früchte (Durchschnitt), roh",
+    "kcalContentIn100g": 54,
+    "proteinContentPercentage": 0.6
+  },
+  {
+    "name": "Birne, roh",
+    "kcalContentIn100g": 54,
+    "proteinContentPercentage": 0.5
+  },
+  {
+    "name": "Reisgetränk, nature",
+    "kcalContentIn100g": 54,
+    "proteinContentPercentage": 0.2
+  },
+  {
+    "name": "Reisgetränk, nature, mit Calcium angereichert",
+    "kcalContentIn100g": 54,
+    "proteinContentPercentage": 0.2
+  },
+  {
+    "name": "Wein rot, 9 vol%",
+    "kcalContentIn100g": 54,
+    "proteinContentPercentage": 0.2
+  },
+  {
+    "name": "Tofu, seidig (weich), nature",
+    "kcalContentIn100g": 53,
+    "proteinContentPercentage": 5
+  },
+  {
+    "name": "Minestrone",
+    "kcalContentIn100g": 53,
+    "proteinContentPercentage": 2
+  },
+  {
+    "name": "Bratensauce, gebunden",
+    "kcalContentIn100g": 53,
+    "proteinContentPercentage": 1.6
+  },
+  {
+    "name": "Topinambur, gekocht (ohne Zugabe von Salz)",
+    "kcalContentIn100g": 52,
+    "proteinContentPercentage": 2.3
+  },
+  {
+    "name": "Thymian, roh",
+    "kcalContentIn100g": 52,
+    "proteinContentPercentage": 1.5
+  },
+  {
+    "name": "Heidelbeere, roh",
+    "kcalContentIn100g": 52,
+    "proteinContentPercentage": 0.9
+  },
+  {
+    "name": "Ananas, roh",
+    "kcalContentIn100g": 52,
+    "proteinContentPercentage": 0.5
+  },
+  {
+    "name": "Birnensaft",
+    "kcalContentIn100g": 52,
+    "proteinContentPercentage": 0.5
+  },
+  {
+    "name": "Fruchtsaft (Durchschnitt), ungezuckert",
+    "kcalContentIn100g": 52,
+    "proteinContentPercentage": 0.4
+  },
+  {
+    "name": "Apfel, roh",
+    "kcalContentIn100g": 52,
+    "proteinContentPercentage": 0.3
+  },
+  {
+    "name": "Ananassaft",
+    "kcalContentIn100g": 51,
+    "proteinContentPercentage": 0.4
+  },
+  {
+    "name": "Johannisbeere, rot, roh",
+    "kcalContentIn100g": 50,
+    "proteinContentPercentage": 1.6
+  },
+  {
+    "name": "Früchte (Durchschnitt), gekocht (ohne Zugabe von Zucker)",
+    "kcalContentIn100g": 50,
+    "proteinContentPercentage": 0.6
+  },
+  {
+    "name": "Birne, mit Süssungsmittel, Konserve, abgetropft",
+    "kcalContentIn100g": 50,
+    "proteinContentPercentage": 0.5
+  },
+  {
+    "name": "Apfelsaft",
+    "kcalContentIn100g": 50,
+    "proteinContentPercentage": 0.2
+  },
+  {
+    "name": "Joghurt mit Früchten, mager, mit Süssstoffen",
+    "kcalContentIn100g": 49,
+    "proteinContentPercentage": 4.5
+  },
+  {
+    "name": "Pfefferminze, roh",
+    "kcalContentIn100g": 49,
+    "proteinContentPercentage": 3.8
+  },
+  {
+    "name": "Quitte, gekocht, abgetropft (ohne Zugabe von Zucker)",
+    "kcalContentIn100g": 49,
+    "proteinContentPercentage": 0.5
+  },
+  {
+    "name": "Pflaume, gedünstet, abgetropft (ohne Zugabe von Zucker)",
+    "kcalContentIn100g": 48,
+    "proteinContentPercentage": 0.7
+  },
+  {
+    "name": "Pflaume, roh",
+    "kcalContentIn100g": 48,
+    "proteinContentPercentage": 0.6
+  },
+  {
+    "name": "Hafergetränk, nature, mit Calcium und Vitaminen angereichert",
+    "kcalContentIn100g": 48,
+    "proteinContentPercentage": 0.5
+  },
+  {
+    "name": "Blanc battu, nature, mager",
+    "kcalContentIn100g": 47,
+    "proteinContentPercentage": 7.8
+  },
+  {
+    "name": "Federkohl, gedünstet (ohne Zugabe von Salz und Fett)",
+    "kcalContentIn100g": 47,
+    "proteinContentPercentage": 4.6
+  },
+  {
+    "name": "Joghurt mit Aroma, mager, mit Süssstoffen",
+    "kcalContentIn100g": 47,
+    "proteinContentPercentage": 4.4
+  },
+  {
+    "name": "Latte macchiato, ungezuckert",
+    "kcalContentIn100g": 47,
+    "proteinContentPercentage": 2.2
+  },
+  {
+    "name": "Brombeere, roh",
+    "kcalContentIn100g": 47,
+    "proteinContentPercentage": 1.1
+  },
+  {
+    "name": "Mandarine, roh",
+    "kcalContentIn100g": 47,
+    "proteinContentPercentage": 0.8
+  },
+  {
+    "name": "Ristretto crème, ungezuckert",
+    "kcalContentIn100g": 47,
+    "proteinContentPercentage": 0.8
+  },
+  {
+    "name": "Fruchtcocktail, mit Süssungsmittel, Konserve, abgetropft",
+    "kcalContentIn100g": 47,
+    "proteinContentPercentage": 0.7
+  },
+  {
+    "name": "Hafergetränk, nature",
+    "kcalContentIn100g": 47,
+    "proteinContentPercentage": 0.5
+  },
+  {
+    "name": "Quitte, roh",
+    "kcalContentIn100g": 47,
+    "proteinContentPercentage": 0.4
+  },
+  {
+    "name": "Garnele, gekocht",
+    "kcalContentIn100g": 46,
+    "proteinContentPercentage": 9
+  },
+  {
+    "name": "Steinpilz, gedünstet (ohne Zugabe von Fett und Salz)",
+    "kcalContentIn100g": 46,
+    "proteinContentPercentage": 6.1
+  },
+  {
+    "name": "Halbentrahmte Milch 1.5% Fett, UHT",
+    "kcalContentIn100g": 46,
+    "proteinContentPercentage": 3.2
+  },
+  {
+    "name": "Basilikum, roh",
+    "kcalContentIn100g": 46,
+    "proteinContentPercentage": 3.1
+  },
+  {
+    "name": "Rande, roh",
+    "kcalContentIn100g": 46,
+    "proteinContentPercentage": 1.5
+  },
+  {
+    "name": "Hühnereiweiss, roh (Eiklar)",
+    "kcalContentIn100g": 45,
+    "proteinContentPercentage": 10.8
+  },
+  {
+    "name": "Joghurtalternative aus Soja, nature",
+    "kcalContentIn100g": 45,
+    "proteinContentPercentage": 4
+  },
+  {
+    "name": "Joghurtalternative aus Soja, nature, mit Calcium angereichert",
+    "kcalContentIn100g": 45,
+    "proteinContentPercentage": 4
+  },
+  {
+    "name": "Ratatouille, zubereitet",
+    "kcalContentIn100g": 45,
+    "proteinContentPercentage": 1.4
+  },
+  {
+    "name": "Aprikose, gedünstet, abgetropft (ohne Zugabe von Zucker)",
+    "kcalContentIn100g": 45,
+    "proteinContentPercentage": 1
+  },
+  {
+    "name": "Orange, roh",
+    "kcalContentIn100g": 45,
+    "proteinContentPercentage": 0.8
+  },
+  {
+    "name": "Federkohl, roh",
+    "kcalContentIn100g": 44,
+    "proteinContentPercentage": 4.3
+  },
+  {
+    "name": "Bratensauce, klar",
+    "kcalContentIn100g": 44,
+    "proteinContentPercentage": 1.5
+  },
+  {
+    "name": "Himbeere, roh",
+    "kcalContentIn100g": 44,
+    "proteinContentPercentage": 1.2
+  },
+  {
+    "name": "Aprikose, roh",
+    "kcalContentIn100g": 44,
+    "proteinContentPercentage": 0.8
+  },
+  {
+    "name": "Karotte, gedämpft (ohne Zugabe von Salz)",
+    "kcalContentIn100g": 44,
+    "proteinContentPercentage": 0.7
+  },
+  {
+    "name": "Orangensaft",
+    "kcalContentIn100g": 44,
+    "proteinContentPercentage": 0.6
+  },
+  {
+    "name": "Papaya, reif, roh",
+    "kcalContentIn100g": 44,
+    "proteinContentPercentage": 0.5
+  },
+  {
+    "name": "Orangennektar",
+    "kcalContentIn100g": 44,
+    "proteinContentPercentage": 0.4
+  },
+  {
+    "name": "Energy Drink, gezuckert",
+    "kcalContentIn100g": 44,
+    "proteinContentPercentage": 0
+  },
+  {
+    "name": "Sojagetränk, nature",
+    "kcalContentIn100g": 43,
+    "proteinContentPercentage": 4.2
+  },
+  {
+    "name": "Sojagetränk, nature, mit Calicum and Vitaminen angereichert",
+    "kcalContentIn100g": 43,
+    "proteinContentPercentage": 4.2
+  },
+  {
+    "name": "Zwiebel, gedünstet (ohne Zugabe von Fett und Salz)",
+    "kcalContentIn100g": 43,
+    "proteinContentPercentage": 1.2
+  },
+  {
+    "name": "Pfirsich, gelb, roh",
+    "kcalContentIn100g": 43,
+    "proteinContentPercentage": 0.8
+  },
+  {
+    "name": "Zwetschge, gedünstet, abgetropft (ohne Zugabe von Zucker)",
+    "kcalContentIn100g": 43,
+    "proteinContentPercentage": 0.7
+  },
+  {
+    "name": "Zwetschge, roh",
+    "kcalContentIn100g": 43,
+    "proteinContentPercentage": 0.6
+  },
+  {
+    "name": "Joghurt, nature, mager",
+    "kcalContentIn100g": 42,
+    "proteinContentPercentage": 4.7
+  },
+  {
+    "name": "Bündner Gerstensuppe",
+    "kcalContentIn100g": 42,
+    "proteinContentPercentage": 1.4
+  },
+  {
+    "name": "Tomatensuppe",
+    "kcalContentIn100g": 42,
+    "proteinContentPercentage": 1
+  },
+  {
+    "name": "Grapefruit (weiss oder rot), roh",
+    "kcalContentIn100g": 42,
+    "proteinContentPercentage": 0.9
+  },
+  {
+    "name": "Wurzel- und Knollengemüse (Durchschnitt), gedämpft (ohne Zugabe von Salz)",
+    "kcalContentIn100g": 42,
+    "proteinContentPercentage": 0.9
+  },
+  {
+    "name": "Karotte, roh",
+    "kcalContentIn100g": 42,
+    "proteinContentPercentage": 0.6
+  },
+  {
+    "name": "Ananas, mit Süssungsmittel, Konserve, abgetropft",
+    "kcalContentIn100g": 42,
+    "proteinContentPercentage": 0.5
+  },
+  {
+    "name": "Bier, Lager",
+    "kcalContentIn100g": 42,
+    "proteinContentPercentage": 0.5
+  },
+  {
+    "name": "Rosenkohl, roh",
+    "kcalContentIn100g": 41,
+    "proteinContentPercentage": 4
+  },
+  {
+    "name": "Zitrusfrüchte (Durchschnitt), roh",
+    "kcalContentIn100g": 41,
+    "proteinContentPercentage": 0.8
+  },
+  {
+    "name": "Aprikose, mit Süssungsmittel, Konserve, abgetropft",
+    "kcalContentIn100g": 40,
+    "proteinContentPercentage": 0.9
+  },
+  {
+    "name": "Pfirsich, mit Süssungsmittel, Konserve, abgetropft",
+    "kcalContentIn100g": 40,
+    "proteinContentPercentage": 0.8
+  },
+  {
+    "name": "Beeren (Durchschnitt), roh",
+    "kcalContentIn100g": 40,
+    "proteinContentPercentage": 0.7
+  },
+  {
+    "name": "Fünfkornbier",
+    "kcalContentIn100g": 40,
+    "proteinContentPercentage": 0.6
+  },
+  {
+    "name": "Colagetränk, gezuckert",
+    "kcalContentIn100g": 40,
+    "proteinContentPercentage": 0
+  },
+  {
+    "name": "Steinpilz, roh",
+    "kcalContentIn100g": 39,
+    "proteinContentPercentage": 5.4
+  },
+  {
+    "name": "Broccoli, roh",
+    "kcalContentIn100g": 39,
+    "proteinContentPercentage": 3.6
+  },
+  {
+    "name": "Peperoni, rot, gedünstet (ohne Zugabe von Fett und Salz)",
+    "kcalContentIn100g": 39,
+    "proteinContentPercentage": 1.1
+  },
+  {
+    "name": "Zwiebel, roh",
+    "kcalContentIn100g": 39,
+    "proteinContentPercentage": 1.1
+  },
+  {
+    "name": "Wurzel- und Knollengemüse (Durchschnitt), roh",
+    "kcalContentIn100g": 39,
+    "proteinContentPercentage": 0.9
+  },
+  {
+    "name": "Stachelbeere, roh",
+    "kcalContentIn100g": 39,
+    "proteinContentPercentage": 0.8
+  },
+  {
+    "name": "Erdbeere, roh",
+    "kcalContentIn100g": 39,
+    "proteinContentPercentage": 0.6
+  },
+  {
+    "name": "Bier Panache (Durchschnitt)",
+    "kcalContentIn100g": 39,
+    "proteinContentPercentage": 0.2
+  },
+  {
+    "name": "Pilzsuppe",
+    "kcalContentIn100g": 38,
+    "proteinContentPercentage": 1.1
+  },
+  {
+    "name": "Wurzel- und Knollengemüse (Durchschnitt), gekocht (ohne Zugabe von Fett und Salz)",
+    "kcalContentIn100g": 38,
+    "proteinContentPercentage": 0.8
+  },
+  {
+    "name": "Limonade, mit Aroma, gezuckert",
+    "kcalContentIn100g": 38,
+    "proteinContentPercentage": 0
+  },
+  {
+    "name": "Rosenkohl, gedämpft (ohne Zugabe von Salz)",
+    "kcalContentIn100g": 37,
+    "proteinContentPercentage": 3.6
+  },
+  {
+    "name": "Cappuccino (ohne Schokoladenpulver), ungezuckert",
+    "kcalContentIn100g": 37,
+    "proteinContentPercentage": 1.7
+  },
+  {
+    "name": "Weisskohl, gedünstet (ohne Zugabe von Fett und Salz)",
+    "kcalContentIn100g": 37,
+    "proteinContentPercentage": 1.4
+  },
+  {
+    "name": "Wassermelone, roh",
+    "kcalContentIn100g": 37,
+    "proteinContentPercentage": 0.7
+  },
+  {
+    "name": "Weisskohl, roh",
+    "kcalContentIn100g": 36,
+    "proteinContentPercentage": 1.4
+  },
+  {
+    "name": "Wurzel- und Knollengemüse (Durchschnitt), gedünstet (ohne Zugabe von Fett und Salz)",
+    "kcalContentIn100g": 36,
+    "proteinContentPercentage": 0.8
+  },
+  {
+    "name": "Preiselbeere, roh",
+    "kcalContentIn100g": 36,
+    "proteinContentPercentage": 0.3
+  },
+  {
+    "name": "Wein weiss, gespritzt, sauer",
+    "kcalContentIn100g": 36,
+    "proteinContentPercentage": 0.1
+  },
+  {
+    "name": "Broccoli, gedämpft (ohne Zugabe von Salz)",
+    "kcalContentIn100g": 35,
+    "proteinContentPercentage": 3.3
+  },
+  {
+    "name": "Weisskohl, gedämpft (ohne Zugabe von Salz)",
+    "kcalContentIn100g": 35,
+    "proteinContentPercentage": 1.3
+  },
+  {
+    "name": "Beeren (Durchschnitt), gekocht (ohne Zugabe von Zucker)",
+    "kcalContentIn100g": 35,
+    "proteinContentPercentage": 0.7
+  },
+  {
+    "name": "Pilz (Durchschnitt), gedünstet (ohne Zugabe von Fett und Salz)",
+    "kcalContentIn100g": 34,
+    "proteinContentPercentage": 3.9
+  },
+  {
+    "name": "Buttermilch",
+    "kcalContentIn100g": 34,
+    "proteinContentPercentage": 3.4
+  },
+  {
+    "name": "Morchel, gedünstet (ohne Zugabe von Fett und Salz)",
+    "kcalContentIn100g": 34,
+    "proteinContentPercentage": 2.8
+  },
+  {
+    "name": "Bohne, grün, gedämpft (ohne Zugabe von Salz)",
+    "kcalContentIn100g": 34,
+    "proteinContentPercentage": 2
+  },
+  {
+    "name": "Magermilch, UHT",
+    "kcalContentIn100g": 33,
+    "proteinContentPercentage": 3.3
+  },
+  {
+    "name": "Mandelgetränk, nature",
+    "kcalContentIn100g": 33,
+    "proteinContentPercentage": 1.1
+  },
+  {
+    "name": "Mandelgetränk, nature, mit Calcium und Vitaminen angereichert",
+    "kcalContentIn100g": 33,
+    "proteinContentPercentage": 1.1
+  },
+  {
+    "name": "Karottensaft",
+    "kcalContentIn100g": 33,
+    "proteinContentPercentage": 0.7
+  },
+  {
+    "name": "Bohne, grün, roh",
+    "kcalContentIn100g": 32,
+    "proteinContentPercentage": 1.9
+  },
+  {
+    "name": "Knollensellerie, gedämpft (ohne Zugabe von Salz)",
+    "kcalContentIn100g": 32,
+    "proteinContentPercentage": 1.4
+  },
+  {
+    "name": "Knollensellerie, roh",
+    "kcalContentIn100g": 32,
+    "proteinContentPercentage": 1.4
+  },
+  {
+    "name": "Peperoni, rot, roh",
+    "kcalContentIn100g": 32,
+    "proteinContentPercentage": 0.9
+  },
+  {
+    "name": "Apfelwein, 4 vol%",
+    "kcalContentIn100g": 32,
+    "proteinContentPercentage": 0
+  },
+  {
+    "name": "Spinat, gedämpft (ohne Zugabe von Salz)",
+    "kcalContentIn100g": 31,
+    "proteinContentPercentage": 3.3
+  },
+  {
+    "name": "Wirz, roh",
+    "kcalContentIn100g": 31,
+    "proteinContentPercentage": 2.8
+  },
+  {
+    "name": "Lauch, gedünstet (ohne Zugabe von Fett und Salz)",
+    "kcalContentIn100g": 31,
+    "proteinContentPercentage": 1.7
+  },
+  {
+    "name": "Fruchtsaft-Schorle (Durchschnitt, 60% Saft - 40% Wasser), ungezuckert",
+    "kcalContentIn100g": 31,
+    "proteinContentPercentage": 0.2
+  },
+  {
+    "name": "Schnittlauch, roh",
+    "kcalContentIn100g": 30,
+    "proteinContentPercentage": 3
+  },
+  {
+    "name": "Wirz, gedämpft (ohne Zugabe von Salz)",
+    "kcalContentIn100g": 30,
+    "proteinContentPercentage": 2.7
+  },
+  {
+    "name": "Kohlgemüse (Durchschnitt), roh",
+    "kcalContentIn100g": 30,
+    "proteinContentPercentage": 2.3
+  },
+  {
+    "name": "Lauch, roh",
+    "kcalContentIn100g": 30,
+    "proteinContentPercentage": 1.6
+  },
+  {
+    "name": "Eistee, gezuckert",
+    "kcalContentIn100g": 30,
+    "proteinContentPercentage": 0
+  },
+  {
+    "name": "Champignon, gedünstet (ohne Zugabe von Fett und Salz)",
+    "kcalContentIn100g": 29,
+    "proteinContentPercentage": 4.2
+  },
+  {
+    "name": "Pilz (Durchschnitt), roh",
+    "kcalContentIn100g": 29,
+    "proteinContentPercentage": 3.5
+  },
+  {
+    "name": "Mangold, gedämpft (ohne Zugabe von Salz)",
+    "kcalContentIn100g": 29,
+    "proteinContentPercentage": 2.6
+  },
+  {
+    "name": "Morchel, roh",
+    "kcalContentIn100g": 29,
+    "proteinContentPercentage": 2.5
+  },
+  {
+    "name": "Kohlgemüse (Durchschnitt), gekocht (ohne Zugabe von Salz und Fett)",
+    "kcalContentIn100g": 29,
+    "proteinContentPercentage": 2.2
+  },
+  {
+    "name": "Kürbis, gedämpft (ohne Zugabe von Salz)",
+    "kcalContentIn100g": 29,
+    "proteinContentPercentage": 1.1
+  },
+  {
+    "name": "Rotkohl, roh",
+    "kcalContentIn100g": 29,
+    "proteinContentPercentage": 1.1
+  },
+  {
+    "name": "Eierschwamm, gedünstet (ohne Zugabe von Fett und Salz)",
+    "kcalContentIn100g": 28,
+    "proteinContentPercentage": 2.6
+  },
+  {
+    "name": "Rucola, roh",
+    "kcalContentIn100g": 28,
+    "proteinContentPercentage": 2.6
+  },
+  {
+    "name": "Kohlrabi, gedämpft (ohne Zugabe von Salz)",
+    "kcalContentIn100g": 28,
+    "proteinContentPercentage": 2
+  },
+  {
+    "name": "Gemüse (Durchschnitt), roh",
+    "kcalContentIn100g": 28,
+    "proteinContentPercentage": 1.2
+  },
+  {
+    "name": "Kürbis, roh",
+    "kcalContentIn100g": 28,
+    "proteinContentPercentage": 1.1
+  },
+  {
+    "name": "Silberzwiebel, in Essig eingelegt",
+    "kcalContentIn100g": 28,
+    "proteinContentPercentage": 0.9
+  },
+  {
+    "name": "Espresso crème, ungezuckert",
+    "kcalContentIn100g": 28,
+    "proteinContentPercentage": 0.5
+  },
+  {
+    "name": "Zitronensaft",
+    "kcalContentIn100g": 28,
+    "proteinContentPercentage": 0.4
+  },
+  {
+    "name": "Spargel, roh (weiss und grün)",
+    "kcalContentIn100g": 27,
+    "proteinContentPercentage": 2.2
+  },
+  {
+    "name": "Kohlrabi, roh",
+    "kcalContentIn100g": 27,
+    "proteinContentPercentage": 1.9
+  },
+  {
+    "name": "Artischocken, Herz, abgetropft (Konserve)",
+    "kcalContentIn100g": 27,
+    "proteinContentPercentage": 1.8
+  },
+  {
+    "name": "Spargel, gedämpft (ohne Zugabe von Salz)",
+    "kcalContentIn100g": 26,
+    "proteinContentPercentage": 2.1
+  },
+  {
+    "name": "Blumenkohl, gedämpft (ohne Zugabe von Salz)",
+    "kcalContentIn100g": 26,
+    "proteinContentPercentage": 1.8
+  },
+  {
+    "name": "Blumenkohl, roh",
+    "kcalContentIn100g": 26,
+    "proteinContentPercentage": 1.8
+  },
+  {
+    "name": "Tomate, gedünstet (ohne Zugabe von Fett und Salz)",
+    "kcalContentIn100g": 26,
+    "proteinContentPercentage": 1.1
+  },
+  {
+    "name": "Champignon, roh",
+    "kcalContentIn100g": 25,
+    "proteinContentPercentage": 3.7
+  },
+  {
+    "name": "Spinat, roh",
+    "kcalContentIn100g": 25,
+    "proteinContentPercentage": 2.6
+  },
+  {
+    "name": "Blattgemüse (Durchschnitt exkl. Salate), gedünstet (ohne Zugabe von Salz und Fett)",
+    "kcalContentIn100g": 25,
+    "proteinContentPercentage": 1.6
+  },
+  {
+    "name": "Peperoni, grün, gedünstet (ohne Zugabe von Fett und Salz)",
+    "kcalContentIn100g": 25,
+    "proteinContentPercentage": 1
+  },
+  {
+    "name": "Rotkohl, gedünstet (ohne Zugabe von Fett und Salz)",
+    "kcalContentIn100g": 25,
+    "proteinContentPercentage": 1
+  },
+  {
+    "name": "Eierschwamm, roh",
+    "kcalContentIn100g": 24,
+    "proteinContentPercentage": 2.3
+  },
+  {
+    "name": "Blattgemüse (Durchschnitt exkl. Salate), gedämpft (ohne Zugabe von Salz)",
+    "kcalContentIn100g": 24,
+    "proteinContentPercentage": 1.5
+  },
+  {
+    "name": "Aubergine, gedünstet (ohne Zugabe von Fett und Salz)",
+    "kcalContentIn100g": 24,
+    "proteinContentPercentage": 1.3
+  },
+  {
+    "name": "Molke, süss",
+    "kcalContentIn100g": 24,
+    "proteinContentPercentage": 0.8
+  },
+  {
+    "name": "Zucchetti, gedünstet (ohne Zugabe von Fett und Salz)",
+    "kcalContentIn100g": 23,
+    "proteinContentPercentage": 2.2
+  },
+  {
+    "name": "Mangold, roh",
+    "kcalContentIn100g": 23,
+    "proteinContentPercentage": 2.1
+  },
+  {
+    "name": "Nüsslisalat, roh",
+    "kcalContentIn100g": 23,
+    "proteinContentPercentage": 2
+  },
+  {
+    "name": "Blattgemüse (Durchschnitt exkl. Salate), gekocht (ohne Zugabe von Salz und Fett)",
+    "kcalContentIn100g": 23,
+    "proteinContentPercentage": 1.5
+  },
+  {
+    "name": "Fenchel, roh",
+    "kcalContentIn100g": 23,
+    "proteinContentPercentage": 1.1
+  },
+  {
+    "name": "Zitrone, roh",
+    "kcalContentIn100g": 23,
+    "proteinContentPercentage": 0.8
+  },
+  {
+    "name": "Bier, alkoholfrei",
+    "kcalContentIn100g": 23,
+    "proteinContentPercentage": 0.4
+  },
+  {
+    "name": "Fenchel, gedämpft (ohne Zugabe von Salz)",
+    "kcalContentIn100g": 22,
+    "proteinContentPercentage": 1
+  },
+  {
+    "name": "Milchkaffee hell, ungezuckert",
+    "kcalContentIn100g": 22,
+    "proteinContentPercentage": 1
+  },
+  {
+    "name": "Rhabarber, roh",
+    "kcalContentIn100g": 22,
+    "proteinContentPercentage": 0.8
+  },
+  {
+    "name": "Kokosnussgetränk, nature",
+    "kcalContentIn100g": 22,
+    "proteinContentPercentage": 0.4
+  },
+  {
+    "name": "Kokosnussgetränk, nature, mit Calcium und Vitaminen angereichert",
+    "kcalContentIn100g": 22,
+    "proteinContentPercentage": 0.4
+  },
+  {
+    "name": "Essig",
+    "kcalContentIn100g": 22,
+    "proteinContentPercentage": 0.1
+  },
+  {
+    "name": "Aubergine, gedämpft (ohne Zugabe von Salz)",
+    "kcalContentIn100g": 21,
+    "proteinContentPercentage": 1.1
+  },
+  {
+    "name": "Aubergine, roh",
+    "kcalContentIn100g": 21,
+    "proteinContentPercentage": 1.1
+  },
+  {
+    "name": "Tomate, roh",
+    "kcalContentIn100g": 21,
+    "proteinContentPercentage": 0.9
+  },
+  {
+    "name": "Zucchetti, gedämpft (ohne Zugabe von Salz)",
+    "kcalContentIn100g": 20,
+    "proteinContentPercentage": 1.9
+  },
+  {
+    "name": "Chicorée, gedämpft (ohne Zugabe von Salz)",
+    "kcalContentIn100g": 20,
+    "proteinContentPercentage": 1.1
+  },
+  {
+    "name": "Chicorée, roh",
+    "kcalContentIn100g": 20,
+    "proteinContentPercentage": 1.1
+  },
+  {
+    "name": "Tomate, geschält (Konserve)",
+    "kcalContentIn100g": 20,
+    "proteinContentPercentage": 0.9
+  },
+  {
+    "name": "Peperoni, grün, roh",
+    "kcalContentIn100g": 20,
+    "proteinContentPercentage": 0.8
+  },
+  {
+    "name": "Stangensellerie, gedämpft (ohne Zugabe von Salz)",
+    "kcalContentIn100g": 20,
+    "proteinContentPercentage": 0.6
+  },
+  {
+    "name": "Stangensellerie, roh",
+    "kcalContentIn100g": 20,
+    "proteinContentPercentage": 0.6
+  },
+  {
+    "name": "Champignon (Konserve)",
+    "kcalContentIn100g": 19,
+    "proteinContentPercentage": 2.2
+  },
+  {
+    "name": "Zucchetti, roh",
+    "kcalContentIn100g": 19,
+    "proteinContentPercentage": 1.8
+  },
+  {
+    "name": "Blattsalat (Durchschnitt), roh",
+    "kcalContentIn100g": 19,
+    "proteinContentPercentage": 1.6
+  },
+  {
+    "name": "Cicorino rot, roh",
+    "kcalContentIn100g": 19,
+    "proteinContentPercentage": 1.4
+  },
+  {
+    "name": "Sauerkraut, in Essig eingelegt",
+    "kcalContentIn100g": 19,
+    "proteinContentPercentage": 1.3
+  },
+  {
+    "name": "Milchkaffee, ungezuckert",
+    "kcalContentIn100g": 19,
+    "proteinContentPercentage": 0.9
+  },
+  {
+    "name": "Rettich, roh",
+    "kcalContentIn100g": 18,
+    "proteinContentPercentage": 0.6
+  },
+  {
+    "name": "Brunnenkresse, roh",
+    "kcalContentIn100g": 17,
+    "proteinContentPercentage": 2.2
+  },
+  {
+    "name": "Radieschen, roh",
+    "kcalContentIn100g": 17,
+    "proteinContentPercentage": 1.1
+  },
+  {
+    "name": "Endivie, roh",
+    "kcalContentIn100g": 16,
+    "proteinContentPercentage": 1.8
+  },
+  {
+    "name": "Lattich, roh",
+    "kcalContentIn100g": 16,
+    "proteinContentPercentage": 1.2
+  },
+  {
+    "name": "Zuckerhutsalat, roh",
+    "kcalContentIn100g": 16,
+    "proteinContentPercentage": 1.2
+  },
+  {
+    "name": "Eisbergsalat, roh",
+    "kcalContentIn100g": 16,
+    "proteinContentPercentage": 1
+  },
+  {
+    "name": "Tomatensaft",
+    "kcalContentIn100g": 16,
+    "proteinContentPercentage": 0.8
+  },
+  {
+    "name": "Milchkaffee dunkel, ungezuckert",
+    "kcalContentIn100g": 16,
+    "proteinContentPercentage": 0.7
+  },
+  {
+    "name": "Chinakohl, roh",
+    "kcalContentIn100g": 14,
+    "proteinContentPercentage": 1.4
+  },
+  {
+    "name": "Chinakohl, gedünstet (ohne Zugabe von Fett und Salz)",
+    "kcalContentIn100g": 14,
+    "proteinContentPercentage": 1.3
+  },
+  {
+    "name": "Kopfsalat, roh",
+    "kcalContentIn100g": 14,
+    "proteinContentPercentage": 1.3
+  },
+  {
+    "name": "Gurke, in Essig eingelegt",
+    "kcalContentIn100g": 14,
+    "proteinContentPercentage": 0.7
+  },
+  {
+    "name": "Gurke, roh",
+    "kcalContentIn100g": 14,
+    "proteinContentPercentage": 0.7
+  },
+  {
+    "name": "Café crème, ungezuckert",
+    "kcalContentIn100g": 13,
+    "proteinContentPercentage": 0.3
+  },
+  {
+    "name": "Bouillon, Gemüse, zubereitet",
+    "kcalContentIn100g": 6,
+    "proteinContentPercentage": 0.3
+  },
+  {
+    "name": "Bouillon, Fleisch, zubereitet",
+    "kcalContentIn100g": 5,
+    "proteinContentPercentage": 0.3
+  },
+  {
+    "name": "Bouillon, Geflügel, zubereitet",
+    "kcalContentIn100g": 5,
+    "proteinContentPercentage": 0.3
+  },
+  {
+    "name": "Kaffee, schwarz, ungezuckert",
+    "kcalContentIn100g": 2,
+    "proteinContentPercentage": 0.1
+  },
+  {
+    "name": "Colagetränk, mit Süssstoffen",
+    "kcalContentIn100g": 0,
+    "proteinContentPercentage": 0
+  },
+  {
+    "name": "Kochsalz mit Jod",
+    "kcalContentIn100g": 0,
+    "proteinContentPercentage": 0
+  },
+  {
+    "name": "Kochsalz mit Jod und Fluor",
+    "kcalContentIn100g": 0,
+    "proteinContentPercentage": 0
+  },
+  {
+    "name": "Kochsalz ohne Jod und Fluor",
+    "kcalContentIn100g": 0,
+    "proteinContentPercentage": 0
+  },
+  {
+    "name": "Salz, Himalayasalz",
+    "kcalContentIn100g": 0,
+    "proteinContentPercentage": 0
+  },
+  {
+    "name": "Salz, Meersalz, Fleur de sel",
+    "kcalContentIn100g": 0,
+    "proteinContentPercentage": 0
+  },
+  {
+    "name": "Salz, Meersalz, Standard, weiss, ohne zugesetztes Jod und Fluor",
+    "kcalContentIn100g": 0,
+    "proteinContentPercentage": 0
+  },
+  {
+    "name": "Tee, ungezuckert",
+    "kcalContentIn100g": 0,
+    "proteinContentPercentage": 0
+  },
+  {
+    "name": "Trinkwasser (Mittelwert Schweiz)",
+    "kcalContentIn100g": 0,
+    "proteinContentPercentage": 0
+  }
+]
