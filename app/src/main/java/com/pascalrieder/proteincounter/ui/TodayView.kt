@@ -60,21 +60,47 @@ fun TodayView(
             modifier = Modifier.fillMaxHeight()
         ) {
             Column(
-                modifier = Modifier.fillMaxWidth().padding(horizontal = 24.dp),
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(horizontal = 24.dp),
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
                 var amountInGram by remember { mutableStateOf("") }
                 Spacer(modifier = Modifier.height(10.dp))
-                OutlinedTextField(label = { Text(text = "Consumed amount in gram") },
-                    value = amountInGram,
-                    keyboardOptions = KeyboardOptions.Default.copy(keyboardType = KeyboardType.Number),
-                    onValueChange = {
-                        if (it.isEmpty()) amountInGram = ""
-                        else if (isFloat(it)) amountInGram = it
-                    })
 
+                Row(
+                    verticalAlignment = Alignment.CenterVertically,
+                    modifier = Modifier.fillMaxWidth()
+                ) {
+                    Icon(
+                        painterResource(id = R.drawable.ic_scale),
+                        contentDescription = "Search Icon"
+                    )
+                    Spacer(modifier = Modifier.width(12.dp))
+                    OutlinedTextField(modifier = Modifier.fillMaxWidth(),
+                        label = { Text(text = "Consumed amount in gram") },
+                        value = amountInGram,
+                        keyboardOptions = KeyboardOptions.Default.copy(keyboardType = KeyboardType.Number),
+                        onValueChange = {
+                            if (it.isEmpty()) amountInGram = ""
+                            else if (isFloat(it)) amountInGram = it
+                        })
+                }
                 var searchText by remember { mutableStateOf("") }
-                OutlinedTextField(label = { Text("Search") }, value = searchText, onValueChange = { searchText = it })
+                Row(
+                    verticalAlignment = Alignment.CenterVertically,
+                    modifier = Modifier.fillMaxWidth()
+                ) {
+                    Icon(
+                        painterResource(id = R.drawable.ic_search),
+                        contentDescription = "Search Icon"
+                    )
+                    Spacer(modifier = Modifier.width(12.dp))
+                    OutlinedTextField(modifier = Modifier.fillMaxWidth(),
+                        label = { Text("Search") },
+                        value = searchText,
+                        onValueChange = { searchText = it })
+                }
                 Spacer(modifier = Modifier.height(10.dp))
                 Text(text = errorMessage.value, color = MaterialTheme.colorScheme.error)
                 Spacer(modifier = Modifier.height(10.dp))
@@ -83,12 +109,19 @@ fun TodayView(
                 val searchItems by remember { mutableStateOf(DataProvider.getItems()) }
                 val context = LocalContext.current
                 LazyColumn(modifier = Modifier.fillMaxSize()) {
-                    items(searchItems.filter { it.name.contains(searchText, ignoreCase = true) }) { item ->
-                        Column(
-                            modifier = Modifier.fillMaxWidth().background(
-                                MaterialTheme.colorScheme.surfaceColorAtElevation(3.dp),
+                    items(searchItems.filter {
+                        it.name.contains(
+                            searchText, ignoreCase = true
+                        )
+                    }) { item ->
+                        Column(modifier = Modifier
+                            .fillMaxWidth()
+                            .background(
+                                MaterialTheme.colorScheme.tertiaryContainer,
                                 MaterialTheme.shapes.extraLarge
-                            ).padding(24.dp).clickable {
+                            )
+                            .padding(24.dp)
+                            .clickable {
                                 if (amountInGram.isEmpty()) {
                                     displayErrorMessage("Please enter an amount")
                                     return@clickable
@@ -99,11 +132,12 @@ fun TodayView(
                                     amountInGram = amountInGram.toFloat(),
                                     kcalContentIn100g = item.kcalContentIn100g
                                 )
-                                DataProvider.addItemToTodayAndCreateBackupIfNeeded(item, context)
+                                DataProvider.addItemToTodayAndCreateBackupIfNeeded(
+                                    item, context
+                                )
                                 items = DataProvider.getItems(LocalDate.now())
                                 openBottomSheet = false
-                            }
-                        ) {
+                            }) {
                             Text(
                                 style = MaterialTheme.typography.headlineSmall,
                                 text = item.name,
@@ -112,12 +146,14 @@ fun TodayView(
                             )
                             Text(
                                 style = MaterialTheme.typography.bodyMedium,
-                                text = String.format("%.1f", item.proteinContentPercentage).replace(".0", "") + "g",
+                                text = String.format("%.1f", item.proteinContentPercentage)
+                                    .replace(".0", "") + "g",
                                 modifier = Modifier.alpha(0.5f)
                             )
                             Text(
                                 style = MaterialTheme.typography.bodyMedium,
-                                text = String.format("%.1f", item.kcalContentIn100g).replace(".0", "") + " kcal",
+                                text = String.format("%.1f", item.kcalContentIn100g)
+                                    .replace(".0", "") + " kcal",
                                 modifier = Modifier.alpha(0.5f)
                             )
 
@@ -154,7 +190,11 @@ fun TodayView(
                     String.format("%.1f", DataProvider.getTodayConsumedProtein()).replace(".0", "")
                 NutrientItem(modifier = Modifier.weight(1f),
                     painter = painterResource(R.drawable.ic_grocery),
-                    title = { Text(style = MaterialTheme.typography.titleMedium, text = "Protein") },
+                    title = {
+                        Text(
+                            style = MaterialTheme.typography.titleMedium, text = "Protein"
+                        )
+                    },
                     text = {
                         Text(
                             buildAnnotatedString {
@@ -167,7 +207,8 @@ fun TodayView(
                         )
                     })
                 Spacer(modifier = Modifier.width(16.dp))
-                val consumedKcal = String.format("%.1f", DataProvider.getTodayConsumedKcal()).replace(".0", "")
+                val consumedKcal =
+                    String.format("%.1f", DataProvider.getTodayConsumedKcal()).replace(".0", "")
                 NutrientItem(modifier = Modifier.weight(1f),
                     painter = painterResource(R.drawable.ic_lunch_dining),
                     title = { Text(style = MaterialTheme.typography.titleMedium, text = "Kcal") },
@@ -199,12 +240,18 @@ fun TodayView(
 
 @Composable
 fun NutrientItem(
-    modifier: Modifier = Modifier, title: @Composable () -> Unit, text: @Composable () -> Unit, painter: Painter
+    modifier: Modifier = Modifier,
+    title: @Composable () -> Unit,
+    text: @Composable () -> Unit,
+    painter: Painter
 ) {
     Column(
-        modifier = Modifier.background(
-            MaterialTheme.colorScheme.tertiaryContainer, MaterialTheme.shapes.medium
-        ).padding(12.dp).then(modifier)
+        modifier = Modifier
+            .background(
+                MaterialTheme.colorScheme.tertiaryContainer, MaterialTheme.shapes.medium
+            )
+            .padding(12.dp)
+            .then(modifier)
     ) {
         Icon(
             painter = painter, contentDescription = "Info Icon", modifier = Modifier.size(24.dp)
@@ -220,8 +267,13 @@ fun NutrientItem(
 fun ItemView(item: Item, onDelete: () -> Unit = {}) {
     var isExpanded by remember { mutableStateOf(false) }
     Column(
-        modifier = Modifier.fillMaxWidth().animateContentSize()
-            .background(MaterialTheme.colorScheme.surfaceColorAtElevation(3.dp), MaterialTheme.shapes.extraLarge)
+        modifier = Modifier
+            .fillMaxWidth()
+            .animateContentSize()
+            .background(
+                MaterialTheme.colorScheme.surfaceColorAtElevation(3.dp),
+                MaterialTheme.shapes.extraLarge
+            )
             .padding(24.dp),
     ) {
         Row(
@@ -255,9 +307,9 @@ fun ItemView(item: Item, onDelete: () -> Unit = {}) {
             if (isExpanded) CalculationGraph(item.amountInGram, item.proteinContentPercentage)
             else Spacer(modifier = Modifier.width(1.dp))
             Text(
-                style = MaterialTheme.typography.titleMedium,
-                text = String.format("%.1f", (item.amountInGram * item.proteinContentPercentage / 100))
-                    .replace(".0", "") + "g"
+                style = MaterialTheme.typography.titleMedium, text = String.format(
+                    "%.1f", (item.amountInGram * item.proteinContentPercentage / 100)
+                ).replace(".0", "") + "g"
             )
         }
 
@@ -278,13 +330,14 @@ fun ItemView(item: Item, onDelete: () -> Unit = {}) {
         }
         if (isExpanded) {
             Spacer(modifier = Modifier.height(32.dp))
-            Row(
-                verticalAlignment = Alignment.CenterVertically, modifier = Modifier.clickable {
+            Row(verticalAlignment = Alignment.CenterVertically, modifier = Modifier
+                .clickable {
                     onDelete()
-                }.height(40.dp)
-            ) {
+                }
+                .height(40.dp)) {
                 Icon(
-                    painter = painterResource(R.drawable.ic_delete), contentDescription = "Delete Icon"
+                    painter = painterResource(R.drawable.ic_delete),
+                    contentDescription = "Delete Icon"
                 )
                 Spacer(modifier = Modifier.width(13.dp))
                 Text(
@@ -309,7 +362,8 @@ fun CalculationGraph(factor: Float, dividend: Float) {
         )
         Spacer(modifier = Modifier.width(10.dp))
         Column(
-            modifier = Modifier.wrapContentSize(), horizontalAlignment = Alignment.CenterHorizontally
+            modifier = Modifier.wrapContentSize(),
+            horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Text(
                 style = MaterialTheme.typography.bodyMedium,
@@ -318,7 +372,9 @@ fun CalculationGraph(factor: Float, dividend: Float) {
             Divider(
                 color = MaterialTheme.colorScheme.primary,
                 thickness = 1.dp,
-                modifier = Modifier.width(30.dp).padding(top = 3.dp)
+                modifier = Modifier
+                    .width(30.dp)
+                    .padding(top = 3.dp)
             )
             Text(
                 style = MaterialTheme.typography.bodyMedium,
