@@ -1,4 +1,4 @@
-package com.pascalrieder.proteincounter.ui
+package com.pascalrieder.proteincounter.view
 
 import android.os.Handler
 import androidx.compose.animation.animateContentSize
@@ -26,19 +26,16 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.dp
-import androidx.lifecycle.viewmodel.compose.viewModel
-import com.pascalrieder.proteincounter.AppViewModel
 import com.pascalrieder.proteincounter.R
 import com.pascalrieder.proteincounter.data.DataProvider
 import com.pascalrieder.proteincounter.data.Item
+import com.pascalrieder.proteincounter.viewmodel.TodayViewModel
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun TodayView(
-    viewModel: AppViewModel = viewModel()
-) {
+fun TodayView(viewModel: TodayViewModel) {
     val errorMessage = remember { mutableStateOf("") }
     fun displayErrorMessage(message: String) {
         errorMessage.value = message

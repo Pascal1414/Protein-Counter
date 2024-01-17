@@ -1,4 +1,4 @@
-package com.pascalrieder.proteincounter.ui
+package com.pascalrieder.proteincounter.view
 
 import android.app.Activity
 import android.content.Context
@@ -10,7 +10,7 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
-import androidx.compose.material.Icon
+import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -21,16 +21,16 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
-import com.pascalrieder.proteincounter.AppViewModel
 import com.pascalrieder.proteincounter.R
 import com.pascalrieder.proteincounter.data.DataProvider
+import com.pascalrieder.proteincounter.viewmodel.HistoryViewModel
 import kotlinx.coroutines.launch
 import java.io.File
 import java.time.format.DateTimeFormatter
 
 
 @Composable
-fun HistoryView(viewModel: AppViewModel) {
+fun HistoryView(historyViewModel: HistoryViewModel) {
     var days by remember { mutableStateOf(DataProvider.getDays()) }
 
     Column {
@@ -65,7 +65,7 @@ fun HistoryView(viewModel: AppViewModel) {
                             uploadCompleted = success
                             if (success) days = DataProvider.getDays()
                             scope.launch {
-                                viewModel.showSnackbar(message, "OK")
+                                historyViewModel.showSnackbar(message, "OK")
                             }
                         }
                     }
@@ -81,7 +81,9 @@ fun HistoryView(viewModel: AppViewModel) {
                     Icon(
                         painter = if (uploadCompleted) painterResource(R.drawable.ic_download_completed) else painterResource(
                             R.drawable.ic_upload_file
-                        ), contentDescription = "Download", tint = MaterialTheme.colorScheme.onSurface
+                        ),
+                        contentDescription = "Download",
+                        tint = MaterialTheme.colorScheme.onSurface
                     )
                 }
 
@@ -97,26 +99,33 @@ fun HistoryView(viewModel: AppViewModel) {
                         val (success, fileName) = saveFile()
                         downloadCompleted = success
                         scope.launch {
-                            viewModel.showSnackbar("Backup Created\n${fileName}", "OK")
+                            historyViewModel.showSnackbar("Backup Created\n${fileName}", "OK")
                         }
                     }, modifier = Modifier.padding(end = 16.dp), enabled = !downloadCompleted
                 ) {
                     Icon(
                         painter = if (downloadCompleted) painterResource(R.drawable.ic_download_completed) else painterResource(
                             R.drawable.ic_file_save
-                        ), contentDescription = "Download", tint = MaterialTheme.colorScheme.onSurface
+                        ),
+                        contentDescription = "Download",
+                        tint = MaterialTheme.colorScheme.onSurface
                     )
                 }
             }
         }
         if (days.isNotEmpty()) LazyColumn(verticalArrangement = Arrangement.spacedBy(16.dp),
-            modifier = Modifier.fillMaxSize().padding(start = 24.dp, top = 24.dp, end = 24.dp),
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(start = 24.dp, top = 24.dp, end = 24.dp),
             content = {
                 items(days) { day ->
                     Column(
-                        modifier = Modifier.background(
-                            MaterialTheme.colorScheme.surfaceColorAtElevation(3.dp), MaterialTheme.shapes.medium
-                        ).padding(24.dp)
+                        modifier = Modifier
+                            .background(
+                                MaterialTheme.colorScheme.surfaceColorAtElevation(3.dp),
+                                MaterialTheme.shapes.medium
+                            )
+                            .padding(24.dp)
                     ) {
                         Text(
                             text = day.date.format(DateTimeFormatter.ofPattern("dd.MM.yyyy")),
@@ -126,7 +135,9 @@ fun HistoryView(viewModel: AppViewModel) {
                             Spacer(modifier = Modifier.height(24.dp))
                             Row(
                                 verticalAlignment = Alignment.CenterVertically,
-                                modifier = Modifier.fillMaxWidth().padding(start = 4.dp)
+                                modifier = Modifier
+                                    .fillMaxWidth()
+                                    .padding(start = 4.dp)
                             ) {
                                 Text(
                                     text = String.format(
@@ -137,18 +148,23 @@ fun HistoryView(viewModel: AppViewModel) {
                                 )
                                 Column {
                                     Text(
-                                        text = item.name, style = MaterialTheme.typography.titleSmall
+                                        text = item.name,
+                                        style = MaterialTheme.typography.titleSmall
                                     )
                                     Text(
                                         text = "${
                                             String.format(
-                                                "%.1f", item.amountInGram * item.proteinContentPercentage / 100
+                                                "%.1f",
+                                                item.amountInGram * item.proteinContentPercentage / 100
                                             ).replace(".0", "")
                                         }g protein", style = MaterialTheme.typography.bodySmall
                                     )
                                     Text(
                                         text = "${
-                                            String.format("%.1f", item.amountInGram * item.kcalContentIn100g / 100)
+                                            String.format(
+                                                "%.1f",
+                                                item.amountInGram * item.kcalContentIn100g / 100
+                                            )
                                                 .replace(".0", "")
                                         } kcal", style = MaterialTheme.typography.bodySmall
                                     )
@@ -163,7 +179,9 @@ fun HistoryView(viewModel: AppViewModel) {
                 text = "Past days will appear here",
                 style = MaterialTheme.typography.headlineSmall,
                 color = MaterialTheme.colorScheme.onBackground.copy(alpha = 0.5f),
-                modifier = Modifier.fillMaxSize().padding(24.dp)
+                modifier = Modifier
+                    .fillMaxSize()
+                    .padding(24.dp)
             )
         }
     }

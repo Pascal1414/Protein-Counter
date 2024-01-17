@@ -1,4 +1,4 @@
-package com.pascalrieder.proteincounter.ui
+package com.pascalrieder.proteincounter.view
 
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
@@ -19,10 +19,11 @@ import androidx.compose.ui.unit.dp
 import com.pascalrieder.proteincounter.R
 import com.pascalrieder.proteincounter.data.DataProvider
 import com.pascalrieder.proteincounter.data.Item
+import com.pascalrieder.proteincounter.viewmodel.ItemsViewModel
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
-fun ItemsView() {
+fun ItemsView(itemsViewModel: ItemsViewModel) {
     var items by remember { mutableStateOf(DataProvider.getItems()) }
 
     Column {
@@ -32,11 +33,19 @@ fun ItemsView() {
             modifier = Modifier.padding(horizontal = 16.dp)
         )
         if (items.isNotEmpty()) {
-            Column(modifier = Modifier.fillMaxSize().padding(start = 24.dp, top = 24.dp, end = 24.dp)) {
+            Column(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .padding(start = 24.dp, top = 24.dp, end = 24.dp)
+            ) {
                 Row(
                     verticalAlignment = Alignment.CenterVertically,
-                    modifier = Modifier.fillMaxWidth()
-                        .background(MaterialTheme.colorScheme.secondaryContainer, MaterialTheme.shapes.medium)
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .background(
+                            MaterialTheme.colorScheme.secondaryContainer,
+                            MaterialTheme.shapes.medium
+                        )
                         .padding(24.dp)
                 ) {
                     Icon(
@@ -52,23 +61,23 @@ fun ItemsView() {
                 }
                 Spacer(modifier = Modifier.height(16.dp))
 
-                LazyColumn(
-                    verticalArrangement = Arrangement.spacedBy(16.dp), content = {
-                        items(items) { item ->
-                            Item(item = item, onDelete = {
-                                DataProvider.removeItem(item)
-                                items = items.filter { it != item }
-                            })
-                        }
+                LazyColumn(verticalArrangement = Arrangement.spacedBy(16.dp), content = {
+                    items(items) { item ->
+                        Item(item = item, onDelete = {
+                            DataProvider.removeItem(item)
+                            items = items.filter { it != item }
+                        })
                     }
-                )
+                })
             }
         } else Column(modifier = Modifier.fillMaxSize()) {
             Text(
                 text = "Your items will appear here",
                 style = MaterialTheme.typography.headlineSmall,
                 color = MaterialTheme.colorScheme.onBackground.copy(alpha = 0.5f),
-                modifier = Modifier.fillMaxSize().padding(24.dp)
+                modifier = Modifier
+                    .fillMaxSize()
+                    .padding(24.dp)
             )
         }
     }
@@ -78,16 +87,22 @@ fun ItemsView() {
 fun Item(item: Item, onDelete: () -> Unit = {}) {
     var expanded = remember { mutableStateOf(false) }
     Column(
-        modifier = Modifier.background(
-            MaterialTheme.colorScheme.surfaceColorAtElevation(3.dp), MaterialTheme.shapes.medium
-        ).padding(24.dp)
+        modifier = Modifier
+            .background(
+                MaterialTheme.colorScheme.surfaceColorAtElevation(3.dp), MaterialTheme.shapes.medium
+            )
+            .padding(24.dp)
     ) {
         Row(
             modifier = Modifier.fillMaxWidth(),
             horizontalArrangement = Arrangement.SpaceBetween,
             verticalAlignment = Alignment.CenterVertically
         ) {
-            Text(text = item.name, fontWeight = FontWeight.Bold, style = MaterialTheme.typography.headlineSmall)
+            Text(
+                text = item.name,
+                fontWeight = FontWeight.Bold,
+                style = MaterialTheme.typography.headlineSmall
+            )
             IconButton(
                 onClick = { expanded.value = !expanded.value }, modifier = Modifier.size(24.dp)
             ) {
@@ -100,8 +115,9 @@ fun Item(item: Item, onDelete: () -> Unit = {}) {
         }
         Spacer(modifier = Modifier.height(16.dp))
         Text(
-            text = "${String.format("%.1f", item.proteinContentPercentage).replace(".0", "")}g Protein",
-            style = MaterialTheme.typography.bodyMedium
+            text = "${
+                String.format("%.1f", item.proteinContentPercentage).replace(".0", "")
+            }g Protein", style = MaterialTheme.typography.bodyMedium
         )
         Text(
             text = "${String.format("%.1f", item.kcalContentIn100g).replace(".0", "")} kcal",
@@ -110,9 +126,12 @@ fun Item(item: Item, onDelete: () -> Unit = {}) {
         if (expanded.value) {
             Spacer(modifier = Modifier.height(16.dp))
             Row(
-                modifier = Modifier.fillMaxWidth().height(40.dp).clickable {
-                    onDelete()
-                }, verticalAlignment = Alignment.CenterVertically
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(40.dp)
+                    .clickable {
+                        onDelete()
+                    }, verticalAlignment = Alignment.CenterVertically
             ) {
                 Icon(
                     painter = painterResource(R.drawable.ic_delete), contentDescription = "Favorite"
