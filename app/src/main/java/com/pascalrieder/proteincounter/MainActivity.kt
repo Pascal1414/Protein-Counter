@@ -94,7 +94,14 @@ class MainActivity : ComponentActivity() {
                     }, snackbarHost = {
                         SnackbarHost(hostState = historyViewModel.snackbarHostState.value)
                     }, floatingActionButton = {
-                        FloatingActionButton(onClick = { todayViewModel.onFloatingActionButtonClick?.let { it() } },
+                        FloatingActionButton(onClick = {
+                            if (navController.currentBackStackEntry?.destination?.route == "today")
+                                todayViewModel.onFabClick()
+                            else if (navController.currentBackStackEntry?.destination?.route == "history")
+                                historyViewModel.onFabClick()
+                            else if (navController.currentBackStackEntry?.destination?.route == "items")
+                                itemsViewModel.onFabClick()
+                        },
                             content = {
                                 Icon(
                                     imageVector = Icons.Default.Add, contentDescription = "Add Icon"

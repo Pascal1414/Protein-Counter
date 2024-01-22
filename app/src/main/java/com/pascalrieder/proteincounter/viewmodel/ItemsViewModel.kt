@@ -15,6 +15,9 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 class ItemsViewModel(application: Application) : AndroidViewModel(application) {
+    var onFabClick: () -> Unit = {}
+
+
     val allItems: LiveData<List<Item>>
     private val repository: ItemRepository
 

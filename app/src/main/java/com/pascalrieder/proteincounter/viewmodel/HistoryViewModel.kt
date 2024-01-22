@@ -14,7 +14,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 class HistoryViewModel(application: Application) : AndroidViewModel(application) {
-
+    var onFabClick: () -> Unit = {}
 
     lateinit var daysWithItems: LiveData<List<DayWithItems>>
     private val repository: DayRepository

@@ -2,8 +2,10 @@ package com.pascalrieder.proteincounter.viewmodel
 
 import android.app.Application
 import android.os.Handler
+import androidx.compose.material3.rememberModalBottomSheetState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
@@ -20,7 +22,11 @@ import kotlinx.coroutines.launch
 import java.time.LocalDate
 
 class TodayViewModel(application: Application) : AndroidViewModel(application) {
-    var onFloatingActionButtonClick: (() -> Unit)? = null
+    var openBottomSheet by  mutableStateOf(false)
+
+    var onFabClick: () -> Unit = {
+        openBottomSheet = true
+    }
 
 
     val dayWithItems: LiveData<DayWithItems>

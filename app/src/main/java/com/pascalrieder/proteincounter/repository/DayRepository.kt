@@ -12,18 +12,10 @@ import java.time.LocalDate
 class DayRepository(private val dayDao: DayDao) {
     private val allDaysWithItems: MediatorLiveData<List<DayWithItems>> = MediatorLiveData()
     private val dayWithItems: MediatorLiveData<DayWithItems> = MediatorLiveData()
-    var dayNotFound: () -> Unit = {}
 
     init {
         allDaysWithItems.addSource(dayDao.readAllData()) { dbDays ->
             allDaysWithItems.value = dayEntriesToDayWithItems(dbDays)
-        }
-        dayWithItems.addSource(dayDao.readAllData()) { dbDays ->
-            val days = dayEntriesToDayWithItems(dbDays)
-            if (days.isNotEmpty())
-                dayWithItems.value = days.first()
-            else
-                dayNotFound()
         }
     }
 
@@ -32,7 +24,13 @@ class DayRepository(private val dayDao: DayDao) {
     }
 
     fun getDayFromDate(date: LocalDate, onDayNotFound: () -> Unit = {}): LiveData<DayWithItems> {
-        dayNotFound = onDayNotFound
+        dayWithItems.addSource(dayDao.readDayEntriesFromDate(date)) { dbDays ->
+            val days = dayEntriesToDayWithItems(dbDays)
+            if (days.isNotEmpty() && days.count() == 1)
+                dayWithItems.value = days.first()
+            else
+                onDayNotFound()
+        }
         return dayWithItems;
     }
 

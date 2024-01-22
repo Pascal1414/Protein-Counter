@@ -40,11 +40,10 @@ fun TodayView(viewModel: TodayViewModel) {
     // DayWithItems
     val dayWithItems by viewModel.dayWithItems.observeAsState()
 
-    var openBottomSheet by rememberSaveable { mutableStateOf(false) }
     val bottomSheetState = rememberModalBottomSheetState(skipPartiallyExpanded = true)
-    if (openBottomSheet) {
+    if (viewModel.openBottomSheet) {
         ModalBottomSheet(
-            onDismissRequest = { openBottomSheet = false },
+            onDismissRequest = { viewModel.openBottomSheet = false },
             sheetState = bottomSheetState,
             modifier = Modifier.fillMaxHeight()
         ) {
@@ -111,7 +110,7 @@ fun TodayView(viewModel: TodayViewModel) {
                             .padding(24.dp)
                             .clickable {
                                 viewModel.insertItem(item.uid)
-                                openBottomSheet = false
+                                viewModel.openBottomSheet = false
                             }) {
                             Text(
                                 style = MaterialTheme.typography.headlineSmall,
@@ -140,9 +139,7 @@ fun TodayView(viewModel: TodayViewModel) {
             }
         }
     }
-    viewModel.onFloatingActionButtonClick = {
-        openBottomSheet = true
-    }
+
     Column(modifier = Modifier.fillMaxSize()) {
         Column(modifier = Modifier.padding(horizontal = 16.dp)) {
             Text(
