@@ -6,6 +6,7 @@ import androidx.room.Insert
 import androidx.room.Query
 import com.m335pascal.database.dto.DayWithItemsDb
 import com.pascalrieder.proteincounter.database.models.Day
+import com.pascalrieder.proteincounter.database.models.DayItem
 import java.time.LocalDate
 
 @Dao
@@ -25,6 +26,6 @@ interface DayDao {
     @Query("UPDATE DAYITEM SET isDeleted = 1 WHERE dayId = :dayId AND itemId = :itemId")
     fun removeItemFromDay(dayId: Long, itemId: Long)
 
-    @Query("Insert Into DayItem (dayId, itemId, amountInGram) values (:dayId,:itemId,:amount)")
-    fun addItemToDay(dayId: Long, itemId: Long, amount: Float)
+    @Query("Insert Into DayItem (dayId, itemId, amountInGram, isDeleted) values (:dayId, :itemId, :amount, :isDeleted)")
+    fun addItemToDay(dayId: Long, itemId: Long, amount: Float, isDeleted: Boolean)
 }

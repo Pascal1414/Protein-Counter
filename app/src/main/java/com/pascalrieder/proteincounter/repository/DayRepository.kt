@@ -6,6 +6,7 @@ import com.m335pascal.database.dao.DayDao
 import com.m335pascal.database.dto.DayWithItems
 import com.m335pascal.database.dto.DayWithItemsDb
 import com.m335pascal.database.dto.ItemFromDay
+import com.pascalrieder.proteincounter.database.models.DayItem
 import java.time.LocalDate
 
 class DayRepository(private val dayDao: DayDao) {
@@ -39,14 +40,19 @@ class DayRepository(private val dayDao: DayDao) {
         dayDao.removeItemFromDay(dayId, itemId)
     }
 
-    suspend fun addItemToDay(dayId: Long, itemId: Long, amount: Float) {
-        dayDao.addItemToDay(dayId, itemId, amount)
+    suspend fun addItemToDay(dayItem: DayItem) {
+        dayDao.addItemToDay(
+            itemId = dayItem.itemId,
+            dayId = dayItem.dayId,
+            amount = dayItem.amountInGram,
+            isDeleted = dayItem.isDeleted
+        )
     }
 
     suspend fun addDay(day: DayWithItems) {
         val a = dayDao.addDay(day.toDay())
         day.items.forEach {
-            dayDao.addItemToDay(a, it.itemId, it.amountInGram)
+            dayDao.addItemToDay(a, it.itemId, it.amountInGram, false)
         }
     }
 

@@ -48,70 +48,70 @@ fun HistoryView(viewModel: HistoryViewModel) {
 
             val context = LocalContext.current
             Row {
-             /*   var uploadCompleted by remember { mutableStateOf(false) }
+                var uploadCompleted by remember { mutableStateOf(false) }
                 if (uploadCompleted) {
                     LaunchedEffect(Unit) {
                         kotlinx.coroutines.delay(1000)
                         uploadCompleted = false
                     }
                 }
-                val scope = rememberCoroutineScope()
-                val launcher = rememberLauncherForActivityResult(
-                    contract = ActivityResultContracts.StartActivityForResult()
-                ) { activityResult ->
-                    if (activityResult.resultCode == Activity.RESULT_OK) {
-                        val uri: Uri? = activityResult.data?.data
-                        if (uri != null) {
-                            val (success, message) = loadFile(context, uri)
-                            uploadCompleted = success
-                            if (success) days = DataProvider.getDays()
-                            scope.launch {
-                                historyViewModel.showSnackbar(message, "OK")
-                            }
-                        }
-                    }
-                }
-                IconButton(
-                    onClick = {
-                        /*launcher.launch(android.content.Intent().apply {
-                            action = Intent.ACTION_OPEN_DOCUMENT
-                            type = "*Remove That text/And That*"
-                        })*/
-                    }, modifier = Modifier, enabled = !uploadCompleted
-                ) {
-                    Icon(
-                        painter = if (uploadCompleted) painterResource(R.drawable.ic_download_completed) else painterResource(
-                            R.drawable.ic_upload_file
-                        ),
-                        contentDescription = "Download",
-                        tint = MaterialTheme.colorScheme.onSurface
-                    )
-                }
+                /*  val scope = rememberCoroutineScope()
+                 val launcherrememberLauncherForActivityResult(
+                     contract = ActivityResultContracts.StartActivityForResult()
+                 ) { activityResult ->
+                     if (activityResult.resultCode == Activity.RESULT_OK) {
+                         val uri: Uri? = activityResult.data?.data
+                         if (uri != null) {
+                             val (success, message) = loadFile(context, uri)
+                             uploadCompleted = success
+                             if (success) days = DataProvider.getDays()
+                             scope.launch {
+                                 historyViewModel.showSnackbar(message, "OK")
+                             }
+                         }
+                     }
+                 }
+                 IconButton(
+                     onClick = {
+                         /*launcher.launch(android.content.Intent().apply {
+                             action = Intent.ACTION_OPEN_DOCUMENT
+                             type = "*Remove That text/And That*"
+                         })*/
+                     }, modifier = Modifier, enabled = !uploadCompleted
+                 ) {
+                     Icon(
+                         painter = if (uploadCompleted) painterResource(R.drawable.ic_download_completed) else painterResource(
+                             R.drawable.ic_upload_file
+                         ),
+                         contentDescription = "Download",
+                         tint = MaterialTheme.colorScheme.onSurface
+                     )
+                 }
 
-                var downloadCompleted by remember { mutableStateOf(false) }
-                if (downloadCompleted) {
-                    LaunchedEffect(Unit) {
-                        kotlinx.coroutines.delay(1000)
-                        downloadCompleted = false
-                    }
-                }
-                IconButton(
-                    onClick = {
-                        val (success, fileName) = saveFile()
-                        downloadCompleted = success
-                        scope.launch {
-                            historyViewModel.showSnackbar("Backup Created\n${fileName}", "OK")
-                        }
-                    }, modifier = Modifier.padding(end = 16.dp), enabled = !downloadCompleted
-                ) {
-                    Icon(
-                        painter = if (downloadCompleted) painterResource(R.drawable.ic_download_completed) else painterResource(
-                            R.drawable.ic_file_save
-                        ),
-                        contentDescription = "Download",
-                        tint = MaterialTheme.colorScheme.onSurface
-                    )
-                }*/
+                 var downloadCompleted by remember { mutableStateOf(false) }
+                 if (downloadCompleted) {
+                     LaunchedEffect(Unit) {
+                         kotlinx.coroutines.delay(1000)
+                         downloadCompleted = false
+                     }
+                 }
+                 IconButton(
+                     onClick = {
+                         val (success, fileName) = saveFile()
+                         downloadCompleted = success
+                         scope.launch {
+                             historyViewModel.showSnackbar("Backup Created\n${fileName}", "OK")
+                         }
+                     }, modifier = Modifier.padding(end = 16.dp), enabled = !downloadCompleted
+                 ) {
+                     Icon(
+                         painter = if (downloadCompleted) painterResource(R.drawable.ic_download_completed) else painterResource(
+                             R.drawable.ic_file_save
+                         ),
+                         contentDescription = "Download",
+                         tint = MaterialTheme.colorScheme.onSurface
+                     )
+                 }*/
             }
         }
         if (days.isNotEmpty()) LazyColumn(verticalArrangement = Arrangement.spacedBy(16.dp),
@@ -132,7 +132,7 @@ fun HistoryView(viewModel: HistoryViewModel) {
                             text = day.date.format(DateTimeFormatter.ofPattern("dd.MM.yyyy")),
                             style = MaterialTheme.typography.headlineSmall
                         )
-                        /*day.items.forEach { item ->
+                        day.items.forEach { item ->
                             Spacer(modifier = Modifier.height(24.dp))
                             Row(
                                 verticalAlignment = Alignment.CenterVertically,
@@ -171,7 +171,7 @@ fun HistoryView(viewModel: HistoryViewModel) {
                                     )
                                 }
                             }
-                        }*/
+                        }
                     }
                 }
             })
@@ -189,32 +189,32 @@ fun HistoryView(viewModel: HistoryViewModel) {
 }
 /*
 fun saveFile(): Pair<Boolean, String> {
-    try {
-        val fileString = DataProvider.getJson()
-        val folderDir = File("/storage/emulated/0/Download/ProteinCounter/")
-        val f = File(folderDir, "Backup" + System.currentTimeMillis() + ".json")
-        f.parentFile.mkdirs()
-        f.writeBytes(fileString.toByteArray())
-        return Pair(true, f.name)
-    } catch (e: Exception) {
-        e.printStackTrace()
-        return Pair(false, "")
-    }
+try {
+val fileString = DataProvider.getJson()
+val folderDir = File("/storage/emulated/0/Download/ProteinCounter/")
+val f = File(folderDir, "Backup" + System.currentTimeMillis() + ".json")
+f.parentFile.mkdirs()
+f.writeBytes(fileString.toByteArray())
+return Pair(true, f.name)
+} catch (e: Exception) {
+e.printStackTrace()
+return Pair(false, "")
+}
 }
 
 fun loadFile(context: Context, uri: Uri): Pair<Boolean, String> {
-    // get the file content
-    val contentResolver = context.contentResolver
-    val inputStream = contentResolver.openInputStream(uri)
-    val fileContent = inputStream?.bufferedReader().use { it?.readText() }
-    if (fileContent != null) {
-        try {
-            DataProvider.loadBackup(fileContent)
-            return Pair(true, "Backup loaded")
-        } catch (e: Exception) {
-            e.printStackTrace()
-            return Pair(false, "Invalid backup file")
-        }
-    }
-    return Pair(false, "File could not be read")
+// get the file content
+val contentResolver = context.contentResolver
+val inputStream = contentResolver.openInputStream(uri)
+val fileContent = inputStream?.bufferedReader().use { it?.readText() }
+if (fileContent != null) {
+try {
+DataProvider.loadBackup(fileContent)
+return Pair(true, "Backup loaded")
+} catch (e: Exception) {
+e.printStackTrace()
+return Pair(false, "Invalid backup file")
+}
+}
+return Pair(false, "File could not be read")
 }*/

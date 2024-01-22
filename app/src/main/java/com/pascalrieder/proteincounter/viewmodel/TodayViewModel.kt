@@ -12,6 +12,7 @@ import com.m335pascal.database.AppDatabase
 import com.m335pascal.database.dto.DayWithItems
 import com.m335pascal.database.dto.ItemFromDay
 import com.m335pascal.repository.DayRepository
+import com.pascalrieder.proteincounter.database.models.DayItem
 import com.pascalrieder.proteincounter.database.models.Item
 import com.pascalrieder.proteincounter.repository.ItemRepository
 import kotlinx.coroutines.Dispatchers
@@ -47,14 +48,17 @@ class TodayViewModel(application: Application) : AndroidViewModel(application) {
         })
     }
 
-    fun insertItem(item: ItemFromDay) = viewModelScope.launch(Dispatchers.IO) {
+    fun insertItem(itemId: Long) = viewModelScope.launch(Dispatchers.IO) {
         if (amountInGram.isEmpty()) {
             displayErrorMessage("Please enter an amount")
         } else {
             dayRepository.addItemToDay(
-                dayWithItems.value!!.dayId,
-                item.itemId,
-                amountInGram.toFloat()
+                DayItem(
+                    dayId = dayWithItems.value!!.dayId,
+                    itemId = itemId,
+                    amountInGram = amountInGram.toFloat(),
+                    isDeleted = false
+                )
             )
         }
     }

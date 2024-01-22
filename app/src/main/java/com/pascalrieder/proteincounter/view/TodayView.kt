@@ -110,7 +110,7 @@ fun TodayView(viewModel: TodayViewModel) {
                             )
                             .padding(24.dp)
                             .clickable {
-                                // viewModel.insertItem(item)
+                                viewModel.insertItem(item.uid)
                                 openBottomSheet = false
                             }) {
                             Text(
