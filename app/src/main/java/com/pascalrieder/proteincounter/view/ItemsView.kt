@@ -11,20 +11,20 @@ import androidx.compose.material.icons.filled.KeyboardArrowDown
 import androidx.compose.material.icons.filled.KeyboardArrowUp
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
+import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import com.pascalrieder.proteincounter.R
-import com.pascalrieder.proteincounter.data.DataProvider
-import com.pascalrieder.proteincounter.data.Item
+import com.pascalrieder.proteincounter.database.models.Item
 import com.pascalrieder.proteincounter.viewmodel.ItemsViewModel
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
-fun ItemsView(itemsViewModel: ItemsViewModel) {
-    var items by remember { mutableStateOf(DataProvider.getItems()) }
+fun ItemsView(viewModel: ItemsViewModel) {
+    val items by viewModel.allItems.observeAsState(emptyList())
 
     Column {
         Text(
@@ -64,8 +64,7 @@ fun ItemsView(itemsViewModel: ItemsViewModel) {
                 LazyColumn(verticalArrangement = Arrangement.spacedBy(16.dp), content = {
                     items(items) { item ->
                         Item(item = item, onDelete = {
-                            DataProvider.removeItem(item)
-                            items = items.filter { it != item }
+                            viewModel.removeItem(item)
                         })
                     }
                 })

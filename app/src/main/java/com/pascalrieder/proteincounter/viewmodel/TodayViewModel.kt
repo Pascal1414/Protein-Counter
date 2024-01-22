@@ -1,9 +1,99 @@
 package com.pascalrieder.proteincounter.viewmodel
 
 import android.app.Application
+import android.os.Handler
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.setValue
 import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.viewModelScope
+import com.m335pascal.database.AppDatabase
+import com.m335pascal.database.dto.DayWithItems
+import com.m335pascal.database.dto.ItemFromDay
+import com.m335pascal.repository.DayRepository
+import com.pascalrieder.proteincounter.database.models.Item
+import com.pascalrieder.proteincounter.repository.ItemRepository
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import java.time.LocalDate
 
-class TodayViewModel (application: Application) : AndroidViewModel(application) {
+class TodayViewModel(application: Application) : AndroidViewModel(application) {
     var onFloatingActionButtonClick: (() -> Unit)? = null
+
+
+    val dayWithItems: LiveData<DayWithItems>
+    private val dayRepository: DayRepository
+
+    val items: LiveData<List<Item>>
+    private val itemRepository: ItemRepository
+
+
+    var searchText by mutableStateOf("")
+    var amountInGram by mutableStateOf("")
+    var errorMessage by mutableStateOf("")
+
+    init {
+        val itemDao = AppDatabase.getDatabase(application).itemDao()
+        itemRepository = ItemRepository(itemDao)
+        items = itemRepository.readAllData
+
+        val dayDao = AppDatabase.getDatabase(application).dayDao()
+        dayRepository = DayRepository(dayDao)
+        dayWithItems = dayRepository.getDayFromDate(LocalDate.now(), onDayNotFound = {
+            viewModelScope.launch(Dispatchers.IO) {
+                dayRepository.addDay(DayWithItems(0, LocalDate.now(), mutableListOf()))
+            }
+        })
+    }
+
+    fun insertItem(item: ItemFromDay) = viewModelScope.launch(Dispatchers.IO) {
+        if (amountInGram.isEmpty()) {
+            displayErrorMessage("Please enter an amount")
+        } else {
+            dayRepository.addItemToDay(
+                dayWithItems.value!!.dayId,
+                item.itemId,
+                amountInGram.toFloat()
+            )
+        }
+    }
+
+    fun removeItemFromToday(item: ItemFromDay) = viewModelScope.launch(Dispatchers.IO) {
+        dayRepository.removeItemFromDay(dayWithItems.value!!.dayId, item.itemId)
+    }
+
+    fun getTodayConsumedProtein(): Float {
+        var protein = 0f
+        dayWithItems.value?.items?.forEach {
+            protein += it.proteinContentPercentage * it.amountInGram / 100
+        }
+        return protein
+    }
+
+    fun getTodayConsumedKcal(): Float {
+        var kcal = 0f
+        dayWithItems.value?.items?.forEach {
+            kcal += it.kcalContentIn100g * it.amountInGram / 100
+        }
+        return kcal
+    }
+
+    fun displayErrorMessage(message: String) {
+        errorMessage = message
+        val handler = Handler()
+        handler.postDelayed({
+            errorMessage = ""
+        }, 3000)
+    }
+
+    fun isFloat(str: String): Boolean {
+        return try {
+            str.toFloat()
+            true
+        } catch (e: NumberFormatException) {
+            false
+        }
+    }
 
 }

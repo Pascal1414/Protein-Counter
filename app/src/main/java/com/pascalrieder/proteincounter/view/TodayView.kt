@@ -1,6 +1,5 @@
 package com.pascalrieder.proteincounter.view
 
-import android.os.Handler
 import androidx.compose.animation.animateContentSize
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -13,6 +12,7 @@ import androidx.compose.material.icons.filled.KeyboardArrowDown
 import androidx.compose.material.icons.filled.KeyboardArrowUp
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -27,26 +27,18 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.dp
 import com.pascalrieder.proteincounter.R
-import com.pascalrieder.proteincounter.data.DataProvider
-import com.pascalrieder.proteincounter.data.Item
 import com.pascalrieder.proteincounter.viewmodel.TodayViewModel
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
+import androidx.compose.runtime.livedata.observeAsState
+import com.m335pascal.database.dto.ItemFromDay
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun TodayView(viewModel: TodayViewModel) {
-    val errorMessage = remember { mutableStateOf("") }
-    fun displayErrorMessage(message: String) {
-        errorMessage.value = message
-        val handler = Handler()
-        handler.postDelayed({
-            errorMessage.value = ""
-        }, 3000)
-    }
 
-    // Items
-    var items by remember { mutableStateOf(DataProvider.getItems(LocalDate.now())) }
+    // DayWithItems
+    val dayWithItems by viewModel.dayWithItems.observeAsState()
 
     var openBottomSheet by rememberSaveable { mutableStateOf(false) }
     val bottomSheetState = rememberModalBottomSheetState(skipPartiallyExpanded = true)
@@ -62,7 +54,6 @@ fun TodayView(viewModel: TodayViewModel) {
                     .padding(horizontal = 24.dp),
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
-                var amountInGram by remember { mutableStateOf("") }
                 Spacer(modifier = Modifier.height(10.dp))
 
                 Row(
@@ -76,14 +67,13 @@ fun TodayView(viewModel: TodayViewModel) {
                     Spacer(modifier = Modifier.width(12.dp))
                     OutlinedTextField(modifier = Modifier.fillMaxWidth(),
                         label = { Text(text = "Consumed amount in gram") },
-                        value = amountInGram,
+                        value = viewModel.amountInGram,
                         keyboardOptions = KeyboardOptions.Default.copy(keyboardType = KeyboardType.Number),
                         onValueChange = {
-                            if (it.isEmpty()) amountInGram = ""
-                            else if (isFloat(it)) amountInGram = it
+                            if (it.isEmpty()) viewModel.amountInGram = ""
+                            else if (viewModel.isFloat(it)) viewModel.amountInGram = it
                         })
                 }
-                var searchText by remember { mutableStateOf("") }
                 Row(
                     verticalAlignment = Alignment.CenterVertically,
                     modifier = Modifier.fillMaxWidth()
@@ -95,22 +85,23 @@ fun TodayView(viewModel: TodayViewModel) {
                     Spacer(modifier = Modifier.width(12.dp))
                     OutlinedTextField(modifier = Modifier.fillMaxWidth(),
                         label = { Text("Search") },
-                        value = searchText,
-                        onValueChange = { searchText = it })
+                        value = viewModel.searchText,
+                        onValueChange = { viewModel.searchText = it })
                 }
                 Spacer(modifier = Modifier.height(10.dp))
-                Text(text = errorMessage.value, color = MaterialTheme.colorScheme.error)
+                Text(text = viewModel.errorMessage, color = MaterialTheme.colorScheme.error)
                 Spacer(modifier = Modifier.height(10.dp))
 
 
-                val searchItems by remember { mutableStateOf(DataProvider.getItems()) }
-                val context = LocalContext.current
+                // Items
+                val items by viewModel.items.observeAsState()
+
+                val searchItems = items?.filter {
+                    it.name.contains(viewModel.searchText, ignoreCase = true)
+                } ?: listOf()
+
                 LazyColumn(modifier = Modifier.fillMaxSize()) {
-                    items(searchItems.filter {
-                        it.name.contains(
-                            searchText, ignoreCase = true
-                        )
-                    }) { item ->
+                    items(searchItems) { item ->
                         Column(modifier = Modifier
                             .fillMaxWidth()
                             .background(
@@ -119,20 +110,7 @@ fun TodayView(viewModel: TodayViewModel) {
                             )
                             .padding(24.dp)
                             .clickable {
-                                if (amountInGram.isEmpty()) {
-                                    displayErrorMessage("Please enter an amount")
-                                    return@clickable
-                                }
-                                val item = Item(
-                                    name = item.name,
-                                    proteinContentPercentage = item.proteinContentPercentage,
-                                    amountInGram = amountInGram.toFloat(),
-                                    kcalContentIn100g = item.kcalContentIn100g
-                                )
-                                DataProvider.addItemToTodayAndCreateBackupIfNeeded(
-                                    item, context
-                                )
-                                items = DataProvider.getItems(LocalDate.now())
+                                // viewModel.insertItem(item)
                                 openBottomSheet = false
                             }) {
                             Text(
@@ -157,6 +135,7 @@ fun TodayView(viewModel: TodayViewModel) {
                         }
                         Spacer(modifier = Modifier.height(16.dp))
                     }
+
                 }
             }
         }
@@ -184,7 +163,7 @@ fun TodayView(viewModel: TodayViewModel) {
                 modifier = Modifier.fillMaxWidth()
             ) {
                 val consumedProtein =
-                    String.format("%.1f", DataProvider.getTodayConsumedProtein()).replace(".0", "")
+                    String.format("%.1f", viewModel.getTodayConsumedProtein()).replace(".0", "")
                 NutrientItem(modifier = Modifier.weight(1f),
                     painter = painterResource(R.drawable.ic_grocery),
                     title = {
@@ -205,7 +184,7 @@ fun TodayView(viewModel: TodayViewModel) {
                     })
                 Spacer(modifier = Modifier.width(16.dp))
                 val consumedKcal =
-                    String.format("%.1f", DataProvider.getTodayConsumedKcal()).replace(".0", "")
+                    String.format("%.1f", viewModel.getTodayConsumedKcal()).replace(".0", "")
                 NutrientItem(modifier = Modifier.weight(1f),
                     painter = painterResource(R.drawable.ic_lunch_dining),
                     title = { Text(style = MaterialTheme.typography.titleMedium, text = "Kcal") },
@@ -223,10 +202,9 @@ fun TodayView(viewModel: TodayViewModel) {
             }
             Spacer(modifier = Modifier.height(16.dp))
             LazyColumn {
-                items(items) { item ->
+                items(dayWithItems?.items ?: listOf()) { item ->
                     ItemView(item, onDelete = {
-                        DataProvider.removeItemFromToday(item)
-                        items = DataProvider.getItems(LocalDate.now())
+                        viewModel.removeItemFromToday(item)
                     })
                     Spacer(modifier = Modifier.height(16.dp))
                 }
@@ -261,7 +239,7 @@ fun NutrientItem(
 }
 
 @Composable
-fun ItemView(item: Item, onDelete: () -> Unit = {}) {
+fun ItemView(item: ItemFromDay, onDelete: () -> Unit = {}) {
     var isExpanded by remember { mutableStateOf(false) }
     Column(
         modifier = Modifier
@@ -385,11 +363,3 @@ fun CalculationGraph(factor: Float, dividend: Float) {
     }
 }
 
-fun isFloat(str: String): Boolean {
-    return try {
-        str.toFloat()
-        true
-    } catch (e: NumberFormatException) {
-        false
-    }
-}

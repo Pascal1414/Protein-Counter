@@ -16,13 +16,14 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.material3.surfaceColorAtElevation
 import androidx.compose.runtime.*
+import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import com.pascalrieder.proteincounter.R
-import com.pascalrieder.proteincounter.data.DataProvider
+import com.pascalrieder.proteincounter.database.models.Day
 import com.pascalrieder.proteincounter.viewmodel.HistoryViewModel
 import kotlinx.coroutines.launch
 import java.io.File
@@ -30,8 +31,8 @@ import java.time.format.DateTimeFormatter
 
 
 @Composable
-fun HistoryView(historyViewModel: HistoryViewModel) {
-    var days by remember { mutableStateOf(DataProvider.getDays()) }
+fun HistoryView(viewModel: HistoryViewModel) {
+    val days by viewModel.daysWithItems.observeAsState(emptyList())
 
     Column {
         Row(
@@ -47,7 +48,7 @@ fun HistoryView(historyViewModel: HistoryViewModel) {
 
             val context = LocalContext.current
             Row {
-                var uploadCompleted by remember { mutableStateOf(false) }
+             /*   var uploadCompleted by remember { mutableStateOf(false) }
                 if (uploadCompleted) {
                     LaunchedEffect(Unit) {
                         kotlinx.coroutines.delay(1000)
@@ -72,10 +73,10 @@ fun HistoryView(historyViewModel: HistoryViewModel) {
                 }
                 IconButton(
                     onClick = {
-                        launcher.launch(android.content.Intent().apply {
+                        /*launcher.launch(android.content.Intent().apply {
                             action = Intent.ACTION_OPEN_DOCUMENT
-                            type = "*/*"
-                        })
+                            type = "*Remove That text/And That*"
+                        })*/
                     }, modifier = Modifier, enabled = !uploadCompleted
                 ) {
                     Icon(
@@ -110,7 +111,7 @@ fun HistoryView(historyViewModel: HistoryViewModel) {
                         contentDescription = "Download",
                         tint = MaterialTheme.colorScheme.onSurface
                     )
-                }
+                }*/
             }
         }
         if (days.isNotEmpty()) LazyColumn(verticalArrangement = Arrangement.spacedBy(16.dp),
@@ -131,7 +132,7 @@ fun HistoryView(historyViewModel: HistoryViewModel) {
                             text = day.date.format(DateTimeFormatter.ofPattern("dd.MM.yyyy")),
                             style = MaterialTheme.typography.headlineSmall
                         )
-                        day.items.forEach { item ->
+                        /*day.items.forEach { item ->
                             Spacer(modifier = Modifier.height(24.dp))
                             Row(
                                 verticalAlignment = Alignment.CenterVertically,
@@ -170,7 +171,7 @@ fun HistoryView(historyViewModel: HistoryViewModel) {
                                     )
                                 }
                             }
-                        }
+                        }*/
                     }
                 }
             })
@@ -186,7 +187,7 @@ fun HistoryView(historyViewModel: HistoryViewModel) {
         }
     }
 }
-
+/*
 fun saveFile(): Pair<Boolean, String> {
     try {
         val fileString = DataProvider.getJson()
@@ -216,4 +217,4 @@ fun loadFile(context: Context, uri: Uri): Pair<Boolean, String> {
         }
     }
     return Pair(false, "File could not be read")
-}
+}*/
