@@ -2,10 +2,10 @@ package com.m335pascal.repository
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MediatorLiveData
-import com.m335pascal.database.dao.DayDao
-import com.m335pascal.database.dto.DayWithItems
-import com.m335pascal.database.dto.DayWithItemsDb
-import com.m335pascal.database.dto.ItemFromDay
+import com.pascalrieder.proteincounter.database.dao.DayDao
+import com.pascalrieder.proteincounter.database.dto.DayWithItems
+import com.pascalrieder.proteincounter.database.dto.DayWithItemsDb
+import com.pascalrieder.proteincounter.database.dto.ItemFromDay
 import com.pascalrieder.proteincounter.database.models.DayItem
 import java.time.LocalDate
 

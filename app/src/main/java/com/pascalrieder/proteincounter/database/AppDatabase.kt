@@ -1,12 +1,12 @@
-package com.m335pascal.database
+package com.pascalrieder.proteincounter.database
 
 import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
-import com.m335pascal.database.dao.DayDao
-import com.m335pascal.database.dao.ItemDao
+import com.pascalrieder.proteincounter.database.dao.DayDao
+import com.pascalrieder.proteincounter.database.dao.ItemDao
 import com.pascalrieder.proteincounter.database.models.Day
 import com.pascalrieder.proteincounter.database.models.DayItem
 import com.pascalrieder.proteincounter.database.models.converters.DateConverter

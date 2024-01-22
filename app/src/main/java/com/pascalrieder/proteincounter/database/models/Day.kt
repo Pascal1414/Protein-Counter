@@ -4,7 +4,6 @@ import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.Index
 import androidx.room.PrimaryKey
-import com.pascalrieder.proteincounter.database.models.Item
 import java.time.LocalDate
 
 

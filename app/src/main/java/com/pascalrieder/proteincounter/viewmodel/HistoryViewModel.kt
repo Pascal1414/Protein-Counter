@@ -7,8 +7,8 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.viewModelScope
-import com.m335pascal.database.AppDatabase
-import com.m335pascal.database.dto.DayWithItems
+import com.pascalrieder.proteincounter.database.AppDatabase
+import com.pascalrieder.proteincounter.database.dto.DayWithItems
 import com.m335pascal.repository.DayRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch

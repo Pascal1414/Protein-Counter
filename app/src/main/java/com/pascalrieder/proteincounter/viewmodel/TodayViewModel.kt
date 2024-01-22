@@ -2,17 +2,15 @@ package com.pascalrieder.proteincounter.viewmodel
 
 import android.app.Application
 import android.os.Handler
-import androidx.compose.material3.rememberModalBottomSheetState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.viewModelScope
-import com.m335pascal.database.AppDatabase
-import com.m335pascal.database.dto.DayWithItems
-import com.m335pascal.database.dto.ItemFromDay
+import com.pascalrieder.proteincounter.database.AppDatabase
+import com.pascalrieder.proteincounter.database.dto.DayWithItems
+import com.pascalrieder.proteincounter.database.dto.ItemFromDay
 import com.m335pascal.repository.DayRepository
 import com.pascalrieder.proteincounter.database.models.DayItem
 import com.pascalrieder.proteincounter.database.models.Item

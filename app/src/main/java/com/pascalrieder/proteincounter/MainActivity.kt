@@ -31,13 +31,10 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import androidx.room.Database
 import com.example.compose.AppTheme
 import com.google.gson.GsonBuilder
 import com.google.gson.reflect.TypeToken
-import com.m335pascal.database.AppDatabase
-import com.pascalrieder.proteincounter.data.LocalDateAdapter
-import com.pascalrieder.proteincounter.database.models.Day
+import com.pascalrieder.proteincounter.database.AppDatabase
 import com.pascalrieder.proteincounter.database.models.Item
 import com.pascalrieder.proteincounter.repository.ItemRepository
 import com.pascalrieder.proteincounter.view.HistoryView

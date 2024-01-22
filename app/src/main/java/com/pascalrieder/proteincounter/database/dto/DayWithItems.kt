@@ -1,4 +1,4 @@
-package com.m335pascal.database.dto
+package com.pascalrieder.proteincounter.database.dto
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey

@@ -1,10 +1,10 @@
-package com.m335pascal.database.dao
+package com.pascalrieder.proteincounter.database.dao
 
 import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
-import com.m335pascal.database.dto.DayWithItemsDb
+import com.pascalrieder.proteincounter.database.dto.DayWithItemsDb
 import com.pascalrieder.proteincounter.database.models.Day
 import com.pascalrieder.proteincounter.database.models.DayItem
 import java.time.LocalDate

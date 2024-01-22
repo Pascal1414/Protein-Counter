@@ -1,7 +1,7 @@
 package com.pascalrieder.proteincounter.repository
 
 import androidx.lifecycle.LiveData
-import com.m335pascal.database.dao.ItemDao
+import com.pascalrieder.proteincounter.database.dao.ItemDao
 import com.pascalrieder.proteincounter.database.models.Item
 
 class ItemRepository(private val itemDao: ItemDao) {

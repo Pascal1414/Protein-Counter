@@ -13,12 +13,10 @@ import androidx.compose.material.icons.filled.KeyboardArrowUp
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.graphics.painter.Painter
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.buildAnnotatedString
@@ -31,7 +29,7 @@ import com.pascalrieder.proteincounter.viewmodel.TodayViewModel
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 import androidx.compose.runtime.livedata.observeAsState
-import com.m335pascal.database.dto.ItemFromDay
+import com.pascalrieder.proteincounter.database.dto.ItemFromDay
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable

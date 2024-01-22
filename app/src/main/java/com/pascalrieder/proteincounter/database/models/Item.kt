@@ -3,7 +3,6 @@ package com.pascalrieder.proteincounter.database.models
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import java.util.Date
 
 @Entity(tableName = "item")
 data class Item(
