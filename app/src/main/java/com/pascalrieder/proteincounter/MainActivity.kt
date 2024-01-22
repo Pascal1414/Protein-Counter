@@ -34,6 +34,7 @@ import androidx.navigation.compose.rememberNavController
 import com.example.compose.AppTheme
 import com.google.gson.GsonBuilder
 import com.google.gson.reflect.TypeToken
+import com.pascalrieder.proteincounter.data.LocalDateAdapter
 import com.pascalrieder.proteincounter.database.AppDatabase
 import com.pascalrieder.proteincounter.database.models.Item
 import com.pascalrieder.proteincounter.repository.ItemRepository
