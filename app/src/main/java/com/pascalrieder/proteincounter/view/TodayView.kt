@@ -103,7 +103,7 @@ fun TodayView(viewModel: TodayViewModel) {
                         Column(modifier = Modifier
                             .fillMaxWidth()
                             .background(
-                                MaterialTheme.colorScheme.tertiaryContainer,
+                                MaterialTheme.colorScheme.secondaryContainer,
                                 MaterialTheme.shapes.extraLarge
                             )
                             .padding(24.dp)
