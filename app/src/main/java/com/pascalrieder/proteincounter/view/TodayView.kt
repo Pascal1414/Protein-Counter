@@ -29,6 +29,7 @@ import com.pascalrieder.proteincounter.viewmodel.TodayViewModel
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 import androidx.compose.runtime.livedata.observeAsState
+import androidx.compose.ui.util.fastSumBy
 import com.pascalrieder.proteincounter.database.dto.ItemFromDay
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -108,7 +109,6 @@ fun TodayView(viewModel: TodayViewModel) {
                             .padding(24.dp)
                             .clickable {
                                 viewModel.insertItem(item.uid)
-                                viewModel.openBottomSheet = false
                             }) {
                             Text(
                                 style = MaterialTheme.typography.headlineSmall,
@@ -157,8 +157,6 @@ fun TodayView(viewModel: TodayViewModel) {
             Row(
                 modifier = Modifier.fillMaxWidth()
             ) {
-                val consumedProtein =
-                    String.format("%.1f", viewModel.getTodayConsumedProtein()).replace(".0", "")
                 NutrientItem(modifier = Modifier.weight(1f),
                     painter = painterResource(R.drawable.ic_grocery),
                     title = {
@@ -171,15 +169,19 @@ fun TodayView(viewModel: TodayViewModel) {
                             buildAnnotatedString {
                                 append("You've consumed ")
                                 withStyle(style = SpanStyle(fontWeight = FontWeight.Bold)) {
-                                    append(consumedProtein)
+                                    append(
+                                        String.format("%.1f", dayWithItems?.getProteinTotal())
+                                            .replace(".0", "")
+                                    )
                                 }
                                 append("g of Protein today")
                             }, style = MaterialTheme.typography.bodyMedium
                         )
                     })
                 Spacer(modifier = Modifier.width(16.dp))
-                val consumedKcal =
-                    String.format("%.1f", viewModel.getTodayConsumedKcal()).replace(".0", "")
+
+
+
                 NutrientItem(modifier = Modifier.weight(1f),
                     painter = painterResource(R.drawable.ic_lunch_dining),
                     title = { Text(style = MaterialTheme.typography.titleMedium, text = "Kcal") },
@@ -188,7 +190,10 @@ fun TodayView(viewModel: TodayViewModel) {
                             buildAnnotatedString {
                                 append("You've consumed ")
                                 withStyle(style = SpanStyle(fontWeight = FontWeight.Bold)) {
-                                    append(consumedKcal)
+                                    append(
+                                        String.format("%.0f", dayWithItems?.getKcalTotal())
+                                            .replace(".0", "")
+                                    )
                                 }
                                 append(" kcal today")
                             }, style = MaterialTheme.typography.bodyMedium

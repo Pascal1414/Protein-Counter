@@ -20,7 +20,7 @@ import kotlinx.coroutines.launch
 import java.time.LocalDate
 
 class TodayViewModel(application: Application) : AndroidViewModel(application) {
-    var openBottomSheet by  mutableStateOf(false)
+    var openBottomSheet by mutableStateOf(false)
 
     var onFabClick: () -> Unit = {
         openBottomSheet = true
@@ -45,7 +45,7 @@ class TodayViewModel(application: Application) : AndroidViewModel(application) {
 
         val dayDao = AppDatabase.getDatabase(application).dayDao()
         dayRepository = DayRepository(dayDao)
-        dayWithItems = dayRepository.getToday( onDayNotFound = {
+        dayWithItems = dayRepository.getToday(onDayNotFound = {
             viewModelScope.launch(Dispatchers.IO) {
                 dayRepository.addDay(DayWithItems(0, LocalDate.now(), mutableListOf()))
             }
@@ -53,9 +53,8 @@ class TodayViewModel(application: Application) : AndroidViewModel(application) {
     }
 
     fun insertItem(itemId: Long) = viewModelScope.launch(Dispatchers.IO) {
-        if (amountInGram.isEmpty()) {
-            displayErrorMessage("Please enter an amount")
-        } else {
+        if (amountInGram.isEmpty()) errorMessage = "Please enter an amount"
+        else {
             dayRepository.addItemToDay(
                 DayItem(
                     dayId = dayWithItems.value!!.dayId,
@@ -64,35 +63,13 @@ class TodayViewModel(application: Application) : AndroidViewModel(application) {
                     isDeleted = false
                 )
             )
+            errorMessage = ""
+            openBottomSheet = false
         }
     }
 
     fun removeItemFromToday(item: ItemFromDay) = viewModelScope.launch(Dispatchers.IO) {
         dayRepository.removeItemFromDay(dayWithItems.value!!.dayId, item.itemId)
-    }
-
-    fun getTodayConsumedProtein(): Float {
-        var protein = 0f
-        dayWithItems.value?.items?.forEach {
-            protein += it.proteinContentPercentage * it.amountInGram / 100
-        }
-        return protein
-    }
-
-    fun getTodayConsumedKcal(): Float {
-        var kcal = 0f
-        dayWithItems.value?.items?.forEach {
-            kcal += it.kcalContentIn100g * it.amountInGram / 100
-        }
-        return kcal
-    }
-
-    fun displayErrorMessage(message: String) {
-        errorMessage = message
-        val handler = Handler()
-        handler.postDelayed({
-            errorMessage = ""
-        }, 3000)
     }
 
     fun isFloat(str: String): Boolean {
