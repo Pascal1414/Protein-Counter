@@ -11,10 +11,13 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.material3.AlertDialog
+import androidx.compose.material3.Button
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
 import androidx.compose.material3.surfaceColorAtElevation
 import androidx.compose.runtime.*
 import androidx.compose.runtime.livedata.observeAsState
@@ -23,6 +26,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.window.Dialog
 import com.pascalrieder.proteincounter.R
 import com.pascalrieder.proteincounter.database.models.Day
 import com.pascalrieder.proteincounter.viewmodel.HistoryViewModel
@@ -35,6 +39,24 @@ import java.time.format.DateTimeFormatter
 fun HistoryView(viewModel: HistoryViewModel) {
     val days by viewModel.daysWithItems.observeAsState(emptyList())
     val context = LocalContext.current
+    val activity = LocalContext.current as Activity
+
+    when {
+        viewModel.openAlertDialog.value ->
+            AlertDialog(onDismissRequest = { }, title = {
+                Text(text = "Backup loaded")
+            }, text = {
+                Text(text = "The app needs to be restarted to apply the changes.")
+            }, confirmButton = {
+                TextButton(
+                    onClick = {
+                        activity.finish()
+                    }
+                ) {
+                    Text("Close App")
+                }
+            })
+    }
 
     Column {
         Row(
@@ -147,7 +169,8 @@ fun HistoryView(viewModel: HistoryViewModel) {
                                                 "%.1f",
                                                 item.amountInGram * item.proteinContentPercentage / 100
                                             ).replace(".0", "")
-                                        }g protein", style = MaterialTheme.typography.bodySmall
+                                        }g protein",
+                                        style = MaterialTheme.typography.bodySmall
                                     )
                                     Text(
                                         text = "${

@@ -7,7 +7,10 @@ import android.net.Uri
 import android.os.Environment
 import androidx.compose.material3.SnackbarDuration
 import androidx.compose.material3.SnackbarHostState
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.ui.window.Dialog
 import androidx.documentfile.provider.DocumentFile
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
@@ -39,6 +42,8 @@ class HistoryViewModel(application: Application) : AndroidViewModel(application)
         }
     }
 
+    val openAlertDialog =  mutableStateOf(false)
+
     val snackbarHostState = mutableStateOf(SnackbarHostState())
     suspend fun showSnackbar(message: String, actionLabel: String? = null) {
         snackbarHostState.value.showSnackbar(
@@ -58,6 +63,7 @@ class HistoryViewModel(application: Application) : AndroidViewModel(application)
                 showSnackbar("Error loading backup: ${e.message}")
             }
         }
+        openAlertDialog.value = true
     }
 
     fun createBackup(context: Context) {
