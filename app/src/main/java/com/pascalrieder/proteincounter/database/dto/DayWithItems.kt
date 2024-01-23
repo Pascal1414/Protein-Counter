@@ -4,12 +4,16 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.pascalrieder.proteincounter.database.models.Day
 import java.time.LocalDate
+import java.time.format.DateTimeFormatter
 
 class DayWithItems(
     val dayId: Long = 0, val date: LocalDate, val items: MutableList<ItemFromDay> = mutableListOf()
 ) {
     fun toDay(): Day {
         return Day(uid = dayId, date)
+    }
+    fun getFormattedDate(): String {
+        return date.format(DateTimeFormatter.ofPattern("dd.MM.yyyy"))
     }
 
     fun getKcalTotal(): Float {

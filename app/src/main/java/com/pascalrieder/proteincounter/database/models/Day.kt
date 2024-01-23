@@ -12,13 +12,4 @@ import java.time.LocalDate
 data class Day(
     @PrimaryKey(autoGenerate = true) val uid: Long = 0,
     @ColumnInfo(name = "date") var date: LocalDate,
-) {
-    /*@Ignore
-    fun getLocalDate(): LocalDate {
-        return LocalDate.parse(date)
-    }
-    @Ignore
-    fun setDate(date: LocalDate) {
-        this.date = date.toString()
-    }*/
-}
+)

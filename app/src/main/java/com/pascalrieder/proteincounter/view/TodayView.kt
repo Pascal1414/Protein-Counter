@@ -144,7 +144,7 @@ fun TodayView(viewModel: TodayViewModel) {
                 text = "Today", style = MaterialTheme.typography.displayLarge
             )
             Text(
-                text = LocalDate.now().format(DateTimeFormatter.ofPattern("dd.MM.yyyy")),
+                text = dayWithItems?.getFormattedDate() ?: "Day not found",
                 style = MaterialTheme.typography.titleLarge,
                 modifier = Modifier.alpha(0.5f)
             )
