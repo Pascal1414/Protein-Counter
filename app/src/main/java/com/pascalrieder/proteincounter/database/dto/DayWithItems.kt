@@ -7,7 +7,7 @@ import java.time.LocalDate
 
 class DayWithItems(
     val dayId: Long = 0,
-    val date: String,
+    val date: LocalDate,
     val items: MutableList<ItemFromDay>
 ) {
     fun toDay(): Day {
@@ -27,7 +27,7 @@ class ItemFromDay(
 @Entity
 class DayWithItemsDb(
     @PrimaryKey val dayId: Long,
-    val date: String,
+    val date: LocalDate,
     val itemId: Long?,
     val name: String?,
     val proteinContentPercentage: Float?,

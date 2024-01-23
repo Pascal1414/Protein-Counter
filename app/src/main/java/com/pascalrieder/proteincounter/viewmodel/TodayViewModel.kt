@@ -47,7 +47,7 @@ class TodayViewModel(application: Application) : AndroidViewModel(application) {
         dayRepository = DayRepository(dayDao)
         dayWithItems = dayRepository.getToday( onDayNotFound = {
             viewModelScope.launch(Dispatchers.IO) {
-                dayRepository.addDay(DayWithItems(0, LocalDate.now().toString(), mutableListOf()))
+                dayRepository.addDay(DayWithItems(0, LocalDate.now(), mutableListOf()))
             }
         })
     }

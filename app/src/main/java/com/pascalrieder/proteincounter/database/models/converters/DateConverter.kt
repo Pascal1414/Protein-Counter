@@ -6,12 +6,12 @@ import java.time.LocalDate
 
 object DateConverter {
     @TypeConverter
-    fun toDate(dateLong: Long): LocalDate {
-        return LocalDate.ofEpochDay(dateLong)
+    fun toDate(dateString: String): LocalDate {
+        return LocalDate.parse(dateString)
     }
 
     @TypeConverter
-    fun fromDate(date: LocalDate): Long {
-        return date.toEpochDay()
+    fun fromDate(date: LocalDate): String {
+        return date.toString()
     }
 }

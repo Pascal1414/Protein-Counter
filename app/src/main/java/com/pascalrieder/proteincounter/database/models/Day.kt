@@ -11,14 +11,14 @@ import java.time.LocalDate
 @Entity(tableName = "day", indices = [Index(value = ["date"], unique = true)])
 data class Day(
     @PrimaryKey(autoGenerate = true) val uid: Long = 0,
-    @ColumnInfo(name = "date") var date: String,
+    @ColumnInfo(name = "date") var date: LocalDate,
 ) {
-    @Ignore
+    /*@Ignore
     fun getLocalDate(): LocalDate {
         return LocalDate.parse(date)
     }
     @Ignore
     fun setDate(date: LocalDate) {
         this.date = date.toString()
-    }
+    }*/
 }

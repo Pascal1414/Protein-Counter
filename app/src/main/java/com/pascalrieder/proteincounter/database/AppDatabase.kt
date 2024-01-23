@@ -12,8 +12,8 @@ import com.pascalrieder.proteincounter.database.models.DayItem
 import com.pascalrieder.proteincounter.database.models.converters.DateConverter
 import com.pascalrieder.proteincounter.database.models.Item
 
-@Database(entities = [Item::class,DayItem::class, Day::class], version = 2, exportSchema = false)
-//@TypeConverters(DateConverter::class)
+@Database(entities = [Item::class,DayItem::class, Day::class], version = 1, exportSchema = false)
+@TypeConverters(DateConverter::class)
 abstract class AppDatabase : RoomDatabase() {
     abstract fun itemDao(): ItemDao
     abstract fun dayDao(): DayDao

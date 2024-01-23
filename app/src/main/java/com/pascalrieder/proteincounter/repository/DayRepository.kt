@@ -17,7 +17,7 @@ class DayRepository(private val dayDao: DayDao) {
         allDaysWithItems.addSource(dayDao.readAllData()) { dbDays ->
             allDaysWithItems.value = dayEntriesToDayWithItems(dbDays)
         }
-        todayWithItems.addSource(dayDao.readDayEntriesFromDate(LocalDate.now().toString())) { dbDays ->
+        todayWithItems.addSource(dayDao.readDayEntriesFromDate(LocalDate.now())) { dbDays ->
             val days = dayEntriesToDayWithItems(dbDays)
             if (days.isNotEmpty() && days.count() == 1)
                 todayWithItems.value = days.first()
