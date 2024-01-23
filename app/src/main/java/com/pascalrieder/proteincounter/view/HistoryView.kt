@@ -34,6 +34,7 @@ import java.time.format.DateTimeFormatter
 @Composable
 fun HistoryView(viewModel: HistoryViewModel) {
     val days by viewModel.daysWithItems.observeAsState(emptyList())
+    val context = LocalContext.current
 
     Column {
         Row(
@@ -53,20 +54,18 @@ fun HistoryView(viewModel: HistoryViewModel) {
                     uploadCompleted = false
                 }
             }
-            val scope = rememberCoroutineScope()
             val launcher = rememberLauncherForActivityResult(
                 contract = ActivityResultContracts.StartActivityForResult()
             ) { activityResult ->
                 if (activityResult.resultCode == Activity.RESULT_OK) {
                     val uri: Uri? = activityResult.data?.data
                     if (uri != null)
-                        viewModel.loadBackup(uri)
+                        viewModel.loadBackup(uri, context)
                 }
             }
 
 
             Row {
-                val context = LocalContext.current
                 IconButton(
                     onClick = {
                         viewModel.createBackup(context)
@@ -85,10 +84,9 @@ fun HistoryView(viewModel: HistoryViewModel) {
                     onClick = {
                         launcher.launch(
                             Intent.createChooser(
-                                Intent(Intent.ACTION_CREATE_DOCUMENT).apply {
+                                Intent(Intent.ACTION_OPEN_DOCUMENT).apply {
                                     addCategory(Intent.CATEGORY_OPENABLE)
-                                    type = DocumentsContract.Document.MIME_TYPE_DIR
-
+                                    type = "application/zip"
                                 },
                                 "Select a backup"
                             )

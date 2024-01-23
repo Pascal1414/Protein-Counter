@@ -2,11 +2,13 @@ package com.pascalrieder.proteincounter.viewmodel
 
 import android.app.Application
 import android.content.Context
+import android.content.Intent.getIntent
 import android.net.Uri
 import android.os.Environment
 import androidx.compose.material3.SnackbarDuration
 import androidx.compose.material3.SnackbarHostState
 import androidx.compose.runtime.mutableStateOf
+import androidx.documentfile.provider.DocumentFile
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.viewModelScope
@@ -19,6 +21,7 @@ import java.io.File
 import java.io.FileInputStream
 import java.io.FileOutputStream
 import java.util.zip.ZipEntry
+import java.util.zip.ZipInputStream
 import java.util.zip.ZipOutputStream
 
 
@@ -46,45 +49,69 @@ class HistoryViewModel(application: Application) : AndroidViewModel(application)
     }
 
 
-    fun loadBackup(uri: Uri) {
+    fun loadBackup(uri: Uri, context: Context) {
+        try {
+            replaceDatabaseFilesWithZipFiles(zipFile = uri, context)
 
+        } catch (e: Exception) {
+            viewModelScope.launch(Dispatchers.Main) {
+                showSnackbar("Error loading backup: ${e.message}")
+            }
+        }
     }
 
     fun createBackup(context: Context) {
         val dbFilePath = getDatabasePath(context)
         val backupName = "DatabaseBackup${System.currentTimeMillis()}"
-        val tmpDestinationDirectory =
-            "${context.cacheDir.absolutePath}/ProteinCounterBackups/$backupName"
-
         val destinationDirectory =
             "${Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS)}/ProteinCounterBackups/"
 
-
         val file1Name = "item_database"
-        /*val file1TmpPath = "$tmpDestinationDirectory/$file1Name"
-        copyFile(File("$dbFilePath/$file1Name"), File(file1TmpPath))*/
-
         val file2Name = "item_database-shm"
-       /* val file2TmpPath = "$tmpDestinationDirectory/$file2Name"
-        copyFile(File("$dbFilePath/$file2Name"), File(file2TmpPath))*/
-
         val file3Name = "item_database-wal"
-     /*   val file3TmpPath = "$tmpDestinationDirectory/$file3Name"
-        copyFile(File("$dbFilePath/$file3Name"), File(file3TmpPath))*/
 
-        createZipFile(
-            destinationDirectory,
-            "$backupName.zip",
-            listOf("$dbFilePath/$file1Name", "$dbFilePath/$file2Name", "$dbFilePath/$file3Name")
-        )
+        try {
+            createZipFile(
+                destinationDirectory,
+                "$backupName.zip",
+                listOf("$dbFilePath/$file1Name", "$dbFilePath/$file2Name", "$dbFilePath/$file3Name")
+            )
+        } catch (e: Exception) {
+            viewModelScope.launch(Dispatchers.Main) {
+                showSnackbar("Error creating backup: ${e.message}")
+            }
+        }
 
         viewModelScope.launch(Dispatchers.Main) {
             showSnackbar("Backup created. Name: $backupName")
         }
     }
 
+    fun replaceDatabaseFilesWithZipFiles(zipFile: Uri, context: Context) {
+        val outputDir = File(getDatabasePath(context))
+
+        val documentFile = DocumentFile.fromSingleUri(context, zipFile)
+        if (documentFile != null && documentFile.isFile)
+            ZipInputStream(context.contentResolver.openInputStream(zipFile)).use { zipStream ->
+                var entry: ZipEntry? = zipStream.nextEntry
+                while (entry != null) {
+                    val outputFile = File(outputDir, entry.name)
+
+                    outputFile.parentFile?.mkdirs()
+
+                    FileOutputStream(outputFile).use { output ->
+                        zipStream.copyTo(output)
+                    }
+
+                    entry = zipStream.nextEntry
+                }
+            }
+    }
+
     private fun createZipFile(outputDir: String, outputFileName: String, files: List<String>) {
-        val outputFile = File(outputDir, outputFileName)
+        val outputFile = File(outputDir + outputFileName)
+        if (!outputFile.parentFile?.exists()!!)
+            outputFile.parentFile?.mkdirs()
         ZipOutputStream(FileOutputStream(outputFile)).use { zipStream ->
             for (fileName in files) {
                 val file = File(fileName)
@@ -97,24 +124,6 @@ class HistoryViewModel(application: Application) : AndroidViewModel(application)
                     zipStream.closeEntry()
                 }
             }
-        }
-    }
-
-    fun copyFile(srcFile: File, destFile: File) {
-        if (!destFile.parentFile?.exists()!!)
-            destFile.parentFile?.mkdirs()
-
-        destFile.createNewFile()
-
-        FileInputStream(srcFile).channel.use { sourceChannel ->
-            FileOutputStream(destFile).channel
-                .use { destinationChannel ->
-                    sourceChannel.transferTo(
-                        0,
-                        sourceChannel.size(),
-                        destinationChannel
-                    )
-                }
         }
     }
 
