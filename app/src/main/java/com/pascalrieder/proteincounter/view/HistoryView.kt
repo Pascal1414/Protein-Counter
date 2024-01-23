@@ -46,72 +46,35 @@ fun HistoryView(viewModel: HistoryViewModel) {
                 modifier = Modifier.padding(horizontal = 16.dp)
             )
 
-            val context = LocalContext.current
             Row {
-                var uploadCompleted by remember { mutableStateOf(false) }
-                if (uploadCompleted) {
-                    LaunchedEffect(Unit) {
-                        kotlinx.coroutines.delay(1000)
-                        uploadCompleted = false
-                    }
+                val context = LocalContext.current
+                IconButton(
+                    onClick = {
+                        viewModel.createBackup(context)
+                    }, modifier = Modifier
+                ) {
+                    Icon(
+                        painter = painterResource(
+                            R.drawable.ic_file_save
+                        ),
+                        contentDescription = "Download",
+                        tint = MaterialTheme.colorScheme.onSurface
+                    )
                 }
-                /*  val scope = rememberCoroutineScope()
-                 val launcherrememberLauncherForActivityResult(
-                     contract = ActivityResultContracts.StartActivityForResult()
-                 ) { activityResult ->
-                     if (activityResult.resultCode == Activity.RESULT_OK) {
-                         val uri: Uri? = activityResult.data?.data
-                         if (uri != null) {
-                             val (success, message) = loadFile(context, uri)
-                             uploadCompleted = success
-                             if (success) days = DataProvider.getDays()
-                             scope.launch {
-                                 historyViewModel.showSnackbar(message, "OK")
-                             }
-                         }
-                     }
-                 }
-                 IconButton(
-                     onClick = {
-                         /*launcher.launch(android.content.Intent().apply {
-                             action = Intent.ACTION_OPEN_DOCUMENT
-                             type = "*Remove That text/And That*"
-                         })*/
-                     }, modifier = Modifier, enabled = !uploadCompleted
-                 ) {
-                     Icon(
-                         painter = if (uploadCompleted) painterResource(R.drawable.ic_download_completed) else painterResource(
-                             R.drawable.ic_upload_file
-                         ),
-                         contentDescription = "Download",
-                         tint = MaterialTheme.colorScheme.onSurface
-                     )
-                 }
 
-                 var downloadCompleted by remember { mutableStateOf(false) }
-                 if (downloadCompleted) {
-                     LaunchedEffect(Unit) {
-                         kotlinx.coroutines.delay(1000)
-                         downloadCompleted = false
-                     }
-                 }
-                 IconButton(
-                     onClick = {
-                         val (success, fileName) = saveFile()
-                         downloadCompleted = success
-                         scope.launch {
-                             historyViewModel.showSnackbar("Backup Created\n${fileName}", "OK")
-                         }
-                     }, modifier = Modifier.padding(end = 16.dp), enabled = !downloadCompleted
-                 ) {
-                     Icon(
-                         painter = if (downloadCompleted) painterResource(R.drawable.ic_download_completed) else painterResource(
-                             R.drawable.ic_file_save
-                         ),
-                         contentDescription = "Download",
-                         tint = MaterialTheme.colorScheme.onSurface
-                     )
-                 }*/
+                IconButton(
+                    onClick = {
+                        viewModel.loadBackup()
+                    }, modifier = Modifier.padding(end = 16.dp)
+                ) {
+                    Icon(
+                        painter = painterResource(
+                            R.drawable.ic_upload_file
+                        ),
+                        contentDescription = "Load",
+                        tint = MaterialTheme.colorScheme.onSurface
+                    )
+                }
             }
         }
         if (days.isNotEmpty()) LazyColumn(verticalArrangement = Arrangement.spacedBy(16.dp),
