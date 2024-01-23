@@ -4,6 +4,7 @@ import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
+import android.provider.DocumentsContract
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.background
@@ -45,6 +46,24 @@ fun HistoryView(viewModel: HistoryViewModel) {
                 style = MaterialTheme.typography.displayLarge,
                 modifier = Modifier.padding(horizontal = 16.dp)
             )
+            var uploadCompleted by remember { mutableStateOf(false) }
+            if (uploadCompleted) {
+                LaunchedEffect(Unit) {
+                    kotlinx.coroutines.delay(1000)
+                    uploadCompleted = false
+                }
+            }
+            val scope = rememberCoroutineScope()
+            val launcher = rememberLauncherForActivityResult(
+                contract = ActivityResultContracts.StartActivityForResult()
+            ) { activityResult ->
+                if (activityResult.resultCode == Activity.RESULT_OK) {
+                    val uri: Uri? = activityResult.data?.data
+                    if (uri != null)
+                        viewModel.loadBackup(uri)
+                }
+            }
+
 
             Row {
                 val context = LocalContext.current
@@ -64,7 +83,16 @@ fun HistoryView(viewModel: HistoryViewModel) {
 
                 IconButton(
                     onClick = {
-                        viewModel.loadBackup()
+                        launcher.launch(
+                            Intent.createChooser(
+                                Intent(Intent.ACTION_CREATE_DOCUMENT).apply {
+                                    addCategory(Intent.CATEGORY_OPENABLE)
+                                    type = DocumentsContract.Document.MIME_TYPE_DIR
+
+                                },
+                                "Select a backup"
+                            )
+                        )
                     }, modifier = Modifier.padding(end = 16.dp)
                 ) {
                     Icon(

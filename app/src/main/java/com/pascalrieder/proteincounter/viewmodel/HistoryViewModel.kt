@@ -2,6 +2,7 @@ package com.pascalrieder.proteincounter.viewmodel
 
 import android.app.Application
 import android.content.Context
+import android.net.Uri
 import android.os.Environment
 import androidx.compose.material3.SnackbarDuration
 import androidx.compose.material3.SnackbarHostState
@@ -17,6 +18,8 @@ import kotlinx.coroutines.launch
 import java.io.File
 import java.io.FileInputStream
 import java.io.FileOutputStream
+import java.util.zip.ZipEntry
+import java.util.zip.ZipOutputStream
 
 
 class HistoryViewModel(application: Application) : AndroidViewModel(application) {
@@ -42,28 +45,59 @@ class HistoryViewModel(application: Application) : AndroidViewModel(application)
         )
     }
 
+
+    fun loadBackup(uri: Uri) {
+
+    }
+
     fun createBackup(context: Context) {
         val dbFilePath = getDatabasePath(context)
         val backupName = "DatabaseBackup${System.currentTimeMillis()}"
+        val tmpDestinationDirectory =
+            "${context.cacheDir.absolutePath}/ProteinCounterBackups/$backupName"
+
         val destinationDirectory =
-            "${Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS)}/ProteinCounterBackups/$backupName"
+            "${Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS)}/ProteinCounterBackups/"
+
 
         val file1Name = "item_database"
-        copyFile(File("$dbFilePath/$file1Name"), File("$destinationDirectory/$file1Name"))
+        /*val file1TmpPath = "$tmpDestinationDirectory/$file1Name"
+        copyFile(File("$dbFilePath/$file1Name"), File(file1TmpPath))*/
 
         val file2Name = "item_database-shm"
-        copyFile(File("$dbFilePath/$file2Name"), File("$destinationDirectory/$file2Name"))
+       /* val file2TmpPath = "$tmpDestinationDirectory/$file2Name"
+        copyFile(File("$dbFilePath/$file2Name"), File(file2TmpPath))*/
 
         val file3Name = "item_database-wal"
-        copyFile(File("$dbFilePath/$file3Name"), File("$destinationDirectory/$file3Name"))
+     /*   val file3TmpPath = "$tmpDestinationDirectory/$file3Name"
+        copyFile(File("$dbFilePath/$file3Name"), File(file3TmpPath))*/
+
+        createZipFile(
+            destinationDirectory,
+            "$backupName.zip",
+            listOf("$dbFilePath/$file1Name", "$dbFilePath/$file2Name", "$dbFilePath/$file3Name")
+        )
 
         viewModelScope.launch(Dispatchers.Main) {
             showSnackbar("Backup created. Name: $backupName")
         }
     }
 
-    fun loadBackup() {
-        TODO("Not yet implemented")
+    private fun createZipFile(outputDir: String, outputFileName: String, files: List<String>) {
+        val outputFile = File(outputDir, outputFileName)
+        ZipOutputStream(FileOutputStream(outputFile)).use { zipStream ->
+            for (fileName in files) {
+                val file = File(fileName)
+                if (file.exists()) {
+                    val entry = ZipEntry(fileName.split("/").last())
+                    zipStream.putNextEntry(entry)
+                    file.inputStream().use { input ->
+                        input.copyTo(zipStream)
+                    }
+                    zipStream.closeEntry()
+                }
+            }
+        }
     }
 
     fun copyFile(srcFile: File, destFile: File) {
