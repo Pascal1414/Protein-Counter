@@ -11,27 +11,29 @@ import java.time.LocalDate
 
 class DayRepository(private val dayDao: DayDao) {
     private val allDaysWithItems: MediatorLiveData<List<DayWithItems>> = MediatorLiveData()
-    private val dayWithItems: MediatorLiveData<DayWithItems> = MediatorLiveData()
-
+    private val todayWithItems: MediatorLiveData<DayWithItems> = MediatorLiveData()
+    var onTodayNotFound: () -> Unit = {}
     init {
         allDaysWithItems.addSource(dayDao.readAllData()) { dbDays ->
             allDaysWithItems.value = dayEntriesToDayWithItems(dbDays)
         }
+        todayWithItems.addSource(dayDao.readDayEntriesFromDate(LocalDate.now().toString())) { dbDays ->
+            val days = dayEntriesToDayWithItems(dbDays)
+            if (days.isNotEmpty() && days.count() == 1)
+                todayWithItems.value = days.first()
+            else
+                onTodayNotFound()
+        }
+
     }
 
     fun getDaysWithItems(): LiveData<List<DayWithItems>> {
         return allDaysWithItems
     }
 
-    fun getDayFromDate(date: LocalDate, onDayNotFound: () -> Unit = {}): LiveData<DayWithItems> {
-        dayWithItems.addSource(dayDao.readDayEntriesFromDate(date)) { dbDays ->
-            val days = dayEntriesToDayWithItems(dbDays)
-            if (days.isNotEmpty() && days.count() == 1)
-                dayWithItems.value = days.first()
-            else
-                onDayNotFound()
-        }
-        return dayWithItems;
+    fun getToday( onDayNotFound: () -> Unit = {}): LiveData<DayWithItems> {
+        onTodayNotFound = onDayNotFound
+        return todayWithItems;
     }
 
     suspend fun removeItemFromDay(dayId: Long, itemId: Long) {
