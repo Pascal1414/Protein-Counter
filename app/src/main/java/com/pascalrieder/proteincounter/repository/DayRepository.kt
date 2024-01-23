@@ -13,16 +13,15 @@ class DayRepository(private val dayDao: DayDao) {
     private val allDaysWithItems: MediatorLiveData<List<DayWithItems>> = MediatorLiveData()
     private val todayWithItems: MediatorLiveData<DayWithItems> = MediatorLiveData()
     var onTodayNotFound: () -> Unit = {}
+
     init {
         allDaysWithItems.addSource(dayDao.readAllData()) { dbDays ->
             allDaysWithItems.value = dayEntriesToDayWithItems(dbDays)
         }
         todayWithItems.addSource(dayDao.readDayEntriesFromDate(LocalDate.now())) { dbDays ->
             val days = dayEntriesToDayWithItems(dbDays)
-            if (days.isNotEmpty() && days.count() == 1)
-                todayWithItems.value = days.first()
-            else
-                onTodayNotFound()
+            if (days.isNotEmpty() && days.count() == 1) todayWithItems.value = days.first()
+            else onTodayNotFound()
         }
 
     }
@@ -31,7 +30,7 @@ class DayRepository(private val dayDao: DayDao) {
         return allDaysWithItems
     }
 
-    fun getToday( onDayNotFound: () -> Unit = {}): LiveData<DayWithItems> {
+    fun getToday(onDayNotFound: () -> Unit = {}): LiveData<DayWithItems> {
         onTodayNotFound = onDayNotFound
         return todayWithItems;
     }
@@ -64,7 +63,7 @@ class DayRepository(private val dayDao: DayDao) {
 
             if (existingDay == null) {
                 val newDay = DayWithItems(dbDay.dayId, dbDay.date, mutableListOf())
-                if (dbDay.itemId != null) newDay.items.add(
+                if (dbDay.itemId != null && !dbDay.isDeleted!!) newDay.items.add(
                     ItemFromDay(
                         itemId = dbDay.itemId,
                         name = dbDay.name.orEmpty(),
@@ -75,17 +74,17 @@ class DayRepository(private val dayDao: DayDao) {
                 )
                 days.add(newDay)
             } else {
-                if (dbDay.itemId != null)
-                    existingDay.items.add(
-                        ItemFromDay(
-                            itemId = dbDay.itemId ?: 0,
-                            name = dbDay.name.orEmpty(),
-                            proteinContentPercentage = dbDay.proteinContentPercentage ?: 0.0f,
-                            kcalContentIn100g = dbDay.kcalContentIn100g ?: 0.0f,
-                            amountInGram = dbDay.amountInGram ?: 0.0f
-                        )
+                if (dbDay.itemId != null && !dbDay.isDeleted!!) existingDay.items.add(
+                    ItemFromDay(
+                        itemId = dbDay.itemId ?: 0,
+                        name = dbDay.name.orEmpty(),
+                        proteinContentPercentage = dbDay.proteinContentPercentage ?: 0.0f,
+                        kcalContentIn100g = dbDay.kcalContentIn100g ?: 0.0f,
+                        amountInGram = dbDay.amountInGram ?: 0.0f
                     )
+                )
             }
+
         }
         return days
     }

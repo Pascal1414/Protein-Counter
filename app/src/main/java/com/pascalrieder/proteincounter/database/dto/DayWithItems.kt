@@ -54,5 +54,6 @@ class DayWithItemsDb(
     val name: String?,
     val proteinContentPercentage: Float?,
     val kcalContentIn100g: Float?,
-    val amountInGram: Float?
+    val amountInGram: Float?,
+    val isDeleted: Boolean?
 )

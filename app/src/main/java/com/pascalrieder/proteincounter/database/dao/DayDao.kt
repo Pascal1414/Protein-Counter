@@ -11,12 +11,12 @@ import java.time.LocalDate
 @Dao
 interface DayDao {
     @Query(
-        "SELECT Day.uid AS dayId, Day.date, Item.uid AS itemId, Item.name, Item.proteinContentPercentage, Item.kcalContentIn100g, DayItem.amountInGram FROM Day LEFT JOIN DayItem ON Day.uid = DayItem.dayId LEFT JOIN Item ON DayItem.itemId = Item.uid WHERE DayItem.isDeleted = 0;"
+        "SELECT Day.uid AS dayId, Day.date, Item.uid AS itemId, Item.name, Item.proteinContentPercentage, Item.kcalContentIn100g, DayItem.amountInGram, DayItem.isDeleted FROM Day LEFT JOIN DayItem ON Day.uid = DayItem.dayId LEFT JOIN Item ON DayItem.itemId = Item.uid WHERE DayItem.isDeleted = 0;"
     )
     fun readAllData(): LiveData<List<DayWithItemsDb>>
 
     @Query(
-        "SELECT Day.uid AS dayId, Day.date, Item.uid AS itemId, Item.name, Item.proteinContentPercentage, Item.kcalContentIn100g, DayItem.amountInGram FROM Day LEFT JOIN DayItem ON Day.uid = DayItem.dayId LEFT JOIN Item ON DayItem.itemId = Item.uid WHERE Day.date = :date;"
+        "SELECT Day.uid AS dayId, Day.date, Item.uid AS itemId, Item.name, Item.proteinContentPercentage, Item.kcalContentIn100g, DayItem.amountInGram, DayItem.isDeleted FROM Day LEFT JOIN DayItem ON Day.uid = DayItem.dayId LEFT JOIN Item ON DayItem.itemId = Item.uid WHERE Day.date = :date;"
     )
     fun readDayEntriesFromDate(date: LocalDate): LiveData<List<DayWithItemsDb>>
 
