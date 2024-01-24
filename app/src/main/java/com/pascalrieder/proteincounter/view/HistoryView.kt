@@ -42,20 +42,17 @@ fun HistoryView(viewModel: HistoryViewModel) {
     val activity = LocalContext.current as Activity
 
     when {
-        viewModel.openAlertDialog.value ->
-            AlertDialog(onDismissRequest = { }, title = {
-                Text(text = "Backup loaded")
-            }, text = {
-                Text(text = "The app needs to be restarted to apply the changes.")
-            }, confirmButton = {
-                TextButton(
-                    onClick = {
-                        activity.finish()
-                    }
-                ) {
-                    Text("Close App")
-                }
-            })
+        viewModel.openAlertDialog.value -> AlertDialog(onDismissRequest = { }, title = {
+            Text(text = "Backup loaded")
+        }, text = {
+            Text(text = "The app needs to be restarted to apply the changes.")
+        }, confirmButton = {
+            TextButton(onClick = {
+                activity.finish()
+            }) {
+                Text("Close App")
+            }
+        })
     }
 
     Column {
@@ -81,8 +78,7 @@ fun HistoryView(viewModel: HistoryViewModel) {
             ) { activityResult ->
                 if (activityResult.resultCode == Activity.RESULT_OK) {
                     val uri: Uri? = activityResult.data?.data
-                    if (uri != null)
-                        viewModel.loadBackup(uri, context)
+                    if (uri != null) viewModel.loadBackup(uri, context)
                 }
             }
 
@@ -109,8 +105,7 @@ fun HistoryView(viewModel: HistoryViewModel) {
                                 Intent(Intent.ACTION_OPEN_DOCUMENT).apply {
                                     addCategory(Intent.CATEGORY_OPENABLE)
                                     type = "application/zip"
-                                },
-                                "Select a backup"
+                                }, "Select a backup"
                             )
                         )
                     }, modifier = Modifier.padding(end = 16.dp)
@@ -118,9 +113,7 @@ fun HistoryView(viewModel: HistoryViewModel) {
                     Icon(
                         painter = painterResource(
                             R.drawable.ic_upload_file
-                        ),
-                        contentDescription = "Load",
-                        tint = MaterialTheme.colorScheme.onSurface
+                        ), contentDescription = "Load", tint = MaterialTheme.colorScheme.onSurface
                     )
                 }
             }
@@ -139,10 +132,30 @@ fun HistoryView(viewModel: HistoryViewModel) {
                             )
                             .padding(24.dp)
                     ) {
-                        Text(
-                            text = day.date.format(DateTimeFormatter.ofPattern("dd.MM.yyyy")),
-                            style = MaterialTheme.typography.headlineSmall
-                        )
+                        Row(
+                            horizontalArrangement = Arrangement.SpaceBetween,
+                            modifier = Modifier.fillMaxWidth()
+                        ) {
+                            Text(
+                                text = day.date.format(DateTimeFormatter.ofPattern("dd.MM.yyyy")),
+                                style = MaterialTheme.typography.headlineSmall
+                            )
+                            Column(horizontalAlignment = Alignment.End) {
+                                Text(
+                                    text = "${
+                                        String.format("%.1f", day.getKcalTotal())
+                                            .replace(".0", "")
+                                    } kcal", style = MaterialTheme.typography.bodySmall
+                                )
+                                Text(
+                                    text = "${
+                                        String.format("%.1f", day.getProteinTotal())
+                                            .replace(".0", "")
+                                    } g", style = MaterialTheme.typography.bodySmall
+                                )
+                            }
+                        }
+
                         day.items.forEach { item ->
                             Spacer(modifier = Modifier.height(24.dp))
                             Row(
@@ -169,16 +182,14 @@ fun HistoryView(viewModel: HistoryViewModel) {
                                                 "%.1f",
                                                 item.amountInGram * item.proteinContentPercentage / 100
                                             ).replace(".0", "")
-                                        }g protein",
-                                        style = MaterialTheme.typography.bodySmall
+                                        }g protein", style = MaterialTheme.typography.bodySmall
                                     )
                                     Text(
                                         text = "${
                                             String.format(
                                                 "%.1f",
                                                 item.amountInGram * item.kcalContentIn100g / 100
-                                            )
-                                                .replace(".0", "")
+                                            ).replace(".0", "")
                                         } kcal", style = MaterialTheme.typography.bodySmall
                                     )
                                 }
@@ -199,34 +210,3 @@ fun HistoryView(viewModel: HistoryViewModel) {
         }
     }
 }
-/*
-fun saveFile(): Pair<Boolean, String> {
-try {
-val fileString = DataProvider.getJson()
-val folderDir = File("/storage/emulated/0/Download/ProteinCounter/")
-val f = File(folderDir, "Backup" + System.currentTimeMillis() + ".json")
-f.parentFile.mkdirs()
-f.writeBytes(fileString.toByteArray())
-return Pair(true, f.name)
-} catch (e: Exception) {
-e.printStackTrace()
-return Pair(false, "")
-}
-}
-
-fun loadFile(context: Context, uri: Uri): Pair<Boolean, String> {
-// get the file content
-val contentResolver = context.contentResolver
-val inputStream = contentResolver.openInputStream(uri)
-val fileContent = inputStream?.bufferedReader().use { it?.readText() }
-if (fileContent != null) {
-try {
-DataProvider.loadBackup(fileContent)
-return Pair(true, "Backup loaded")
-} catch (e: Exception) {
-e.printStackTrace()
-return Pair(false, "Invalid backup file")
-}
-}
-return Pair(false, "File could not be read")
-}*/
