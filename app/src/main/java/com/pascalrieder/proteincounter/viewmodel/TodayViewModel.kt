@@ -1,7 +1,10 @@
 package com.pascalrieder.proteincounter.viewmodel
 
 import android.app.Application
+import android.content.Context
+import android.content.SharedPreferences
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.AndroidViewModel
@@ -50,6 +53,44 @@ class TodayViewModel(application: Application) : AndroidViewModel(application) {
             }
         })
     }
+
+    private val sharedPref: SharedPreferences = getApplication<Application>().getSharedPreferences(
+        "com.pascalrieder.proteincounter", Context.MODE_PRIVATE
+    )
+    private val kcalGoalName = "kcalGoal"
+
+    var kcalGoal by mutableIntStateOf(2000)
+    fun setKcalGoalValue(value: Int) {
+        kcalGoal = value
+
+        with(sharedPref.edit()) {
+            putInt(kcalGoalName, value)
+            apply()
+        }
+    }
+
+    var dialogKcalGoal by mutableStateOf("")
+    fun updateDialogDailyGoal(value: String) {
+        if (value == "") {
+            dialogKcalGoal = ""
+            return
+        }
+        val number = value.filter { it.isDigit() }
+        val intOrNull = number.toIntOrNull() ?: return
+        if (intOrNull > 99999) return
+        dialogKcalGoal = intOrNull.toString()
+    }
+    fun onSetKcalGoalClick(){
+        if (dialogKcalGoal == "") return
+        val intOrNull = dialogKcalGoal.toIntOrNull() ?: return
+        setKcalGoalValue(intOrNull)
+        dialogKcalGoal = ""
+    }
+    init {
+        kcalGoal = sharedPref.getInt(kcalGoalName, 2000)
+    }
+
+
 
     fun insertItemClick(itemId: Long) {
         if (amountInGram.isEmpty()) errorMessage = "Please enter an amount"

@@ -135,6 +135,37 @@ fun TodayView(viewModel: TodayViewModel) {
         }
     }
 
+    var openAlertDialogEditKcal by remember { mutableStateOf(false) }
+    when {
+        openAlertDialogEditKcal -> {
+            AlertDialog(onDismissRequest = { openAlertDialogEditKcal = false }, confirmButton = {
+                TextButton(onClick = {
+                    viewModel.onSetKcalGoalClick()
+                    openAlertDialogEditKcal = false
+                }) {
+                    Text("Confirm")
+                }
+            }, title = {
+                Text(text = "Update kcal goal")
+            }, text = {
+                Column {
+                    OutlinedTextField(
+                        label = { Text(text = "Kcal goal") },
+                        value = viewModel.dialogKcalGoal,
+                        onValueChange = viewModel::updateDialogDailyGoal,
+                        keyboardOptions = KeyboardOptions.Default.copy(keyboardType = KeyboardType.Number)
+                    )
+                }
+            }, dismissButton = {
+                TextButton(onClick = {
+                    openAlertDialogEditKcal = false
+                }) {
+                    Text("Dismiss")
+                }
+            })
+        }
+    }
+
     Column(modifier = Modifier.fillMaxSize()) {
         Column(modifier = Modifier.padding(horizontal = 16.dp)) {
             Text(
@@ -174,6 +205,9 @@ fun TodayView(viewModel: TodayViewModel) {
                                 append("g of Protein today")
                             }, style = MaterialTheme.typography.bodyMedium
                         )
+                    },
+                    onEdit = {
+                        /* TODO */
                     })
                 Spacer(modifier = Modifier.width(16.dp))
 
@@ -185,16 +219,23 @@ fun TodayView(viewModel: TodayViewModel) {
                     text = {
                         Text(
                             buildAnnotatedString {
-                                append("You've consumed ")
+                                append("You've consumed \n")
                                 withStyle(style = SpanStyle(fontWeight = FontWeight.Bold)) {
                                     append(
                                         String.format("%.0f", dayWithItems?.getKcalTotal())
                                             .replace(".0", "")
                                     )
                                 }
-                                append(" kcal today")
+                                append(" of ")
+                                withStyle(style = SpanStyle(fontWeight = FontWeight.Bold)) {
+                                    append(viewModel.kcalGoal.toString())
+                                }
+                                append(" kcal.")
                             }, style = MaterialTheme.typography.bodyMedium
                         )
+                    },
+                    onEdit = {
+                        openAlertDialogEditKcal = true
                     })
             }
             Spacer(modifier = Modifier.height(16.dp))
@@ -215,7 +256,8 @@ fun NutrientItem(
     modifier: Modifier = Modifier,
     title: @Composable () -> Unit,
     text: @Composable () -> Unit,
-    painter: Painter
+    painter: Painter,
+    onEdit: () -> Unit = {}
 ) {
     Column(
         modifier = Modifier
@@ -225,9 +267,19 @@ fun NutrientItem(
             .padding(12.dp)
             .then(modifier)
     ) {
-        Icon(
-            painter = painter, contentDescription = "Info Icon", modifier = Modifier.size(24.dp)
-        )
+        Row(horizontalArrangement = Arrangement.SpaceBetween, modifier = Modifier.fillMaxWidth()) {
+            Icon(
+                painter = painter, contentDescription = "Info Icon", modifier = Modifier.size(24.dp)
+            )
+            IconButton(modifier = Modifier.size(24.dp), onClick = onEdit) {
+                Icon(
+                    painter = painterResource(id = R.drawable.ic_edit),
+                    contentDescription = "Edit",
+                    modifier = Modifier.size(15.dp)
+                )
+            }
+        }
+
         Spacer(modifier = Modifier.height(16.dp))
         title()
         Spacer(modifier = Modifier.height(4.dp))
