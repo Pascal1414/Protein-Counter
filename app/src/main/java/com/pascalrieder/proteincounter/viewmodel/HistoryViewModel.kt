@@ -57,14 +57,18 @@ class HistoryViewModel(application: Application) : AndroidViewModel(application)
 
     fun loadBackup(uri: Uri, context: Context) {
         try {
-            replaceDatabaseFilesWithZipFiles(zipFile = uri, context)
-
+            val (success, message) = replaceDatabaseFilesWithZipFiles(zipFile = uri, context)
+            if (!success) {
+                viewModelScope.launch(Dispatchers.Main) {
+                    showSnackbar(message)
+                }
+            } else
+                openAlertDialog.value = true
         } catch (e: Exception) {
             viewModelScope.launch(Dispatchers.Main) {
                 showSnackbar("Error loading backup: ${e.message}")
             }
         }
-        openAlertDialog.value = true
     }
 
     fun createBackup(context: Context) {
@@ -95,7 +99,7 @@ class HistoryViewModel(application: Application) : AndroidViewModel(application)
     }
 
     val allowedFileNames = listOf("item_database", "item_database-shm", "item_database-wal")
-    fun replaceDatabaseFilesWithZipFiles(zipFile: Uri, context: Context) {
+    fun replaceDatabaseFilesWithZipFiles(zipFile: Uri, context: Context): Pair<Boolean, String> {
         val outputDir = File(getDatabasePath(context))
 
         val documentFile = DocumentFile.fromSingleUri(context, zipFile)
@@ -116,12 +120,12 @@ class HistoryViewModel(application: Application) : AndroidViewModel(application)
                         entry = zipStream.nextEntry
                     }
                 }
-            } else {
-                viewModelScope.launch(Dispatchers.Main) {
-                    showSnackbar("Invalid backup file.")
-                }
-            }
+                return Pair(true, "")
+            } else
+                return Pair(false, "Backup file has an invalid content.")
+
         }
+        return Pair(false, "Invalid backup file.")
     }
 
     fun getFileNamesFromZipFile(context: Context, zipFile: Uri): List<String> {
