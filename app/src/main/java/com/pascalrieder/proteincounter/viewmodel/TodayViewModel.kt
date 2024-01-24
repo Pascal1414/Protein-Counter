@@ -1,7 +1,6 @@
 package com.pascalrieder.proteincounter.viewmodel
 
 import android.app.Application
-import android.os.Handler
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
@@ -52,21 +51,28 @@ class TodayViewModel(application: Application) : AndroidViewModel(application) {
         })
     }
 
-    fun insertItem(itemId: Long) = viewModelScope.launch(Dispatchers.IO) {
+    fun insertItemClick(itemId: Long) {
         if (amountInGram.isEmpty()) errorMessage = "Please enter an amount"
         else {
-            dayRepository.addItemToDay(
-                DayItem(
-                    dayId = dayWithItems.value!!.dayId,
-                    itemId = itemId,
-                    amountInGram = amountInGram.toFloat(),
-                    isDeleted = false
-                )
-            )
+            insertItem(itemId, amountInGram.toFloat())
+            amountInGram = ""
+            searchText = ""
             errorMessage = ""
             openBottomSheet = false
         }
     }
+
+    fun insertItem(itemId: Long, amountInGram: Float) = viewModelScope.launch(Dispatchers.IO) {
+        dayRepository.addItemToDay(
+            DayItem(
+                dayId = dayWithItems.value!!.dayId,
+                itemId = itemId,
+                amountInGram = amountInGram,
+                isDeleted = false
+            )
+        )
+    }
+
 
     fun removeItemFromToday(item: ItemFromDay) = viewModelScope.launch(Dispatchers.IO) {
         dayRepository.removeItemFromDay(dayWithItems.value!!.dayId, item.itemId)
@@ -80,5 +86,4 @@ class TodayViewModel(application: Application) : AndroidViewModel(application) {
             false
         }
     }
-
 }

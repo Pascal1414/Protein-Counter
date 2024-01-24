@@ -26,10 +26,7 @@ import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.dp
 import com.pascalrieder.proteincounter.R
 import com.pascalrieder.proteincounter.viewmodel.TodayViewModel
-import java.time.LocalDate
-import java.time.format.DateTimeFormatter
 import androidx.compose.runtime.livedata.observeAsState
-import androidx.compose.ui.util.fastSumBy
 import com.pascalrieder.proteincounter.database.dto.ItemFromDay
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -103,12 +100,12 @@ fun TodayView(viewModel: TodayViewModel) {
                         Column(modifier = Modifier
                             .fillMaxWidth()
                             .background(
-                                MaterialTheme.colorScheme.secondaryContainer,
+                                MaterialTheme.colorScheme.surfaceColorAtElevation(6.dp),
                                 MaterialTheme.shapes.extraLarge
                             )
                             .padding(24.dp)
                             .clickable {
-                                viewModel.insertItem(item.uid)
+                                viewModel.insertItemClick(item.uid)
                             }) {
                             Text(
                                 style = MaterialTheme.typography.headlineSmall,
