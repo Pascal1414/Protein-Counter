@@ -44,8 +44,15 @@ fun HistoryView(viewModel: HistoryViewModel) {
     when {
         viewModel.openAlertDialog.value -> AlertDialog(onDismissRequest = { }, title = {
             Text(text = "Backup loaded")
+        }, icon = {
+            Icon(
+                painter = painterResource(
+                    R.drawable.ic_info
+                ), contentDescription = "Success"
+            )
+
         }, text = {
-            Text(text = "The app needs to be restarted to apply the changes.")
+            Text(text = "Please restart the app to apply the changes.")
         }, confirmButton = {
             TextButton(onClick = {
                 activity.finish()
