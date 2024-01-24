@@ -24,6 +24,7 @@ import java.io.File
 import java.io.FileInputStream
 import java.io.FileOutputStream
 import java.util.zip.ZipEntry
+import java.util.zip.ZipFile
 import java.util.zip.ZipInputStream
 import java.util.zip.ZipOutputStream
 
@@ -42,7 +43,7 @@ class HistoryViewModel(application: Application) : AndroidViewModel(application)
         }
     }
 
-    val openAlertDialog =  mutableStateOf(false)
+    val openAlertDialog = mutableStateOf(false)
 
     val snackbarHostState = mutableStateOf(SnackbarHostState())
     suspend fun showSnackbar(message: String, actionLabel: String? = null) {
@@ -93,25 +94,46 @@ class HistoryViewModel(application: Application) : AndroidViewModel(application)
         }
     }
 
+    val allowedFileNames = listOf("item_database", "item_database-shm", "item_database-wal")
     fun replaceDatabaseFilesWithZipFiles(zipFile: Uri, context: Context) {
         val outputDir = File(getDatabasePath(context))
 
         val documentFile = DocumentFile.fromSingleUri(context, zipFile)
-        if (documentFile != null && documentFile.isFile)
-            ZipInputStream(context.contentResolver.openInputStream(zipFile)).use { zipStream ->
-                var entry: ZipEntry? = zipStream.nextEntry
-                while (entry != null) {
-                    val outputFile = File(outputDir, entry.name)
+        if (documentFile != null && documentFile.isFile) {
+            val filenames = getFileNamesFromZipFile(context, zipFile)
+            if (filenames.containsAll(allowedFileNames)) {
+                ZipInputStream(context.contentResolver.openInputStream(zipFile)).use { zipStream ->
+                    var entry: ZipEntry? = zipStream.nextEntry
+                    while (entry != null) {
+                        val outputFile = File(outputDir, entry.name)
 
-                    outputFile.parentFile?.mkdirs()
+                        outputFile.parentFile?.mkdirs()
 
-                    FileOutputStream(outputFile).use { output ->
-                        zipStream.copyTo(output)
+                        FileOutputStream(outputFile).use { output ->
+                            zipStream.copyTo(output)
+                        }
+
+                        entry = zipStream.nextEntry
                     }
-
-                    entry = zipStream.nextEntry
+                }
+            } else {
+                viewModelScope.launch(Dispatchers.Main) {
+                    showSnackbar("Invalid backup file.")
                 }
             }
+        }
+    }
+
+    fun getFileNamesFromZipFile(context: Context, zipFile: Uri): List<String> {
+        val files = mutableListOf<String>()
+        ZipInputStream(context.contentResolver.openInputStream(zipFile)).use { zipStream ->
+            var entry: ZipEntry? = zipStream.nextEntry
+            while (entry != null) {
+                files.add(entry.name)
+                entry = zipStream.nextEntry
+            }
+        }
+        return files
     }
 
     private fun createZipFile(outputDir: String, outputFileName: String, files: List<String>) {
