@@ -58,8 +58,12 @@ class TodayViewModel(application: Application) : AndroidViewModel(application) {
         "com.pascalrieder.proteincounter", Context.MODE_PRIVATE
     )
     private val kcalGoalName = "kcalGoal"
+    private val proteinGoalName = "proteinGoal"
+
 
     var kcalGoal by mutableIntStateOf(2000)
+    var proteinGoal by mutableIntStateOf(100)
+
     fun setKcalGoalValue(value: Int) {
         kcalGoal = value
 
@@ -69,8 +73,9 @@ class TodayViewModel(application: Application) : AndroidViewModel(application) {
         }
     }
 
+
     var dialogKcalGoal by mutableStateOf("")
-    fun updateDialogDailyGoal(value: String) {
+    fun updateDialogKcalGoal(value: String) {
         if (value == "") {
             dialogKcalGoal = ""
             return
@@ -80,16 +85,46 @@ class TodayViewModel(application: Application) : AndroidViewModel(application) {
         if (intOrNull > 99999) return
         dialogKcalGoal = intOrNull.toString()
     }
-    fun onSetKcalGoalClick(){
+
+    fun onSetKcalGoalClick() {
         if (dialogKcalGoal == "") return
         val intOrNull = dialogKcalGoal.toIntOrNull() ?: return
         setKcalGoalValue(intOrNull)
         dialogKcalGoal = ""
     }
-    init {
-        kcalGoal = sharedPref.getInt(kcalGoalName, 2000)
+
+    fun setProteinGoalValue(value: Int) {
+        proteinGoal = value
+
+        with(sharedPref.edit()) {
+            putInt(proteinGoalName, value)
+            apply()
+        }
     }
 
+    var dialogProteinGoal by mutableStateOf("")
+    fun updateDialogProteinGoal(value: String) {
+        if (value == "") {
+            dialogProteinGoal = ""
+            return
+        }
+        val number = value.filter { it.isDigit() }
+        val intOrNull = number.toIntOrNull() ?: return
+        if (intOrNull > 99999) return
+        dialogProteinGoal = intOrNull.toString()
+    }
+
+    fun onSetProteinGoalClick() {
+        if (dialogProteinGoal == "") return
+        val intOrNull = dialogProteinGoal.toIntOrNull() ?: return
+        setProteinGoalValue(intOrNull)
+        dialogProteinGoal = ""
+    }
+
+    init {
+        kcalGoal = sharedPref.getInt(kcalGoalName, 2000)
+        proteinGoal = sharedPref.getInt(proteinGoalName, 100)
+    }
 
 
     fun insertItemClick(itemId: Long) {

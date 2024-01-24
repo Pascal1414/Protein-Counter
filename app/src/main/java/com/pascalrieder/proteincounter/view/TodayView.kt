@@ -152,13 +152,44 @@ fun TodayView(viewModel: TodayViewModel) {
                     OutlinedTextField(
                         label = { Text(text = "Kcal goal") },
                         value = viewModel.dialogKcalGoal,
-                        onValueChange = viewModel::updateDialogDailyGoal,
+                        onValueChange = viewModel::updateDialogKcalGoal,
                         keyboardOptions = KeyboardOptions.Default.copy(keyboardType = KeyboardType.Number)
                     )
                 }
             }, dismissButton = {
                 TextButton(onClick = {
                     openAlertDialogEditKcal = false
+                }) {
+                    Text("Dismiss")
+                }
+            })
+        }
+    }
+
+    var openAlertDialogEditProtein by remember { mutableStateOf(false) }
+    when {
+        openAlertDialogEditProtein -> {
+            AlertDialog(onDismissRequest = { openAlertDialogEditProtein = false }, confirmButton = {
+                TextButton(onClick = {
+                    viewModel.onSetProteinGoalClick()
+                    openAlertDialogEditProtein = false
+                }) {
+                    Text("Confirm")
+                }
+            }, title = {
+                Text(text = "Update protein goal")
+            }, text = {
+                Column {
+                    OutlinedTextField(
+                        label = { Text(text = "Protein goal") },
+                        value = viewModel.dialogProteinGoal,
+                        onValueChange = viewModel::updateDialogProteinGoal,
+                        keyboardOptions = KeyboardOptions.Default.copy(keyboardType = KeyboardType.Number)
+                    )
+                }
+            }, dismissButton = {
+                TextButton(onClick = {
+                    openAlertDialogEditProtein = false
                 }) {
                     Text("Dismiss")
                 }
@@ -195,19 +226,23 @@ fun TodayView(viewModel: TodayViewModel) {
                     text = {
                         Text(
                             buildAnnotatedString {
-                                append("You've consumed ")
+                                append("You've consumed \n")
                                 withStyle(style = SpanStyle(fontWeight = FontWeight.Bold)) {
                                     append(
-                                        String.format("%.1f", dayWithItems?.getProteinTotal())
+                                        String.format("%.0f", dayWithItems?.getProteinTotal())
                                             .replace(".0", "")
                                     )
                                 }
-                                append("g of Protein today")
+                                append(" of ")
+                                withStyle(style = SpanStyle(fontWeight = FontWeight.Bold)) {
+                                    append(viewModel.proteinGoal.toString())
+                                }
+                                append(" g Protein.")
                             }, style = MaterialTheme.typography.bodyMedium
                         )
                     },
                     onEdit = {
-                        /* TODO */
+                        openAlertDialogEditProtein = true
                     })
                 Spacer(modifier = Modifier.width(16.dp))
 
