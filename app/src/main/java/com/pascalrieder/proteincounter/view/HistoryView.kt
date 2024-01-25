@@ -141,21 +141,19 @@ fun HistoryView(viewModel: HistoryViewModel) {
                     ) {
                         Row(
                             horizontalArrangement = Arrangement.SpaceBetween,
+                            verticalAlignment = Alignment.CenterVertically,
                             modifier = Modifier.fillMaxWidth()
                         ) {
                             Text(
                                 text = day.date.format(DateTimeFormatter.ofPattern("dd.MM.yyyy")),
                                 style = MaterialTheme.typography.headlineSmall
                             )
-                            Column(horizontalAlignment = Alignment.End) {
+                            Row() {
                                 Text(
                                     text = "${
                                         String.format("%.1f", day.getKcalTotal())
                                             .replace(".0", "")
-                                    } kcal", style = MaterialTheme.typography.bodySmall
-                                )
-                                Text(
-                                    text = "${
+                                    } kcal / ${
                                         String.format("%.1f", day.getProteinTotal())
                                             .replace(".0", "")
                                     } g", style = MaterialTheme.typography.bodySmall
