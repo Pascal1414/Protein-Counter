@@ -6,6 +6,7 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.KeyboardArrowDown
 import androidx.compose.material.icons.filled.KeyboardArrowUp
@@ -16,15 +17,103 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
 import com.pascalrieder.proteincounter.R
 import com.pascalrieder.proteincounter.database.models.Item
 import com.pascalrieder.proteincounter.viewmodel.ItemsViewModel
 
-@OptIn(ExperimentalFoundationApi::class)
+@OptIn(ExperimentalFoundationApi::class, ExperimentalMaterial3Api::class)
 @Composable
 fun ItemsView(viewModel: ItemsViewModel) {
+    if (viewModel.openBottomSheet) {
+        ModalBottomSheet(
+            onDismissRequest = { viewModel.openBottomSheet = false },
+            modifier = Modifier.fillMaxHeight()
+        ) {
+            Column(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(horizontal = 24.dp),
+                horizontalAlignment = Alignment.CenterHorizontally
+            ) {
+                Row(
+                    verticalAlignment = Alignment.CenterVertically,
+                    modifier = Modifier.fillMaxWidth()
+                ) {
+                    Icon(
+                        painterResource(id = R.drawable.ic_menu), contentDescription = "Menu Icon"
+                    )
+                    Spacer(modifier = Modifier.width(12.dp))
+                    OutlinedTextField(
+                        modifier = Modifier.fillMaxWidth(),
+                        label = { Text(text = "Name") },
+                        value = viewModel.createItemName,
+                        onValueChange = {
+                            viewModel.createItemName = it
+                        },
+                        isError = viewModel.createItemNameResponse.isNotEmpty()
+                    )
+                }
+                Row(
+                    verticalAlignment = Alignment.CenterVertically,
+                    modifier = Modifier.fillMaxWidth()
+                ) {
+                    Icon(
+                        painterResource(id = R.drawable.ic_scale), contentDescription = "Menu Icon"
+                    )
+                    Spacer(modifier = Modifier.width(12.dp))
+                    Column {
+                        OutlinedTextField(
+                            modifier = Modifier.fillMaxWidth(),
+                            label = { Text(text = "Protein in 100g") },
+                            value = viewModel.createItemProteinContentPercentage,
+                            keyboardOptions = KeyboardOptions.Default.copy(keyboardType = KeyboardType.Number),
+                            onValueChange = {
+                                if (it.isEmpty()) viewModel.createItemProteinContentPercentage = ""
+                                else if (viewModel.isFloat(it)) viewModel.createItemProteinContentPercentage =
+                                    it
+                            },
+                            isError = viewModel.createItemProteinContentPercentageResponse.isNotEmpty(),
+                        )
+
+                    }
+
+                }
+                Row(
+                    verticalAlignment = Alignment.CenterVertically,
+                    modifier = Modifier.fillMaxWidth()
+                ) {
+                    Spacer(modifier = Modifier.width(36.dp))
+                    OutlinedTextField(
+                        modifier = Modifier.fillMaxWidth(),
+                        label = { Text(text = "Kcal in 100g") },
+                        value = viewModel.createItemKcalContentIn100g,
+                        keyboardOptions = KeyboardOptions.Default.copy(keyboardType = KeyboardType.Number),
+                        onValueChange = {
+                            if (it.isEmpty()) viewModel.createItemKcalContentIn100g = ""
+                            else if (viewModel.isFloat(it)) viewModel.createItemKcalContentIn100g =
+                                it
+                        },
+                        isError = viewModel.createItemKcalContentIn100gResponse.isNotEmpty(),
+                    )
+                }
+                Spacer(modifier = Modifier.height(24.dp))
+                Button(onClick = {
+                    viewModel.createItemClick()
+                }) {
+                    Text(text = "Create")
+                }
+            }
+        }
+    }
+
+
     val items by viewModel.allItems.observeAsState(emptyList())
+
+    val searchItems = items?.filter {
+        it.name.contains(viewModel.searchText, ignoreCase = true)
+    } ?: listOf()
 
     Column {
         Text(
@@ -59,10 +148,16 @@ fun ItemsView(viewModel: ItemsViewModel) {
                         modifier = Modifier.padding(start = 16.dp)
                     )
                 }
+
+                OutlinedTextField(modifier = Modifier.fillMaxWidth(),
+                    label = { Text("Search") },
+                    value = viewModel.searchText,
+                    onValueChange = { viewModel.searchText = it })
+
                 Spacer(modifier = Modifier.height(16.dp))
 
                 LazyColumn(verticalArrangement = Arrangement.spacedBy(16.dp), content = {
-                    items(items) { item ->
+                    items(searchItems) { item ->
                         Item(item = item, onDelete = {
                             viewModel.removeItem(item)
                         })
