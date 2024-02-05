@@ -20,6 +20,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
 import com.pascalrieder.proteincounter.R
+import com.pascalrieder.proteincounter.SearchAlgorithm
 import com.pascalrieder.proteincounter.database.models.Item
 import com.pascalrieder.proteincounter.viewmodel.ItemsViewModel
 
@@ -111,9 +112,7 @@ fun ItemsView(viewModel: ItemsViewModel) {
 
     val items by viewModel.allItems.observeAsState(emptyList())
 
-    val searchItems = items.filter {
-        it.name.contains(viewModel.searchText, ignoreCase = true)
-    }
+    val searchItems = SearchAlgorithm(items).search(viewModel.searchText)
 
     Column {
         Text(
