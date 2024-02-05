@@ -111,9 +111,9 @@ fun ItemsView(viewModel: ItemsViewModel) {
 
     val items by viewModel.allItems.observeAsState(emptyList())
 
-    val searchItems = items?.filter {
+    val searchItems = items.filter {
         it.name.contains(viewModel.searchText, ignoreCase = true)
-    } ?: listOf()
+    }
 
     Column {
         Text(
@@ -154,7 +154,7 @@ fun ItemsView(viewModel: ItemsViewModel) {
                     value = viewModel.searchText,
                     onValueChange = { viewModel.searchText = it })
 
-                Spacer(modifier = Modifier.height(16.dp))
+                Spacer(modifier = Modifier.height(8.dp))
 
                 LazyColumn(verticalArrangement = Arrangement.spacedBy(16.dp), content = {
                     items(searchItems) { item ->
