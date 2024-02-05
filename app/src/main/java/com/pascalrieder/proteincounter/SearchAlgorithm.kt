@@ -1,6 +1,5 @@
 package com.pascalrieder.proteincounter
 
-import androidx.compose.ui.text.toLowerCase
 import com.pascalrieder.proteincounter.database.models.Item
 import java.util.Locale
 
@@ -9,25 +8,27 @@ class SearchAlgorithm(
 ) {
     class ItemWithRating(
         val item: Item,
-        val rating: Int,
+        val rating: Double,
     )
 
     fun search(query: String): List<Item> {
-        val queryWords = query.lowercase(Locale.ROOT).split(" ")
         val itemsWithRating = mutableListOf<ItemWithRating>()
         items.forEach { item ->
             val nameWithoutBracket = item.name.replace(Regex("\\([^)]*\\)"), "")
                 .lowercase(Locale.ROOT)
 
-            var rating = 0
-            if (nameWithoutBracket.replace(" ", "") == query.replace(" ", "")) rating++
-            if (queryWords.any { nameWithoutBracket.startsWith(it, ignoreCase = true) }) rating++
-            if (queryWords.any { nameWithoutBracket.contains(it, ignoreCase = true) }) rating++
-            if (queryWords.any { nameWithoutBracket.contains(it, ignoreCase = true) }) rating++
+            val rating = calculatePercentage(nameWithoutBracket, query)
 
             itemsWithRating.add(ItemWithRating(item, rating))
         }
         return itemsWithRating.filter { it.rating > 0 }.sortedByDescending { it.rating }
             .map { it.item }
+    }
+
+    private fun calculatePercentage(inputString: String, searchText: String): Double {
+        val occurrences = inputString.lowercase(Locale.ROOT).split(searchText.lowercase(Locale.ROOT)).size - 1
+        val totalLength = inputString.length
+
+        return (occurrences.toDouble() / totalLength) * 100
     }
 }
