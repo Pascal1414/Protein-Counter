@@ -86,7 +86,8 @@ fun TodayView(viewModel: TodayViewModel) {
                         onValueChange = { viewModel.searchText = it })
                 }
                 Spacer(modifier = Modifier.height(10.dp))
-                Text(text = viewModel.errorMessage, color = MaterialTheme.colorScheme.error)
+                if (viewModel.errorMessage.isNotEmpty())
+                    Text(text = viewModel.errorMessage, color = MaterialTheme.colorScheme.error)
                 Spacer(modifier = Modifier.height(10.dp))
 
 
@@ -95,7 +96,8 @@ fun TodayView(viewModel: TodayViewModel) {
 
                 var searchItems = items ?: listOf()
                 if (viewModel.searchText.isNotEmpty())
-                    searchItems = items?.let { SearchAlgorithm(it).search(viewModel.searchText) } ?: listOf()
+                    searchItems =
+                        items?.let { SearchAlgorithm(it).search(viewModel.searchText) } ?: listOf()
 
                 LazyColumn(modifier = Modifier.fillMaxSize()) {
                     items(searchItems) { item ->
