@@ -27,7 +27,9 @@ import androidx.compose.ui.unit.dp
 import com.pascalrieder.proteincounter.R
 import com.pascalrieder.proteincounter.viewmodel.TodayViewModel
 import androidx.compose.runtime.livedata.observeAsState
+import com.pascalrieder.proteincounter.SearchAlgorithm
 import com.pascalrieder.proteincounter.database.dto.ItemFromDay
+import com.pascalrieder.proteincounter.database.models.Item
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -91,9 +93,9 @@ fun TodayView(viewModel: TodayViewModel) {
                 // Items
                 val items by viewModel.items.observeAsState()
 
-                val searchItems = items?.filter {
-                    it.name.contains(viewModel.searchText, ignoreCase = true)
-                } ?: listOf()
+                var searchItems = items ?: listOf()
+                if (viewModel.searchText.isNotEmpty())
+                    searchItems = items?.let { SearchAlgorithm(it).search(viewModel.searchText) } ?: listOf()
 
                 LazyColumn(modifier = Modifier.fillMaxSize()) {
                     items(searchItems) { item ->

@@ -111,8 +111,9 @@ fun ItemsView(viewModel: ItemsViewModel) {
 
 
     val items by viewModel.allItems.observeAsState(emptyList())
-
-    val searchItems = SearchAlgorithm(items).search(viewModel.searchText)
+    var searchItems = items
+    if (viewModel.searchText.isNotEmpty())
+        searchItems = SearchAlgorithm(items).search(viewModel.searchText)
 
     Column {
         Text(

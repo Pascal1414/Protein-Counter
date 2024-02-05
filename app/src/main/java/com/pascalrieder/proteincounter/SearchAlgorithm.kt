@@ -14,19 +14,20 @@ class SearchAlgorithm(
     fun search(query: String): List<Item> {
         val itemsWithRating = mutableListOf<ItemWithRating>()
         items.forEach { item ->
-            val nameWithoutBracket = item.name.replace(Regex("\\([^)]*\\)"), "")
-                .lowercase(Locale.ROOT)
+            val nameWithoutBracket =
+                item.name.replace(Regex("\\([^)]*\\)"), "").lowercase(Locale.ROOT)
 
             val rating = calculatePercentage(nameWithoutBracket, query)
 
-            itemsWithRating.add(ItemWithRating(item, rating))
+            if (rating > 0) itemsWithRating.add(ItemWithRating(item, rating))
         }
-        return itemsWithRating.filter { it.rating > 0 }.sortedByDescending { it.rating }
+        return itemsWithRating.sortedByDescending { it.rating }
             .map { it.item }
     }
 
     private fun calculatePercentage(inputString: String, searchText: String): Double {
-        val occurrences = inputString.lowercase(Locale.ROOT).split(searchText.lowercase(Locale.ROOT)).size - 1
+        val occurrences =
+            inputString.lowercase(Locale.ROOT).split(searchText.lowercase(Locale.ROOT)).size - 1
         val totalLength = inputString.length
 
         return (occurrences.toDouble() / totalLength) * 100
