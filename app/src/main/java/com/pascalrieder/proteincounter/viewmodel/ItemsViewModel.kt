@@ -15,6 +15,9 @@ import kotlinx.coroutines.launch
 
 class ItemsViewModel(application: Application) : AndroidViewModel(application) {
     var openBottomSheet by mutableStateOf(false)
+    var modalIsEditing by mutableStateOf(false)
+    var modalEditItem by mutableStateOf<Item?>(null)
+
     var searchText by mutableStateOf("")
 
     var onFabClick: () -> Unit = {
@@ -73,6 +76,18 @@ class ItemsViewModel(application: Application) : AndroidViewModel(application) {
             createItemKcalContentIn100g = ""
             openBottomSheet = false
         }
+    }
+
+    fun startEditing(item: Item) {
+        modalIsEditing = true
+        modalEditItem = item
+        openBottomSheet = true
+    }
+
+    fun stopEditing() {
+        modalIsEditing = false
+        modalEditItem = null
+        openBottomSheet = false
     }
 
     fun isFloat(str: String): Boolean {

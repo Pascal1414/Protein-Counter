@@ -19,12 +19,13 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.viewmodel.compose.viewModel
 import com.pascalrieder.proteincounter.R
 import com.pascalrieder.proteincounter.SearchAlgorithm
 import com.pascalrieder.proteincounter.database.models.Item
 import com.pascalrieder.proteincounter.viewmodel.ItemsViewModel
 
-@OptIn(ExperimentalFoundationApi::class, ExperimentalMaterial3Api::class)
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun ItemsView(viewModel: ItemsViewModel) {
     if (viewModel.openBottomSheet) {
@@ -112,8 +113,8 @@ fun ItemsView(viewModel: ItemsViewModel) {
 
     val items by viewModel.allItems.observeAsState(emptyList())
     var searchItems = items
-    if (viewModel.searchText.isNotEmpty())
-        searchItems = SearchAlgorithm(items).search(viewModel.searchText)
+    if (viewModel.searchText.isNotEmpty()) searchItems =
+        SearchAlgorithm(items).search(viewModel.searchText)
 
     Column {
         Text(
@@ -160,6 +161,8 @@ fun ItemsView(viewModel: ItemsViewModel) {
                     items(searchItems) { item ->
                         Item(item = item, onDelete = {
                             viewModel.removeItem(item)
+                        }, onEdit = {
+                            viewModel.startEditing(item)
                         })
                     }
                 })
@@ -178,7 +181,7 @@ fun ItemsView(viewModel: ItemsViewModel) {
 }
 
 @Composable
-fun Item(item: Item, onDelete: () -> Unit = {}) {
+fun Item(item: Item, onDelete: () -> Unit = {}, onEdit: () -> Unit = {}) {
     var expanded = remember { mutableStateOf(false) }
     Column(
         modifier = Modifier
@@ -224,11 +227,25 @@ fun Item(item: Item, onDelete: () -> Unit = {}) {
                     .fillMaxWidth()
                     .height(40.dp)
                     .clickable {
+                        onEdit()
+                    }, verticalAlignment = Alignment.CenterVertically
+            ) {
+                Icon(
+                    painter = painterResource(R.drawable.ic_edit), contentDescription = "Edit"
+                )
+                Spacer(modifier = Modifier.width(13.dp))
+                Text(text = "Edit", style = MaterialTheme.typography.bodyMedium)
+            }
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(40.dp)
+                    .clickable {
                         onDelete()
                     }, verticalAlignment = Alignment.CenterVertically
             ) {
                 Icon(
-                    painter = painterResource(R.drawable.ic_delete), contentDescription = "Favorite"
+                    painter = painterResource(R.drawable.ic_delete), contentDescription = "Delete"
                 )
                 Spacer(modifier = Modifier.width(13.dp))
                 Text(text = "Delete", style = MaterialTheme.typography.bodyMedium)
