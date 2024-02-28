@@ -101,39 +101,42 @@ fun TodayView(viewModel: TodayViewModel) {
 
                 LazyColumn(modifier = Modifier.fillMaxSize()) {
                     items(searchItems) { item ->
-                        Column(modifier = Modifier
-                            .fillMaxWidth()
-                            .background(
-                                MaterialTheme.colorScheme.surfaceColorAtElevation(6.dp),
-                                MaterialTheme.shapes.extraLarge
-                            )
-                            .padding(24.dp)
-                            .clickable {
-                                viewModel.insertItemClick(item.uid)
-                            }) {
-                            Text(
-                                style = MaterialTheme.typography.headlineSmall,
-                                text = item.name,
-                                maxLines = 2,
-                                modifier = Modifier.width(400.dp)
-                            )
-                            Text(
-                                style = MaterialTheme.typography.bodyMedium,
-                                text = String.format("%.1f", item.proteinContentPercentage)
-                                    .replace(".0", "") + "g",
-                                modifier = Modifier.alpha(0.5f)
-                            )
-                            Text(
-                                style = MaterialTheme.typography.bodyMedium,
-                                text = String.format("%.1f", item.kcalContentIn100g)
-                                    .replace(".0", "") + " kcal",
-                                modifier = Modifier.alpha(0.5f)
-                            )
+                        Card(
+                            shape = MaterialTheme.shapes.large,
+                            colors = CardDefaults.cardColors(
+                                containerColor = MaterialTheme.colorScheme.surfaceColorAtElevation(3.dp),
+                            ),
+                            onClick = { viewModel.insertItemClick(item.uid) },
+                        ) {
 
+                            Column(
+                                modifier = Modifier
+                                    .fillMaxWidth()
+                                    .padding(24.dp)
+                            ) {
+                                Text(
+                                    style = MaterialTheme.typography.headlineSmall,
+                                    text = item.name,
+                                    maxLines = 2,
+                                    modifier = Modifier.width(400.dp)
+                                )
+                                Text(
+                                    style = MaterialTheme.typography.bodyMedium,
+                                    text = String.format("%.1f", item.proteinContentPercentage)
+                                        .replace(".0", "") + "g",
+                                    modifier = Modifier.alpha(0.5f)
+                                )
+                                Text(
+                                    style = MaterialTheme.typography.bodyMedium,
+                                    text = String.format("%.1f", item.kcalContentIn100g)
+                                        .replace(".0", "") + " kcal",
+                                    modifier = Modifier.alpha(0.5f)
+                                )
+
+                            }
                         }
-                        Spacer(modifier = Modifier.height(16.dp))
+                        Spacer (modifier = Modifier.height(16.dp))
                     }
-
                 }
             }
         }
